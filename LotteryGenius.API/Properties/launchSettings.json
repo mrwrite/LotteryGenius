@@ -3,27 +3,26 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53695/",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:6000/",
+      "sslPort": 44303
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "LotteryGenius.API": {
-      "commandName": "Project",
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:53696/"
+      "applicationUrl": "http://localhost:/"
     }
   }
 }

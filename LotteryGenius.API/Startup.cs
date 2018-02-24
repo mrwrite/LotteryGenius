@@ -1,29 +1,84 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
+using LotteryGenius.API.Data;
+using LotteryGenius.API.Data.Entities;
+using LotteryGenius.API.Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 
 namespace LotteryGenius.API
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        private readonly IConfiguration _configuration;
+        private readonly IHostingEnvironment _env;
 
-        public IConfiguration Configuration { get; }
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        {
+            _configuration = configuration;
+            _env = env;
+        }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddIdentity<LotteryGeniusUser, IdentityRole<int>>(
+                cfg =>
+                {
+                    cfg.User.RequireUniqueEmail = true;
+                    cfg.Lockout.MaxFailedAccessAttempts = 3;
+                }).AddEntityFrameworkStores<LotteryGeniusContext>();
+
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = _configuration["Tokens:Issuer"],
+                        ValidAudience = _configuration["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]))
+                    };
+                });
+
+            services.AddDbContext<LotteryGeniusContext>(
+                cfg => { cfg.UseSqlServer(_configuration.GetConnectionString("LotteryGeniusConnectionString")); });
+
+            services.AddAutoMapper();
+            services.AddTransient<LotteryGeniusSeeder>();
+            services.AddScoped<IPowerballRepository, PowerballRepository>();
+
+            services.AddCors(
+                cfg =>
+                {
+                    cfg.AddPolicy("LotteryGenius",
+                        bldr => { bldr.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:6001"); });
+
+                    cfg.AddPolicy("AnyGET",
+                        bldr => { bldr.AllowAnyHeader().WithMethods("GET").AllowAnyOrigin(); });
+                });
+
+            services.AddMvc(opt =>
+            {
+                if (_env.IsProduction())
+                {
+                    opt.Filters.Add(new RequireHttpsAttribute());
+                }
+            })
+             .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,7 +89,11 @@ namespace LotteryGenius.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
+            app.UseCors("LotteryGenius");
+
+            app.UseAuthentication();
+
+            app.UseMvc(config => { config.MapRoute("LotteryGeniusAPIRoute", "api/{controller}/{action}"); });
         }
     }
 }
