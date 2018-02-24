@@ -18,6 +18,10 @@ namespace LotteryGenius.API.Data.Repositories
 
         IEnumerable<PowerballPicks> GetAllPowerballPicks();
 
+        IEnumerable<PowerballWinners> GetPowerBallWinners();
+
         bool SaveAll();
+
+        void AddPowerPickWinners(IEnumerable<PowerballWinners> winners);
     }
 }

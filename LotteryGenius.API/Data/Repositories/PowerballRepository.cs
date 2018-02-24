@@ -91,9 +91,111 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
+        public IEnumerable<PowerballWinners> GetPowerBallWinners()
+        {
+            try
+            {
+                using (IDbConnection dbConnection = _connection)
+                {
+                    dbConnection.Open();
+                    var winners = dbConnection.QueryMultiple("dbo.GetPowerballWinners",
+                        commandType: CommandType.StoredProcedure, commandTimeout: 360);
+                    var results = winners.Read<PowerballWinners>().ToList();
+                    AddPowerPickWinners(results);
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get PowerballWinners: {e}");
+                return null;
+            }
+        }
+
         public bool SaveAll()
         {
             return _ctx.SaveChanges() > 0;
+        }
+
+        public void AddPowerPickWinners(IEnumerable<PowerballWinners> winners)
+        {
+            DynamicParameters param = new DynamicParameters();
+
+            foreach (var winner in winners)
+            {
+                List<string> numbers = new List<string>();
+                List<string> winningNumber = new List<string>();
+                int p = 0;
+
+                param.Add("@powerId", winner.powerball_id);
+                param.Add("@pickId", winner.pick_id);
+                param.Add("@ball1", winner.ball1);
+                param.Add("@ball2", winner.ball2);
+                param.Add("@ball3", winner.ball3);
+                param.Add("@ball4", winner.ball4);
+                param.Add("@ball5", winner.ball5);
+                param.Add("@powerball", winner.powerball);
+                param.Add("@powerplay", winner.powerplay);
+                param.Add("@pick_date", winner.pick_date);
+
+                winningNumber.Add(winner.ball1);
+                winningNumber.Add(winner.ball2);
+                winningNumber.Add(winner.ball3);
+                winningNumber.Add(winner.ball4);
+                winningNumber.Add(winner.ball5);
+
+                var powerNumber = _ctx.Powerballs.SingleOrDefault(x => x.id == winner.powerball_id);
+
+                numbers.Add(powerNumber.ball1);
+                numbers.Add(powerNumber.ball2);
+                numbers.Add(powerNumber.ball3);
+                numbers.Add(powerNumber.ball4);
+                numbers.Add(powerNumber.ball5);
+
+                foreach (var num in winningNumber)
+                {
+                    if (numbers.IndexOf(num) != -1)
+                    {
+                        p++;
+                    }
+                }
+
+                switch (p)
+                {
+                    case 5:
+                        param.Add("@prizeId", 4);
+                        break;
+
+                    case 4:
+                        if (powerNumber.powerball == winner.powerball)
+                        {
+                            param.Add("@prizeId", 3);
+                        }
+                        else
+                        {
+                            param.Add("@prizeId", 2);
+                        }
+                        break;
+
+                    case 3:
+                        if (powerNumber.powerball == winner.powerball)
+                        {
+                            param.Add("@prizeId", 1);
+                        }
+                        break;
+
+                    default:
+                        param.Add("@prizeId", null);
+                        break;
+                }
+
+                using (IDbConnection dbConnection = _connection)
+                {
+                    dbConnection.Execute("dbo.AddPowerWinners", param, commandType: CommandType.StoredProcedure);
+                    numbers.Clear();
+                    winningNumber.Clear();
+                }
+            }
         }
     }
 }

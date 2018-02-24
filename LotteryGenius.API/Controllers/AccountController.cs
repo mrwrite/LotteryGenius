@@ -108,7 +108,9 @@ namespace MeticulousMentoring.API.Controllers
                                              new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                                              new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                                              new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
-                                             new Claim(JwtRegisteredClaimNames.Iat, user.Id.ToString())
+                                             new Claim(JwtRegisteredClaimNames.Iat, user.Id.ToString()),
+                                             new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
+                                             new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
                                          });
 
                         claims.AddRange(await this.userManager.GetClaimsAsync(user));
