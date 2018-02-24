@@ -17,7 +17,6 @@ using Microsoft.Extensions.Logging;
 namespace LotteryGenius.API.Controllers
 {
     [Route("api/[Controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class PowerballController : Controller
     {
         private readonly IPowerballRepository _powerballRepository;
@@ -37,6 +36,7 @@ namespace LotteryGenius.API.Controllers
             _roleManager = roleManager;
         }
 
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult Get()
         {
             try
@@ -64,6 +64,39 @@ namespace LotteryGenius.API.Controllers
             {
                 _logger.LogError($"Failed to get latest powerball: {e}");
                 return Json("Bad request");
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/powerball/PowerballPicks")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult PowerballPicks()
+        {
+            try
+            {
+                return Ok(_powerballRepository.GetPowerballPicks());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get powerball Picks: {e}");
+                return Json("Bad Request");
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/powerball/AllPowerPicks")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult AllPowerPicks()
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<PowerballPicks>, IEnumerable<PowerPicksViewModel>>(
+                    _powerballRepository.GetAllPowerballPicks()));
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get all picks: {e}");
+                return Json("Bad Request");
             }
         }
     }

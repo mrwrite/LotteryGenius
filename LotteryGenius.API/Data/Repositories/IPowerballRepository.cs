@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LotteryGenius.API.Data.Entities;
+using LotteryGenius.API.ViewModels;
 
 namespace LotteryGenius.API.Data.Repositories
 {
@@ -12,6 +13,10 @@ namespace LotteryGenius.API.Data.Repositories
         IEnumerable<Powerball> GetPowerballs();
 
         Powerball GetLastPowerball();
+
+        IEnumerable<PowerPicksViewModel> GetPowerballPicks();
+
+        IEnumerable<PowerballPicks> GetAllPowerballPicks();
 
         bool SaveAll();
     }
