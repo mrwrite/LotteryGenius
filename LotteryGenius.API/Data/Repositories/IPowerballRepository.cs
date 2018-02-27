@@ -23,5 +23,9 @@ namespace LotteryGenius.API.Data.Repositories
         bool SaveAll();
 
         void AddPowerPickWinners(IEnumerable<PowerballWinners> winners);
+
+        void AddPowerballNumber(Powerball number);
+
+        IEnumerable<PowerWinnerViewModel> ShowPowerballWinners();
     }
 }

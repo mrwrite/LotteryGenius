@@ -58,6 +58,14 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
+        public void AddPowerballNumber(Powerball number)
+        {
+            number.created_on = DateTime.Now;
+            number.modified_on = DateTime.Now;
+
+            _ctx.Powerballs.Add(number);
+        }
+
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
         {
             try
@@ -195,6 +203,40 @@ namespace LotteryGenius.API.Data.Repositories
                     numbers.Clear();
                     winningNumber.Clear();
                 }
+            }
+        }
+
+        public IEnumerable<PowerWinnerViewModel> ShowPowerballWinners()
+        {
+            try
+            {
+                using (IDbConnection dbConnection = _connection)
+                {
+                    dbConnection.Open();
+                    var results = dbConnection.Query<PowerWinnerViewModel>(
+                        "select distinct p.id, p.ball1, p.ball2, p.ball3, p.ball4, p.ball5, p.powerball, p.powerplay, p.draw_date" +
+                        " from dbo.powerballs p " +
+                        "inner join dbo.PowerWinners pw " +
+                        "on p.id = pw.powerball_id"
+                    );
+
+                    foreach (var result in results)
+                    {
+                        result.picks = dbConnection.Query<PowerballWinners>(
+                            "select pw.*,pp.prize as prize_amount from dbo.PowerWinners pw" +
+                            " inner join dbo.PowerballPrize pp" +
+                            " on pp.Id = pw.prize_id" +
+                            " where pw.powerball_id = @id", new { id = result.id }
+                        );
+                    }
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get Picked Winners: {e}");
+                return null;
             }
         }
     }

@@ -99,5 +99,65 @@ namespace LotteryGenius.API.Controllers
                 return Json("Bad Request");
             }
         }
+
+        [HttpGet]
+        [Route("/api/powerball/GetPowerballWinners")]
+        public IActionResult GetPowerballWinners()
+        {
+            try
+            {
+                return Ok(_powerballRepository.GetPowerBallWinners());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get winners: {e}");
+                return Json("Bad Request");
+            }
+        }
+
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Post([FromBody]PowerballViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var newNumber = _mapper.Map<PowerballViewModel, Powerball>(model);
+                    _powerballRepository.AddPowerballNumber(newNumber);
+                    if (_powerballRepository.SaveAll())
+                    {
+                        return Created($"/api/powerball/{newNumber.id}",
+                            _mapper.Map<Powerball, PowerballViewModel>(newNumber));
+                    }
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Could not save Powerball: {e}");
+                return null;
+            }
+
+            return BadRequest("Failed to save new Powerball");
+        }
+
+        [HttpGet]
+        [Route("/api/powerball/ShowPowerballWinners")]
+        public IActionResult ShowPowerballWinners()
+        {
+            try
+            {
+                return Ok(_powerballRepository.ShowPowerballWinners());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get winning pairs: {e}");
+                return null;
+            }
+        }
     }
 }
