@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2027
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LotteryGenius.API", "LotteryGenius.API\LotteryGenius.API.csproj", "{2944695F-B524-4635-90C3-F187CB51E237}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LotteryGenius.API", "LotteryGenius.API\LotteryGenius.API.csproj", "{2944695F-B524-4635-90C3-F187CB51E237}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LotteryGenius.Web", "LotteryGenius.Web\LotteryGenius.Web.csproj", "{2F770D5E-BFEA-4DC2-89A6-072322FCA3BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2944695F-B524-4635-90C3-F187CB51E237}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2944695F-B524-4635-90C3-F187CB51E237}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2944695F-B524-4635-90C3-F187CB51E237}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F770D5E-BFEA-4DC2-89A6-072322FCA3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F770D5E-BFEA-4DC2-89A6-072322FCA3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F770D5E-BFEA-4DC2-89A6-072322FCA3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F770D5E-BFEA-4DC2-89A6-072322FCA3BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

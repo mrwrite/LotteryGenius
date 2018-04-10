@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LotteryGenius.Web</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fa-svg-with-js.css" rel="stylesheet" />
+    <link href="~/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Abel|Barlow+Semi+Condensed:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Dancing+Script:400,700|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    <footer class="container-fluid">
+        <div class="container container-fluid">
+            <div class="row">
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
+    <script src="~/lib/wowjs/dist/wow.min.js"></script>
+    <script src="~/lotteryapp/dist/inline.bundle.js"></script>
+    <script src="~/lotteryapp/dist/polyfills.bundle.js"></script>
+    <script src="~/LotteryApp/dist/styles.bundle.js"></script>
+    <script src="~/LotteryApp/dist/vendor.bundle.js"></script>
+    <script src="~/LotteryApp/dist/main.bundle.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <script>
+        $('a').click(function () {
+            $('html, body').animate({
+                scrollTop: $($(this).attr('href')).offset().top
+            },
+                500);
+            return false;
+        });
+    </script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

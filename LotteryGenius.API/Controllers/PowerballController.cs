@@ -68,8 +68,23 @@ namespace LotteryGenius.API.Controllers
         }
 
         [HttpGet]
+        [Route("/api/powerball/GetNextPowerball")]
+        public IActionResult GetNextPowerball()
+        {
+            try
+            {
+                return Ok(_powerballRepository.GetNextPowerballJackpot());
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get next powerball: {e}");
+                return Json("Bad Request");
+            }
+        }
+
+        [HttpGet]
         [Route("/api/powerball/PowerballPicks")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult PowerballPicks()
         {
             try

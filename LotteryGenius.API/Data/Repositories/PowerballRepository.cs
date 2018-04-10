@@ -239,5 +239,20 @@ namespace LotteryGenius.API.Data.Repositories
                 return null;
             }
         }
+
+        public NextPowerball GetNextPowerballJackpot()
+        {
+            try
+            {
+                return _ctx.NextPowerball
+                     .OrderByDescending(p => p.next_jackpot_date)
+                     .FirstOrDefault();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get Next Powerball: {e}");
+                return null;
+            }
+        }
     }
 }

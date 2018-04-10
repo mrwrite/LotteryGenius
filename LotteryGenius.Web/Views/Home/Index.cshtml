@@ -1,0 +1,107 @@
+﻿@using LotteryGenius.Web.Models
+@using LotteryGenius.Web.ViewModels
+@model LotteryGenius.Web.Models.Powerball
+@{
+    ViewData["Title"] = "Home Page";
+    List<PowerPicksViewModel> picks = ViewData["PowerPicks"] as List<PowerPicksViewModel>;
+    NextPowerball nextPowerball = ViewData["NextPowerball"] as NextPowerball;
+}
+
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-3">Image</div>
+                    <hr class="horizontal-divider" />
+                    <div class="col-lg-3">
+                        Powerball<hr class="my-2" />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                RESULTS FOR: @Model.powerballDrawDate.ToString()
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="list-inline" style="margin-bottom: 0;">
+                                    <li class="list-inline-item">@Model.powerball1</li>
+                                    <li class="list-inline-item">@Model.powerball2</li>
+                                    <li class="list-inline-item">@Model.powerball3</li>
+                                    <li class="list-inline-item">@Model.powerball4</li>
+                                    <li class="list-inline-item">@Model.powerball5</li>
+                                    <li class="list-inline-item">@Model.powerball</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                POWERPLAY: @Model.powerplay
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        Jackpot
+                        <hr class="my-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @Model.powerballJackpot
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        Next Jackpot
+                        <hr class="my-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                Next Draw Date: @nextPowerball.next_jackpot_date.ToString()
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @nextPowerball.next_jackpot
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">Winning Picks/Pick Archive</div>
+                    <div class="col-lg-6">
+                        Powerball Daily Picks
+                        <div class="row">
+                            <table class="table table-sm">
+                                @foreach (var pick in picks)
+                                {
+                                    <tr>
+                                        <td>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">@pick.ball1</li>
+                                                <li class="list-inline-item">@pick.ball2</li>
+                                                <li class="list-inline-item">@pick.ball3</li>
+                                                <li class="list-inline-item">@pick.ball4</li>
+                                                <li class="list-inline-item">@pick.ball5</li>
+                                                <li class="list-inline-item">@pick.powerball</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                Megamillions Data
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-2"></div>
+</div>

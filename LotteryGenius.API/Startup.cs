@@ -7,6 +7,7 @@ using AutoMapper;
 using LotteryGenius.API.Data;
 using LotteryGenius.API.Data.Entities;
 using LotteryGenius.API.Data.Repositories;
+using LotteryGenius.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -59,6 +60,7 @@ namespace LotteryGenius.API
 
             services.AddAutoMapper();
             services.AddTransient<LotteryGeniusSeeder>();
+            services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<IPowerballRepository, PowerballRepository>();
 
             services.AddCors(
@@ -79,6 +81,8 @@ namespace LotteryGenius.API
                 }
             })
              .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
+            services.AddSingleton<IConfiguration>(_configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

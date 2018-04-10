@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LotteryGenius.API.Data;
 using LotteryGenius.API.Data.Entities;
+using LotteryGenius.API.Services;
 using LotteryGenius.API.ViewModels;
 
 namespace MeticulousMentoring.API.Controllers
@@ -32,15 +34,19 @@ namespace MeticulousMentoring.API.Controllers
         private readonly IConfiguration config;
 
         private readonly RoleManager<IdentityRole<int>> roleManager;
+        private readonly LotteryGeniusContext _ctx;
+        private readonly IEmailSender _emailSender;
 
         public AccountController(ILogger<AccountController> logger, SignInManager<LotteryGeniusUser> signInManager, UserManager<LotteryGeniusUser> userManager,
-            IConfiguration config, RoleManager<IdentityRole<int>> roleManager)
+            IConfiguration config, RoleManager<IdentityRole<int>> roleManager, LotteryGeniusContext ctx, IEmailSender emailSender)
         {
             this.logger = logger;
             this.signInManager = signInManager;
             this.userManager = userManager;
             this.config = config;
             this.roleManager = roleManager;
+            _ctx = ctx;
+            _emailSender = emailSender;
         }
 
         //public IActionResult Login()
@@ -151,6 +157,53 @@ namespace MeticulousMentoring.API.Controllers
             }
 
             return this.BadRequest();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddUser([FromBody] RegisterViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var user = await userManager.FindByEmailAsync(model.Username);
+                    if (user == null)
+                    {
+                        user = new LotteryGeniusUser()
+                        {
+                            UserName = model.Username,
+                            Email = model.Username,
+                            FirstName = model.FirstName,
+                            LastName = model.LastName
+                        };
+
+                        var userResult = await userManager.CreateAsync(user, model.LastName + DateTime.Now.Year + "!");
+
+                        if (userResult == IdentityResult.Success)
+                        {
+                            await userManager.AddToRoleAsync(user, model.Role);
+                            _ctx.SaveChanges();
+                            var htmlContent = "<html><body><button type='button'><a href='http://localhost/6000/'>Verify Email</a></button><script>" +
+                                              "</script></body></html>";
+
+                            await _emailSender.SendEmailAsync(user.Email, "Email Verification", htmlContent);
+
+                            return Ok();
+                        }
+                    }
+                }
+                else
+                {
+                    return BadRequest(ModelState);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
+            return BadRequest("Failed to save user data");
         }
 
         [HttpGet]

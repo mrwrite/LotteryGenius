@@ -27,5 +27,7 @@ namespace LotteryGenius.API.Data.Repositories
         void AddPowerballNumber(Powerball number);
 
         IEnumerable<PowerWinnerViewModel> ShowPowerballWinners();
+
+        NextPowerball GetNextPowerballJackpot();
     }
 }
