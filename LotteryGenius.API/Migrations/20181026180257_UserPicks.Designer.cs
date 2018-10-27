@@ -11,9 +11,10 @@ using System;
 namespace LotteryGenius.API.Migrations
 {
     [DbContext(typeof(LotteryGeniusContext))]
-    partial class LotteryGeniusContextModelSnapshot : ModelSnapshot
+    [Migration("20181026180257_UserPicks")]
+    partial class UserPicks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -382,7 +383,7 @@ namespace LotteryGenius.API.Migrations
 
                     b.Property<string>("ball5");
 
-                    b.Property<string>("game_type");
+                    b.Property<int>("game_id");
 
                     b.Property<int>("lotto_id");
 

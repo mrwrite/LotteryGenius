@@ -49,52 +49,6 @@ namespace MeticulousMentoring.API.Controllers
             _emailSender = emailSender;
         }
 
-        //public IActionResult Login()
-        //{
-        //    if (User.Identity.IsAuthenticated)
-        //    {
-        //        return RedirectToAction("Index", "Values");
-        //    }
-
-        //    return this.View();
-        //}
-
-        //[HttpPost]
-        //public async Task<IActionResult> Login(LoginViewModel model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var result = await this.signInManager.PasswordSignInAsync(
-        //            model.Username,
-        //            model.Password,
-        //            model.RememeberMe,
-        //            false);
-
-        //        if (result.Succeeded)
-        //        {
-        //            if (Request.Query.Keys.Contains("ReturnUrl"))
-        //            {
-        //                Redirect(Request.Query["ReturnUrl"].First());
-        //            }
-        //            else
-        //            {
-        //                RedirectToAction("Index", "Values");
-        //            }
-        //        }
-        //    }
-
-        //    ModelState.AddModelError("", "Failed to login");
-
-        //    return this.View();
-        //}
-
-        //[HttpGet]
-        //public async Task<IActionResult> Logout()
-        //{
-        //    await this.signInManager.SignOutAsync();
-        //    return RedirectToAction("Index", "Values");
-        //}
-
         [HttpPost]
         public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
         {
@@ -117,6 +71,7 @@ namespace MeticulousMentoring.API.Controllers
                                              new Claim(JwtRegisteredClaimNames.Iat, user.Id.ToString()),
                                              new Claim(JwtRegisteredClaimNames.GivenName, user.FirstName),
                                              new Claim(JwtRegisteredClaimNames.FamilyName, user.LastName),
+                                             new Claim("initialLogin", user.initialLogin.ToString(), ClaimValueTypes.String),
                                          });
 
                         claims.AddRange(await this.userManager.GetClaimsAsync(user));
@@ -183,8 +138,7 @@ namespace MeticulousMentoring.API.Controllers
                         {
                             await userManager.AddToRoleAsync(user, model.Role);
                             _ctx.SaveChanges();
-                            var htmlContent = "<html><body><button type='button'><a href='http://localhost/6000/'>Verify Email</a></button><script>" +
-                                              "</script></body></html>";
+                            var htmlContent = $"<html><body><p>Please verify your email address <a href='{config["WebsiteOrigin"]}/Home/EmailVerification/?email={model.Username}'>here</a>.</p><p>Temporary Password: {model.LastName + DateTime.Now.Year}! </p></body></html>";
 
                             await _emailSender.SendEmailAsync(user.Email, "Email Verification", htmlContent);
 
@@ -206,6 +160,38 @@ namespace MeticulousMentoring.API.Controllers
             return BadRequest("Failed to save user data");
         }
 
+        [HttpDelete]
+        [Route("api/account/DeleteUser/{id}")]
+        [Authorize(ActiveAuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> DeleteUser(int id)
+        {
+            try
+            {
+                var user = await userManager.FindByIdAsync(id.ToString());
+                if (user != null)
+                {
+                    if (_ctx.SaveChanges() >= 0)
+                    {
+                        await userManager.DeleteAsync(user);
+                        return NoContent();
+                    }
+                    else
+                    {
+                        return BadRequest("Blog delete wasn't successfull");
+                    }
+                }
+                else
+                {
+                    return NotFound("User not found!");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         [HttpGet]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<List<LotteryGeniusUser>> GetUsers()
@@ -214,6 +200,60 @@ namespace MeticulousMentoring.API.Controllers
             {
                 return await userManager.Users.ToListAsync();
             }
+        }
+
+        [HttpGet]
+        public async Task<List<IdentityRole<int>>> GetRoles()
+        {
+            using (roleManager)
+            {
+                return await roleManager.Roles.ToListAsync();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> VerifyEmail([FromBody] EmailVerificationModel model)
+        {
+            var user = await this.userManager.FindByNameAsync(model.Username);
+
+            if (user != null)
+            {
+                user.EmailConfirmed = true;
+
+                _ctx.SaveChanges();
+
+                return Ok();
+            }
+
+            return BadRequest();
+        }
+
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> PasswordChange([FromBody] PasswordChangeViewModel password)
+        {
+            var user = await this.userManager.FindByEmailAsync(password.email);
+
+            if (user != null)
+            {
+                var result = await this.userManager.ChangePasswordAsync(user, password.old_password, password.new_password);
+                if (result.Succeeded)
+                {
+                    user.initialLogin = false;
+                    _ctx.SaveChanges();
+
+                    var change_result = new
+                    {
+                        message = "success"
+                    };
+
+                    return Created("", change_result);
+                }
+
+                return BadRequest("Password change wasn't successful");
+            }
+
+            return BadRequest("The user email doesn't exist. Please try another");
         }
     }
 }

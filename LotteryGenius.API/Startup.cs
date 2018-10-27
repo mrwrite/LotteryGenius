@@ -40,7 +40,8 @@ namespace LotteryGenius.API
                 cfg =>
                 {
                     cfg.User.RequireUniqueEmail = true;
-                    cfg.Lockout.MaxFailedAccessAttempts = 3;
+                    cfg.Lockout.MaxFailedAccessAttempts = 4;
+                    cfg.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromDays(365 * 200);
                 }).AddEntityFrameworkStores<LotteryGeniusContext>();
 
             services.AddAuthentication()
@@ -62,12 +63,13 @@ namespace LotteryGenius.API
             services.AddTransient<LotteryGeniusSeeder>();
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<IPowerballRepository, PowerballRepository>();
+            services.AddScoped<IMegamillionRepository, MegamillionRepository>();
 
             services.AddCors(
                 cfg =>
                 {
                     cfg.AddPolicy("LotteryGenius",
-                        bldr => { bldr.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:6001"); });
+                        bldr => { bldr.AllowAnyHeader().AllowAnyMethod().WithOrigins(_configuration["WebsiteOrigin"]); });
 
                     cfg.AddPolicy("AnyGET",
                         bldr => { bldr.AllowAnyHeader().WithMethods("GET").AllowAnyOrigin(); });

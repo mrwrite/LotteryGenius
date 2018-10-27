@@ -35,6 +35,9 @@ namespace LotteryGenius.API.Data
         public DbSet<PowerballWinners> PowerWinners { get; set; }
         public DbSet<PowerballPrize> PowerballPrize { get; set; }
         public DbSet<NextPowerball> NextPowerball { get; set; }
+        public DbSet<MegamillionPrize> MegamillionPrize { get; set; }
+        public DbSet<NextMegamillion> NextMegamillion { get; set; }
+        public DbSet<UserPick> UserPicks { get; set; }
     }
 
     public static class StringExtensions

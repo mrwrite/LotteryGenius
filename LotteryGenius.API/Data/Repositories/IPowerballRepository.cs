@@ -29,5 +29,9 @@ namespace LotteryGenius.API.Data.Repositories
         IEnumerable<PowerWinnerViewModel> ShowPowerballWinners();
 
         NextPowerball GetNextPowerballJackpot();
+
+        void GetPowerballDetails();
+
+        void AddUserPicks(IEnumerable<UserPick> picks);
     }
 }

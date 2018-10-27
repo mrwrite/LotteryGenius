@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
+using HtmlAgilityPack;
 using LotteryGenius.API.Data.Entities;
 using LotteryGenius.API.ViewModels;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Protocols;
-using HtmlAgilityPack;
 
 namespace LotteryGenius.API.Data.Repositories
 {
-    public class PowerballRepository : IPowerballRepository
+    public class MegamillionRepository : IMegamillionRepository
     {
         private readonly LotteryGeniusContext _ctx;
-        private readonly ILogger<PowerballRepository> _logger;
+        private readonly ILogger<MegamillionRepository> _logger;
         private readonly IConfiguration _config;
         private SqlConnection sqlConnection;
 
-        public PowerballRepository(LotteryGeniusContext ctx, ILogger<PowerballRepository> logger, IConfiguration config)
+        public MegamillionRepository(LotteryGeniusContext ctx, ILogger<MegamillionRepository> logger, IConfiguration config)
         {
             _ctx = ctx;
             _logger = logger;
@@ -33,72 +30,61 @@ namespace LotteryGenius.API.Data.Repositories
             sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
         }
 
-        public IEnumerable<Powerball> GetPowerballs()
+        public IEnumerable<Megamillion> GetMegamillions()
         {
             try
             {
-                return _ctx.Powerballs
+                return _ctx.Megamillions
                     .OrderByDescending(p => p.draw_date)
                     .ToList();
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to get Powerball Numbers: {e}");
+                _logger.LogError($"Failed to get Megamillion Numbers: {e}");
                 return null;
             }
         }
 
-        public Powerball GetLastPowerball()
+        public Megamillion GetLastMegamillion()
         {
             try
             {
-                return _ctx.Powerballs
+                return _ctx.Megamillions
                     .OrderByDescending(p => p.draw_date)
                     .FirstOrDefault();
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to get latest Powerball number: {e}");
+                _logger.LogError($"Failed to get latest Megamillion number: {e}");
                 return null;
             }
         }
 
-        public void AddPowerballNumber(Powerball number)
-        {
-            number.created_on = DateTime.Now;
-            number.modified_on = DateTime.Now;
-            number.powerball = number.powerball.Trim();
-            number.powerplay = number.powerplay.Trim();
-            number.jackpot = number.jackpot.Trim();
-
-            _ctx.Powerballs.Add(number);
-        }
-
-        public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
+        public IEnumerable<MegaPicksViewModel> GetMegamillionPicks()
         {
             try
             {
                 using (IDbConnection dbConnection = sqlConnection)
                 {
                     dbConnection.Open();
-                    var picks = dbConnection.QueryMultiple("dbo.GetPowerballPicks", commandType: CommandType.StoredProcedure);
-                    var results = picks.Read<PowerPicksViewModel>().ToList();
+                    var picks = dbConnection.QueryMultiple("dbo.GetMegamillionPicks", commandType: CommandType.StoredProcedure);
+                    var results = picks.Read<MegaPicksViewModel>().ToList();
                     return results;
                 }
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to get Powerball Picks: {e}");
+                _logger.LogError($"Failed to get Megamillion Picks: {e}");
                 return null;
             }
         }
 
-        public IEnumerable<PowerballPicks> GetAllPowerballPicks()
+        public IEnumerable<MegamillionPicks> GetAllMegamillionPicks()
         {
             try
             {
-                return _ctx.PowerPicks
-                     .ToList();
+                return _ctx.MegaPicks
+                    .ToList();
             }
             catch (Exception e)
             {
@@ -107,23 +93,23 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
-        public IEnumerable<PowerballWinners> GetPowerBallWinners()
+        public IEnumerable<MegamillionWinners> GetMegamillionWinners()
         {
             try
             {
                 using (IDbConnection dbConnection = sqlConnection)
                 {
                     dbConnection.Open();
-                    var winners = dbConnection.QueryMultiple("dbo.GetPowerballWinners",
+                    var winners = dbConnection.QueryMultiple("dbo.GetMegamillionWinners",
                         commandType: CommandType.StoredProcedure, commandTimeout: 360);
-                    var results = winners.Read<PowerballWinners>().ToList();
-                    AddPowerPickWinners(results);
+                    var results = winners.Read<MegamillionWinners>().ToList();
+                    AddMegaPickWinners(results);
                     return results;
                 }
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to get PowerballWinners: {e}");
+                _logger.LogError($"Failed to get Megamillion Winners: {e}");
                 return null;
             }
         }
@@ -133,7 +119,7 @@ namespace LotteryGenius.API.Data.Repositories
             return _ctx.SaveChanges() > 0;
         }
 
-        public void AddPowerPickWinners(IEnumerable<PowerballWinners> winners)
+        public void AddMegaPickWinners(IEnumerable<MegamillionWinners> winners)
         {
             DynamicParameters param = new DynamicParameters();
 
@@ -143,15 +129,15 @@ namespace LotteryGenius.API.Data.Repositories
                 List<string> winningNumber = new List<string>();
                 int p = 0;
 
-                param.Add("@powerId", winner.powerball_id);
+                param.Add("@powerId", winner.megamillion_id);
                 param.Add("@pickId", winner.pick_id);
                 param.Add("@ball1", winner.ball1);
                 param.Add("@ball2", winner.ball2);
                 param.Add("@ball3", winner.ball3);
                 param.Add("@ball4", winner.ball4);
                 param.Add("@ball5", winner.ball5);
-                param.Add("@powerball", winner.powerball);
-                param.Add("@powerplay", winner.powerplay);
+                param.Add("@powerball", winner.megaball);
+                param.Add("@powerplay", winner.megaplier);
                 param.Add("@pick_date", winner.pick_date);
 
                 winningNumber.Add(winner.ball1);
@@ -160,7 +146,7 @@ namespace LotteryGenius.API.Data.Repositories
                 winningNumber.Add(winner.ball4);
                 winningNumber.Add(winner.ball5);
 
-                var powerNumber = _ctx.Powerballs.SingleOrDefault(x => x.id == winner.powerball_id);
+                var powerNumber = _ctx.Powerballs.SingleOrDefault(x => x.id == winner.megamillion_id);
 
                 numbers.Add(powerNumber.ball1);
                 numbers.Add(powerNumber.ball2);
@@ -183,7 +169,7 @@ namespace LotteryGenius.API.Data.Repositories
                         break;
 
                     case 4:
-                        if (powerNumber.powerball == winner.powerball)
+                        if (powerNumber.powerball == winner.megaball)
                         {
                             param.Add("@prizeId", 3);
                         }
@@ -194,7 +180,7 @@ namespace LotteryGenius.API.Data.Repositories
                         break;
 
                     case 3:
-                        if (powerNumber.powerball == winner.powerball)
+                        if (powerNumber.powerball == winner.megaball)
                         {
                             param.Add("@prizeId", 1);
                         }
@@ -207,34 +193,45 @@ namespace LotteryGenius.API.Data.Repositories
 
                 using (IDbConnection dbConnection = sqlConnection)
                 {
-                    dbConnection.Execute("dbo.AddPowerWinners", param, commandType: CommandType.StoredProcedure);
+                    dbConnection.Execute("dbo.AddMegaWinners", param, commandType: CommandType.StoredProcedure);
                     numbers.Clear();
                     winningNumber.Clear();
                 }
             }
         }
 
-        public IEnumerable<PowerWinnerViewModel> ShowPowerballWinners()
+        public void AddMegamillionNumber(Megamillion number)
+        {
+            number.created_on = DateTime.Now;
+            number.modified_on = DateTime.Now;
+            number.megaball = number.megaball.Trim();
+            number.megaplier = number.megaplier.Trim();
+            number.jackpot = number.jackpot.Trim();
+
+            _ctx.Megamillions.Add(number);
+        }
+
+        public IEnumerable<MegaWinnerViewModel> ShowMegamillionWinners()
         {
             try
             {
                 using (IDbConnection dbConnection = sqlConnection)
                 {
                     dbConnection.Open();
-                    var results = dbConnection.Query<PowerWinnerViewModel>(
-                        "select distinct p.id, p.ball1, p.ball2, p.ball3, p.ball4, p.ball5, p.powerball, p.powerplay, p.draw_date" +
-                        " from dbo.powerballs p " +
-                        "inner join dbo.PowerWinners pw " +
-                        "on p.id = pw.powerball_id"
+                    var results = dbConnection.Query<MegaWinnerViewModel>(
+                        "select distinct m.id, m.ball1, m.ball2, m.ball3, m.ball4, m.ball5, m.megaball, m.megaplier, m.draw_date" +
+                        " from dbo.megamillions m " +
+                        "inner join dbo.MegaWinners mw " +
+                        "on m.id = mw.megamillion_id"
                     );
 
                     foreach (var result in results)
                     {
-                        result.picks = dbConnection.Query<PowerballWinners>(
-                            "select pw.*,pp.prize as prize_amount from dbo.PowerWinners pw" +
-                            " inner join dbo.PowerballPrize pp" +
-                            " on pp.Id = pw.prize_id" +
-                            " where pw.powerball_id = @id", new { id = result.id }
+                        result.picks = dbConnection.Query<MegamillionWinners>(
+                            "select mw.*,mp.prize as prize_amount from dbo.MegaWinners mw" +
+                            " inner join dbo.MegamillionPrize mp" +
+                            " on mp.Id = mw.prize_id" +
+                            " where mw.megamillion_id = @id", new { id = result.id }
                         );
                     }
 
@@ -248,59 +245,59 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
-        public NextPowerball GetNextPowerballJackpot()
+        public NextMegamillion GetNextMegamillionJackpot()
         {
             try
             {
-                return _ctx.NextPowerball
-                     .OrderByDescending(p => p.next_jackpot_date)
-                     .FirstOrDefault();
+                return _ctx.NextMegamillion
+                    .OrderByDescending(p => p.next_jackpot_date)
+                    .FirstOrDefault();
             }
             catch (Exception e)
             {
-                _logger.LogError($"Failed to get Next Powerball: {e}");
+                _logger.LogError($"Failed to get Next Megamillion: {e}");
                 return null;
             }
         }
 
-        public void GetPowerballDetails()
+        public void GetMegamillionDetails()
         {
-            var powerUrl = "http://www.lotteryusa.com/powerball";
+            string megaUrl = "http://www.lotteryusa.com/mega-millions/";
 
-            HtmlWeb powerWeb = new HtmlWeb();
-            HtmlDocument powerDoc = powerWeb.Load(powerUrl);
+            HtmlWeb megaWeb = new HtmlWeb();
+            HtmlDocument megaDoc = megaWeb.Load(megaUrl);
 
-            IEnumerable<string> powerList =
-                powerDoc.DocumentNode.SelectNodes(@"//ul[@class='draw-result list-unstyled list-inline']/li")
+            IEnumerable<string> megaList =
+                megaDoc.DocumentNode.SelectNodes(@"//ul[@class='draw-result list-unstyled list-inline']/li")
                     .Select(li => li.InnerText);
-            var powerDate = powerDoc.DocumentNode.SelectSingleNode(@"//span[@class='date']/time");
-            var pDate = powerDate.Attributes["datetime"].Value;
-            var powerJackpot = powerDoc.DocumentNode.SelectSingleNode(@"//span[@class='jackpot-amount']").InnerText;
-            var pNextJackpot = powerDoc.DocumentNode.SelectSingleNode(@"//span[@class='next-jackpot-amount']")
+            var megaDate = megaDoc.DocumentNode.SelectSingleNode(@"//span[@class='date']/time");
+            var mDate = megaDate.Attributes["datetime"].Value;
+            var megaJackpot = megaDoc.DocumentNode.SelectSingleNode(@"//span[@class='jackpot-amount']").InnerText;
+            var mNextJackpot = megaDoc.DocumentNode.SelectSingleNode(@"//span[@class='next-jackpot-amount']")
                 .FirstChild.InnerText;
-            var pNextJackpotDate = powerDoc.DocumentNode.SelectSingleNode(@"//span[@class='next-draw-date']").InnerText;
+            var mNextJackpotDate = megaDoc.DocumentNode.SelectSingleNode(@"//span[@class='next-draw-date']").InnerText;
 
-            foreach (string powerItem in powerList)
+            foreach (string megaItem in megaList)
             {
-                Console.WriteLine(powerItem);
+                Console.WriteLine(megaItem);
             }
-            Console.WriteLine(pDate.ToString());
-            Console.WriteLine(powerJackpot);
-            Powerball pBall = new Powerball()
+            Console.WriteLine(mDate.ToString());
+            Console.WriteLine(megaJackpot);
+            Megamillion mBall = new Megamillion()
             {
-                ball1 = powerList.ElementAt(0).PadLeft(2, '0'),
-                ball2 = powerList.ElementAt(1).PadLeft(2, '0'),
-                ball3 = powerList.ElementAt(2).PadLeft(2, '0'),
-                ball4 = powerList.ElementAt(3).PadLeft(2, '0'),
-                ball5 = powerList.ElementAt(4).PadLeft(2, '0'),
-                powerball = powerList.ElementAt(5).Replace(" PB", "").PadLeft(2, '0'),
-                powerplay = powerList.ElementAt(6).Replace("Power Play: ", "").PadRight(2, 'X'),
-                draw_date = Convert.ToDateTime(pDate),
-                jackpot = powerJackpot
+                ball1 = megaList.ElementAt(0).PadLeft(2, '0'),
+                ball2 = megaList.ElementAt(1).PadLeft(2, '0'),
+                ball3 = megaList.ElementAt(2).PadLeft(2, '0'),
+                ball4 = megaList.ElementAt(3).PadLeft(2, '0'),
+                ball5 = megaList.ElementAt(4).PadLeft(2, '0'),
+                megaball = megaList.ElementAt(5).Replace(" MB", "").PadLeft(2, '0'),
+                megaplier = megaList.ElementAt(6).Replace("Megaplier: ", "").PadRight(2, 'X'),
+                draw_date = Convert.ToDateTime(mDate),
+                jackpot = megaJackpot
             };
 
-            AddPowerballNumber(pBall);
-            AddNextPowerballJackpot(pNextJackpot, Convert.ToDateTime(pNextJackpotDate));
+            AddMegamillionNumber(mBall);
+            AddNextMegamillionsJackpot(mNextJackpot, Convert.ToDateTime(mNextJackpotDate));
         }
 
         public void AddUserPicks(IEnumerable<UserPick> picks)
@@ -313,7 +310,7 @@ namespace LotteryGenius.API.Data.Repositories
             _ctx.UserPicks.AddRange(picks);
         }
 
-        public void AddNextPowerballJackpot(string jackpot, DateTime jackpot_date)
+        public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)
         {
             DynamicParameters param = new DynamicParameters();
 
@@ -322,7 +319,7 @@ namespace LotteryGenius.API.Data.Repositories
 
             using (IDbConnection dbConnection = sqlConnection)
             {
-                dbConnection.Execute("UpsertNextPowerball", param, commandType: CommandType.StoredProcedure);
+                dbConnection.Execute("UpsertNextMegamillions", param, commandType: CommandType.StoredProcedure);
             }
         }
     }

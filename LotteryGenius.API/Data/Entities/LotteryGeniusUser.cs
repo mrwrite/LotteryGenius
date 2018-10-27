@@ -11,5 +11,6 @@ namespace LotteryGenius.API.Data.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public bool initialLogin { get; set; }
     }
 }

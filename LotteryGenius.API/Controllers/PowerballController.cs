@@ -131,6 +131,30 @@ namespace LotteryGenius.API.Controllers
         }
 
         [HttpPost]
+        [Route("/api/powerball/AddUserPicks")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Post([FromBody] IEnumerable<UserPick> picks)
+        {
+            try
+            {
+                _powerballRepository.AddUserPicks(picks);
+                if (_powerballRepository.SaveAll())
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest($"Save wasn't successful");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        [HttpPost]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Post([FromBody]PowerballViewModel model)
         {
@@ -171,6 +195,30 @@ namespace LotteryGenius.API.Controllers
             catch (Exception e)
             {
                 _logger.LogError($"Failed to get winning pairs: {e}");
+                return null;
+            }
+        }
+
+        [HttpGet]
+        [Route("/api/powerball/GetPowerballDetails")]
+        public IActionResult GetPowerballDetails()
+        {
+            try
+            {
+                _powerballRepository.GetPowerballDetails();
+
+                if (_powerballRepository.SaveAll())
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return BadRequest($"Save wasn't successful");
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get Powerball Details: {e}");
                 return null;
             }
         }

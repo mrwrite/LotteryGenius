@@ -11,9 +11,10 @@ using System;
 namespace LotteryGenius.API.Migrations
 {
     [DbContext(typeof(LotteryGeniusContext))]
-    partial class LotteryGeniusContextModelSnapshot : ModelSnapshot
+    [Migration("20181025184338_InitialLogin")]
+    partial class InitialLogin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,7 +140,7 @@ namespace LotteryGenius.API.Migrations
                     b.Property<string>("megaball")
                         .HasMaxLength(2);
 
-                    b.Property<int?>("megamillion_id");
+                    b.Property<int>("megamillion_id");
 
                     b.Property<string>("megaplier")
                         .HasMaxLength(2);
@@ -149,20 +150,6 @@ namespace LotteryGenius.API.Migrations
                     b.HasKey("id");
 
                     b.ToTable("MegaPicks");
-                });
-
-            modelBuilder.Entity("LotteryGenius.API.Data.Entities.MegamillionPrize", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("description");
-
-                    b.Property<decimal>("prize");
-
-                    b.HasKey("id");
-
-                    b.ToTable("MegamillionPrize");
                 });
 
             modelBuilder.Entity("LotteryGenius.API.Data.Entities.MegamillionWinners", b =>
@@ -204,22 +191,6 @@ namespace LotteryGenius.API.Migrations
                     b.HasKey("id");
 
                     b.ToTable("MegaWinners");
-                });
-
-            modelBuilder.Entity("LotteryGenius.API.Data.Entities.NextMegamillion", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("modified_on");
-
-                    b.Property<string>("next_jackpot");
-
-                    b.Property<DateTime>("next_jackpot_date");
-
-                    b.HasKey("id");
-
-                    b.ToTable("NextMegamillion");
                 });
 
             modelBuilder.Entity("LotteryGenius.API.Data.Entities.NextPowerball", b =>
@@ -365,38 +336,6 @@ namespace LotteryGenius.API.Migrations
                     b.HasKey("id");
 
                     b.ToTable("PowerWinners");
-                });
-
-            modelBuilder.Entity("LotteryGenius.API.Data.Entities.UserPick", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("ball1");
-
-                    b.Property<string>("ball2");
-
-                    b.Property<string>("ball3");
-
-                    b.Property<string>("ball4");
-
-                    b.Property<string>("ball5");
-
-                    b.Property<string>("game_type");
-
-                    b.Property<int>("lotto_id");
-
-                    b.Property<string>("lottoball");
-
-                    b.Property<string>("multiplier");
-
-                    b.Property<DateTime?>("saved_date");
-
-                    b.Property<int>("user_id");
-
-                    b.HasKey("id");
-
-                    b.ToTable("UserPicks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
