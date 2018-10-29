@@ -79,12 +79,9 @@ namespace LotteryGenius.API.Data.Repositories
 
             _ctx.Powerballs.Add(number);
 
-            if (SaveAll())
-            {
-                var htmlEmail =
-                    $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Powerball: {number.powerball} Powerplay: {number.powerplay}";
-                await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
-            }
+            var htmlEmail =
+                $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Powerball: {number.powerball} Powerplay: {number.powerplay}";
+            await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
         }
 
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()

@@ -236,12 +236,9 @@ namespace LotteryGenius.API.Data.Repositories
 
             _ctx.Megamillions.Add(number);
 
-            if (SaveAll())
-            {
-                var htmlEmail =
-                    $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
-                await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
-            }
+            var htmlEmail =
+                $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
+            await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
         }
 
         public IEnumerable<MegaWinnerViewModel> ShowMegamillionWinners()
