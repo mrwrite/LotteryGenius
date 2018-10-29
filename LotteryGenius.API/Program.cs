@@ -46,11 +46,9 @@ namespace LotteryGenius.API
 
         private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
         {
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
             builder.Sources.Clear();
             builder.AddJsonFile("appsettings.json", false, true)
-                .AddJsonFile($"appsettings.{environment}.json").AddEnvironmentVariables();
+                .AddJsonFile($"appsettings.{ctx.HostingEnvironment.EnvironmentName}.json", true, true).AddEnvironmentVariables();
         }
     }
 }

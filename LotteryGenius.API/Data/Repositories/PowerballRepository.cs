@@ -15,6 +15,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using HtmlAgilityPack;
+using LotteryGenius.API.Services;
 
 namespace LotteryGenius.API.Data.Repositories
 {
@@ -24,14 +25,16 @@ namespace LotteryGenius.API.Data.Repositories
         private readonly ILogger<PowerballRepository> _logger;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
+        private readonly IEmailSender _emailSender;
         private SqlConnection sqlConnection;
 
-        public PowerballRepository(LotteryGeniusContext ctx, ILogger<PowerballRepository> logger, IConfiguration config, IMapper mapper)
+        public PowerballRepository(LotteryGeniusContext ctx, ILogger<PowerballRepository> logger, IConfiguration config, IMapper mapper, IEmailSender emailSender)
         {
             _ctx = ctx;
             _logger = logger;
             _config = config;
             _mapper = mapper;
+            _emailSender = emailSender;
 
             sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
         }
@@ -66,7 +69,7 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
-        public void AddPowerballNumber(Powerball number)
+        public async void AddPowerballNumber(Powerball number)
         {
             number.created_on = DateTime.Now;
             number.modified_on = DateTime.Now;
@@ -75,6 +78,13 @@ namespace LotteryGenius.API.Data.Repositories
             number.jackpot = number.jackpot.Trim();
 
             _ctx.Powerballs.Add(number);
+
+            if (SaveAll())
+            {
+                var htmlEmail =
+                    $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Powerball: {number.powerball} Powerplay: {number.powerplay}";
+                await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
+            }
         }
 
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
