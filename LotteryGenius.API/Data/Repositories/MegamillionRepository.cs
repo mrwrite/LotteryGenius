@@ -313,7 +313,7 @@ namespace LotteryGenius.API.Data.Repositories
                 ball3 = megaList.ElementAt(2).PadLeft(2, '0'),
                 ball4 = megaList.ElementAt(3).PadLeft(2, '0'),
                 ball5 = megaList.ElementAt(4).PadLeft(2, '0'),
-                megaball = megaList.ElementAt(5).Replace(" MB", "").PadLeft(2, '0'),
+                megaball = megaList.ElementAt(5).Replace(" MB", "").TrimEnd().PadLeft(2, '0'),
                 megaplier = megaList.ElementAt(6).Replace("Megaplier: ", "").PadRight(2, 'X'),
                 draw_date = Convert.ToDateTime(mDate),
                 jackpot = megaJackpot

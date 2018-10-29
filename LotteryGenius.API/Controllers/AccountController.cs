@@ -162,7 +162,7 @@ namespace MeticulousMentoring.API.Controllers
 
         [HttpDelete]
         [Route("api/account/DeleteUser/{id}")]
-        [Authorize(ActiveAuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try

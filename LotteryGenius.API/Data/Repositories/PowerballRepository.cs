@@ -317,7 +317,7 @@ namespace LotteryGenius.API.Data.Repositories
                 ball3 = powerList.ElementAt(2).PadLeft(2, '0'),
                 ball4 = powerList.ElementAt(3).PadLeft(2, '0'),
                 ball5 = powerList.ElementAt(4).PadLeft(2, '0'),
-                powerball = powerList.ElementAt(5).Replace(" PB", "").PadLeft(2, '0'),
+                powerball = powerList.ElementAt(5).Replace(" PB", "").TrimEnd().PadLeft(2, '0'),
                 powerplay = powerList.ElementAt(6).Replace("Power Play: ", "").PadRight(2, 'X'),
                 draw_date = Convert.ToDateTime(pDate),
                 jackpot = powerJackpot

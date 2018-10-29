@@ -163,11 +163,14 @@ namespace LotteryGenius.API.Controllers
                 if (ModelState.IsValid)
                 {
                     var newNumber = _mapper.Map<PowerballViewModel, Powerball>(model);
-                    _powerballRepository.AddPowerballNumber(newNumber);
-                    if (_powerballRepository.SaveAll())
+                    if (_powerballRepository != null)
                     {
-                        return Created($"/api/powerball/{newNumber.id}",
-                            _mapper.Map<Powerball, PowerballViewModel>(newNumber));
+                        _powerballRepository.AddPowerballNumber(newNumber);
+                        if (_powerballRepository.SaveAll())
+                        {
+                            return Created($"/api/powerball/{newNumber.id}",
+                                _mapper.Map<Powerball, PowerballViewModel>(newNumber));
+                        }
                     }
                 }
                 else
