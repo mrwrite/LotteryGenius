@@ -6,6 +6,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using Dapper;
 using LotteryGenius.API.Data.Entities;
 using LotteryGenius.API.ViewModels;
@@ -22,13 +23,15 @@ namespace LotteryGenius.API.Data.Repositories
         private readonly LotteryGeniusContext _ctx;
         private readonly ILogger<PowerballRepository> _logger;
         private readonly IConfiguration _config;
+        private readonly IMapper _mapper;
         private SqlConnection sqlConnection;
 
-        public PowerballRepository(LotteryGeniusContext ctx, ILogger<PowerballRepository> logger, IConfiguration config)
+        public PowerballRepository(LotteryGeniusContext ctx, ILogger<PowerballRepository> logger, IConfiguration config, IMapper mapper)
         {
             _ctx = ctx;
             _logger = logger;
             _config = config;
+            _mapper = mapper;
 
             sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
         }
@@ -83,6 +86,24 @@ namespace LotteryGenius.API.Data.Repositories
                     dbConnection.Open();
                     var picks = dbConnection.QueryMultiple("dbo.GetPowerballPicks", commandType: CommandType.StoredProcedure);
                     var results = picks.Read<PowerPicksViewModel>().ToList();
+                    foreach (var pick in results)
+                    {
+                        PowerballPicks newPick = new PowerballPicks()
+                        {
+                            ball1 = pick.ball1,
+                            ball2 = pick.ball2,
+                            ball3 = pick.ball3,
+                            ball4 = pick.ball4,
+                            ball5 = pick.ball5,
+                            powerball = pick.powerball,
+                            powerplay = pick.powerplay,
+                            pick_date = DateTime.Now
+                        };
+
+                        _ctx.PowerPicks.Add(newPick);
+                    }
+
+                    SaveAll();
                     return results;
                 }
             }
@@ -205,9 +226,12 @@ namespace LotteryGenius.API.Data.Repositories
                         break;
                 }
 
+                sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
+
                 using (IDbConnection dbConnection = sqlConnection)
                 {
                     dbConnection.Execute("dbo.AddPowerWinners", param, commandType: CommandType.StoredProcedure);
+                    SaveAll();
                     numbers.Clear();
                     winningNumber.Clear();
                 }
