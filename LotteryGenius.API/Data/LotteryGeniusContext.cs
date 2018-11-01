@@ -13,6 +13,10 @@ namespace LotteryGenius.API.Data
 {
     public class LotteryGeniusContext : IdentityDbContext<LotteryGeniusUser, IdentityRole<int>, int>
     {
+        public LotteryGeniusContext()
+        {
+        }
+
         public LotteryGeniusContext(DbContextOptions<LotteryGeniusContext> options) : base(options)
         {
         }

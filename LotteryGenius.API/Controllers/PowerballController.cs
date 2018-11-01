@@ -26,18 +26,16 @@ namespace LotteryGenius.API.Controllers
         private readonly UserManager<LotteryGeniusUser> _userManager;
         private readonly RoleManager<IdentityRole<int>> _roleManager;
 
-        public PowerballController(IPowerballRepository powerballRepository, ILogger<PowerballController> logger, IMapper mapper, LotteryGeniusContext ctx, UserManager<LotteryGeniusUser> userManager, RoleManager<IdentityRole<int>> roleManager)
+        public PowerballController(IPowerballRepository powerballRepository, ILogger<PowerballController> logger, IMapper mapper, LotteryGeniusContext ctx)
         {
             _powerballRepository = powerballRepository;
             _logger = logger;
             _mapper = mapper;
             _ctx = ctx;
-            _userManager = userManager;
-            _roleManager = roleManager;
         }
 
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
             try
             {

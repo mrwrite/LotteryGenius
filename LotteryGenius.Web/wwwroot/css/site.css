@@ -1,42 +1,88 @@
 ﻿body {
-  padding-top: 50px;
-  padding-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
-  padding-left: 15px;
-  padding-right: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 /* Carousel */
 .carousel-caption p {
-  font-size: 20px;
-  line-height: 1.4;
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.circle {
+    display: block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    min-width: 80px;
+    min-height: 80px;
+    margin: 0;
+    background: radial-gradient(circle at 33px 33px, #ffffff, #686868);
+    font-size: 1vw;
+    text-align: center;
+    padding: 25% 0;
+}
+
+.powerball-circle {
+    display: block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    min-height: 80px;
+    min-width: 80px;
+    margin: 0;
+    background: radial-gradient(circle at 33px 33px, #ff0000, #323232);
+    font-size: 1vw;
+    text-align: center;
+    color: #ffffff;
+    padding: 25% 0;
+}
+
+.megamillions-circle {
+    display: block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    min-height: 80px;
+    min-width: 80px;
+    margin: 0;
+    background: radial-gradient(circle at 33px 33px, #ffff00, #323232);
+    font-size: 1vw;
+    text-align: center;
+    color: #323232;
+    padding: 25% 0;
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
-  width: 100%;
+    width: 100%;
 }
 
 /* QR code generator */
 #qrCode {
-  margin: 15px;
+    margin: 15px;
 }
 
 .horizontal-divider {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border: 0;
-  border-top: 1px solid grey;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid grey;
 }
 
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
-    display: none;
-  }
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
 }

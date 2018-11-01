@@ -8,6 +8,8 @@
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/fa-svg-with-js.css" rel="stylesheet" />
     <link href="~/lib/animate.css/animate.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/flipclock.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Abel|Barlow+Semi+Condensed:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Dancing+Script:400,700|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
 </head>
@@ -40,6 +42,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
     <script src="~/lib/wowjs/dist/wow.min.js"></script>
+    <script src="~/js/flipclock.min.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -50,6 +53,35 @@
             },
                 500);
             return false;
+        });
+    </script>
+    <script type="text/javascript">
+        var clock;
+        var clock2;
+
+        $(document).ready(function () {
+
+            // Grab the current date
+            var currentDate = new Date();
+
+            // Set some date in the future. In this case, it's always Jan 1
+            var futureDate = new Date(currentDate.getFullYear() + 1, 0, 1);
+
+            // Calculate the difference in seconds between the future and current date
+            var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
+
+            // Instantiate a coutdown FlipClock
+            clock = $('.clock').FlipClock(diff, {
+                clockFace: 'DailyCounter',
+                countdown: true
+            });
+
+            clock2 = $('.clock-2').FlipClock(diff,
+                {
+                    clockFace: 'DailyCounter',
+                    countdown: true
+                });
+
         });
     </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -15,7 +15,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using HtmlAgilityPack;
+using LotteryGenius.API.Data.Models;
 using LotteryGenius.API.Services;
+using Microsoft.ML.Legacy;
+using Microsoft.ML.Legacy.Data;
+using Microsoft.ML.Legacy.Trainers;
+using Microsoft.ML.Legacy.Transforms;
 
 namespace LotteryGenius.API.Data.Repositories
 {
@@ -109,6 +114,33 @@ namespace LotteryGenius.API.Data.Repositories
 
                         _ctx.PowerPicks.Add(newPick);
                     }
+
+                    //var predictedPick = PredictPowerball();
+
+                    //var extraPick = new PowerballPicks
+                    //{
+                    //    ball1 = predictedPick.Ball1.ToString().PadLeft(2, '0'),
+                    //    ball2 = predictedPick.Ball2.ToString().PadLeft(2, '0'),
+                    //    ball3 = predictedPick.Ball3.ToString().PadLeft(2, '0'),
+                    //    ball4 = predictedPick.Ball4.ToString().PadLeft(2, '0'),
+                    //    ball5 = predictedPick.Ball5.ToString().PadLeft(2, '0'),
+                    //    powerball = predictedPick.PowerBall.ToString().PadLeft(2, '0'),
+                    //    powerplay = "0X",
+                    //    pick_date = DateTime.Now
+                    //};
+
+                    //var resultView = new PowerPicksViewModel
+                    //{
+                    //    ball1 = extraPick.ball1,
+                    //    ball2 = extraPick.ball2,
+                    //    ball3 = extraPick.ball3,
+                    //    ball4 = extraPick.ball4,
+                    //    ball5 = extraPick.ball5,
+                    //    powerball = extraPick.powerball,
+                    //    powerplay = extraPick.powerplay
+                    //};
+                    //_ctx.PowerPicks.Add(extraPick);
+                    //results.Add(resultView);
 
                     SaveAll();
                     return results;
@@ -355,6 +387,48 @@ namespace LotteryGenius.API.Data.Repositories
             {
                 dbConnection.Execute("UpsertNextPowerball", param, commandType: CommandType.StoredProcedure);
             }
+        }
+
+        public PowerballPrediction PredictPowerball()
+        {
+            var pipeline = new LearningPipeline();
+            var allPicks = _ctx.Powerballs;
+            var data = new List<PowerballData>();
+
+            foreach (var powerball in allPicks)
+            {
+                var ts = powerball.draw_date - DateTime.Now;
+
+                var newPick = new PowerballData()
+                {
+                    Ball1 = Convert.ToInt32(powerball.ball1),
+                    Ball2 = Convert.ToInt32(powerball.ball2),
+                    Ball3 = Convert.ToInt32(powerball.ball3),
+                    Ball4 = Convert.ToInt32(powerball.ball4),
+                    Ball5 = Convert.ToInt32(powerball.ball5),
+                    PowerBall = Convert.ToInt32(powerball.powerball),
+                    daysAgo = (float)ts.TotalDays
+                };
+
+                data.Add(newPick);
+            }
+
+            var collection = CollectionDataSource.Create(data);
+            pipeline.Add(collection);
+            pipeline.Add(new ColumnCopier(("daysAgo", "Label")));
+            pipeline.Add(new CategoricalOneHotVectorizer("id"));
+            pipeline.Add(new ColumnConcatenator("Features", "id", "daysAgo"));
+            pipeline.Add(new GeneralizedAdditiveModelRegressor());
+
+            var model = pipeline.Train<PowerballData, PowerballPrediction>();
+
+            var nextPowerball = _ctx.NextPowerball.FirstOrDefault();
+
+            var predictedDays = (nextPowerball.next_jackpot_date.AddDays(1)) - DateTime.Now;
+
+            var prediction = model.Predict(data);
+
+            return prediction.FirstOrDefault();
         }
     }
 }

@@ -4,6 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.ML.Core.Data;
+using Microsoft.ML.Runtime.Api;
 
 namespace LotteryGenius.API.Data.Entities
 {
@@ -33,7 +35,7 @@ namespace LotteryGenius.API.Data.Entities
         public string powerplay { get; set; }
 
         public string jackpot { get; set; }
-        public DateTime? draw_date { get; set; }
+        public DateTime draw_date { get; set; }
         public DateTime? created_on { get; set; }
         public DateTime? modified_on { get; set; }
     }

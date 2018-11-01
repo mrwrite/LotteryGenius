@@ -83,7 +83,8 @@ namespace LotteryGenius.API.Controllers
 
         [HttpGet]
         [Route("/api/megamillion/MegamillionPicks")]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
+        // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public IActionResult MegamillionPicks()
         {
             try

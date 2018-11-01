@@ -23,6 +23,7 @@ namespace LotteryGenius.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IPowerballRepository, PowerballRepository>();
+            services.AddScoped<IMegamillionRepository, MegamillionRepository>();
             services.AddMvc();
         }
 

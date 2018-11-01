@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\" />
-    <Folder Include="wwwroot\js\" />
     <Folder Include="wwwroot\lib\popper\" />
   </ItemGroup>
 </Project>

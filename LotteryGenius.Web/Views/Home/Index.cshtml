@@ -5,17 +5,22 @@
     ViewData["Title"] = "Home Page";
     List<PowerPicksViewModel> picks = ViewData["PowerPicks"] as List<PowerPicksViewModel>;
     NextPowerball nextPowerball = ViewData["NextPowerball"] as NextPowerball;
+    NextMegamillion nextMegamillion = ViewData["NextMegamillion"] as NextMegamillion;
+    List<MegaPicksViewModel> megaPicks = ViewData["MegaPicks"] as List<MegaPicksViewModel>;
+    Megamillion latestMegamllion = ViewData["LatestMegamillion"] as Megamillion;
 }
 
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <div class="card">
-            <div class="card-body">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="">
+            <div class="">
                 <div class="row">
-                    <div class="col-lg-3">Image</div>
+                    <div class="col-lg-4">
+                        <img class="img-fluid" src="images/powerball-pp.png" />
+                    </div>
                     <hr class="horizontal-divider" />
-                    <div class="col-lg-3">
+                    <div class="col-lg-5">
                         Powerball<hr class="my-2" />
                         <div class="row">
                             <div class="col-lg-12">
@@ -25,12 +30,12 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <ul class="list-inline" style="margin-bottom: 0;">
-                                    <li class="list-inline-item">@Model.powerball1</li>
-                                    <li class="list-inline-item">@Model.powerball2</li>
-                                    <li class="list-inline-item">@Model.powerball3</li>
-                                    <li class="list-inline-item">@Model.powerball4</li>
-                                    <li class="list-inline-item">@Model.powerball5</li>
-                                    <li class="list-inline-item">@Model.powerball</li>
+                                    <li class="list-inline-item"><div class="circle">@Model.powerball1</div></li>
+                                    <li class="list-inline-item"><div class="circle">@Model.powerball2</div></li>
+                                    <li class="list-inline-item"><div class="circle">@Model.powerball3</div></li>
+                                    <li class="list-inline-item"><div class="circle">@Model.powerball4</div></li>
+                                    <li class="list-inline-item"><div class="circle">@Model.powerball5</div></li>
+                                    <li class="list-inline-item"><div class="powerball-circle">@Model.powerball</div></li>
                                 </ul>
                             </div>
                         </div>
@@ -40,15 +45,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3">
-                        Jackpot
-                        <hr class="my-2">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                @Model.powerballJackpot
+                    @*<div class="col-lg-3">
+                            Jackpot
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @Model.powerballJackpot
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>*@
                     <div class="col-lg-3">
                         Next Jackpot
                         <hr class="my-2">
@@ -65,8 +70,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-6">Winning Picks/Pick Archive</div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-7">
+                        Winning Picks/Pick Archive
+                        <div class="row">
+                            <div class="clock" style="margin:2em;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
                         Powerball Daily Picks
                         <div class="row">
                             <table class="table table-sm">
@@ -75,12 +85,12 @@
                                     <tr>
                                         <td>
                                             <ul class="list-inline">
-                                                <li class="list-inline-item">@pick.ball1</li>
-                                                <li class="list-inline-item">@pick.ball2</li>
-                                                <li class="list-inline-item">@pick.ball3</li>
-                                                <li class="list-inline-item">@pick.ball4</li>
-                                                <li class="list-inline-item">@pick.ball5</li>
-                                                <li class="list-inline-item">@pick.powerball</li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball1</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball2</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball3</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball4</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball5</div></li>
+                                                <li class="list-inline-item"><div class="powerball-circle" style="min-height: 50px; min-width: 50px;">@pick.powerball</div></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -92,16 +102,99 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-2"></div>
+    <div class="col-lg-1"></div>
 </div>
 <div class="row">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <div class="card">
-            <div class="card-body">
-                Megamillions Data
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+        <div class="">
+            <div class="">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <img class="img-fluid" src="images/MegaMillions_Logo.png" />
+                    </div>
+                    <hr class="horizontal-divider" />
+                    <div class="col-lg-5">
+                        Megamillion<hr class="my-2" />
+                        <div class="row">
+                            <div class="col-lg-12">
+                                RESULTS FOR: @latestMegamllion.megamillionDrawDate.ToString()
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul class="list-inline" style="margin-bottom: 0;">
+                                    <li class="list-inline-item"><div class="circle">@latestMegamllion.megamillion1</div></li>
+                                    <li class="list-inline-item"><div class="circle">@latestMegamllion.megamillion2</div></li>
+                                    <li class="list-inline-item"><div class="circle">@latestMegamllion.megamillion3</div></li>
+                                    <li class="list-inline-item"><div class="circle">@latestMegamllion.megamillion4</div></li>
+                                    <li class="list-inline-item"><div class="circle">@latestMegamllion.megamillion5</div></li>
+                                    <li class="list-inline-item"><div class="megamillions-circle">@latestMegamllion.megaball</div></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                POWERPLAY: @latestMegamllion.megaplier
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="col-lg-3">
+                            Jackpot
+                            <hr class="my-2">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    @latestMegamllion.megamillionJackpot
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="col-lg-3">
+                        Next Jackpot
+                        <hr class="my-2">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                Next Draw Date: @nextMegamillion.next_jackpot_date.ToString()
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                @nextMegamillion.next_jackpot
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7">
+                        Winning Picks/Pick Archive
+                        <div class="row">
+                            <div class="clock-2" style="margin:2em;"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        Megamillion Daily Picks
+                        <div class="row">
+                            <table class="table table-sm">
+                                @foreach (var pick in megaPicks)
+                                {
+                                    <tr>
+                                        <td>
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball1</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball2</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball3</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball4</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball5</div></li>
+                                                <li class="list-inline-item"><div class="megamillions-circle" style="min-height: 50px; min-width: 50px;">@pick.megaball</div></li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                }
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-2"></div>
+    <div class="col-lg-1"></div>
 </div>

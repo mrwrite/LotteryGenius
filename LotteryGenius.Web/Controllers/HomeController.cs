@@ -13,9 +13,12 @@ namespace LotteryGenius.Web.Controllers
     {
         private readonly IPowerballRepository _powerballRepository;
 
-        public HomeController(IPowerballRepository powerballRepository)
+        private readonly IMegamillionRepository megamillionRepository;
+
+        public HomeController(IPowerballRepository powerballRepository, IMegamillionRepository megamillionRepository)
         {
             _powerballRepository = powerballRepository;
+            this.megamillionRepository = megamillionRepository;
         }
 
         public async Task<IActionResult> Index()
@@ -25,6 +28,13 @@ namespace LotteryGenius.Web.Controllers
             var nextPowerball = await _powerballRepository.GetNextPowerball();
             ViewData["NextPowerball"] = nextPowerball;
             ViewData["PowerPicks"] = powerPicks;
+
+            var latestMegamillion = await this.megamillionRepository.GetLastMegamillion();
+            var megaPicks = await this.megamillionRepository.GetMegamillionPicks();
+            var nextMegamillion = await this.megamillionRepository.GetNextMegamillion();
+            ViewData["NextMegamillion"] = nextMegamillion;
+            ViewData["MegaPicks"] = megaPicks;
+            ViewData["LatestMegamillion"] = latestMegamillion;
 
             return View(latestPowerball);
         }

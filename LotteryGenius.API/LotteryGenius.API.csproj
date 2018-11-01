@@ -26,6 +26,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.ML" Version="0.6.0" />
     <PackageReference Include="Sendgrid" Version="9.10.0" />
   </ItemGroup>
 
