@@ -18,7 +18,11 @@ namespace LotteryGenius.API.Data.Repositories
 {
     public class MegamillionRepository : IMegamillionRepository
     {
+        /// <summary>
+        /// The _ctx.
+        /// </summary>
         private readonly LotteryGeniusContext _ctx;
+
         private readonly ILogger<MegamillionRepository> _logger;
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
@@ -189,7 +193,15 @@ namespace LotteryGenius.API.Data.Repositories
                 switch (p)
                 {
                     case 5:
-                        param.Add("@prizeId", 4);
+                        if (megaNumber.megaball == winner.megaball)
+                        {
+                            param.Add("@prizeId", 5);
+                        }
+                        else
+                        {
+                            param.Add("@prizeId", 4);
+                        }
+
                         break;
 
                     case 4:
@@ -251,18 +263,15 @@ namespace LotteryGenius.API.Data.Repositories
                     var results = dbConnection.Query<MegaWinnerViewModel>(
                         "select distinct m.id, m.ball1, m.ball2, m.ball3, m.ball4, m.ball5, m.megaball, m.megaplier, m.draw_date" +
                         " from dbo.megamillions m " +
-                        "inner join dbo.MegaWinners mw " +
-                        "on m.id = mw.megamillion_id"
-                    );
+                        "inner join dbo.MegaWinners mw " + "on m.id = mw.megamillion_id");
 
                     foreach (var result in results)
                     {
                         result.picks = dbConnection.Query<MegamillionWinners>(
                             "select mw.*,mp.prize as prize_amount from dbo.MegaWinners mw" +
                             " inner join dbo.MegamillionPrize mp" +
-                            " on mp.Id = mw.prize_id" +
-                            " where mw.megamillion_id = @id", new { id = result.id }
-                        );
+                            " on mp.Id = mw.prize_id" + " where mw.megamillion_id = @id",
+                            new { id = result.id });
                     }
 
                     return results;
@@ -275,6 +284,12 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
+        /// <summary>
+        /// The get next megamillion jackpot.
+        /// </summary>
+        /// <returns>
+        /// The <see cref="NextMegamillion"/>.
+        /// </returns>
         public NextMegamillion GetNextMegamillionJackpot()
         {
             try

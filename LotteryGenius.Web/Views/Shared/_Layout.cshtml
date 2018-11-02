@@ -12,19 +12,24 @@
     <link href="~/css/flipclock.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Abel|Barlow+Semi+Condensed:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Dancing+Script:400,700|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
 </head>
 <body>
-    <div id="nav" class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top" role="navigation">
+    <div id="nav" class="navbar navbar-expand-lg navbar-light bg-light fixed-top" role="navigation" style="padding-bottom: 0; padding-top: 0; background-color: rgba(255, 255, 255, .8) !important;">
         <header class="container-fluid">
-            <div class="navbar-brand">Lottery Genius</div>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: rgba(33, 108, 42, 1); padding-bottom: 0; padding-top: 0;">
+                <img src="~/images/ic_launcher.png" alt="Logo" style="width: 60px;" />
+                Lottery Genius
+            </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="menu" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="#header">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#powerball">Powerball</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#megamillions">Megamillion</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Powerball">Powerball</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Megamillions">Megamillions</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Login" class="btn btn-portal">Login</a></li>
                 </ul>
             </div>
@@ -43,6 +48,7 @@
     <script src="~/lib/popper.js/dist/umd/popper.min.js"></script>
     <script src="~/lib/wowjs/dist/wow.min.js"></script>
     <script src="~/js/flipclock.min.js"></script>
+    <script src="~/js/site.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -56,33 +62,6 @@
         });
     </script>
     <script type="text/javascript">
-        var clock;
-        var clock2;
-
-        $(document).ready(function () {
-
-            // Grab the current date
-            var currentDate = new Date();
-
-            // Set some date in the future. In this case, it's always Jan 1
-            var futureDate = new Date(currentDate.getFullYear() + 1, 0, 1);
-
-            // Calculate the difference in seconds between the future and current date
-            var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
-
-            // Instantiate a coutdown FlipClock
-            clock = $('.clock').FlipClock(diff, {
-                clockFace: 'DailyCounter',
-                countdown: true
-            });
-
-            clock2 = $('.clock-2').FlipClock(diff,
-                {
-                    clockFace: 'DailyCounter',
-                    countdown: true
-                });
-
-        });
     </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     @RenderSection("Scripts", required: false)

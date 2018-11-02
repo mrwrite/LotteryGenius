@@ -239,7 +239,15 @@ namespace LotteryGenius.API.Data.Repositories
                 switch (p)
                 {
                     case 5:
-                        param.Add("@prizeId", 4);
+                        if (powerNumber.powerball == winner.powerball)
+                        {
+                            param.Add("@prizeId", 5);
+                        }
+                        else
+                        {
+                            param.Add("@prizeId", 4);
+                        }
+
                         break;
 
                     case 4:

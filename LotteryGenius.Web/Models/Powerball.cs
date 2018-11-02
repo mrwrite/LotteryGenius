@@ -26,7 +26,7 @@ namespace LotteryGenius.Web.Models
         public string powerplay { get; set; }
 
         public string powerballJackpot { get; set; }
-        public DateTime? powerballDrawDate { get; set; }
+        public DateTime powerballDrawDate { get; set; }
         public DateTime? created_on { get; set; }
         public DateTime? modified_on { get; set; }
     }

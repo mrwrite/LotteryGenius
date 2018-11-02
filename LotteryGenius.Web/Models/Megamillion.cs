@@ -25,7 +25,7 @@ namespace LotteryGenius.Web.Models
         public string megaplier { get; set; }
 
         public string megamillionJackpot { get; set; }
-        public DateTime? megamillionDrawDate { get; set; }
+        public DateTime megamillionDrawDate { get; set; }
         public DateTime? created_on { get; set; }
         public DateTime? modified_on { get; set; }
     }

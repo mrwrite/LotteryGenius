@@ -17,14 +17,14 @@
             <div class="">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img class="img-fluid" src="images/powerball-pp.png" />
+                        <img class="img-fluid" src="~/images/powerball-pp.png" />
                     </div>
                     <hr class="horizontal-divider" />
                     <div class="col-lg-5">
-                        Powerball<hr class="my-2" />
+                        Latest Powerball Drawing <hr class="my-2" />
                         <div class="row">
                             <div class="col-lg-12">
-                                RESULTS FOR: @Model.powerballDrawDate.ToString()
+                                @Model.powerballDrawDate.ToString("dddd, dd MMMM yyyy")
                             </div>
                         </div>
                         <div class="row">
@@ -44,53 +44,51 @@
                                 POWERPLAY: @Model.powerplay
                             </div>
                         </div>
-                    </div>
-                    @*<div class="col-lg-3">
-                            Jackpot
-                            <hr class="my-2">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    @Model.powerballJackpot
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="money-text">@Model.powerballJackpot</span>
                             </div>
-                        </div>*@
+                        </div>
+                    </div>
                     <div class="col-lg-3">
-                        Next Jackpot
+                        Next Powerball Drawing
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-12">
-                                Next Draw Date: @nextPowerball.next_jackpot_date.ToString()
+                                @nextPowerball.next_jackpot_date.ToString("dddd, dd MMMM yyyy")
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                @nextPowerball.next_jackpot
+                                <span class="money-text">@nextPowerball.next_jackpot</span>
                             </div>
+                            <input type="hidden" id="powerNextDate" value="@nextPowerball.next_jackpot_date" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-7">
-                        Winning Picks/Pick Archive
+                    <div class="col-lg-7" style="padding: 10% 0;">
+                        <span class="next-drawing-text">Next Powerball drawing happens in...</span>
                         <div class="row">
                             <div class="clock" style="margin:2em;"></div>
                         </div>
                     </div>
                     <div class="col-lg-5">
                         Powerball Daily Picks
+                        <hr class="my-2">
                         <div class="row">
-                            <table class="table table-sm">
+                            <table class="table table-sm table-borderless">
                                 @foreach (var pick in picks)
                                 {
                                     <tr>
                                         <td>
                                             <ul class="list-inline">
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball1</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball2</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball3</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball4</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball5</div></li>
-                                                <li class="list-inline-item"><div class="powerball-circle" style="min-height: 50px; min-width: 50px;">@pick.powerball</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball1</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball2</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball3</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball4</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball5</div></li>
+                                                <li class="list-inline-item"><div class="powerball-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.powerball</div></li>
                                             </ul>
                                         </td>
                                     </tr>
@@ -104,6 +102,9 @@
     </div>
     <div class="col-lg-1"></div>
 </div>
+
+<hr class="m-5" />
+
 <div class="row">
     <div class="col-lg-1"></div>
     <div class="col-lg-10">
@@ -111,14 +112,14 @@
             <div class="">
                 <div class="row">
                     <div class="col-lg-4">
-                        <img class="img-fluid" src="images/MegaMillions_Logo.png" />
+                        <img class="img-fluid" src="~/images/MegaMillions_Logo.png" />
                     </div>
                     <hr class="horizontal-divider" />
                     <div class="col-lg-5">
-                        Megamillion<hr class="my-2" />
+                        Latest Megamillions Drawing <hr class="my-2" />
                         <div class="row">
                             <div class="col-lg-12">
-                                RESULTS FOR: @latestMegamllion.megamillionDrawDate.ToString()
+                                @latestMegamllion.megamillionDrawDate.ToString("dddd, dd MMMM yyyy")
                             </div>
                         </div>
                         <div class="row">
@@ -138,53 +139,51 @@
                                 POWERPLAY: @latestMegamllion.megaplier
                             </div>
                         </div>
-                    </div>
-                    @*<div class="col-lg-3">
-                            Jackpot
-                            <hr class="my-2">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    @latestMegamllion.megamillionJackpot
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <span class="money-text">@latestMegamllion.megamillionJackpot</span>
                             </div>
-                        </div>*@
+                        </div>
+                    </div>
                     <div class="col-lg-3">
-                        Next Jackpot
+                        Next Megamillions Drawing
                         <hr class="my-2">
                         <div class="row">
                             <div class="col-lg-12">
-                                Next Draw Date: @nextMegamillion.next_jackpot_date.ToString()
+                                @nextMegamillion.next_jackpot_date.ToString("dddd, dd MMMM yyyy")
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                @nextMegamillion.next_jackpot
+                                <span class="money-text">@nextMegamillion.next_jackpot</span>
                             </div>
+                            <input type="hidden" id="megaNextDate" value="@nextMegamillion.next_jackpot_date" />
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-lg-7">
-                        Winning Picks/Pick Archive
+                    <div class="col-lg-7" style="padding: 10% 0;">
+                        <span class="next-drawing-text">Next Megamillions drawing happens in...</span>
                         <div class="row">
                             <div class="clock-2" style="margin:2em;"></div>
                         </div>
                     </div>
                     <div class="col-lg-5">
-                        Megamillion Daily Picks
+                        Megamillions Daily Picks
+                        <hr class="my-2">
                         <div class="row">
-                            <table class="table table-sm">
+                            <table class="table table-sm table-borderless">
                                 @foreach (var pick in megaPicks)
                                 {
                                     <tr>
                                         <td>
                                             <ul class="list-inline">
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball1</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball2</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball3</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball4</div></li>
-                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px;">@pick.ball5</div></li>
-                                                <li class="list-inline-item"><div class="megamillions-circle" style="min-height: 50px; min-width: 50px;">@pick.megaball</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball1</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball2</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball3</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball4</div></li>
+                                                <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.ball5</div></li>
+                                                <li class="list-inline-item"><div class="megamillions-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pick.megaball</div></li>
                                             </ul>
                                         </td>
                                     </tr>
