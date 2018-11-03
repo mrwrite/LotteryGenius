@@ -82,11 +82,19 @@ namespace LotteryGenius.API.Data.Repositories
             number.powerplay = number.powerplay.Trim();
             number.jackpot = number.jackpot.Trim();
 
-            _ctx.Powerballs.Add(number);
+            var latestPowerball = _ctx.Powerballs.LastOrDefault();
 
-            var htmlEmail =
-                $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Powerball: {number.powerball} Powerplay: {number.powerplay}";
-            await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
+            if (latestPowerball != null)
+            {
+                if (number.draw_date > latestPowerball.draw_date)
+                {
+                    _ctx.Powerballs.Add(number);
+
+                    var htmlEmail =
+                        $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Powerball: {number.powerball} Powerplay: {number.powerplay}";
+                    await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
+                }
+            }
         }
 
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
@@ -293,10 +301,11 @@ namespace LotteryGenius.API.Data.Repositories
                 {
                     dbConnection.Open();
                     var results = dbConnection.Query<PowerWinnerViewModel>(
-                        "select distinct p.id, p.ball1, p.ball2, p.ball3, p.ball4, p.ball5, p.powerball, p.powerplay, p.draw_date" +
+                        "select distinct p.id, p.ball1, p.ball2, p.ball3, p.ball4, p.ball5, p.powerball, p.powerplay, p.draw_date, p.jackpot" +
                         " from dbo.powerballs p " +
                         "inner join dbo.PowerWinners pw " +
-                        "on p.id = pw.powerball_id"
+                        "on p.id = pw.powerball_id " +
+                        "order by p.draw_date desc"
                     );
 
                     foreach (var result in results)
@@ -371,6 +380,7 @@ namespace LotteryGenius.API.Data.Repositories
             };
 
             AddPowerballNumber(pBall);
+            UpdatePowerPrizeJackpot(pBall.jackpot);
             AddNextPowerballJackpot(pNextJackpot, Convert.ToDateTime(pNextJackpotDate));
         }
 
@@ -394,6 +404,19 @@ namespace LotteryGenius.API.Data.Repositories
             using (IDbConnection dbConnection = sqlConnection)
             {
                 dbConnection.Execute("UpsertNextPowerball", param, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void UpdatePowerPrizeJackpot(string amount)
+        {
+            if (amount != null)
+            {
+                var jackpotPrize = _ctx.PowerballPrize.Find(5);
+                if (jackpotPrize != null)
+                {
+                    var newAmount = Convert.ToDecimal(amount.Replace("$", string.Empty).Replace(",", string.Empty));
+                    jackpotPrize.prize = newAmount;
+                }
             }
         }
 

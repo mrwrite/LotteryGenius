@@ -1,7 +1,121 @@
-﻿
+﻿@using LotteryGenius.Web.Models
+@using LotteryGenius.Web.ViewModels
 @{
     ViewData["Title"] = "Megamillions";
+
+    List<MegaWinnerViewModel> winnerDetails = ViewData["MegaWinnerDetails"] as List<MegaWinnerViewModel>;
 }
 
-<h2>Megamillions</h2>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-responsive-md" style="margin: 0 auto;">
+                <thead>
+                    <tr>
+                        <th>Winning Numbers</th>
+                        <th>Draw Date</th>
+                        <th>Picked Winner(s)</th>
+                        <th>Pick Date</th>
+                        <th>Winning Amount</th>
+                        <th>Megaplier Amount</th>
+                    </tr>
+                </thead>
 
+                <tbody>
+                    @foreach (var winner in winnerDetails)
+                    {
+                        <tr>
+
+                            <td>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball1</div></li>
+                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball2</div></li>
+                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball3</div></li>
+                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball4</div></li>
+                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball5</div></li>
+                                    <li class="list-inline-item"><div class="megamillions-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.megaball</div></li>
+                                </ul>
+                            </td>
+
+                            <td>@winner.draw_date.ToString("MM/dd/yyyy")</td>
+
+                            <td>
+
+                                @foreach (var pickBall in winner.picks)
+                                {
+                                    <ul class="list-unstyled list-inline">
+                                        <li class="list-inline-item">@pickBall.ball1</li>
+                                        <li class="list-inline-item">@pickBall.ball2</li>
+                                        <li class="list-inline-item">@pickBall.ball3</li>
+                                        <li class="list-inline-item">@pickBall.ball4</li>
+                                        <li class="list-inline-item">@pickBall.ball5</li>
+                                        <li class="list-inline-item">@pickBall.megaball</li>
+                                    </ul>
+                                }
+                            </td>
+
+                            <td>
+                                <ul class="list-unstyled">
+                                    @foreach (var pickDate in winner.picks)
+                                    {
+
+                                        <li class="list-item" style="margin-bottom: 1rem;">
+                                            @pickDate.pick_date.ToString("MM/dd/yyyy")
+                                        </li>
+
+                                    }
+                                </ul>
+                            </td>
+
+                            <td>
+                                <ul class="list-unstyled">
+                                    @foreach (var pickAmount in winner.picks)
+                                    {
+                                        <li class="list-item" style="margin-bottom: 1rem; color: rgba(33, 108, 42, 1);">
+                                            @{
+                                                float nAmount;
+                                                if (pickAmount.prize_id == 5)
+                                                {
+                                                    nAmount = float.Parse(winner.jackpot.Replace("$", string.Empty).Replace("$", string.Empty));
+                                                }
+                                                else
+                                                {
+                                                    nAmount = pickAmount.prize_amount;
+                                                }
+                                            }
+
+                                            @(String.Format("{0:C}", nAmount))
+                                        </li>
+                                    }
+                                </ul>
+                            </td>
+                            <td>
+                                <ul class="list-unstyled">
+                                    @foreach (var pickAmount in winner.picks)
+                                    {
+                                        <li class="list-item" style="margin-bottom: 1rem; color: rgba(33, 108, 42, 1);">
+                                            @{
+                                                float pAmount;
+                                                if (pickAmount.prize_id == 5)
+                                                {
+                                                    pAmount = float.Parse(winner.jackpot.Replace("$", String.Empty).Replace(",", String.Empty));
+                                                }
+                                                else
+                                                {
+                                                    pAmount = pickAmount.prize_amount * Convert.ToInt16(@winner.megaplier.Substring(0, 1));
+                                                }
+                                            }
+                                            @(String.Format("{0:C}", pAmount))
+                                        </li>
+                                    }
+                                </ul>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

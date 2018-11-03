@@ -214,7 +214,8 @@ namespace LotteryGenius.API.Controllers
                 }
                 else
                 {
-                    return BadRequest($"Save wasn't successful");
+                    //return BadRequest($"Save wasn't successful");
+                    return NoContent();
                 }
             }
             catch (Exception e)

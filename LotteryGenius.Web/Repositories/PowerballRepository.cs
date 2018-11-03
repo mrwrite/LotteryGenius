@@ -75,5 +75,23 @@ namespace LotteryGenius.Web.Repositories
 
             return null;
         }
+
+        public async Task<List<PowerWinnerViewModel>> ShowPowerballWinners()
+        {
+            List<PowerWinnerViewModel> powerWinners = null;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(_configuration.GetSection("BaseUrl").Value);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/api/powerball/ShowPowerballWinners").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                powerWinners = await response.Content.ReadAsAsync<List<PowerWinnerViewModel>>();
+
+                return powerWinners;
+            }
+
+            return null;
+        }
     }
 }

@@ -75,5 +75,22 @@ namespace LotteryGenius.Web.Repositories
 
             return null;
         }
+
+        public async Task<List<MegaWinnerViewModel>> ShowMegamillionWinners()
+        {
+            List<MegaWinnerViewModel> megaWinners = null;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(this.configuration.GetSection("BaseUrl").Value);
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = client.GetAsync("/api/megamillion/ShowMegamillionWinners").Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                megaWinners = await response.Content.ReadAsAsync<List<MegaWinnerViewModel>>();
+                return megaWinners;
+            }
+
+            return null;
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LotteryGenius.API.Data.Entities
+namespace LotteryGenius.Web.Models
 {
     public class MegamillionWinners
     {
@@ -38,7 +38,6 @@ namespace LotteryGenius.API.Data.Entities
         public DateTime pick_date { get; set; }
 
         public float prize_amount { get; set; }
-
         public bool isDisplayed { get; set; }
     }
 }

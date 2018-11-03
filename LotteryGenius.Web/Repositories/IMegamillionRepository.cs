@@ -16,5 +16,7 @@ namespace LotteryGenius.Web.Repositories
         Task<NextMegamillion> GetNextMegamillion();
 
         Task<List<MegaPicksViewModel>> GetMegamillionPicks();
+
+        Task<List<MegaWinnerViewModel>> ShowMegamillionWinners();
     }
 }

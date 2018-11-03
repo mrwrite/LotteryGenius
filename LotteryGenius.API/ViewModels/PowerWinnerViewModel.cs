@@ -18,6 +18,7 @@ namespace LotteryGenius.API.ViewModels
         public string powerball { get; set; }
         public string powerplay { get; set; }
         public DateTime draw_date { get; set; }
+        public string jackpot { get; set; }
         public IEnumerable<PowerballWinners> picks { get; set; }
     }
 }

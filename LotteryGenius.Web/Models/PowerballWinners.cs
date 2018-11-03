@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LotteryGenius.API.Data.Entities
+namespace LotteryGenius.Web.Models
 {
-    public class MegamillionWinners
+    public class PowerballWinners
     {
         public int id { get; set; }
-        public int megamillion_id { get; set; }
+        public int powerball_id { get; set; }
         public int pick_id { get; set; }
         public int prize_id { get; set; }
 
@@ -30,15 +30,14 @@ namespace LotteryGenius.API.Data.Entities
         public string ball5 { get; set; }
 
         [StringLength(2)]
-        public string megaball { get; set; }
+        public string powerball { get; set; }
 
         [StringLength(2)]
-        public string megaplier { get; set; }
-
-        public DateTime pick_date { get; set; }
+        public string powerplay { get; set; }
 
         public float prize_amount { get; set; }
 
+        public DateTime pick_date { get; set; }
         public bool isDisplayed { get; set; }
     }
 }

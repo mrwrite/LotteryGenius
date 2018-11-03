@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LotteryGenius.API.Data.Entities;
 
-namespace LotteryGenius.API.ViewModels
+namespace LotteryGenius.Web.ViewModels
 {
-    public class MegaWinnerViewModel
+    using LotteryGenius.Web.Models;
+
+    public class PowerWinnerViewModel
     {
         public int id { get; set; }
         public string ball1 { get; set; }
@@ -15,10 +16,10 @@ namespace LotteryGenius.API.ViewModels
         public string ball3 { get; set; }
         public string ball4 { get; set; }
         public string ball5 { get; set; }
-        public string megaball { get; set; }
-        public string megaplier { get; set; }
+        public string powerball { get; set; }
+        public string powerplay { get; set; }
         public DateTime draw_date { get; set; }
         public string jackpot { get; set; }
-        public IEnumerable<MegamillionWinners> picks { get; set; }
+        public IEnumerable<PowerballWinners> picks { get; set; }
     }
 }

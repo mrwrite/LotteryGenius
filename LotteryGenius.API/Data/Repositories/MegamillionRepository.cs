@@ -246,11 +246,19 @@ namespace LotteryGenius.API.Data.Repositories
             number.megaplier = number.megaplier.Trim();
             number.jackpot = number.jackpot.Trim();
 
-            _ctx.Megamillions.Add(number);
+            var latestMegamillion = _ctx.Megamillions.LastOrDefault();
 
-            var htmlEmail =
-                $"A new Powerball Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
-            await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Powerball Draw", htmlEmail);
+            if (latestMegamillion != null)
+            {
+                if (number.draw_date > latestMegamillion.draw_date)
+                {
+                    _ctx.Megamillions.Add(number);
+
+                    var htmlEmail =
+                        $"A new Megamillions Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
+                    await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Megamillions Draw", htmlEmail);
+                }
+            }
         }
 
         public IEnumerable<MegaWinnerViewModel> ShowMegamillionWinners()
@@ -261,9 +269,10 @@ namespace LotteryGenius.API.Data.Repositories
                 {
                     dbConnection.Open();
                     var results = dbConnection.Query<MegaWinnerViewModel>(
-                        "select distinct m.id, m.ball1, m.ball2, m.ball3, m.ball4, m.ball5, m.megaball, m.megaplier, m.draw_date" +
+                        "select distinct m.id, m.ball1, m.ball2, m.ball3, m.ball4, m.ball5, m.megaball, m.megaplier, m.draw_date, m.jackpot" +
                         " from dbo.megamillions m " +
-                        "inner join dbo.MegaWinners mw " + "on m.id = mw.megamillion_id");
+                        "inner join dbo.MegaWinners mw " + "on m.id = mw.megamillion_id " +
+                        "order by m.draw_date desc");
 
                     foreach (var result in results)
                     {
@@ -335,13 +344,14 @@ namespace LotteryGenius.API.Data.Repositories
                 ball3 = megaList.ElementAt(2).PadLeft(2, '0'),
                 ball4 = megaList.ElementAt(3).PadLeft(2, '0'),
                 ball5 = megaList.ElementAt(4).PadLeft(2, '0'),
-                megaball = megaList.ElementAt(5).Replace(" MB", "").TrimEnd().PadLeft(2, '0'),
-                megaplier = megaList.ElementAt(6).Replace("Megaplier: ", "").PadRight(2, 'X'),
+                megaball = megaList.ElementAt(5).Replace(" MB", string.Empty).TrimEnd().PadLeft(2, '0'),
+                megaplier = megaList.ElementAt(6).Replace("Megaplier: ", string.Empty).PadRight(2, 'X'),
                 draw_date = Convert.ToDateTime(mDate),
                 jackpot = megaJackpot
             };
 
             AddMegamillionNumber(mBall);
+            UpdateMegaPrizeJackpot(mBall.jackpot);
             AddNextMegamillionsJackpot(mNextJackpot, Convert.ToDateTime(mNextJackpotDate));
         }
 
@@ -365,6 +375,19 @@ namespace LotteryGenius.API.Data.Repositories
             using (IDbConnection dbConnection = sqlConnection)
             {
                 dbConnection.Execute("UpsertNextMegamillions", param, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void UpdateMegaPrizeJackpot(string amount)
+        {
+            if (amount != null)
+            {
+                var jackpotPrize = _ctx.MegamillionPrize.Find(5);
+                if (jackpotPrize != null)
+                {
+                    var newAmount = Convert.ToDecimal(amount.Replace("$", string.Empty).Replace(",", string.Empty));
+                    jackpotPrize.prize = newAmount;
+                }
             }
         }
     }

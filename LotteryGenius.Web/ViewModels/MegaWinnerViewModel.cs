@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using LotteryGenius.API.Data.Entities;
 
-namespace LotteryGenius.API.ViewModels
+namespace LotteryGenius.Web.ViewModels
 {
+    using LotteryGenius.Web.Models;
+
     public class MegaWinnerViewModel
     {
         public int id { get; set; }

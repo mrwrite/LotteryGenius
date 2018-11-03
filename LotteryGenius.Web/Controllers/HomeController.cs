@@ -58,13 +58,19 @@ namespace LotteryGenius.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Powerball()
+        public async Task<IActionResult> Powerball()
         {
+            var powerWinnerDetails = await _powerballRepository.ShowPowerballWinners();
+            ViewData["PowerWinnerDetails"] = powerWinnerDetails;
+
             return View();
         }
 
-        public IActionResult Megamillions()
+        public async Task<IActionResult> Megamillions()
         {
+            var megaWinnerDetails = await this.megamillionRepository.ShowMegamillionWinners();
+            ViewData["MegaWinnerDetails"] = megaWinnerDetails;
+
             return View();
         }
     }

@@ -16,5 +16,7 @@ namespace LotteryGenius.Web.Repositories
         Task<NextPowerball> GetNextPowerball();
 
         Task<List<PowerPicksViewModel>> GetPowerballPicks();
+
+        Task<List<PowerWinnerViewModel>> ShowPowerballWinners();
     }
 }
