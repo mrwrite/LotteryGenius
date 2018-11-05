@@ -18,5 +18,7 @@ namespace LotteryGenius.Web.Repositories
         Task<List<PowerPicksViewModel>> GetPowerballPicks();
 
         Task<List<PowerWinnerViewModel>> ShowPowerballWinners();
+
+        string checkWinner(string ball, PowerWinnerViewModel winner, string type);
     }
 }

@@ -93,5 +93,34 @@ namespace LotteryGenius.Web.Repositories
 
             return null;
         }
+
+        public string checkWinner(string ball, PowerWinnerViewModel winner, string type)
+        {
+            List<string> vWinners = new List<string>();
+            vWinners.Add(winner.ball1);
+            vWinners.Add(winner.ball2);
+            vWinners.Add(winner.ball3);
+            vWinners.Add(winner.ball4);
+            vWinners.Add(winner.ball5);
+            vWinners.Add(winner.powerball);
+
+            if (vWinners.IndexOf(ball) > -1)
+            {
+                return "correct-circle";
+            }
+            else
+            {
+                if (type == "powerball")
+                {
+                    return "powerball-circle";
+                }
+                else if (type == "megaball")
+                {
+                    return "megamillions-circle";
+                }
+
+                return "circle";
+            }
+        }
     }
 }

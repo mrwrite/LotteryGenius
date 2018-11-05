@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Internal
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -30,7 +31,6 @@
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Powerball">Powerball</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Megamillions">Megamillions</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="App" asp-action="Login" class="btn btn-portal">Login</a></li>
                 </ul>
             </div>
         </header>
@@ -40,7 +40,16 @@
     </div>
     <footer class="container-fluid">
         <div class="container container-fluid">
-            <div class="row">
+            <div class="row" align="center">
+                <div class="col-md-12">
+                </div>
+            </div>
+            <div class="row" align="center">
+                <div class="col-md-12">
+                    <p>
+                        <span>&copy;</span>Lottery <a style="color: white;" asp-controller="App" asp-action="Login">Genius</a>
+                    </p>
+                </div>
             </div>
         </div>
     </footer>

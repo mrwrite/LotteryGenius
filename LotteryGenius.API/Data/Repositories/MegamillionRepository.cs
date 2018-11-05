@@ -369,6 +369,8 @@ namespace LotteryGenius.API.Data.Repositories
         {
             DynamicParameters param = new DynamicParameters();
 
+            jackpot_date = jackpot_date.AddHours(23);
+
             param.Add("@next_jackpot", jackpot);
             param.Add("@next_jackpot_date", jackpot_date);
 

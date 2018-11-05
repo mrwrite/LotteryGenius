@@ -24,6 +24,8 @@ using Microsoft.ML.Legacy.Transforms;
 
 namespace LotteryGenius.API.Data.Repositories
 {
+    using Microsoft.ML.Legacy.Models;
+
     public class PowerballRepository : IPowerballRepository
     {
         private readonly LotteryGeniusContext _ctx;
@@ -123,7 +125,7 @@ namespace LotteryGenius.API.Data.Repositories
                         _ctx.PowerPicks.Add(newPick);
                     }
 
-                    //var predictedPick = PredictPowerball();
+                    var predictedPick = PredictPowerball();
 
                     //var extraPick = new PowerballPicks
                     //{
@@ -398,6 +400,8 @@ namespace LotteryGenius.API.Data.Repositories
         {
             DynamicParameters param = new DynamicParameters();
 
+            jackpot_date = jackpot_date.AddHours(23);
+
             param.Add("@next_jackpot", jackpot);
             param.Add("@next_jackpot_date", jackpot_date);
 
@@ -449,17 +453,23 @@ namespace LotteryGenius.API.Data.Repositories
             pipeline.Add(new ColumnCopier(("daysAgo", "Label")));
             pipeline.Add(new CategoricalOneHotVectorizer("id"));
             pipeline.Add(new ColumnConcatenator("Features", "id", "daysAgo"));
-            pipeline.Add(new GeneralizedAdditiveModelRegressor());
+            pipeline.Add(new FastTreeRegressor());
 
             var model = pipeline.Train<PowerballData, PowerballPrediction>();
+
+            var eval = new RegressionEvaluator();
+            RegressionMetrics metrics = eval.Evaluate(model, collection);
+
+            Console.WriteLine($"Rms = {metrics.Rms}");
+            Console.WriteLine($"RSquared = {metrics.RSquared}");
 
             var nextPowerball = _ctx.NextPowerball.FirstOrDefault();
 
             var predictedDays = (nextPowerball.next_jackpot_date.AddDays(1)) - DateTime.Now;
 
-            var prediction = model.Predict(data);
+            var prediction = model.Predict(new PowerballData() { Ball1 = 0, Ball2 = 0, Ball3 = 0, Ball4 = 0, Ball5 = 0, PowerBall = 0, daysAgo = predictedDays.Days });
 
-            return prediction.FirstOrDefault();
+            return prediction;
         }
     }
 }

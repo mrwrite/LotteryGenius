@@ -18,5 +18,7 @@ namespace LotteryGenius.Web.Repositories
         Task<List<MegaPicksViewModel>> GetMegamillionPicks();
 
         Task<List<MegaWinnerViewModel>> ShowMegamillionWinners();
+
+        string checkWinner(string ball, MegaWinnerViewModel winner, string type);
     }
 }

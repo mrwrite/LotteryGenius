@@ -30,3 +30,21 @@ $(document).ready(function () {
             countdown: true
         });
 });
+
+function checkWinner(ball, numbers, type) {
+    var nWinners = Object.values(numbers);
+
+    if (nWinners.indexOf(ball) !== -1) {
+        nWinners = [];
+        return "correct-circle";
+    } else {
+        nWinners = [];
+        if (type === "powerball") {
+            return "powerball-circle";
+        } else if (type === "megaball") {
+            return "megamillions-circle";
+        }
+
+        return "circle";
+    }
+}

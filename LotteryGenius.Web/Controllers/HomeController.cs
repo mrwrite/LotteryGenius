@@ -61,6 +61,21 @@ namespace LotteryGenius.Web.Controllers
         public async Task<IActionResult> Powerball()
         {
             var powerWinnerDetails = await _powerballRepository.ShowPowerballWinners();
+            float winnerTotalAmount = 0;
+            float winnerPowerplayAmount = 0;
+
+            foreach (var winner in powerWinnerDetails)
+            {
+                foreach (var pick in winner.picks)
+                {
+                    winnerTotalAmount += pick.prize_amount;
+                    winnerPowerplayAmount += (pick.prize_amount * int.Parse(winner.powerplay.Substring(0, 1)));
+                }
+            }
+
+            ViewData["winnerTotal"] = winnerTotalAmount;
+            ViewData["PowerplayTotal"] = winnerPowerplayAmount;
+
             ViewData["PowerWinnerDetails"] = powerWinnerDetails;
 
             return View();
@@ -69,7 +84,21 @@ namespace LotteryGenius.Web.Controllers
         public async Task<IActionResult> Megamillions()
         {
             var megaWinnerDetails = await this.megamillionRepository.ShowMegamillionWinners();
+            float winnerTotalAmount = 0;
+            float winnerMegaplierAmmount = 0;
+
+            foreach (var winner in megaWinnerDetails)
+            {
+                foreach (var pick in winner.picks)
+                {
+                    winnerTotalAmount += pick.prize_amount;
+                    winnerMegaplierAmmount += (pick.prize_amount * int.Parse(winner.megaplier.Substring(0, 1)));
+                }
+            }
+
             ViewData["MegaWinnerDetails"] = megaWinnerDetails;
+            ViewData["winnerTotal"] = winnerTotalAmount;
+            ViewData["MegaplierTotal"] = winnerMegaplierAmmount;
 
             return View();
         }

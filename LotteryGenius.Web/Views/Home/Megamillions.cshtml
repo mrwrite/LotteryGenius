@@ -1,12 +1,74 @@
 ﻿@using LotteryGenius.Web.Models
+@using LotteryGenius.Web.Repositories
 @using LotteryGenius.Web.ViewModels
+@inject IMegamillionRepository MegamillionRepository
 @{
     ViewData["Title"] = "Megamillions";
 
     List<MegaWinnerViewModel> winnerDetails = ViewData["MegaWinnerDetails"] as List<MegaWinnerViewModel>;
+    float winnerTotal = (float)ViewData["winnerTotal"];
+    float megaplierTotal = (float)ViewData["MegaplierTotal"];
 }
 
 <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" style="padding: 50px;">
+            <img class="img-fluid" src="~/images/MegaMillions_Logo.png" />
+        </div>
+        <div class="col-md-4">
+            <table class="table table-responsive-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <td style="background-color: rgba(255, 255, 0, 1) !important; color: black;">Numbers Matched</td>
+                        <td style="background-color: rgba(255, 255, 0, 1) !important; color: black;">Prize</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>5 + Powerball</td>
+                    <td>Jackpot</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>$1,000,000</td>
+                </tr>
+                <tr>
+                    <td>4 + Powerball</td>
+                    <td>$10,000</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>3 + Powerball</td>
+                    <td>$200</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>$10</td>
+                </tr>
+                <tr>
+                    <td>2 + Powerball</td>
+                    <td>$10</td>
+                </tr>
+                <tr>
+                    <td>1 + Powerball</td>
+                    <td>$4</td>
+                </tr>
+                <tr>
+                    <td>Powerball only</td>
+                    <td>$2</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <ul class="list-unstyled">
+                <li>Total Amount Predicted - <span class="money-text">@(String.Format("{0:C}", @winnerTotal))</span></li>
+                <li>Total Megaplier Amount Predicted - <span class="money-text">@(String.Format("{0:C}", @megaplierTotal))</span></li>
+            </ul>
+        </div>
+    </div>
+    <hr class="m-5" />
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -29,12 +91,24 @@
 
                             <td>
                                 <ul class="list-unstyled list-inline">
-                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball1</div></li>
-                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball2</div></li>
-                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball3</div></li>
-                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball4</div></li>
-                                    <li class="list-inline-item"><div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball5</div></li>
-                                    <li class="list-inline-item"><div class="megamillions-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.megaball</div></li>
+                                    <li class="list-inline-item">
+                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball1</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball2</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball3</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball4</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball5</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="megamillions-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.megaball</div>
+                                    </li>
                                 </ul>
                             </td>
 
@@ -45,12 +119,24 @@
                                 @foreach (var pickBall in winner.picks)
                                 {
                                     <ul class="list-unstyled list-inline">
-                                        <li class="list-inline-item">@pickBall.ball1</li>
-                                        <li class="list-inline-item">@pickBall.ball2</li>
-                                        <li class="list-inline-item">@pickBall.ball3</li>
-                                        <li class="list-inline-item">@pickBall.ball4</li>
-                                        <li class="list-inline-item">@pickBall.ball5</li>
-                                        <li class="list-inline-item">@pickBall.megaball</li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.ball1, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball1</div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.ball2, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball2</div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.ball3, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball3</div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.ball4, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball4</div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.ball5, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball5</div>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <div class="@MegamillionRepository.checkWinner(@pickBall.megaball, @winner, "megaball")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.megaball</div>
+                                        </li>
                                     </ul>
                                 }
                             </td>
@@ -60,7 +146,7 @@
                                     @foreach (var pickDate in winner.picks)
                                     {
 
-                                        <li class="list-item" style="margin-bottom: 1rem;">
+                                        <li class="list-item" style="margin-bottom: 2rem;">
                                             @pickDate.pick_date.ToString("MM/dd/yyyy")
                                         </li>
 
@@ -72,7 +158,7 @@
                                 <ul class="list-unstyled">
                                     @foreach (var pickAmount in winner.picks)
                                     {
-                                        <li class="list-item" style="margin-bottom: 1rem; color: rgba(33, 108, 42, 1);">
+                                        <li class="list-item" style="margin-bottom: 2rem; color: rgba(33, 108, 42, 1);">
                                             @{
                                                 float nAmount;
                                                 if (pickAmount.prize_id == 5)
@@ -94,7 +180,7 @@
                                 <ul class="list-unstyled">
                                     @foreach (var pickAmount in winner.picks)
                                     {
-                                        <li class="list-item" style="margin-bottom: 1rem; color: rgba(33, 108, 42, 1);">
+                                        <li class="list-item" style="margin-bottom: 2rem; color: rgba(33, 108, 42, 1);">
                                             @{
                                                 float pAmount;
                                                 if (pickAmount.prize_id == 5)
