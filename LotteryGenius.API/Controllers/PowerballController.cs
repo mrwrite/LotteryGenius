@@ -52,7 +52,7 @@ namespace LotteryGenius.API.Controllers
 
         [HttpGet]
         [Route("/api/powerball/GetLatestPowerball")]
-        public IActionResult GetLatestPowerball()
+        public async Task<IActionResult> GetLatestPowerball()
         {
             try
             {
@@ -67,7 +67,7 @@ namespace LotteryGenius.API.Controllers
 
         [HttpGet]
         [Route("/api/powerball/GetNextPowerball")]
-        public IActionResult GetNextPowerball()
+        public async Task<IActionResult> GetNextPowerball()
         {
             try
             {

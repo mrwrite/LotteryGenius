@@ -93,7 +93,15 @@ namespace LotteryGenius.API.Data.Repositories
                             pick_date = DateTime.Now
                         };
 
-                        _ctx.MegaPicks.Add(newPick);
+                        var existingPick = this._ctx.MegaPicks.FirstOrDefault(
+                            x => x.ball1 == newPick.ball1 && x.ball2 == newPick.ball2 && x.ball3 == newPick.ball3
+                                 && x.ball4 == newPick.ball4 && x.ball5 == newPick.ball5
+                                 && x.megaball == newPick.megaball);
+
+                        if (existingPick == null)
+                        {
+                            _ctx.MegaPicks.Add(newPick);
+                        }
                     }
 
                     SaveAll();

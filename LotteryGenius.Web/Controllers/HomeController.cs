@@ -69,7 +69,15 @@ namespace LotteryGenius.Web.Controllers
                 foreach (var pick in winner.picks)
                 {
                     winnerTotalAmount += pick.prize_amount;
-                    winnerPowerplayAmount += (pick.prize_amount * int.Parse(winner.powerplay.Substring(0, 1)));
+
+                    if (pick.prize_id == 4)
+                    {
+                        winnerPowerplayAmount += (pick.prize_amount * 2);
+                    }
+                    else
+                    {
+                        winnerPowerplayAmount += (pick.prize_amount * int.Parse(winner.powerplay.Substring(0, 1)));
+                    }
                 }
             }
 
@@ -92,6 +100,7 @@ namespace LotteryGenius.Web.Controllers
                 foreach (var pick in winner.picks)
                 {
                     winnerTotalAmount += pick.prize_amount;
+
                     winnerMegaplierAmmount += (pick.prize_amount * int.Parse(winner.megaplier.Substring(0, 1)));
                 }
             }

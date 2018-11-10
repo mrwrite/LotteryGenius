@@ -63,8 +63,8 @@
         </div>
         <div class="col-md-4">
             <ul class="list-unstyled">
-                <li>Total Amount Predicted - <span class="money-text">@(String.Format("{0:C}", @winnerTotal))</span></li>
-                <li>Total Powerplay Amount Predicted - <span class="money-text">@(String.Format("{0:C}", @powerplayTotal))</span></li>
+                <li>Total Amount Predicted - <span class="money-text">@(String.Format("{0:C0}", @winnerTotal))</span></li>
+                <li>Total Powerplay Amount Predicted - <span class="money-text">@(String.Format("{0:C0}", @powerplayTotal))</span></li>
             </ul>
         </div>
     </div>
@@ -171,7 +171,7 @@
                                                     nAmount = pickAmount.prize_amount;
                                                 }
                                             }
-                                            @(String.Format("{0:C}", nAmount))
+                                            @(String.Format("{0:C0}", nAmount))
                                         </li>
                                     }
                                 </ul>
@@ -183,16 +183,23 @@
                                         <li class="list-item" style="margin-bottom: 2rem; color: rgba(33, 108, 42, 1);">
                                             @{
                                                 float pAmount;
+                                                string pPlay = "";
                                                 if (pickAmount.prize_id == 5)
                                                 {
                                                     pAmount = float.Parse(winner.jackpot.Replace("$", string.Empty).Replace(",", string.Empty));
                                                 }
+                                                else if (pickAmount.prize_id == 4)
+                                                {
+                                                    pAmount = pickAmount.prize_amount * 2;
+                                                    pPlay = "2X";
+                                                }
                                                 else
                                                 {
                                                     pAmount = pickAmount.prize_amount * Convert.ToInt16(@winner.powerplay.Substring(0, 1));
+                                                    pPlay = winner.powerplay;
                                                 }
                                             }
-                                            @(String.Format("{0:C}", pAmount))
+                                            <span style="color: rgba(0, 0, 0, 1);">(@(pPlay))</span> @(String.Format("{0:C0}", pAmount))
                                         </li>
                                     }
                                 </ul>

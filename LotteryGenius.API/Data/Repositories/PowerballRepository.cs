@@ -122,10 +122,18 @@ namespace LotteryGenius.API.Data.Repositories
                             pick_date = DateTime.Now
                         };
 
-                        _ctx.PowerPicks.Add(newPick);
+                        var existingPick = this._ctx.PowerPicks.FirstOrDefault(
+                            x => x.ball1 == newPick.ball1 && x.ball2 == newPick.ball2 && x.ball3 == newPick.ball3
+                                 && x.ball4 == newPick.ball4 && x.ball5 == newPick.ball5
+                                 && x.powerball == newPick.powerball);
+
+                        if (existingPick == null)
+                        {
+                            _ctx.PowerPicks.Add(newPick);
+                        }
                     }
 
-                    var predictedPick = PredictPowerball();
+                    //var predictedPick = PredictPowerball();
 
                     //var extraPick = new PowerballPicks
                     //{
