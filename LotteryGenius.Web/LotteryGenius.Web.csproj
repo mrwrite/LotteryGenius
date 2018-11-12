@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Scripts\libs\" />
     <Folder Include="wwwroot\img\" />
     <Folder Include="wwwroot\lib\popper\" />
   </ItemGroup>
