@@ -1,0 +1,62 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <span>Hello {{user.given_name}}</span>
+        <span style="flex: 1 1 auto;"></span>
+        <span><a (click)="logout()" class="text-span">Logoff</a></span>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container-fluid" style="padding: 80px">
+    <div class="row" style="margin: 50px;">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Profile
+                </div>
+                <div class="card-body">
+                    <span>{{user.given_name}} {{user.family_name}}</span>
+                    <br />
+                    <span>{{user.sub}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Powerball Winners
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Megamillions Winners
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Powerball Picks
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 50px;">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    Megamillions Picks
+                </div>
+                <div class="card-body">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

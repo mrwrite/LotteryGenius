@@ -5,26 +5,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { HttpModule } from '@angular/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './shared/auth-guard.service';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         NgModule({
             declarations: [
-                AppComponent
+                AppComponent,
+                LoginComponent,
+                DashboardComponent
             ],
             imports: [
                 BrowserModule,
-                AppRoutingModule
+                AppRoutingModule,
+                BrowserAnimationsModule,
+                CommonModule,
+                FormsModule,
+                ReactiveFormsModule,
+                HttpModule,
+                HttpClientModule
             ],
-            providers: [],
+            providers: [AuthGuard],
             bootstrap: [AppComponent]
         })
     ], AppModule);
     return AppModule;
 }());
 export { AppModule };
+platformBrowserDynamic().bootstrapModule(AppModule);
 //# sourceMappingURL=app.module.js.map

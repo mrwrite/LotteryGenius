@@ -6,7 +6,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-var routes = [];
+import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './shared/auth-guard.service';
+var routes = [
+    { path: "", component: LoginComponent },
+    { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] }
+];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }

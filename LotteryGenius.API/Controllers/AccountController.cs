@@ -58,7 +58,7 @@ namespace MeticulousMentoring.API.Controllers
 
                 if (user != null)
                 {
-                    var result = await this.signInManager.CheckPasswordSignInAsync(user, model.Password, false);
+                    var result = await this.signInManager.CheckPasswordSignInAsync(user, model.Password, true);
 
                     if (result.Succeeded)
                     {
@@ -108,6 +108,20 @@ namespace MeticulousMentoring.API.Controllers
 
                         return Created("", results);
                     }
+                    else if (result.IsLockedOut)
+                    {
+                        return this.BadRequest(
+                            "Account is locked. Please contact Administrator via email admin@mylottogenius.com");
+                    }
+                    else
+                    {
+                        return this.BadRequest(
+                            $"Password is incorrect. Please try again. You have {4 - user.AccessFailedCount} attempts left.");
+                    }
+                }
+                else
+                {
+                    return this.BadRequest("This username/email isn't recognized. Please try again with correct one");
                 }
             }
 
