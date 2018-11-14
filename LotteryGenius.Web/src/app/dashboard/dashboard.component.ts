@@ -1,9 +1,11 @@
 import { Component, OnInit, NgModule, AfterViewInit } from '@angular/core';
 import { AccountService } from "../shared/account.service";
 import { UserService } from "../shared/user.service";
+import { PowerballService } from "../shared/powerball.service";
 import { Router } from "@angular/router";
 import { User } from "../models/user";
 import { UserView } from "../models/user.view";
+import { PowerballPick } from "../models/powerballpick";
 
 @Component({
     selector: 'dashboard',
@@ -15,10 +17,16 @@ export class DashboardComponent implements OnInit {
     public users: UserView[];
     public role: string;
     public today: number = Date.now();
+    public all_powerball_picks: Array<PowerballPick>;
 
     isExpanded = false;
 
-    constructor(private userService: UserService, private accountService: AccountService, private router: Router) { }
+    constructor(private userService: UserService,
+        private accountService: AccountService,
+        private router: Router,
+        private powerballService: PowerballService) {
+        this.all_powerball_picks = new Array<PowerballPick>();
+    }
 
     ngOnInit(): void {
         let newUser = this.userService.get();
@@ -39,6 +47,10 @@ export class DashboardComponent implements OnInit {
                 this.role = this.user.role;
             }
         }
+
+        this.powerballService.get_all_powerball_picks().subscribe(data => {
+            this.all_powerball_picks = data;
+        });
     }
 
     public logout() {

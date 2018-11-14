@@ -1,60 +1,92 @@
-<mat-toolbar>
-    <mat-toolbar-row>
-        <span>Hello {{user.given_name}}</span>
-        <span style="flex: 1 1 auto;"></span>
-        <span><a (click)="logout()" class="text-span">Logoff</a></span>
-    </mat-toolbar-row>
-</mat-toolbar>
+<div style="background-color: #18191c;">
+    <mat-toolbar>
+        <mat-toolbar-row>
+            <span>Hello {{user.given_name}}</span>
+            <span style="flex: 1 1 auto;"></span>
+            <span><a (click)="logout()" class="text-span">Logoff</a></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
 
-<div class="container-fluid" style="padding: 80px">
-    <div class="row" style="margin: 50px;">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    Profile
+    <div class="container-fluid" style="padding: 80px;">
+        <div class="row" style="margin: 50px;">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        PROFILE
+                    </div>
+                    <div class="card-body text-center">
+                        <div class="circle">
+                            {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}
+                        </div>
+                        <br />
+                        <span class="card-name">{{user.given_name}} {{user.family_name}}</span>
+                        <br />
+                        <span>{{user.role}}</span>
+                        <br />
+                        <span class="card-email">{{user.sub}}</span>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <span>{{user.given_name}} {{user.family_name}}</span>
-                    <br />
-                    <span>{{user.sub}}</span>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{user.given_name | uppercase}}'S POWERBALL WINNERS
+                    </div>
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS
+                    </div>
+                    <div class="card-body">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{user.given_name | uppercase}}'S POWERBALL PICKS
+                    </div>
+                    <div class="card-body">
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    Powerball Winners
-                </div>
-                <div class="card-body">
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    Megamillions Winners
-                </div>
-                <div class="card-body">
+        <div class="row" style="margin: 50px;">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        {{user.given_name | uppercase}}'S MEGAMILLION PICKS
+                    </div>
+                    <div class="card-body">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    Powerball Picks
-                </div>
-                <div class="card-body">
+            <div class="col-md-3" style="text-align;">
+                <div class="card">
+                    <div class="card-header">ALL POWERBALL PICKS</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled" style="display: inline-block;">
+                            <li *ngFor="let number of all_powerball_picks | slice:0:10">
+                                <div class="mini-circle">{{number.ball1}}</div>
+                                <div class="mini-circle">{{number.ball2}}</div>
+                                <div class="mini-circle">{{number.ball3}}</div>
+                                <div class="mini-circle">{{number.ball4}}</div>
+                                <div class="mini-circle">{{number.ball5}}</div>
+                                <div class="mini-powerball-circle">{{number.powerball}}</div>
+                                {{number.pick_date | date: 'short'}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="row" style="margin: 50px;">
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">
-                    Megamillions Picks
-                </div>
-                <div class="card-body">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">ALL MEGAMILLION PICKS</div>
+                    <div class="card-body"></div>
                 </div>
             </div>
         </div>

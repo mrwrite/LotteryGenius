@@ -10,14 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Component } from '@angular/core';
 import { AccountService } from "../shared/account.service";
 import { UserService } from "../shared/user.service";
+import { PowerballService } from "../shared/powerball.service";
 import { Router } from "@angular/router";
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(userService, accountService, router) {
+    function DashboardComponent(userService, accountService, router, powerballService) {
         this.userService = userService;
         this.accountService = accountService;
         this.router = router;
+        this.powerballService = powerballService;
         this.today = Date.now();
         this.isExpanded = false;
+        this.all_powerball_picks = new Array();
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -40,6 +43,9 @@ var DashboardComponent = /** @class */ (function () {
                 this.role = this.user.role;
             }
         }
+        this.powerballService.get_all_powerball_picks().subscribe(function (data) {
+            _this.all_powerball_picks = data;
+        });
     };
     DashboardComponent.prototype.logout = function () {
         this.accountService.logout();
@@ -51,7 +57,10 @@ var DashboardComponent = /** @class */ (function () {
             templateUrl: './dashboard.component.html',
             styleUrls: ['./dashboard.component.css']
         }),
-        __metadata("design:paramtypes", [UserService, AccountService, Router])
+        __metadata("design:paramtypes", [UserService,
+            AccountService,
+            Router,
+            PowerballService])
     ], DashboardComponent);
     return DashboardComponent;
 }());

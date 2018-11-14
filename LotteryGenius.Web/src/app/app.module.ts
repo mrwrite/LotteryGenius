@@ -6,12 +6,17 @@ import { NgModule, TemplateRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule, MatGridListModule } from '@angular/material';
+import {
+    MatToolbarModule, MatGridListModule,
+    MatListModule
+} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+
+import { PowerballService } from './shared/powerball.service';
 
 import { AuthGuard } from './shared/auth-guard.service';
 
@@ -31,9 +36,11 @@ import { AuthGuard } from './shared/auth-guard.service';
         HttpModule,
         HttpClientModule,
         MatToolbarModule,
-        MatGridListModule
+        MatGridListModule,
+        MatListModule
     ],
-    providers: [AuthGuard],
+    providers: [AuthGuard,
+        PowerballService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

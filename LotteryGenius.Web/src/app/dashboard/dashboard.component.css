@@ -3,16 +3,83 @@
 }
 
 mat-grid-tile {
-    background: rgba(212, 212, 212, 1);
+    background-image: linear-gradient(0deg, #18191c, #18191c 48%, #202226);
+}
+
+.card {
+    background-image: linear-gradient(0deg, #18191c, #18191c 48%, #202226) !important;
 }
 
 .card-header {
     background-color: transparent !important;
     padding-top: 0.25px;
     padding-bottom: 0.25px;
+    font-size: 14px !important;
+    font-weight: 200 !important;
+}
+
+.card-name {
+    font-family: inherit;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.card-email {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: lighter;
 }
 
 .card {
     background-color: rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 255, 1);
+}
+
+.circle {
+    display: inline-block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    height: 100px;
+    width: 100px;
+    margin: 0;
+    background: radial-gradient(circle at 33px 33px, #ffffff, #686868);
+    font-size: 3.0vw;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    color: rgba(0, 0, 0, .7);
+}
+
+.mini-circle {
+    display: inline-block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    margin: 0;
+    background: radial-gradient(circle at 17px 17px, #ffffff, #686868);
+    font-size: 1.0vw;
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    color: rgba(0, 0, 0, .7);
+}
+
+.mini-powerball-circle {
+    display: inline-block;
+    background: black;
+    border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    min-height: 30px;
+    min-width: 30px;
+    margin: 0;
+    background: radial-gradient(circle at 17px 17px, #ff0000, #323232);
+    font-size: 1.0vw;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Oswald', sans-serif;
 }

@@ -175,7 +175,7 @@ namespace LotteryGenius.API.Data.Repositories
         {
             try
             {
-                return _ctx.PowerPicks
+                return _ctx.PowerPicks.OrderByDescending(p => p.pick_date)
                      .ToList();
             }
             catch (Exception e)
