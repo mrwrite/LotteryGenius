@@ -14,13 +14,14 @@ namespace LotteryGenius.API.Data.MappingProfiles
         public MegaPicksMappingProfile()
         {
             CreateMap<MegamillionPicks, MegaPicksViewModel>()
-                .ForMember(p => p.ball1, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.ball2, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.ball3, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.ball4, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.ball5, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.megaball, mv => mv.MapFrom(m => m))
-                .ForMember(p => p.megaplier, mv => mv.MapFrom(m => m))
+                .ForMember(p => p.ball1, mv => mv.MapFrom(m => m.ball1))
+                .ForMember(p => p.ball2, mv => mv.MapFrom(m => m.ball2))
+                .ForMember(p => p.ball3, mv => mv.MapFrom(m => m.ball3))
+                .ForMember(p => p.ball4, mv => mv.MapFrom(m => m.ball4))
+                .ForMember(p => p.ball5, mv => mv.MapFrom(m => m.ball5))
+                .ForMember(p => p.megaball, mv => mv.MapFrom(m => m.megaball))
+                .ForMember(p => p.megaplier, mv => mv.MapFrom(m => m.megaplier))
+                .ForMember(p => p.pick_date, mv => mv.MapFrom(m => m.pick_date))
                 .ReverseMap();
         }
     }

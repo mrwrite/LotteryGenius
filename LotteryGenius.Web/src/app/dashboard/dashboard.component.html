@@ -65,19 +65,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3" style="text-align;">
+            <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">ALL POWERBALL PICKS</div>
-                    <div class="card-body">
+                    <div class="card-body" style="text-align: center;">
                         <ul class="list-unstyled" style="display: inline-block;">
-                            <li *ngFor="let number of all_powerball_picks | slice:0:10">
+                            <li *ngFor="let number of all_powerball_picks | slice:0:10" style="margin: 5px; padding: 5px;">
                                 <div class="mini-circle">{{number.ball1}}</div>
                                 <div class="mini-circle">{{number.ball2}}</div>
                                 <div class="mini-circle">{{number.ball3}}</div>
                                 <div class="mini-circle">{{number.ball4}}</div>
                                 <div class="mini-circle">{{number.ball5}}</div>
                                 <div class="mini-powerball-circle">{{number.powerball}}</div>
-                                {{number.pick_date | date: 'short'}}
+                                {{number.pick_date | date: 'shortDate'}}
                             </li>
                         </ul>
                     </div>
@@ -86,7 +86,19 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-header">ALL MEGAMILLION PICKS</div>
-                    <div class="card-body"></div>
+                    <div class="card-body" style="text-align: center;">
+                        <ul class="list-unstyled" style="display: inline-block;">
+                            <li *ngFor="let number of all_megamillions_picks | slice:0:10" style="margin: 5px; padding: 5px;">
+                                <div class="mini-circle">{{number.ball1}}</div>
+                                <div class="mini-circle">{{number.ball2}}</div>
+                                <div class="mini-circle">{{number.ball3}}</div>
+                                <div class="mini-circle">{{number.ball4}}</div>
+                                <div class="mini-circle">{{number.ball5}}</div>
+                                <div class="mini-megamillions-circle">{{number.megaball}}</div>
+                                {{number.pick_date | date: 'shortDate'}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

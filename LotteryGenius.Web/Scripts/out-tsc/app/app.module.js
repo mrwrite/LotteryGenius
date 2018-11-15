@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerballService } from './shared/powerball.service';
+import { MegamillionsService } from './shared/megamillions.service';
 import { AuthGuard } from './shared/auth-guard.service';
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -43,7 +44,8 @@ var AppModule = /** @class */ (function () {
                 MatListModule
             ],
             providers: [AuthGuard,
-                PowerballService],
+                PowerballService,
+                MegamillionsService],
             bootstrap: [AppComponent]
         })
     ], AppModule);

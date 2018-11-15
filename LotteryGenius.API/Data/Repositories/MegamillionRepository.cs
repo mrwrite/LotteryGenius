@@ -119,8 +119,7 @@ namespace LotteryGenius.API.Data.Repositories
         {
             try
             {
-                return _ctx.MegaPicks
-                    .ToList();
+                return _ctx.MegaPicks.OrderByDescending(m => m.pick_date).ToList();
             }
             catch (Exception e)
             {

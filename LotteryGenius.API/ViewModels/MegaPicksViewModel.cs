@@ -21,5 +21,7 @@ namespace LotteryGenius.API.ViewModels
         public string megaball { get; set; }
 
         public string megaplier { get; set; }
+
+        public DateTime pick_date { get; set; }
     }
 }
