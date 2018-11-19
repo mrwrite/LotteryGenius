@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+            <a href="" [routerLink]="['../']" class="material-icons">
+                keyboard_backspace
+                <span>BACK</span>
+            </a>
+        </div>
+        <div class="col-md-10">
+            <cdk-virtual-scroll-viewport style="height: 93.4vh; width: 100%;" itemSize="50">
+                <table class="table table-dark table-responsive-md" style="margin: 0 auto;">
+                    <thead>
+                        <tr>
+                            <th>PICK</th>
+                            <th>PICK DATE</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr *cdkVirtualFor="let pick of powerballPicks">
+                            <td>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{pick.ball1}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{pick.ball2}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{pick.ball3}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{pick.ball4}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{pick.ball5}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="powerball-circle">{{pick.powerball}}</div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>{{pick.pick_date}}</td>
+                            <td><button type="button" (click)="add_user_pick(pick);" class="btn btn-outline-success">Add To Your Picks</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

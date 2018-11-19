@@ -367,9 +367,17 @@ namespace LotteryGenius.API.Data.Repositories
             foreach (var userPick in picks)
             {
                 userPick.saved_date = DateTime.Now;
+                var megaPick = _ctx.MegaPicks.FirstOrDefault(x => x.id == userPick.pick_id);
+                megaPick.isPicked = true;
             }
 
             _ctx.UserPicks.AddRange(picks);
+        }
+
+        public IEnumerable<UserPick> GetUserPicks(int user_id)
+        {
+            return _ctx.UserPicks.Where(x => x.user_id == user_id && x.game_type == "megamillions")
+                .OrderByDescending(p => p.saved_date).ToList();
         }
 
         public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)

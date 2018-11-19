@@ -33,6 +33,8 @@ namespace LotteryGenius.API.Data.Entities
         [StringLength(2)]
         public string megaplier { get; set; }
 
+        public bool isPicked { get; set; }
+
         public DateTime pick_date { get; set; }
     }
 }

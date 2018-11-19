@@ -22,6 +22,7 @@ namespace LotteryGenius.API.Data.MappingProfiles
                 .ForMember(p => p.megaball, mv => mv.MapFrom(m => m.megaball))
                 .ForMember(p => p.megaplier, mv => mv.MapFrom(m => m.megaplier))
                 .ForMember(p => p.pick_date, mv => mv.MapFrom(m => m.pick_date))
+                .ForMember(p => p.id, mv => mv.MapFrom(m => m.id))
                 .ReverseMap();
         }
     }

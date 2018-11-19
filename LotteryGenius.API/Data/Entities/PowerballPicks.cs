@@ -33,6 +33,9 @@ namespace LotteryGenius.API.Data.Entities
         [StringLength(2)]
         public string powerplay { get; set; }
 
+        public bool isPicked { get; set; }
+        public int? pick_id { get; set; }
+
         public DateTime? pick_date { get; set; }
     }
 }

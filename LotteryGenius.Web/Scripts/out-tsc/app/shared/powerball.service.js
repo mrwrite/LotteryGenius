@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { UserService } from '../shared/user.service';
 import { environment } from '../../environments/environment';
 var PowerballService = /** @class */ (function () {
@@ -27,6 +27,20 @@ var PowerballService = /** @class */ (function () {
             })
         };
         return this.http.get(this.url + "api/powerball/AllPowerPicks", httpOptions);
+    };
+    PowerballService.prototype.add_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/powerball/AddUserPicks", picks, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
+    PowerballService.prototype.get_user_picks = function (user_id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/powerball/GetUserPicks/" + user_id, httpOptions);
     };
     PowerballService = __decorate([
         Injectable(),

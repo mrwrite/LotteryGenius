@@ -19,18 +19,12 @@ export class DashboardComponent implements OnInit {
     public users: UserView[];
     public role: string;
     public today: number = Date.now();
-    public all_powerball_picks: Array<PowerballPick>;
-    public all_megamillions_picks: Array<MegamillionsPick>;
 
     isExpanded = false;
 
     constructor(private userService: UserService,
         private accountService: AccountService,
-        private router: Router,
-        private powerballService: PowerballService,
-        private megamillionsService: MegamillionsService) {
-        this.all_powerball_picks = new Array<PowerballPick>();
-        this.all_megamillions_picks = new Array<MegamillionsPick>();
+        private router: Router) {
     }
 
     ngOnInit(): void {
@@ -52,14 +46,6 @@ export class DashboardComponent implements OnInit {
                 this.role = this.user.role;
             }
         }
-
-        this.powerballService.get_all_powerball_picks().subscribe(data => {
-            this.all_powerball_picks = data;
-        });
-
-        this.megamillionsService.get_all_megamillions_picks().subscribe(data => {
-            this.all_megamillions_picks = data;
-        });
     }
 
     public logout() {

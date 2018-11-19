@@ -8,8 +8,11 @@ import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatToolbarModule, MatGridListModule,
-    MatListModule
+    MatListModule,
+    MatExpansionModule
 } from '@angular/material';
+
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,15 +20,20 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { PowerballService } from './shared/powerball.service';
+import { PowerpicksService } from './dashboard/powerpicks/powerpicks.service';
 import { MegamillionsService } from './shared/megamillions.service';
 
 import { AuthGuard } from './shared/auth-guard.service';
+import { HomeComponent } from './dashboard/home/home.component';
+import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LoginComponent,
-        DashboardComponent
+        DashboardComponent,
+        HomeComponent,
+        PowerpicksComponent
     ],
     imports: [
         BrowserModule,
@@ -38,11 +46,14 @@ import { AuthGuard } from './shared/auth-guard.service';
         HttpClientModule,
         MatToolbarModule,
         MatGridListModule,
-        MatListModule
+        MatListModule,
+        MatExpansionModule,
+        ScrollingModule
     ],
     providers: [AuthGuard,
         PowerballService,
-        MegamillionsService],
+        MegamillionsService,
+        PowerpicksService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

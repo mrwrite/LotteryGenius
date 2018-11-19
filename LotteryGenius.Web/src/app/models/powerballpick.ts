@@ -9,4 +9,5 @@
     powerball: string;
     powerplay: string;
     pick_date: Date;
+    pick_id: number;
 }

@@ -175,7 +175,7 @@ namespace LotteryGenius.API.Data.Repositories
         {
             try
             {
-                return _ctx.PowerPicks.OrderByDescending(p => p.pick_date)
+                return _ctx.PowerPicks.Where(x => x.isPicked != true).OrderByDescending(p => p.pick_date)
                      .ToList();
             }
             catch (Exception e)
@@ -399,9 +399,16 @@ namespace LotteryGenius.API.Data.Repositories
             foreach (var userPick in picks)
             {
                 userPick.saved_date = DateTime.Now;
+                var powerPick = _ctx.PowerPicks.FirstOrDefault(x => x.id == userPick.pick_id);
+                powerPick.isPicked = true;
             }
 
             _ctx.UserPicks.AddRange(picks);
+        }
+
+        public IEnumerable<UserPick> GetUserPicks(int user_id)
+        {
+            return _ctx.UserPicks.Where(x => x.user_id == user_id && x.game_type == "powerball").OrderByDescending(p => p.saved_date).ToList();
         }
 
         public void AddNextPowerballJackpot(string jackpot, DateTime jackpot_date)

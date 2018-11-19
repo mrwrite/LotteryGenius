@@ -8,17 +8,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HomeComponent } from './dashboard/home/home.component';
 import { AuthGuard } from './shared/auth-guard.service';
+import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 var routes = [
     { path: "", component: LoginComponent },
-    { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] }
+    {
+        path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard],
+        children: [
+            { path: "", component: HomeComponent, canActivate: [AuthGuard] },
+            { path: "powerpicks", component: PowerpicksComponent, canActivate: [AuthGuard] }
+        ]
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
     }
     AppRoutingModule = __decorate([
         NgModule({
-            imports: [RouterModule.forRoot(routes)],
+            imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],
             exports: [RouterModule]
         })
     ], AppRoutingModule);
