@@ -12,15 +12,21 @@ import { UserService } from "../../shared/user.service";
 import { PowerballService } from "../../shared/powerball.service";
 import { MegamillionsService } from "../../shared/megamillions.service";
 import { PowerpicksService } from '../powerpicks/powerpicks.service';
+import { MegapicksService } from '../megapicks/megapicks.service';
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
         this.powerpicksService = powerpicksService;
+        this.megapicksService = megapicksService;
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
         this.user_picks = new Array();
+        this.mega_user_picks = new Array();
+        this.mega_user_winning_picks = new Array();
+        this.powerpicksService.notify_change_in_user_picks();
+        this.megapicksService.notify_change_in_user_picks();
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -40,6 +46,12 @@ var HomeComponent = /** @class */ (function () {
         this.powerpicksService.userpicks$.subscribe(function (data) {
             _this.user_picks = data;
         });
+        this.megapicksService.userpicks$.subscribe(function (data) {
+            _this.mega_user_picks = data;
+        });
+        this.megapicksService.userwinningpicks$.subscribe(function (data) {
+            _this.mega_user_winning_picks = data;
+        });
     };
     HomeComponent = __decorate([
         Component({
@@ -50,7 +62,8 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [UserService,
             PowerballService,
             MegamillionsService,
-            PowerpicksService])
+            PowerpicksService,
+            MegapicksService])
     ], HomeComponent);
     return HomeComponent;
 }());

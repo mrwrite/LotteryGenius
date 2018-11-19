@@ -230,5 +230,13 @@ namespace LotteryGenius.API.Controllers
         {
             return Ok(this._megamillionRepository.GetUserPicks(id));
         }
+
+        [HttpGet]
+        [Route("/api/megamillion/GetUserWinningPicks/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetUserWinningPicks(int id)
+        {
+            return Ok(this._megamillionRepository.GetUserWinningPicks(id));
+        }
     }
 }

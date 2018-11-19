@@ -35,5 +35,7 @@ namespace LotteryGenius.API.Data.Repositories
         void AddUserPicks(IEnumerable<UserPick> picks);
 
         IEnumerable<UserPick> GetUserPicks(int user_id);
+
+        IEnumerable<UserPick> GetUserWinningPicks(int user_id);
     }
 }

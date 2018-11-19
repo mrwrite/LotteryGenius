@@ -18,8 +18,6 @@ var PowerpicksService = /** @class */ (function () {
         this.powerballpicks$ = new Subject();
         this.userpicks$ = new Subject();
         this.get_powerball_picks();
-    }
-    PowerpicksService.prototype.ngOnInit = function () {
         var newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;
@@ -27,6 +25,9 @@ var PowerpicksService = /** @class */ (function () {
         else {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
+        this.get_user_picks();
+    }
+    PowerpicksService.prototype.ngOnInit = function () {
     };
     PowerpicksService.prototype.get_user_picks = function () {
         var _this = this;

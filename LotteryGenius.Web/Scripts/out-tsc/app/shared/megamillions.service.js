@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import { UserService } from '../shared/user.service';
 import { environment } from '../../environments/environment';
 var MegamillionsService = /** @class */ (function () {
@@ -27,6 +27,31 @@ var MegamillionsService = /** @class */ (function () {
             })
         };
         return this.http.get(this.url + "api/megamillion/AllMegaPicks", httpOptions);
+    };
+    MegamillionsService.prototype.add_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/megamillion/AddUserPicks", picks, {
+            headers: new Headers({
+                "Authorization": "Bearer " + localStorage.getItem('token').toString()
+            })
+        });
+    };
+    MegamillionsService.prototype.get_user_picks = function (user_id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/megamillion/GetUserPicks/" + user_id, httpOptions);
+    };
+    MegamillionsService.prototype.get_user_winning_picks = function (user_id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/megamillion/GetUserWinningPicks/" + user_id, httpOptions);
     };
     MegamillionsService = __decorate([
         Injectable(),

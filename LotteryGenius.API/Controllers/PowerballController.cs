@@ -232,5 +232,13 @@ namespace LotteryGenius.API.Controllers
                 return null;
             }
         }
+
+        [HttpGet]
+        [Route("/api/powerball/GetUserWinningPicks/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> GetUserWinningPicks(int id)
+        {
+            return Ok(this._powerballRepository.GetUserWinningPicks(id));
+        }
     }
 }

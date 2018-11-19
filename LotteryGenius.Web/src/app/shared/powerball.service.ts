@@ -42,4 +42,15 @@ export class PowerballService {
 
         return this.http.get<UserPick[]>(this.url + "api/powerball/GetUserPicks/" + user_id, httpOptions);
     }
+
+    public get_user_winning_picks(user_id: number) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+
+        return this.http.get<UserPick[]>(this.url + "api/powerball/GetUserWinningPicks/" + user_id, httpOptions);
+    }
 }

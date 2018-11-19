@@ -23,7 +23,17 @@
                 <div class="card-header">
                     {{user.given_name | uppercase}}'S POWERBALL WINNERS
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
+                    <ul class="list-unstyled" style="display: inline-block;">
+                        <li *ngFor="let puPicks of power_user_winning_picks | slice:0:5" style="margin: 5px; padding: 5px;">
+                            <div class="mini-circle">{{puPicks.ball1}}</div>
+                            <div class="mini-circle">{{puPicks.ball2}}</div>
+                            <div class="mini-circle">{{puPicks.ball3}}</div>
+                            <div class="mini-circle">{{puPicks.ball4}}</div>
+                            <div class="mini-circle">{{puPicks.ball5}}</div>
+                            <div class="mini-powerball-circle">{{puPicks.lottoball}}</div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -32,7 +42,17 @@
                 <div class="card-header">
                     {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
+                    <ul class="list-unstyled" style="display: inline-block;">
+                        <li *ngFor="let mwPicks of mega_user_winning_picks | slice:0:5" style="margin: 5px; padding: 5px;">
+                            <div class="mini-circle">{{mwPicks.ball1}}</div>
+                            <div class="mini-circle">{{mwPicks.ball2}}</div>
+                            <div class="mini-circle">{{mwPicks.ball3}}</div>
+                            <div class="mini-circle">{{mwPicks.ball4}}</div>
+                            <div class="mini-circle">{{mwPicks.ball5}}</div>
+                            <div class="mini-megamillions-circle">{{mwPicks.lottoball}}</div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -66,7 +86,21 @@
                 <div class="card-header">
                     {{user.given_name | uppercase}}'S MEGAMILLION PICKS
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="text-align: center;">
+                    <ul class="list-unstyled" style="display: inline-block;">
+                        <li *ngFor="let umPick of mega_user_picks | slice:0:5" style="margin: 5px; padding: 5px;">
+                            <div class="mini-circle">{{umPick.ball1}}</div>
+                            <div class="mini-circle">{{umPick.ball2}}</div>
+                            <div class="mini-circle">{{umPick.ball3}}</div>
+                            <div class="mini-circle">{{umPick.ball4}}</div>
+                            <div class="mini-circle">{{umPick.ball5}}</div>
+                            <div class="mini-megamillions-circle">{{umPick.lottoball}}</div>
+                            {{umPick.saved_date | date: 'shortDate'}}
+                        </li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,7 +141,7 @@
                         </li>
                     </ul>
                     <div style="text-align: center;">
-                        <a href="#" class="view-all-link">VIEW ALL</a>
+                        <a [routerLink]="['./megapicks']" class="view-all-link">VIEW ALL</a>
                     </div>
                 </div>
             </div>

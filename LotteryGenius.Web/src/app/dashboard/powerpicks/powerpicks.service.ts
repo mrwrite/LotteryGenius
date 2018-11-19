@@ -11,6 +11,7 @@ export class PowerpicksService implements OnInit {
     public user: User;
     public powerballpicks$ = new Subject<Array<PowerballPick>>();
     public userpicks$ = new Subject<Array<UserPick>>();
+    public userwinningpicks$ = new Subject<Array<UserPick>>();
 
     constructor(private powerballService: PowerballService, private userService: UserService) {
         this.get_powerball_picks();
@@ -22,6 +23,7 @@ export class PowerpicksService implements OnInit {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
         this.get_user_picks();
+        this.get_user_winning_picks();
     }
 
     ngOnInit(): void {
@@ -29,6 +31,11 @@ export class PowerpicksService implements OnInit {
 
     private get_user_picks() {
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(data => this.userpicks$.next(data));
+    }
+
+    private get_user_winning_picks() {
+        this.powerballService.get_user_winning_picks(parseInt(this.user.iat))
+            .subscribe(data => this.userwinningpicks$.next(data));
     }
 
     private get_powerball_picks() {
@@ -41,5 +48,9 @@ export class PowerpicksService implements OnInit {
 
     public notify_change_in_user_picks() {
         this.get_user_picks();
+    }
+
+    public notify_change_in_user_winning_picks() {
+        this.get_user_winning_picks();
     }
 }

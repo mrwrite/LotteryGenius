@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
 import { AuthGuard } from './shared/auth-guard.service';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
+import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
 
 const routes: Routes = [
     { path: "", component: LoginComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [
         path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard],
         children: [
             { path: "", component: HomeComponent, canActivate: [AuthGuard] },
-            { path: "powerpicks", component: PowerpicksComponent, canActivate: [AuthGuard] }
+            { path: "powerpicks", component: PowerpicksComponent, canActivate: [AuthGuard] },
+            { path: "megapicks", component: MegapicksComponent, canActivate: [AuthGuard] }
         ]
     }];
 

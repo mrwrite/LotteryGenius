@@ -411,6 +411,17 @@ namespace LotteryGenius.API.Data.Repositories
             return _ctx.UserPicks.Where(x => x.user_id == user_id && x.game_type == "powerball").OrderByDescending(p => p.saved_date).ToList();
         }
 
+        public IEnumerable<UserPick> GetUserWinningPicks(int user_id)
+        {
+            List<UserPick> result = _ctx.UserPicks.Join(
+                _ctx.PowerWinners,
+                users => users.pick_id,
+                winners => winners.pick_id,
+                (users, winners) => users).Where(x => x.user_id == user_id).ToList();
+
+            return result;
+        }
+
         public void AddNextPowerballJackpot(string jackpot, DateTime jackpot_date)
         {
             DynamicParameters param = new DynamicParameters();

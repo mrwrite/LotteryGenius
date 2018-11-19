@@ -119,7 +119,7 @@ namespace LotteryGenius.API.Data.Repositories
         {
             try
             {
-                return _ctx.MegaPicks.OrderByDescending(m => m.pick_date).ToList();
+                return _ctx.MegaPicks.Where(x => x.isPicked != true).OrderByDescending(m => m.pick_date).ToList();
             }
             catch (Exception e)
             {
@@ -378,6 +378,17 @@ namespace LotteryGenius.API.Data.Repositories
         {
             return _ctx.UserPicks.Where(x => x.user_id == user_id && x.game_type == "megamillions")
                 .OrderByDescending(p => p.saved_date).ToList();
+        }
+
+        public IEnumerable<UserPick> GetUserWinningPicks(int user_id)
+        {
+            List<UserPick> result = _ctx.UserPicks.Join(
+                _ctx.MegaWinners,
+                users => users.pick_id,
+                winners => winners.pick_id,
+                (users, winners) => users).Where(x => x.user_id == user_id).ToList();
+
+            return result;
         }
 
         public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)
