@@ -42,13 +42,14 @@
                                 </ul>
                             </td>
                             <td>{{pick.saved_date | date: 'shortDate'}}</td>
-                            <td><mat-checkbox [(ngModel)]="pick.checked"></mat-checkbox></td>
+                            <td><mat-checkbox [(ngModel)]="pick.checked" (change)="selectCheck()"></mat-checkbox></td>
                         </tr>
                     </tbody>
                 </table>
             </cdk-virtual-scroll-viewport>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1" style="padding: 0px;">
+            <button *ngIf="showSendNumbers" mat-raised-button color="accent" style="margin-top: 5px;"><i class="far fa-envelope"></i> Send Numbers</button>
         </div>
     </div>
 </div>

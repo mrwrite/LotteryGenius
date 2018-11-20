@@ -243,7 +243,8 @@ var AppModule = /** @class */ (function () {
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatExpansionModule"],
                 _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_9__["ScrollingModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"]
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"]
             ],
             providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_20__["AuthGuard"],
                 _shared_powerball_service__WEBPACK_IMPORTED_MODULE_14__["PowerballService"],
@@ -891,7 +892,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -934,6 +935,7 @@ var UsermegapicksComponent = /** @class */ (function () {
         this.router = router;
         this.megamillionService = megamillionService;
         this.selectAll = false;
+        this.showSendNumbers = false;
         this.userPicks = new Array();
         this.usermegapicksService.notify_change_in_user_picks();
     }
@@ -960,6 +962,17 @@ var UsermegapicksComponent = /** @class */ (function () {
             this.userPicks.map(function (picks) {
                 picks.checked = false;
             });
+        }
+        this.selectCheck();
+    };
+    UsermegapicksComponent.prototype.selectCheck = function () {
+        var count = this.userPicks.filter(function (item) { return item.checked === true; })
+            .reduce(function (sum, current) { return sum + 1; }, 0);
+        if (count >= 1) {
+            this.showSendNumbers = true;
+        }
+        else {
+            this.showSendNumbers = false;
         }
     };
     UsermegapicksComponent = __decorate([
@@ -1058,7 +1071,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\">\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>"
 
 /***/ }),
 
@@ -1103,6 +1116,7 @@ var UserpowerpicksComponent = /** @class */ (function () {
         this.router = router;
         this.powerballService = powerballService;
         this.selectAll = false;
+        this.showSendNumbers = false;
         this.userPicks = new Array();
         this.userpowerpicksService.notify_change_in_user_picks();
     }
@@ -1129,6 +1143,17 @@ var UserpowerpicksComponent = /** @class */ (function () {
             this.userPicks.map(function (picks) {
                 picks.checked = false;
             });
+        }
+        this.selectCheck();
+    };
+    UserpowerpicksComponent.prototype.selectCheck = function () {
+        var count = this.userPicks.filter(function (item) { return item.checked === true; })
+            .reduce(function (sum, current) { return sum + 1; }, 0);
+        if (count >= 1) {
+            this.showSendNumbers = true;
+        }
+        else {
+            this.showSendNumbers = false;
         }
     };
     UserpowerpicksComponent = __decorate([

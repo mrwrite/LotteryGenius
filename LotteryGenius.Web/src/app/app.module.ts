@@ -10,7 +10,8 @@ import {
     MatToolbarModule, MatGridListModule,
     MatListModule,
     MatExpansionModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonModule
 } from '@angular/material';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -59,7 +60,8 @@ import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.
         MatListModule,
         MatExpansionModule,
         ScrollingModule,
-        MatCheckboxModule
+        MatCheckboxModule,
+        MatButtonModule
     ],
     providers: [AuthGuard,
         PowerballService,

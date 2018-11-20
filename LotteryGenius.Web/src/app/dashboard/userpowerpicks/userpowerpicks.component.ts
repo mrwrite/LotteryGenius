@@ -21,6 +21,7 @@ export class UserpowerpicksComponent implements OnInit {
     public user: User;
     public userPicks: Array<UserPick>;
     public selectAll: boolean = false;
+    public showSendNumbers: boolean = false;
 
     constructor(private userpowerpicksService: UserpowerpicksService,
         private accountService: AccountService,
@@ -53,6 +54,18 @@ export class UserpowerpicksComponent implements OnInit {
             this.userPicks.map((picks) => {
                 picks.checked = false;
             });
+        }
+        this.selectCheck();
+    }
+
+    selectCheck() {
+        var count = this.userPicks.filter(item => item.checked === true)
+            .reduce((sum, current) => sum + 1, 0);
+
+        if (count >= 1) {
+            this.showSendNumbers = true;
+        } else {
+            this.showSendNumbers = false;
         }
     }
 }
