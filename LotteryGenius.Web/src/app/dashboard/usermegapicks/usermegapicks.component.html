@@ -1,25 +1,24 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1">
-            <span href="" [routerLink]="['../']" class="material-icons back-nav-link">
+            <a href="" [routerLink]="['../']" class="material-icons back-nav-link">
                 keyboard_backspace
                 <span class="back-nav-text">BACK</span>
-            </span>
+            </a>
         </div>
         <div class="col-md-10">
-            <cdk-virtual-scroll-viewport style="height: 93.4vh; width: 100%;" itemSize="50">
+            <cdk-virtual-scroll-viewport style="height: 93.4vh; width: 100%;" itemSize="100">
                 <table class="table table-dark table-responsive-md" style="margin: 0 auto;">
                     <thead>
                         <tr>
                             <th>PICK</th>
-                            <th>PICK DATE</th>
-                            <th></th>
+                            <th>SAVED DATE</th>
+                            <th><mat-checkbox (change)="updateCheck()" [(ngModel)]="selectAll"></mat-checkbox></th>
                         </tr>
                     </thead>
 
                     <tbody>
-
-                        <tr *cdkVirtualFor="let pick of megamillionPicks">
+                        <tr *cdkVirtualFor="let pick of userPicks">
                             <td>
                                 <ul class="list-unstyled list-inline">
                                     <li class="list-inline-item">
@@ -38,17 +37,18 @@
                                         <div class="circle">{{pick.ball5}}</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="megamillions-circle">{{pick.megaball}}</div>
+                                        <div class="megamillions-circle">{{pick.lottoball}}</div>
                                     </li>
                                 </ul>
                             </td>
-                            <td>{{pick.pick_date | date: 'shortDate'}}</td>
-                            <td><button type="button" (click)="add_user_pick(pick);" class="btn btn-outline-success">Add To Your Picks</button></td>
+                            <td>{{pick.saved_date | date: 'shortDate'}}</td>
+                            <td><mat-checkbox [(ngModel)]="pick.checked"></mat-checkbox></td>
                         </tr>
                     </tbody>
                 </table>
             </cdk-virtual-scroll-viewport>
         </div>
-        <div class="col-md-1"></div>
+        <div class="col-md-1">
+        </div>
     </div>
 </div>

@@ -9,7 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatToolbarModule, MatGridListModule,
     MatListModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule
 } from '@angular/material';
 
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -23,11 +24,15 @@ import { PowerballService } from './shared/powerball.service';
 import { PowerpicksService } from './dashboard/powerpicks/powerpicks.service';
 import { MegamillionsService } from './shared/megamillions.service';
 import { MegapicksService } from './dashboard/megapicks/megapicks.service';
+import { UserpowerpicksService } from './dashboard/userpowerpicks/userpowerpicks.service';
+import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.service';
 
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
+import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
+import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 
 @NgModule({
     declarations: [
@@ -36,7 +41,9 @@ import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
         DashboardComponent,
         HomeComponent,
         PowerpicksComponent,
-        MegapicksComponent
+        MegapicksComponent,
+        UserpowerpicksComponent,
+        UsermegapicksComponent
     ],
     imports: [
         BrowserModule,
@@ -51,13 +58,16 @@ import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
         MatGridListModule,
         MatListModule,
         MatExpansionModule,
-        ScrollingModule
+        ScrollingModule,
+        MatCheckboxModule
     ],
     providers: [AuthGuard,
         PowerballService,
         MegamillionsService,
         PowerpicksService,
-        MegapicksService],
+        MegapicksService,
+        UserpowerpicksService,
+        UsermegapicksService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

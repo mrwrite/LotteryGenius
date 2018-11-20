@@ -42,6 +42,15 @@ var PowerballService = /** @class */ (function () {
         };
         return this.http.get(this.url + "api/powerball/GetUserPicks/" + user_id, httpOptions);
     };
+    PowerballService.prototype.get_user_winning_picks = function (user_id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/powerball/GetUserWinningPicks/" + user_id, httpOptions);
+    };
     PowerballService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UserService, Http])

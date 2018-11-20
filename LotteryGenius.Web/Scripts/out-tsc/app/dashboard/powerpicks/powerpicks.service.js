@@ -17,6 +17,7 @@ var PowerpicksService = /** @class */ (function () {
         this.userService = userService;
         this.powerballpicks$ = new Subject();
         this.userpicks$ = new Subject();
+        this.userwinningpicks$ = new Subject();
         this.get_powerball_picks();
         var newUser = this.userService.get();
         if (newUser) {
@@ -26,12 +27,18 @@ var PowerpicksService = /** @class */ (function () {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
         this.get_user_picks();
+        this.get_user_winning_picks();
     }
     PowerpicksService.prototype.ngOnInit = function () {
     };
     PowerpicksService.prototype.get_user_picks = function () {
         var _this = this;
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });
+    };
+    PowerpicksService.prototype.get_user_winning_picks = function () {
+        var _this = this;
+        this.powerballService.get_user_winning_picks(parseInt(this.user.iat))
+            .subscribe(function (data) { return _this.userwinningpicks$.next(data); });
     };
     PowerpicksService.prototype.get_powerball_picks = function () {
         var _this = this;
@@ -42,6 +49,9 @@ var PowerpicksService = /** @class */ (function () {
     };
     PowerpicksService.prototype.notify_change_in_user_picks = function () {
         this.get_user_picks();
+    };
+    PowerpicksService.prototype.notify_change_in_user_winning_picks = function () {
+        this.get_user_winning_picks();
     };
     PowerpicksService = __decorate([
         Injectable(),

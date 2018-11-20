@@ -11,4 +11,5 @@
     lottoball: string;
     saved_date: Date;
     pick_id: number;
+    checked: boolean = false;
 }

@@ -25,8 +25,10 @@ var HomeComponent = /** @class */ (function () {
         this.user_picks = new Array();
         this.mega_user_picks = new Array();
         this.mega_user_winning_picks = new Array();
+        this.power_user_winning_picks = new Array();
         this.powerpicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_picks();
+        this.megapicksService.notify_change_in_user_winning_picks();
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -51,6 +53,9 @@ var HomeComponent = /** @class */ (function () {
         });
         this.megapicksService.userwinningpicks$.subscribe(function (data) {
             _this.mega_user_winning_picks = data;
+        });
+        this.powerpicksService.userwinningpicks$.subscribe(function (data) {
+            _this.power_user_winning_picks = data;
         });
     };
     HomeComponent = __decorate([

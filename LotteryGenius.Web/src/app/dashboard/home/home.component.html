@@ -1,4 +1,4 @@
-<div class="container-fluid" style="padding: 80px;">
+<div class="container-fluid" style="padding: 13px;">
     <div class="row" style="margin: 50px;">
         <div class="col-md-3">
             <div class="card">
@@ -34,6 +34,9 @@
                             <div class="mini-powerball-circle">{{puPicks.lottoball}}</div>
                         </li>
                     </ul>
+                    <div *ngIf="power_user_winning_picks.length > 5" style="text-align: center;">
+                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -53,13 +56,17 @@
                             <div class="mini-megamillions-circle">{{mwPicks.lottoball}}</div>
                         </li>
                     </ul>
+                    <div *ngIf="mega_user_winning_picks.length > 5" style="text-align: center;">
+                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S POWERBALL PICKS
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px;"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
                     <ul class="list-unstyled" style="display: inline-block;">
@@ -73,8 +80,8 @@
                             {{uPick.saved_date | date: 'shortDate'}}
                         </li>
                     </ul>
-                    <div style="text-align: center;">
-                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    <div *ngIf="user_picks.length > 5" style="text-align: center;">
+                        <a [routerLink]="['./userpowerpicks']" class="view-all-link">VIEW ALL</a>
                     </div>
                 </div>
             </div>
@@ -83,8 +90,9 @@
     <div class="row" style="margin: 50px;">
         <div class="col-md-3">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S MEGAMILLION PICKS
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px;"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
                     <ul class="list-unstyled" style="display: inline-block;">
@@ -98,8 +106,8 @@
                             {{umPick.saved_date | date: 'shortDate'}}
                         </li>
                     </ul>
-                    <div style="text-align: center;">
-                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    <div *ngIf="user_picks.length > 5" style="text-align: center;">
+                        <a [routerLink]="['./usermegapicks']" class="view-all-link">VIEW ALL</a>
                     </div>
                 </div>
             </div>
@@ -143,6 +151,13 @@
                     <div style="text-align: center;">
                         <a [routerLink]="['./megapicks']" class="view-all-link">VIEW ALL</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">SETTINGS</div>
+                <div class="card-body" style="text-align: center;">
                 </div>
             </div>
         </div>

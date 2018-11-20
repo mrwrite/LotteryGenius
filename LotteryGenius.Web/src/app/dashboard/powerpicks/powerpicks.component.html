@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-1">
-            <a href="" [routerLink]="['../']" class="material-icons">
+            <a href="" [routerLink]="['../']" class="material-icons back-nav-link">
                 keyboard_backspace
-                <span>BACK</span>
+                <span class="back-nav-text">BACK</span>
             </a>
         </div>
         <div class="col-md-10">
@@ -42,7 +42,7 @@
                                     </li>
                                 </ul>
                             </td>
-                            <td>{{pick.pick_date}}</td>
+                            <td>{{pick.pick_date | date: 'shortDate'}}</td>
                             <td><button type="button" (click)="add_user_pick(pick);" class="btn btn-outline-success">Add To Your Picks</button></td>
                         </tr>
                     </tbody>

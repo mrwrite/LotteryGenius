@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - LotteryGenius.Web</title>
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/font-awesome/css/fa-svg-with-js.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="~/lib/animate.css/animate.min.css" rel="stylesheet" />
     <link href="~/css/portal.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Abel|Barlow+Semi+Condensed:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Dancing+Script:400,700|Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -45,6 +45,11 @@
         });
     </script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
