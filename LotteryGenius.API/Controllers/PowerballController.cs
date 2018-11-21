@@ -152,6 +152,30 @@ namespace LotteryGenius.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("/api/powerball/AddManualUserPick")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Post([FromBody] UserPick pick)
+        {
+            try
+            {
+                this._powerballRepository.AddManualUserPick(pick);
+                if (_powerballRepository.SaveAll())
+                {
+                    return this.Ok();
+                }
+                else
+                {
+                    return this.BadRequest($"Save of manual pick wasn't successful");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         [HttpGet]
         [Route("/api/powerball/GetUserPicks/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

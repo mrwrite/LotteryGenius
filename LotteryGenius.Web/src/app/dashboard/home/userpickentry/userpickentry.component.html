@@ -1,0 +1,40 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Add {{lottogame}}  Pick</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body" style="text-align: center;">
+    <form class="form-inline" style="padding-left: 16%;">
+        <div class="form-group row" style="margin: 3px; padding: 3px;">
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex1">Ball 1</label>
+                <input class="form-control" id="ex1" [(ngModel)]="userPick.ball1" type="text" maxlength="2" name="ball1">
+            </div>
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex2">Ball 2</label>
+                <input class="form-control" id="ex2" [(ngModel)]="userPick.ball2" type="text" maxlength="2" name="ball2">
+            </div>
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex3">Ball 3</label>
+                <input class="form-control" id="ex3" [(ngModel)]="userPick.ball3" type="text" maxlength="2" name="ball3">
+            </div>
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex4">Ball 4</label>
+                <input class="form-control" id="ex4" [(ngModel)]="userPick.ball4" type="text" maxlength="2" name="ball5">
+            </div>
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex5">Ball 5</label>
+                <input class="form-control" id="ex5" [(ngModel)]="userPick.ball5" type="text" maxlength="2" name="ball5">
+            </div>
+            <div class="col-xs-1" style="margin: 3px;">
+                <label for="ex6">{{lottoball}}</label>
+                <input class="form-control" id="ex6" [(ngModel)]="userPick.lottoball" type="text" [ngStyle]="styles" maxlength="2" name="lottoball">
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-success" (click)="addUserPick()">Add Pick</button>
+    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
+</div>

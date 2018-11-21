@@ -1,5 +1,6 @@
 var UserPick = /** @class */ (function () {
     function UserPick() {
+        this.checked = false;
     }
     return UserPick;
 }());

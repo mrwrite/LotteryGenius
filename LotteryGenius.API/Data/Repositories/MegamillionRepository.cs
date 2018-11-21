@@ -374,6 +374,39 @@ namespace LotteryGenius.API.Data.Repositories
             _ctx.UserPicks.AddRange(picks);
         }
 
+        public void AddManualUserPick(UserPick pick)
+        {
+            MegamillionPicks manualPick = new MegamillionPicks()
+            {
+                ball1 = pick.ball1,
+                ball2 = pick.ball2,
+                ball3 = pick.ball3,
+                ball4 = pick.ball4,
+                ball5 = pick.ball5,
+                megaball = pick.lottoball,
+                pick_date = DateTime.Now,
+                megaplier = "0X",
+                isPicked = true
+            };
+
+            var existingPick = this._ctx.MegaPicks.FirstOrDefault(
+                x => x.ball1 == manualPick.ball1 && x.ball2 == manualPick.ball2 && x.ball3 == manualPick.ball3
+                     && x.ball4 == manualPick.ball4 && x.ball5 == manualPick.ball5
+                     && x.megaball == manualPick.megaball);
+
+            if (existingPick == null)
+            {
+                this._ctx.MegaPicks.Add(manualPick);
+
+                if (_ctx.SaveChanges() >= 0)
+                {
+                    pick.pick_id = manualPick.id;
+                    pick.saved_date = DateTime.Now;
+                    this._ctx.UserPicks.Add(pick);
+                }
+            }
+        }
+
         public IEnumerable<UserPick> GetUserPicks(int user_id)
         {
             return _ctx.UserPicks.Where(x => x.user_id == user_id && x.game_type == "megamillions")

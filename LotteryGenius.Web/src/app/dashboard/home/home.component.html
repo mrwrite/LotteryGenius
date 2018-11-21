@@ -66,7 +66,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S POWERBALL PICKS
-                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px;"></i>
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px; cursor: pointer;" (click)="openUserPickModal('Powerball')"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
                     <ul class="list-unstyled" style="display: inline-block;">
@@ -92,7 +92,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S MEGAMILLION PICKS
-                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px;"></i>
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px; cursor: pointer;" (click)="openUserPickModal('Megamillions')"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
                     <ul class="list-unstyled" style="display: inline-block;">

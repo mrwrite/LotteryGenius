@@ -34,6 +34,14 @@ export class MegamillionsService {
             });
     }
 
+    public add_manual_user_pick(pick: UserPick) {
+        return this.httpClient.post(this.url + "api/megamillion/AddManualUserPick",
+            pick,
+            {
+                headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+            });
+    }
+
     public get_user_picks(user_id: number) {
         var httpOptions = {
             headers: new HttpHeaders({

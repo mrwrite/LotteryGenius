@@ -12,6 +12,8 @@ import { HomeComponent } from './dashboard/home/home.component';
 import { AuthGuard } from './shared/auth-guard.service';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
+import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
+import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 var routes = [
     { path: "", component: LoginComponent },
     {
@@ -19,7 +21,9 @@ var routes = [
         children: [
             { path: "", component: HomeComponent, canActivate: [AuthGuard] },
             { path: "powerpicks", component: PowerpicksComponent, canActivate: [AuthGuard] },
-            { path: "megapicks", component: MegapicksComponent, canActivate: [AuthGuard] }
+            { path: "megapicks", component: MegapicksComponent, canActivate: [AuthGuard] },
+            { path: "userpowerpicks", component: UserpowerpicksComponent, canActivate: [AuthGuard] },
+            { path: "usermegapicks", component: UsermegapicksComponent, canActivate: [AuthGuard] }
         ]
     }
 ];

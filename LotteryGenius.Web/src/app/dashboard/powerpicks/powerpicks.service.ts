@@ -7,7 +7,7 @@ import { UserService } from "../../shared/user.service";
 import { User } from "../../models/user";
 
 @Injectable()
-export class PowerpicksService implements OnInit {
+export class PowerpicksService {
     public user: User;
     public powerballpicks$ = new Subject<Array<PowerballPick>>();
     public userpicks$ = new Subject<Array<UserPick>>();
@@ -24,9 +24,6 @@ export class PowerpicksService implements OnInit {
         }
         this.get_user_picks();
         this.get_user_winning_picks();
-    }
-
-    ngOnInit(): void {
     }
 
     private get_user_picks() {

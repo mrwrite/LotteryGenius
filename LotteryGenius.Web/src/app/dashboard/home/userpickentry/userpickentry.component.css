@@ -1,0 +1,7 @@
+input {
+    width: 40px !important;
+    border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    -webkit-border-radius: 100% !important;
+    font-size: .8em;
+}

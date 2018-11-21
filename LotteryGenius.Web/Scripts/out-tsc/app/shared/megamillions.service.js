@@ -35,6 +35,11 @@ var MegamillionsService = /** @class */ (function () {
             })
         });
     };
+    MegamillionsService.prototype.add_manual_user_pick = function (pick) {
+        return this.httpClient.post(this.url + "api/megamillion/AddManualUserPick", pick, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
     MegamillionsService.prototype.get_user_picks = function (user_id) {
         var httpOptions = {
             headers: new HttpHeaders({

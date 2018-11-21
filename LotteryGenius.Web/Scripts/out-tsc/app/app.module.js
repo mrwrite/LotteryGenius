@@ -12,7 +12,8 @@ import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule, MatGridListModule, MatListModule, MatExpansionModule } from '@angular/material';
+import { MatToolbarModule, MatGridListModule, MatListModule, MatExpansionModule, MatCheckboxModule, MatButtonModule } from '@angular/material';
+import { ModalModule } from 'ngx-bootstrap';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +23,15 @@ import { PowerballService } from './shared/powerball.service';
 import { PowerpicksService } from './dashboard/powerpicks/powerpicks.service';
 import { MegamillionsService } from './shared/megamillions.service';
 import { MegapicksService } from './dashboard/megapicks/megapicks.service';
+import { UserpowerpicksService } from './dashboard/userpowerpicks/userpowerpicks.service';
+import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
+import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
+import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
+import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -37,7 +43,10 @@ var AppModule = /** @class */ (function () {
                 DashboardComponent,
                 HomeComponent,
                 PowerpicksComponent,
-                MegapicksComponent
+                MegapicksComponent,
+                UserpowerpicksComponent,
+                UsermegapicksComponent,
+                UserpickentryComponent
             ],
             imports: [
                 BrowserModule,
@@ -52,13 +61,21 @@ var AppModule = /** @class */ (function () {
                 MatGridListModule,
                 MatListModule,
                 MatExpansionModule,
-                ScrollingModule
+                ScrollingModule,
+                MatCheckboxModule,
+                MatButtonModule,
+                ModalModule.forRoot()
+            ],
+            entryComponents: [
+                UserpickentryComponent
             ],
             providers: [AuthGuard,
                 PowerballService,
                 MegamillionsService,
                 PowerpicksService,
-                MegapicksService],
+                MegapicksService,
+                UserpowerpicksService,
+                UsermegapicksService],
             bootstrap: [AppComponent]
         })
     ], AppModule);

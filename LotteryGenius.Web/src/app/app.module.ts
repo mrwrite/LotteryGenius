@@ -14,6 +14,8 @@ import {
     MatButtonModule
 } from '@angular/material';
 
+import { ModalModule } from 'ngx-bootstrap';
+
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,6 +36,7 @@ import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component
 import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
 import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
+import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +47,8 @@ import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.
         PowerpicksComponent,
         MegapicksComponent,
         UserpowerpicksComponent,
-        UsermegapicksComponent
+        UsermegapicksComponent,
+        UserpickentryComponent
     ],
     imports: [
         BrowserModule,
@@ -61,7 +65,11 @@ import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.
         MatExpansionModule,
         ScrollingModule,
         MatCheckboxModule,
-        MatButtonModule
+        MatButtonModule,
+        ModalModule.forRoot()
+    ],
+    entryComponents: [
+        UserpickentryComponent
     ],
     providers: [AuthGuard,
         PowerballService,

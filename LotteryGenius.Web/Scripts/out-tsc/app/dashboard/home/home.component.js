@@ -13,13 +13,16 @@ import { PowerballService } from "../../shared/powerball.service";
 import { MegamillionsService } from "../../shared/megamillions.service";
 import { PowerpicksService } from '../powerpicks/powerpicks.service';
 import { MegapicksService } from '../megapicks/megapicks.service';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { UserpickentryComponent } from './userpickentry/userpickentry.component';
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
         this.powerpicksService = powerpicksService;
         this.megapicksService = megapicksService;
+        this.modalService = modalService;
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
         this.user_picks = new Array();
@@ -58,6 +61,17 @@ var HomeComponent = /** @class */ (function () {
             _this.power_user_winning_picks = data;
         });
     };
+    HomeComponent.prototype.openUserPickModal = function (gameType) {
+        var initialState = {
+            lottoball: gameType === 'Powerball' ? 'Powerball' : 'Megaball',
+            lottogame: gameType,
+            styles: {
+                'border-color': gameType === 'Powerball' ? 'red' : 'yellow'
+            }
+        };
+        this.bsModalRef = this.modalService.show(UserpickentryComponent, { initialState: initialState });
+        this.bsModalRef.content.closeBtnName = 'Close';
+    };
     HomeComponent = __decorate([
         Component({
             selector: 'home',
@@ -68,7 +82,8 @@ var HomeComponent = /** @class */ (function () {
             PowerballService,
             MegamillionsService,
             PowerpicksService,
-            MegapicksService])
+            MegapicksService,
+            BsModalService])
     ], HomeComponent);
     return HomeComponent;
 }());

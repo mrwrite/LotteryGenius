@@ -223,6 +223,30 @@ namespace LotteryGenius.API.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("/api/megamillion/AddManualUserPick")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Post([FromBody] UserPick pick)
+        {
+            try
+            {
+                this._megamillionRepository.AddManualUserPick(pick);
+                if (this._megamillionRepository.SaveAll())
+                {
+                    return this.Ok();
+                }
+                else
+                {
+                    return this.BadRequest($"Save of manual pick wasn't successful");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         [HttpGet]
         [Route("/api/megamillion/GetUserPicks/{id}")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
