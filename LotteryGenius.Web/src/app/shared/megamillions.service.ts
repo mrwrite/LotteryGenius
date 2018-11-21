@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { MegamillionsPick } from '../models/megamillionpick';
 import { UserPick } from '../models/userpick';
 import { environment } from '../../environments/environment';
+import { MegaWinnerViewModel } from '../viewmodels/megawinnerviewmodel';
 
 @Injectable()
 export class MegamillionsService {
@@ -62,5 +63,17 @@ export class MegamillionsService {
         };
 
         return this.http.get<UserPick[]>(this.url + "api/megamillion/GetUserWinningPicks/" + user_id, httpOptions);
+    }
+
+    public show_user_winning_picks(user_id: number) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+
+        return this.http.get<MegaWinnerViewModel[]>(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id,
+            httpOptions);
     }
 }

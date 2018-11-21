@@ -176,6 +176,22 @@ namespace LotteryGenius.API.Controllers
         }
 
         [HttpGet]
+        [Route("/api/megamillion/GetUserMegamillionWinners/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult GetUserMegamillionWinners(int id)
+        {
+            try
+            {
+                return this.Ok(this._megamillionRepository.GetUserMegamillionWinners(id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        [HttpGet]
         [Route("/api/megamillion/GetMegamillionDetails")]
         public IActionResult GetMegamillionDetails()
         {

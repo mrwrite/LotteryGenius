@@ -449,6 +449,7 @@ var HomeComponent = /** @class */ (function () {
         this.mega_user_winning_picks = new Array();
         this.power_user_winning_picks = new Array();
         this.powerpicksService.notify_change_in_user_picks();
+        this.powerpicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
     }
@@ -1737,6 +1738,15 @@ var MegamillionsService = /** @class */ (function () {
         };
         return this.http.get(this.url + "api/megamillion/GetUserWinningPicks/" + user_id, httpOptions);
     };
+    MegamillionsService.prototype.show_user_winning_picks = function (user_id) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id, httpOptions);
+    };
     MegamillionsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
@@ -1820,6 +1830,15 @@ var PowerballService = /** @class */ (function () {
             })
         };
         return this.http.get(this.url + "api/powerball/GetUserWinningPicks/" + user_id, httpOptions);
+    };
+    PowerballService.prototype.show_user_winning_picks = function (user_id) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/powerball/GetUserPowerballWinners/" + user_id, httpOptions);
     };
     PowerballService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),

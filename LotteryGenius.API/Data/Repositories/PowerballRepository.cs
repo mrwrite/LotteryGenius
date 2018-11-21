@@ -455,6 +455,48 @@ namespace LotteryGenius.API.Data.Repositories
             return result;
         }
 
+        public IEnumerable<PowerWinnerViewModel> GetUserPowerballWinners(int user_id)
+        {
+            try
+            {
+                using (IDbConnection dbConnection = sqlConnection)
+                {
+                    dbConnection.Open();
+                    var results = dbConnection.Query<PowerWinnerViewModel>(
+                        "select distinct p.id, p.ball1, p.ball2, p.ball3, p.ball4, p.ball5, p.powerball, p.powerplay, p.draw_date, p.jackpot" +
+                        " from dbo.powerballs p " +
+                        "inner join dbo.PowerWinners pw " +
+                        "on p.id = pw.powerball_id " +
+                        "inner join dbo.UserPicks up " +
+                        "on pw.pick_id = up.pick_id " +
+                        "where up.user_id = @userId " +
+                        "and up.game_type = 'powerball' " +
+                        "order by p.draw_date desc", new { userId = user_id }
+                    );
+
+                    foreach (var result in results)
+                    {
+                        result.picks = dbConnection.Query<PowerballWinners>(
+                            "select pw.*,pp.prize as prize_amount from dbo.PowerWinners pw" +
+                            " inner join dbo.PowerballPrize pp" +
+                            " on pp.Id = pw.prize_id" +
+                            " inner join dbo.UserPicks up" +
+                            " on pw.pick_id = up.pick_id" +
+                            " where pw.powerball_id = @id" +
+                            " and up.user_id = @userId", new { id = result.id, userId = user_id }
+                        );
+                    }
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get User-Picked Winners: {e}");
+                return null;
+            }
+        }
+
         public void AddNextPowerballJackpot(string jackpot, DateTime jackpot_date)
         {
             DynamicParameters param = new DynamicParameters();

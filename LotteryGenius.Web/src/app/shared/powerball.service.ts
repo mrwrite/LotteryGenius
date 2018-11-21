@@ -6,6 +6,7 @@ import { User } from '../models/user';
 import { PowerballPick } from '../models/powerballpick';
 import { UserPick } from '../models/userpick';
 import { environment } from '../../environments/environment';
+import { PowerWinnerViewModel } from '../viewmodels/powerwinnerviewmodel';
 
 @Injectable()
 export class PowerballService {
@@ -60,5 +61,17 @@ export class PowerballService {
         };
 
         return this.http.get<UserPick[]>(this.url + "api/powerball/GetUserWinningPicks/" + user_id, httpOptions);
+    }
+
+    public show_user_winning_picks(user_id: number) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+
+        return this.http.get<PowerWinnerViewModel[]>(this.url + "api/powerball/GetUserPowerballWinners/" + user_id,
+            httpOptions);
     }
 }

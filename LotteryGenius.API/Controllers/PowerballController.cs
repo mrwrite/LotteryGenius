@@ -233,6 +233,22 @@ namespace LotteryGenius.API.Controllers
         }
 
         [HttpGet]
+        [Route("/api/powerball/GetUserPowerballWinners/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public IActionResult GetUserPowerballWinners(int id)
+        {
+            try
+            {
+                return this.Ok(this._powerballRepository.GetUserPowerballWinners(id));
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        [HttpGet]
         [Route("/api/powerball/GetPowerballDetails")]
         public IActionResult GetPowerballDetails()
         {

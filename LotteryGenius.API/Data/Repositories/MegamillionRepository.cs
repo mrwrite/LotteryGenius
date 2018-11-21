@@ -424,6 +424,48 @@ namespace LotteryGenius.API.Data.Repositories
             return result;
         }
 
+        public IEnumerable<MegaWinnerViewModel> GetUserMegamillionWinners(int user_id)
+        {
+            try
+            {
+                using (IDbConnection dbConnection = sqlConnection)
+                {
+                    dbConnection.Open();
+                    var results = dbConnection.Query<MegaWinnerViewModel>(
+                        "select distinct m.id, m.ball1, m.ball2, m.ball3, m.ball4, m.ball5, m.megaball, m.megaplier, m.draw_date, m.jackpot" +
+                        " from dbo.Megamillions m " +
+                        "inner join dbo.MegaWinners mw " +
+                        "on m.id = mw.megamillion_id " +
+                        "inner join dbo.UserPicks up " +
+                        "on mw.pick_id = up.pick_id " +
+                        "where up.user_id = @userId " +
+                        "and up.game_type = 'megamillions' " +
+                        "order by m.draw_date desc", new { userId = user_id }
+                    );
+
+                    foreach (var result in results)
+                    {
+                        result.picks = dbConnection.Query<MegamillionWinners>(
+                            "select mw.*,mp.prize as prize_amount from dbo.MegaWinners mw" +
+                            " inner join dbo.MegamillionPrize mp" +
+                            " on mp.Id = mw.prize_id" +
+                            " inner join dbo.UserPicks up" +
+                            " on mw.pick_id = up.pick_id" +
+                            " where mw.megamillion_id = @id" +
+                            " and up.user_id = @userId", new { id = result.id, userId = user_id }
+                        );
+                    }
+
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get User-Picked Winners: {e}");
+                return null;
+            }
+        }
+
         public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)
         {
             DynamicParameters param = new DynamicParameters();

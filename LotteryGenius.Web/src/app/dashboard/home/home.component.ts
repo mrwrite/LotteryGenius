@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
         this.mega_user_winning_picks = new Array<UserPick>();
         this.power_user_winning_picks = new Array<UserPick>();
         this.powerpicksService.notify_change_in_user_picks();
+        this.powerpicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
     }
