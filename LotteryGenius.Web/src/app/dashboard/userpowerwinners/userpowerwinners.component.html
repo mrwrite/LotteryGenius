@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-1">
+            <a href="" [routerLink]="['../']" class="material-icons back-nav-link">
+                keyboard_backspace
+                <span class="back-nav-text">BACK</span>
+            </a>
+        </div>
+        <div class="col-md-10">
+            <cdk-virtual-scroll-viewport style="height: 93.4vh; width: 100%;" itemSize="100">
+                <table class="table table-dark table-responsive-md" style="margin: 0 auto;">
+                    <thead>
+                        <tr>
+                            <th>Winning Numbers</th>
+                            <th>Draw Date</th>
+                            <th>Picked Winner(s)</th>
+                            <th>Pick Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor="let winner of winners; index as i">
+                        <tr *ngFor="let pick of winner.picks">
+                            <td *ngIf="i == 0" rowspan="winner.picks.length">
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{winner.ball1}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{winner.ball2}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{winner.ball3}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{winner.ball4}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="circle">{{winner.ball5}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div class="powerball-circle">{{winner.powerball}}</div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td *ngIf="i == 0" rowspan="winner.picks.length">{{winner.draw_date | date: 'shortDate'}}</td>
+                            <td>
+                                <ul class="list-unstyled list-inline">
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.ball1, winner, 'none')">{{pick.ball1}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.ball2, winner, 'none')">{{pick.ball2}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.ball3, winner, 'none')">{{pick.ball3}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.ball4, winner, 'none')">{{pick.ball4}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.ball5, winner, 'none')">{{pick.ball5}}</div>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <div [ngClass]="checkWinner(pick.powerball, winner, 'powerball')">{{pick.powerball}}</div>
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>{{pick.pick_date | date: 'shortDate'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>

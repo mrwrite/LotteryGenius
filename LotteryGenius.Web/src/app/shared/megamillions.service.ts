@@ -76,4 +76,11 @@ export class MegamillionsService {
         return this.http.get<MegaWinnerViewModel[]>(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id,
             httpOptions);
     }
+
+    public delete_user_pick(id: number) {
+        return this.httpClient.delete(this.url + "api/megamillion/DeleteUserPick/" + id,
+            {
+                headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+            }).pipe();
+    }
 }

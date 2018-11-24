@@ -64,6 +64,7 @@ namespace LotteryGenius.API
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped<IPowerballRepository, PowerballRepository>();
             services.AddScoped<IMegamillionRepository, MegamillionRepository>();
+            services.AddScoped<ISettingsRepository, SettingsRepository>();
 
             services.AddCors(
                 cfg =>

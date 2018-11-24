@@ -42,15 +42,15 @@ var UserpickentryComponent = /** @class */ (function () {
         if (this.lottogame === "Powerball") {
             this.userPick.game_type = 'powerball';
             this.powerballService.add_manual_user_pick(this.userPick).subscribe(function (data) {
-                _this.bsModalRef.hide();
                 _this.userpowerpicksService.notify_change_in_user_picks();
+                _this.bsModalRef.hide();
             });
         }
         else {
             this.userPick.game_type = 'megamillions';
             this.megamillionsService.add_manual_user_pick(this.userPick).subscribe(function (data) {
-                _this.bsModalRef.hide();
                 _this.usermegapicksService.notify_change_in_user_picks();
+                _this.bsModalRef.hide();
             });
         }
     };

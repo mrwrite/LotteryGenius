@@ -466,6 +466,22 @@ namespace LotteryGenius.API.Data.Repositories
             }
         }
 
+        public bool DeleteUserPick(int id)
+        {
+            var entry = this._ctx.UserPicks.Find(id);
+            if (entry != null)
+            {
+                var pick = this._ctx.MegaPicks.FirstOrDefault(x => x.id == entry.pick_id);
+                pick.isPicked = false;
+                this._ctx.UserPicks.Remove(entry);
+                return this._ctx.SaveChanges() > 0;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)
         {
             DynamicParameters param = new DynamicParameters();

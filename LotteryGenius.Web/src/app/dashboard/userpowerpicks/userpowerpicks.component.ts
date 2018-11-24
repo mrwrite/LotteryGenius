@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AccountService } from "../../shared/account.service";
 import { NavigationStart, Router } from '@angular/router';
 import { UserService } from "../../shared/user.service";
@@ -8,6 +8,7 @@ import { User } from "../../models/user";
 import { PowerballPick } from '../../models/powerballpick';
 import { UserPick } from '../../models/userpick';
 import { Subscription } from 'rxjs';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 export let browserRefresh = false;
 
@@ -22,12 +23,15 @@ export class UserpowerpicksComponent implements OnInit {
     public userPicks: Array<UserPick>;
     public selectAll: boolean = false;
     public showSendNumbers: boolean = false;
+    bsModalRef: BsModalRef;
+    public user_pick_id: number = -1;
 
     constructor(private userpowerpicksService: UserpowerpicksService,
         private accountService: AccountService,
         private userService: UserService,
         private router: Router,
-        private powerballService: PowerballService) {
+        private powerballService: PowerballService,
+        private modalService: BsModalService) {
         this.userPicks = new Array<UserPick>();
         this.userpowerpicksService.notify_change_in_user_picks();
     }
@@ -67,5 +71,17 @@ export class UserpowerpicksComponent implements OnInit {
         } else {
             this.showSendNumbers = false;
         }
+    }
+
+    open_delete_modal(template: TemplateRef<any>, id: number) {
+        this.user_pick_id = id;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    }
+
+    confirm_user_pick_delete() {
+        this.powerballService.delete_user_pick(this.user_pick_id).subscribe(data => {
+            this.bsModalRef.hide();
+            this.userpowerpicksService.notify_change_in_user_picks();
+        });
     }
 }

@@ -58,6 +58,15 @@ var MegamillionsService = /** @class */ (function () {
         };
         return this.http.get(this.url + "api/megamillion/GetUserWinningPicks/" + user_id, httpOptions);
     };
+    MegamillionsService.prototype.show_user_winning_picks = function (user_id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id, httpOptions);
+    };
     MegamillionsService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient, UserService, Http])

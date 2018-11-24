@@ -25,6 +25,7 @@ import { MegamillionsService } from './shared/megamillions.service';
 import { MegapicksService } from './dashboard/megapicks/megapicks.service';
 import { UserpowerpicksService } from './dashboard/userpowerpicks/userpowerpicks.service';
 import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.service';
+import { UserpowerwinnersService } from './dashboard/userpowerwinners/userpowerwinners.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
@@ -32,6 +33,7 @@ import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
 import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
+import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -46,7 +48,8 @@ var AppModule = /** @class */ (function () {
                 MegapicksComponent,
                 UserpowerpicksComponent,
                 UsermegapicksComponent,
-                UserpickentryComponent
+                UserpickentryComponent,
+                UserpowerwinnersComponent
             ],
             imports: [
                 BrowserModule,
@@ -75,7 +78,8 @@ var AppModule = /** @class */ (function () {
                 PowerpicksService,
                 MegapicksService,
                 UserpowerpicksService,
-                UsermegapicksService],
+                UsermegapicksService,
+                UserpowerwinnersService],
             bootstrap: [AppComponent]
         })
     ], AppModule);

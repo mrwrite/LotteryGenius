@@ -407,6 +407,24 @@ namespace LotteryGenius.API.Migrations
                     b.ToTable("UserPicks");
                 });
 
+            modelBuilder.Entity("LotteryGenius.API.Data.Entities.UserPlayer", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("created_on");
+
+                    b.Property<DateTime>("modified_on");
+
+                    b.Property<int>("player_id");
+
+                    b.Property<int>("user_id");
+
+                    b.HasKey("id");
+
+                    b.ToTable("UserPlayers");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
                 {
                     b.Property<int>("Id")

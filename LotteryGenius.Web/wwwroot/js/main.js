@@ -43,12 +43,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
 /* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
 /* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -68,7 +72,9 @@ var routes = [
             { path: "powerpicks", component: _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_6__["PowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
             { path: "megapicks", component: _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_7__["MegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
             { path: "userpowerpicks", component: _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_8__["UserpowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "usermegapicks", component: _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_9__["UsermegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] }
+            { path: "usermegapicks", component: _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_9__["UsermegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+            { path: "userpowerwinners", component: _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_10__["UserpowerwinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
+            { path: "usermegawinners", component: _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_11__["UsermegawinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] }
         ]
     }
 ];
@@ -174,22 +180,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
-/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
-/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
-/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/settings.service */ "./src/app/shared/settings.service.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
+/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
+/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -227,12 +243,14 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"],
-                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_22__["HomeComponent"],
-                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_23__["PowerpicksComponent"],
-                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_24__["MegapicksComponent"],
-                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_25__["UserpowerpicksComponent"],
-                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_26__["UsermegapicksComponent"],
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_27__["UserpickentryComponent"]
+                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_25__["HomeComponent"],
+                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_26__["PowerpicksComponent"],
+                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_27__["MegapicksComponent"],
+                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_28__["UserpowerpicksComponent"],
+                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_29__["UsermegapicksComponent"],
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__["UserpickentryComponent"],
+                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_31__["UserpowerwinnersComponent"],
+                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_32__["UsermegawinnersComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -253,15 +271,18 @@ var AppModule = /** @class */ (function () {
                 ngx_bootstrap__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot()
             ],
             entryComponents: [
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_27__["UserpickentryComponent"]
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__["UserpickentryComponent"]
             ],
-            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_21__["AuthGuard"],
+            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__["AuthGuard"],
                 _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__["PowerballService"],
                 _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__["MegamillionsService"],
                 _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__["PowerpicksService"],
-                _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_18__["MegapicksService"],
-                _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_19__["UserpowerpicksService"],
-                _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_20__["UsermegapicksService"]],
+                _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_19__["MegapicksService"],
+                _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_20__["UserpowerpicksService"],
+                _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__["UsermegapicksService"],
+                _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__["UserpowerwinnersService"],
+                _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__["UsermegawinnersService"],
+                _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__["SettingsService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
@@ -291,7 +312,7 @@ module.exports = ".basic-container {\r\n    padding: 100px;\r\n}\r\n\r\nmat-grid
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"background-color: #18191c;\">\r\n    <mat-toolbar>\r\n        <mat-toolbar-row>\r\n            <span>Hello {{user.given_name}}</span>\r\n            <span style=\"flex: 1 1 auto;\"></span>\r\n            <span><a (click)=\"logout()\" class=\"text-span\">Logoff</a></span>\r\n        </mat-toolbar-row>\r\n    </mat-toolbar>\r\n\r\n    <router-outlet>\r\n    </router-outlet>\r\n</div>"
+module.exports = "<div>\r\n    <mat-toolbar color=\"accent\">\r\n        <mat-toolbar-row>\r\n            <span>Hello {{user.given_name}}</span>\r\n            <span style=\"flex: 1 1 auto;\"></span>\r\n            <span><a (click)=\"logout()\" class=\"text-span\">Logoff</a></span>\r\n        </mat-toolbar-row>\r\n    </mat-toolbar>\r\n\r\n    <router-outlet>\r\n    </router-outlet>\r\n</div>"
 
 /***/ }),
 
@@ -391,7 +412,7 @@ module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a href=\"#\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a href=\"#\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player.length > 0; else addUserPlayer\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\"></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n    <i class=\"fas fa-plus\" style=\"cursor: pointer\"><span>Add User Player</span></i>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -406,14 +427,19 @@ module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n  
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
-/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
-/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
-/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
-/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
-/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
+/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
+/* harmony import */ var _models_userplayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/userplayer */ "./src/app/models/userplayer.ts");
+/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
+/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
+/* harmony import */ var _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
+/* harmony import */ var _homesettings_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -432,8 +458,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, homesettingsService, accountService) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
@@ -441,6 +472,10 @@ var HomeComponent = /** @class */ (function () {
         this.megapicksService = megapicksService;
         this.modalService = modalService;
         this.changeDetection = changeDetection;
+        this.userpowerpicksService = userpowerpicksService;
+        this.usermegapicksService = usermegapicksService;
+        this.homesettingsService = homesettingsService;
+        this.accountService = accountService;
         this.subscriptions = [];
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
@@ -452,6 +487,8 @@ var HomeComponent = /** @class */ (function () {
         this.powerpicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
+        this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_5__["UserPlayer"]();
+        this.users = new Array();
     }
     HomeComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -480,10 +517,16 @@ var HomeComponent = /** @class */ (function () {
         this.powerpicksService.userwinningpicks$.subscribe(function (data) {
             _this.power_user_winning_picks = data;
         });
+        this.homesettingsService.userPlayer$.subscribe(function (data) {
+            _this.user_player = data;
+        });
+        this.accountService.getUsers().subscribe(function (data) {
+            _this.users = data;
+        });
     };
     HomeComponent.prototype.openUserPickModal = function (gameType) {
         var _this = this;
-        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
+        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
         this.subscriptions.push(this.modalService.onHide.subscribe(function (reason) {
             _this.powerpicksService.notify_change_in_user_picks();
             _this.megapicksService.notify_change_in_user_picks();
@@ -496,8 +539,28 @@ var HomeComponent = /** @class */ (function () {
                 'border-color': gameType === 'Powerball' ? 'red' : 'yellow'
             }
         };
-        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_7__["UserpickentryComponent"], { initialState: initialState });
+        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_9__["UserpickentryComponent"], { initialState: initialState });
         this.bsModalRef.content.closeBtnName = 'Close';
+    };
+    HomeComponent.prototype.open_delete_modal = function (template, id, type) {
+        this.pick_id = id;
+        this.game_type = type;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    HomeComponent.prototype.confirm_user_pick_delete = function () {
+        var _this = this;
+        if (this.game_type === 'powerball') {
+            this.powerballService.delete_user_pick(this.pick_id).subscribe(function (data) {
+                _this.bsModalRef.hide();
+                _this.powerpicksService.notify_change_in_user_picks();
+            });
+        }
+        else {
+            this.megamillionsService.delete_user_pick(this.pick_id).subscribe(function (data) {
+                _this.bsModalRef.hide();
+                _this.megapicksService.notify_change_in_user_picks();
+            });
+        }
     };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -505,15 +568,80 @@ var HomeComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./home.component.html */ "./src/app/dashboard/home/home.component.html"),
             styles: [__webpack_require__(/*! ./home.component.css */ "./src/app/dashboard/home/home.component.css")]
         }),
-        __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_1__["UserService"],
-            _shared_powerball_service__WEBPACK_IMPORTED_MODULE_2__["PowerballService"],
-            _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_3__["MegamillionsService"],
-            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_4__["PowerpicksService"],
-            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_5__["MegapicksService"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"],
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"]])
+        __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+            _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__["PowerballService"],
+            _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__["MegamillionsService"],
+            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_6__["PowerpicksService"],
+            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_7__["MegapicksService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__["BsModalService"],
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
+            _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_11__["UserpowerpicksService"],
+            _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_12__["UsermegapicksService"],
+            _homesettings_service__WEBPACK_IMPORTED_MODULE_13__["HomesettingsService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"]])
     ], HomeComponent);
     return HomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/home/homesettings.service.ts":
+/*!********************************************************!*\
+  !*** ./src/app/dashboard/home/homesettings.service.ts ***!
+  \********************************************************/
+/*! exports provided: HomesettingsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomesettingsService", function() { return HomesettingsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/settings.service */ "./src/app/shared/settings.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var HomesettingsService = /** @class */ (function () {
+    function HomesettingsService(settingsService, userService) {
+        this.settingsService = settingsService;
+        this.userService = userService;
+        this.userPlayer$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        this.get_user_player();
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+    }
+    HomesettingsService.prototype.get_user_player = function () {
+        var _this = this;
+        this.settingsService.get_user_player(parseInt(this.user.iat))
+            .subscribe(function (data) { return _this.userPlayer$.next(data); });
+    };
+    HomesettingsService.prototype.notify_change_in_user_player = function () {
+        this.get_user_player();
+    };
+    HomesettingsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_shared_settings_service__WEBPACK_IMPORTED_MODULE_2__["SettingsService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], HomesettingsService);
+    return HomesettingsService;
 }());
 
 
@@ -1046,7 +1174,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1054,11 +1182,12 @@ module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n
 /*!********************************************************************!*\
   !*** ./src/app/dashboard/usermegapicks/usermegapicks.component.ts ***!
   \********************************************************************/
-/*! exports provided: UsermegapicksComponent */
+/*! exports provided: browserRefresh, UsermegapicksComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "browserRefresh", function() { return browserRefresh; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsermegapicksComponent", function() { return UsermegapicksComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
@@ -1066,6 +1195,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
 /* harmony import */ var _usermegapicks_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1081,15 +1211,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+var browserRefresh = false;
 var UsermegapicksComponent = /** @class */ (function () {
-    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService) {
+    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService, modalService) {
         this.usermegapicksService = usermegapicksService;
         this.accountService = accountService;
         this.userService = userService;
         this.router = router;
         this.megamillionService = megamillionService;
+        this.modalService = modalService;
         this.selectAll = false;
         this.showSendNumbers = false;
+        this.user_pick_id = -1;
         this.userPicks = new Array();
         this.usermegapicksService.notify_change_in_user_picks();
     }
@@ -1129,6 +1263,17 @@ var UsermegapicksComponent = /** @class */ (function () {
             this.showSendNumbers = false;
         }
     };
+    UsermegapicksComponent.prototype.open_delete_modal = function (template, id) {
+        this.user_pick_id = id;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    UsermegapicksComponent.prototype.confirm_user_pick_delete = function () {
+        var _this = this;
+        this.megamillionService.delete_user_pick(this.user_pick_id).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.usermegapicksService.notify_change_in_user_picks();
+        });
+    };
     UsermegapicksComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'usermegapicks',
@@ -1139,7 +1284,8 @@ var UsermegapicksComponent = /** @class */ (function () {
             _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
             _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__["MegamillionsService"]])
+            _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__["MegamillionsService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]])
     ], UsermegapicksComponent);
     return UsermegapicksComponent;
 }());
@@ -1207,6 +1353,176 @@ var UsermegapicksService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dashboard/usermegawinners/usermegawinners.component.css":
+/*!*************************************************************************!*\
+  !*** ./src/app/dashboard/usermegawinners/usermegawinners.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".table-dark {\r\n    background-color: transparent !important;\r\n}\r\n\r\n.back-nav-link {\r\n    color: #e1e1e1;\r\n    cursor: pointer;\r\n}\r\n\r\n.back-nav-text {\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n.circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 80px;\r\n    width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ffffff, #686868);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n    color: rgba(0, 0, 0, .7);\r\n}\r\n\r\n.powerball-circle {\r\n    display: block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 80px;\r\n    min-width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ff0000, #323232);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    color: #ffffff;\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.megamillions-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 80px;\r\n    width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ffff00, #323232);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    color: #323232;\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.correct-circle {\r\n    display: block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 80px;\r\n    width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #00ff00, #323232);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    color: rgba(255,255,255,1);\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.mini-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 30px;\r\n    width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ffffff, #686868);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    font-family: 'Oswald', sans-serif;\r\n    color: rgba(0, 0, 0, .7);\r\n}\r\n\r\n.mini-powerball-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 30px;\r\n    min-width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ff0000, #323232);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    color: #ffffff;\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n.mini-megamillions-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 30px;\r\n    min-width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ffff00, #323232);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    color: #323232;\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n    width: 2px;\r\n    height: 2px;\r\n}\r\n\r\n::-webkit-scrollbar-button {\r\n    width: 0px;\r\n    height: 0px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n    background: #e1e1e1;\r\n    border: 0px none #ffffff;\r\n    border-radius: 50px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb:hover {\r\n        background: #ffffff;\r\n    }\r\n\r\n::-webkit-scrollbar-thumb:active {\r\n        background: #000000;\r\n    }\r\n\r\n::-webkit-scrollbar-track {\r\n    background: #666666;\r\n    border: 0px none #ffffff;\r\n    border-radius: 50px;\r\n}\r\n\r\n::-webkit-scrollbar-track:hover {\r\n        background: #666666;\r\n    }\r\n\r\n::-webkit-scrollbar-track:active {\r\n        background: #333333;\r\n    }\r\n\r\n::-webkit-scrollbar-corner {\r\n    background: transparent;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL3VzZXJtZWdhd2lubmVycy91c2VybWVnYXdpbm5lcnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLHlDQUF5QztDQUM1Qzs7QUFFRDtJQUNJLGVBQWU7SUFDZixnQkFBZ0I7Q0FDbkI7O0FBRUQ7SUFDSSxrQ0FBa0M7Q0FDckM7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGFBQWE7SUFDYixZQUFZO0lBQ1osVUFBVTtJQUNWLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGtDQUFrQztJQUNsQyxpQkFBaUI7SUFDakIseUJBQXlCO0NBQzVCOztBQUVEO0lBQ0ksZUFBZTtJQUNmLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLDRCQUE0QjtJQUM1QixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLFVBQVU7SUFDVixtRUFBbUU7SUFDbkUsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysa0NBQWtDO0lBQ2xDLGlCQUFpQjtDQUNwQjs7QUFFRDtJQUNJLHNCQUFzQjtJQUN0QixrQkFBa0I7SUFDbEIsb0JBQW9CO0lBQ3BCLHlCQUF5QjtJQUN6Qiw0QkFBNEI7SUFDNUIsYUFBYTtJQUNiLFlBQVk7SUFDWixVQUFVO0lBQ1YsbUVBQW1FO0lBQ25FLGlCQUFpQjtJQUNqQixtQkFBbUI7SUFDbkIsZUFBZTtJQUNmLGtDQUFrQztJQUNsQyxpQkFBaUI7Q0FDcEI7O0FBRUQ7SUFDSSxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGFBQWE7SUFDYixZQUFZO0lBQ1osVUFBVTtJQUNWLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLDJCQUEyQjtJQUMzQixrQ0FBa0M7SUFDbEMsaUJBQWlCO0NBQ3BCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLDRCQUE0QjtJQUM1QixhQUFhO0lBQ2IsWUFBWTtJQUNaLFlBQVk7SUFDWixtRUFBbUU7SUFDbkUsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixrQ0FBa0M7SUFDbEMseUJBQXlCO0NBQzVCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLDRCQUE0QjtJQUM1QixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixtRUFBbUU7SUFDbkUsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysa0NBQWtDO0NBQ3JDOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLDRCQUE0QjtJQUM1QixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLFlBQVk7SUFDWixtRUFBbUU7SUFDbkUsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2Ysa0NBQWtDO0NBQ3JDOztBQUVEO0lBQ0ksV0FBVztJQUNYLFlBQVk7Q0FDZjs7QUFFRDtJQUNJLFdBQVc7SUFDWCxZQUFZO0NBQ2Y7O0FBRUQ7SUFDSSxvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLG9CQUFvQjtDQUN2Qjs7QUFFRztRQUNJLG9CQUFvQjtLQUN2Qjs7QUFFRDtRQUNJLG9CQUFvQjtLQUN2Qjs7QUFFTDtJQUNJLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsb0JBQW9CO0NBQ3ZCOztBQUVHO1FBQ0ksb0JBQW9CO0tBQ3ZCOztBQUVEO1FBQ0ksb0JBQW9CO0tBQ3ZCOztBQUVMO0lBQ0ksd0JBQXdCO0NBQzNCIiwiZmlsZSI6InNyYy9hcHAvZGFzaGJvYXJkL3VzZXJtZWdhd2lubmVycy91c2VybWVnYXdpbm5lcnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi50YWJsZS1kYXJrIHtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5iYWNrLW5hdi1saW5rIHtcclxuICAgIGNvbG9yOiAjZTFlMWUxO1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG59XHJcblxyXG4uYmFjay1uYXYtdGV4dCB7XHJcbiAgICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5jaXJjbGUge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA4MHB4O1xyXG4gICAgd2lkdGg6IDgwcHg7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDMzcHggMzNweCwgI2ZmZmZmZiwgIzY4Njg2OCk7XHJcbiAgICBmb250LXNpemU6IDMuMHZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxuICAgIGNvbG9yOiByZ2JhKDAsIDAsIDAsIC43KTtcclxufVxyXG5cclxuLnBvd2VyYmFsbC1jaXJjbGUge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBtaW4taGVpZ2h0OiA4MHB4O1xyXG4gICAgbWluLXdpZHRoOiA4MHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAzM3B4IDMzcHgsICNmZjAwMDAsICMzMjMyMzIpO1xyXG4gICAgZm9udC1zaXplOiAzLjB2dztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiAjZmZmZmZmO1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxufVxyXG5cclxuLm1lZ2FtaWxsaW9ucy1jaXJjbGUge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgaGVpZ2h0OiA4MHB4O1xyXG4gICAgd2lkdGg6IDgwcHg7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDMzcHggMzNweCwgI2ZmZmYwMCwgIzMyMzIzMik7XHJcbiAgICBmb250LXNpemU6IDMuMHZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6ICMzMjMyMzI7XHJcbiAgICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG59XHJcblxyXG4uY29ycmVjdC1jaXJjbGUge1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDgwcHg7XHJcbiAgICB3aWR0aDogODBweDtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudChjaXJjbGUgYXQgMzNweCAzM3B4LCAjMDBmZjAwLCAjMzIzMjMyKTtcclxuICAgIGZvbnQtc2l6ZTogMy4wdnc7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwxKTtcclxuICAgIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbn1cclxuXHJcbi5taW5pLWNpcmNsZSB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDMwcHg7XHJcbiAgICB3aWR0aDogMzBweDtcclxuICAgIG1hcmdpbjogM3B4O1xyXG4gICAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAxN3B4IDE3cHgsICNmZmZmZmYsICM2ODY4NjgpO1xyXG4gICAgZm9udC1zaXplOiAxLjB2dztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxuICAgIGNvbG9yOiByZ2JhKDAsIDAsIDAsIC43KTtcclxufVxyXG5cclxuLm1pbmktcG93ZXJiYWxsLWNpcmNsZSB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBtaW4taGVpZ2h0OiAzMHB4O1xyXG4gICAgbWluLXdpZHRoOiAzMHB4O1xyXG4gICAgbWFyZ2luOiAzcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDE3cHggMTdweCwgI2ZmMDAwMCwgIzMyMzIzMik7XHJcbiAgICBmb250LXNpemU6IDEuMHZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6ICNmZmZmZmY7XHJcbiAgICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbi5taW5pLW1lZ2FtaWxsaW9ucy1jaXJjbGUge1xyXG4gICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgbWluLWhlaWdodDogMzBweDtcclxuICAgIG1pbi13aWR0aDogMzBweDtcclxuICAgIG1hcmdpbjogM3B4O1xyXG4gICAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAxN3B4IDE3cHgsICNmZmZmMDAsICMzMjMyMzIpO1xyXG4gICAgZm9udC1zaXplOiAxLjB2dztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiAjMzIzMjMyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyIHtcclxuICAgIHdpZHRoOiAycHg7XHJcbiAgICBoZWlnaHQ6IDJweDtcclxufVxyXG5cclxuOjotd2Via2l0LXNjcm9sbGJhci1idXR0b24ge1xyXG4gICAgd2lkdGg6IDBweDtcclxuICAgIGhlaWdodDogMHB4O1xyXG59XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iIHtcclxuICAgIGJhY2tncm91bmQ6ICNlMWUxZTE7XHJcbiAgICBib3JkZXI6IDBweCBub25lICNmZmZmZmY7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MHB4O1xyXG59XHJcblxyXG4gICAgOjotd2Via2l0LXNjcm9sbGJhci10aHVtYjpob3ZlciB7XHJcbiAgICAgICAgYmFja2dyb3VuZDogI2ZmZmZmZjtcclxuICAgIH1cclxuXHJcbiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmFjdGl2ZSB7XHJcbiAgICAgICAgYmFja2dyb3VuZDogIzAwMDAwMDtcclxuICAgIH1cclxuXHJcbjo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sge1xyXG4gICAgYmFja2dyb3VuZDogIzY2NjY2NjtcclxuICAgIGJvcmRlcjogMHB4IG5vbmUgI2ZmZmZmZjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbn1cclxuXHJcbiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRyYWNrOmhvdmVyIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjNjY2NjY2O1xyXG4gICAgfVxyXG5cclxuICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2s6YWN0aXZlIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjMzMzMzMzO1xyXG4gICAgfVxyXG5cclxuOjotd2Via2l0LXNjcm9sbGJhci1jb3JuZXIge1xyXG4gICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7XHJcbn0iXX0= */"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/usermegawinners/usermegawinners.component.html":
+/*!**************************************************************************!*\
+  !*** ./src/app/dashboard/usermegawinners/usermegawinners.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>Winning Numbers</th>\r\n                            <th>Draw Date</th>\r\n                            <th>Picked Winner(s)</th>\r\n                            <th>Pick Date</th>\r\n                            <th></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody *ngFor=\"let winner of winners; index as i\">\r\n                        <tr *ngFor=\"let pick of winner.picks\">\r\n                            <td *ngIf=\"i == 0\" rowspan=\"winner.picks.length\">\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{winner.megaball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td *ngIf=\"i == 0\" rowspan=\"winner.picks.length\">{{winner.draw_date | date: 'shortDate'}}</td>\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball1, winner, 'none')\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball2, winner, 'none')\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball3, winner, 'none')\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball4, winner, 'none')\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball5, winner, 'none')\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.megaball, winner, 'megaball')\">{{pick.megaball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.pick_date | date: 'shortDate'}}</td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\"></div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/dashboard/usermegawinners/usermegawinners.component.ts ***!
+  \************************************************************************/
+/*! exports provided: UsermegawinnersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsermegawinnersComponent", function() { return UsermegawinnersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _usermegawinners_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
+/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var UsermegawinnersComponent = /** @class */ (function () {
+    function UsermegawinnersComponent(usermegawinnersService, accountService, userService, router, megamillionService) {
+        this.usermegawinnersService = usermegawinnersService;
+        this.accountService = accountService;
+        this.userService = userService;
+        this.router = router;
+        this.megamillionService = megamillionService;
+        this.winners = new Array();
+        this.usermegawinnersService.notify_change_in_mega_winners();
+    }
+    UsermegawinnersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.usermegawinnersService.megaWinners$.subscribe(function (data) {
+            _this.winners = data;
+        });
+    };
+    UsermegawinnersComponent.prototype.checkWinner = function (ball, numbers, type) {
+        var nWinners = Object.values(numbers);
+        if (nWinners.indexOf(ball) !== -1) {
+            nWinners = [];
+            return "correct-circle";
+        }
+        else {
+            nWinners = [];
+            if (type === "megaball") {
+                return "megamillions-circle";
+            }
+            return "circle";
+        }
+    };
+    UsermegawinnersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'usermegawinners',
+            template: __webpack_require__(/*! ./usermegawinners.component.html */ "./src/app/dashboard/usermegawinners/usermegawinners.component.html"),
+            styles: [__webpack_require__(/*! ./usermegawinners.component.css */ "./src/app/dashboard/usermegawinners/usermegawinners.component.css")]
+        }),
+        __metadata("design:paramtypes", [_usermegawinners_service__WEBPACK_IMPORTED_MODULE_4__["UsermegawinnersService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__["MegamillionsService"]])
+    ], UsermegawinnersComponent);
+    return UsermegawinnersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/dashboard/usermegawinners/usermegawinners.service.ts ***!
+  \**********************************************************************/
+/*! exports provided: UsermegawinnersService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UsermegawinnersService", function() { return UsermegawinnersService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UsermegawinnersService = /** @class */ (function () {
+    function UsermegawinnersService(megamillionsService, userService) {
+        this.megamillionsService = megamillionsService;
+        this.userService = userService;
+        this.megaWinners$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.get_user_mega_winners();
+    }
+    UsermegawinnersService.prototype.get_user_mega_winners = function () {
+        var _this = this;
+        this.megamillionsService.show_user_winning_picks(parseInt(this.user.iat))
+            .subscribe(function (data) { return _this.megaWinners$.next(data); });
+    };
+    UsermegawinnersService.prototype.notify_change_in_mega_winners = function () {
+        this.get_user_mega_winners();
+    };
+    UsermegawinnersService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_shared_megamillions_service__WEBPACK_IMPORTED_MODULE_1__["MegamillionsService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], UsermegawinnersService);
+    return UsermegawinnersService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.css":
 /*!***********************************************************************!*\
   !*** ./src/app/dashboard/userpowerpicks/userpowerpicks.component.css ***!
@@ -1225,7 +1541,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1246,6 +1562,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
 /* harmony import */ var _userpowerpicks_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1261,16 +1578,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var browserRefresh = false;
 var UserpowerpicksComponent = /** @class */ (function () {
-    function UserpowerpicksComponent(userpowerpicksService, accountService, userService, router, powerballService) {
+    function UserpowerpicksComponent(userpowerpicksService, accountService, userService, router, powerballService, modalService) {
         this.userpowerpicksService = userpowerpicksService;
         this.accountService = accountService;
         this.userService = userService;
         this.router = router;
         this.powerballService = powerballService;
+        this.modalService = modalService;
         this.selectAll = false;
         this.showSendNumbers = false;
+        this.user_pick_id = -1;
         this.userPicks = new Array();
         this.userpowerpicksService.notify_change_in_user_picks();
     }
@@ -1310,6 +1630,17 @@ var UserpowerpicksComponent = /** @class */ (function () {
             this.showSendNumbers = false;
         }
     };
+    UserpowerpicksComponent.prototype.open_delete_modal = function (template, id) {
+        this.user_pick_id = id;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    UserpowerpicksComponent.prototype.confirm_user_pick_delete = function () {
+        var _this = this;
+        this.powerballService.delete_user_pick(this.user_pick_id).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.userpowerpicksService.notify_change_in_user_picks();
+        });
+    };
     UserpowerpicksComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'userpowerpicks',
@@ -1320,7 +1651,8 @@ var UserpowerpicksComponent = /** @class */ (function () {
             _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
             _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
-            _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__["PowerballService"]])
+            _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__["PowerballService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]])
     ], UserpowerpicksComponent);
     return UserpowerpicksComponent;
 }());
@@ -1388,6 +1720,177 @@ var UserpowerpicksService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.css":
+/*!***************************************************************************!*\
+  !*** ./src/app/dashboard/userpowerwinners/userpowerwinners.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".table-dark {\r\n    background-color: transparent !important;\r\n}\r\n\r\n.back-nav-link {\r\n    color: #e1e1e1;\r\n    cursor: pointer;\r\n}\r\n\r\n.back-nav-text {\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n.circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 80px;\r\n    width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ffffff, #686868);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n    color: rgba(0, 0, 0, .7);\r\n}\r\n\r\n.powerball-circle {\r\n    display: block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 80px;\r\n    min-width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ff0000, #323232);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    color: #ffffff;\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.megamillions-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 80px;\r\n    min-width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #ffff00, #323232);\r\n    font-size: 1.6vw;\r\n    text-align: center;\r\n    color: #323232;\r\n    padding: 25% 0;\r\n    font-family: 'Permanent Marker', cursive;\r\n}\r\n\r\n.correct-circle {\r\n    display: block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 80px;\r\n    width: 80px;\r\n    margin: 0;\r\n    background: radial-gradient(circle at 33px 33px, #00ff00, #323232);\r\n    font-size: 3.0vw;\r\n    text-align: center;\r\n    color: rgba(255,255,255,1);\r\n    font-family: 'Oswald', sans-serif;\r\n    font-weight: 400;\r\n}\r\n\r\n.mini-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    height: 30px;\r\n    width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ffffff, #686868);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    font-family: 'Oswald', sans-serif;\r\n    color: rgba(0, 0, 0, .7);\r\n}\r\n\r\n.mini-powerball-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 30px;\r\n    min-width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ff0000, #323232);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    color: #ffffff;\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n.mini-megamillions-circle {\r\n    display: inline-block;\r\n    background: black;\r\n    border-radius: 100%;\r\n    -moz-border-radius: 100%;\r\n    -webkit-border-radius: 100%;\r\n    min-height: 30px;\r\n    min-width: 30px;\r\n    margin: 3px;\r\n    background: radial-gradient(circle at 17px 17px, #ffff00, #323232);\r\n    font-size: 1.0vw;\r\n    text-align: center;\r\n    color: #323232;\r\n    font-family: 'Oswald', sans-serif;\r\n}\r\n\r\n::-webkit-scrollbar {\r\n    width: 2px;\r\n    height: 2px;\r\n}\r\n\r\n::-webkit-scrollbar-button {\r\n    width: 0px;\r\n    height: 0px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb {\r\n    background: #e1e1e1;\r\n    border: 0px none #ffffff;\r\n    border-radius: 50px;\r\n}\r\n\r\n::-webkit-scrollbar-thumb:hover {\r\n        background: #ffffff;\r\n    }\r\n\r\n::-webkit-scrollbar-thumb:active {\r\n        background: #000000;\r\n    }\r\n\r\n::-webkit-scrollbar-track {\r\n    background: #666666;\r\n    border: 0px none #ffffff;\r\n    border-radius: 50px;\r\n}\r\n\r\n::-webkit-scrollbar-track:hover {\r\n        background: #666666;\r\n    }\r\n\r\n::-webkit-scrollbar-track:active {\r\n        background: #333333;\r\n    }\r\n\r\n::-webkit-scrollbar-corner {\r\n    background: transparent;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZGFzaGJvYXJkL3VzZXJwb3dlcndpbm5lcnMvdXNlcnBvd2Vyd2lubmVycy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0kseUNBQXlDO0NBQzVDOztBQUVEO0lBQ0ksZUFBZTtJQUNmLGdCQUFnQjtDQUNuQjs7QUFFRDtJQUNJLGtDQUFrQztDQUNyQzs7QUFFRDtJQUNJLHNCQUFzQjtJQUN0QixrQkFBa0I7SUFDbEIsb0JBQW9CO0lBQ3BCLHlCQUF5QjtJQUN6Qiw0QkFBNEI7SUFDNUIsYUFBYTtJQUNiLFlBQVk7SUFDWixVQUFVO0lBQ1YsbUVBQW1FO0lBQ25FLGlCQUFpQjtJQUNqQixtQkFBbUI7SUFDbkIsa0NBQWtDO0lBQ2xDLGlCQUFpQjtJQUNqQix5QkFBeUI7Q0FDNUI7O0FBRUQ7SUFDSSxlQUFlO0lBQ2Ysa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtJQUNqQixnQkFBZ0I7SUFDaEIsVUFBVTtJQUNWLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixrQ0FBa0M7SUFDbEMsaUJBQWlCO0NBQ3BCOztBQUVEO0lBQ0ksc0JBQXNCO0lBQ3RCLGtCQUFrQjtJQUNsQixvQkFBb0I7SUFDcEIseUJBQXlCO0lBQ3pCLDRCQUE0QjtJQUM1QixpQkFBaUI7SUFDakIsZ0JBQWdCO0lBQ2hCLFVBQVU7SUFDVixtRUFBbUU7SUFDbkUsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixlQUFlO0lBQ2YsZUFBZTtJQUNmLHlDQUF5QztDQUM1Qzs7QUFFRDtJQUNJLGVBQWU7SUFDZixrQkFBa0I7SUFDbEIsb0JBQW9CO0lBQ3BCLHlCQUF5QjtJQUN6Qiw0QkFBNEI7SUFDNUIsYUFBYTtJQUNiLFlBQVk7SUFDWixVQUFVO0lBQ1YsbUVBQW1FO0lBQ25FLGlCQUFpQjtJQUNqQixtQkFBbUI7SUFDbkIsMkJBQTJCO0lBQzNCLGtDQUFrQztJQUNsQyxpQkFBaUI7Q0FDcEI7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGFBQWE7SUFDYixZQUFZO0lBQ1osWUFBWTtJQUNaLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGtDQUFrQztJQUNsQyx5QkFBeUI7Q0FDNUI7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtJQUNqQixnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixrQ0FBa0M7Q0FDckM7O0FBRUQ7SUFDSSxzQkFBc0I7SUFDdEIsa0JBQWtCO0lBQ2xCLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtJQUNqQixnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLG1FQUFtRTtJQUNuRSxpQkFBaUI7SUFDakIsbUJBQW1CO0lBQ25CLGVBQWU7SUFDZixrQ0FBa0M7Q0FDckM7O0FBRUQ7SUFDSSxXQUFXO0lBQ1gsWUFBWTtDQUNmOztBQUVEO0lBQ0ksV0FBVztJQUNYLFlBQVk7Q0FDZjs7QUFFRDtJQUNJLG9CQUFvQjtJQUNwQix5QkFBeUI7SUFDekIsb0JBQW9CO0NBQ3ZCOztBQUVHO1FBQ0ksb0JBQW9CO0tBQ3ZCOztBQUVEO1FBQ0ksb0JBQW9CO0tBQ3ZCOztBQUVMO0lBQ0ksb0JBQW9CO0lBQ3BCLHlCQUF5QjtJQUN6QixvQkFBb0I7Q0FDdkI7O0FBRUc7UUFDSSxvQkFBb0I7S0FDdkI7O0FBRUQ7UUFDSSxvQkFBb0I7S0FDdkI7O0FBRUw7SUFDSSx3QkFBd0I7Q0FDM0IiLCJmaWxlIjoic3JjL2FwcC9kYXNoYm9hcmQvdXNlcnBvd2Vyd2lubmVycy91c2VycG93ZXJ3aW5uZXJzLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudGFibGUtZGFyayB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uYmFjay1uYXYtbGluayB7XHJcbiAgICBjb2xvcjogI2UxZTFlMTtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufVxyXG5cclxuLmJhY2stbmF2LXRleHQge1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG59XHJcblxyXG4uY2lyY2xlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIGhlaWdodDogODBweDtcclxuICAgIHdpZHRoOiA4MHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAzM3B4IDMzcHgsICNmZmZmZmYsICM2ODY4NjgpO1xyXG4gICAgZm9udC1zaXplOiAzLjB2dztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbiAgICBjb2xvcjogcmdiYSgwLCAwLCAwLCAuNyk7XHJcbn1cclxuXHJcbi5wb3dlcmJhbGwtY2lyY2xlIHtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZDogYmxhY2s7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLW1vei1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgLXdlYmtpdC1ib3JkZXItcmFkaXVzOiAxMDAlO1xyXG4gICAgbWluLWhlaWdodDogODBweDtcclxuICAgIG1pbi13aWR0aDogODBweDtcclxuICAgIG1hcmdpbjogMDtcclxuICAgIGJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudChjaXJjbGUgYXQgMzNweCAzM3B4LCAjZmYwMDAwLCAjMzIzMjMyKTtcclxuICAgIGZvbnQtc2l6ZTogMy4wdnc7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogI2ZmZmZmZjtcclxuICAgIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxuICAgIGZvbnQtd2VpZ2h0OiA0MDA7XHJcbn1cclxuXHJcbi5tZWdhbWlsbGlvbnMtY2lyY2xlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIG1pbi1oZWlnaHQ6IDgwcHg7XHJcbiAgICBtaW4td2lkdGg6IDgwcHg7XHJcbiAgICBtYXJnaW46IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDMzcHggMzNweCwgI2ZmZmYwMCwgIzMyMzIzMik7XHJcbiAgICBmb250LXNpemU6IDEuNnZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6ICMzMjMyMzI7XHJcbiAgICBwYWRkaW5nOiAyNSUgMDtcclxuICAgIGZvbnQtZmFtaWx5OiAnUGVybWFuZW50IE1hcmtlcicsIGN1cnNpdmU7XHJcbn1cclxuXHJcbi5jb3JyZWN0LWNpcmNsZSB7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIGhlaWdodDogODBweDtcclxuICAgIHdpZHRoOiA4MHB4O1xyXG4gICAgbWFyZ2luOiAwO1xyXG4gICAgYmFja2dyb3VuZDogcmFkaWFsLWdyYWRpZW50KGNpcmNsZSBhdCAzM3B4IDMzcHgsICMwMGZmMDAsICMzMjMyMzIpO1xyXG4gICAgZm9udC1zaXplOiAzLjB2dztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICAgIGNvbG9yOiByZ2JhKDI1NSwyNTUsMjU1LDEpO1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC13ZWlnaHQ6IDQwMDtcclxufVxyXG5cclxuLm1pbmktY2lyY2xlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIGhlaWdodDogMzBweDtcclxuICAgIHdpZHRoOiAzMHB4O1xyXG4gICAgbWFyZ2luOiAzcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDE3cHggMTdweCwgI2ZmZmZmZiwgIzY4Njg2OCk7XHJcbiAgICBmb250LXNpemU6IDEuMHZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6ICdPc3dhbGQnLCBzYW5zLXNlcmlmO1xyXG4gICAgY29sb3I6IHJnYmEoMCwgMCwgMCwgLjcpO1xyXG59XHJcblxyXG4ubWluaS1wb3dlcmJhbGwtY2lyY2xlIHtcclxuICAgIGRpc3BsYXk6IGlubGluZS1ibG9jaztcclxuICAgIGJhY2tncm91bmQ6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC1tb3otYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIC13ZWJraXQtYm9yZGVyLXJhZGl1czogMTAwJTtcclxuICAgIG1pbi1oZWlnaHQ6IDMwcHg7XHJcbiAgICBtaW4td2lkdGg6IDMwcHg7XHJcbiAgICBtYXJnaW46IDNweDtcclxuICAgIGJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudChjaXJjbGUgYXQgMTdweCAxN3B4LCAjZmYwMDAwLCAjMzIzMjMyKTtcclxuICAgIGZvbnQtc2l6ZTogMS4wdnc7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogI2ZmZmZmZjtcclxuICAgIGZvbnQtZmFtaWx5OiAnT3N3YWxkJywgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLm1pbmktbWVnYW1pbGxpb25zLWNpcmNsZSB7XHJcbiAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XHJcbiAgICBiYWNrZ3JvdW5kOiBibGFjaztcclxuICAgIGJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtbW96LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICAtd2Via2l0LWJvcmRlci1yYWRpdXM6IDEwMCU7XHJcbiAgICBtaW4taGVpZ2h0OiAzMHB4O1xyXG4gICAgbWluLXdpZHRoOiAzMHB4O1xyXG4gICAgbWFyZ2luOiAzcHg7XHJcbiAgICBiYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoY2lyY2xlIGF0IDE3cHggMTdweCwgI2ZmZmYwMCwgIzMyMzIzMik7XHJcbiAgICBmb250LXNpemU6IDEuMHZ3O1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgY29sb3I6ICMzMjMyMzI7XHJcbiAgICBmb250LWZhbWlseTogJ09zd2FsZCcsIHNhbnMtc2VyaWY7XHJcbn1cclxuXHJcbjo6LXdlYmtpdC1zY3JvbGxiYXIge1xyXG4gICAgd2lkdGg6IDJweDtcclxuICAgIGhlaWdodDogMnB4O1xyXG59XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLWJ1dHRvbiB7XHJcbiAgICB3aWR0aDogMHB4O1xyXG4gICAgaGVpZ2h0OiAwcHg7XHJcbn1cclxuXHJcbjo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWIge1xyXG4gICAgYmFja2dyb3VuZDogI2UxZTFlMTtcclxuICAgIGJvcmRlcjogMHB4IG5vbmUgI2ZmZmZmZjtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwcHg7XHJcbn1cclxuXHJcbiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjZmZmZmZmO1xyXG4gICAgfVxyXG5cclxuICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdGh1bWI6YWN0aXZlIHtcclxuICAgICAgICBiYWNrZ3JvdW5kOiAjMDAwMDAwO1xyXG4gICAgfVxyXG5cclxuOjotd2Via2l0LXNjcm9sbGJhci10cmFjayB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjNjY2NjY2O1xyXG4gICAgYm9yZGVyOiAwcHggbm9uZSAjZmZmZmZmO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNTBweDtcclxufVxyXG5cclxuICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2s6aG92ZXIge1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICM2NjY2NjY7XHJcbiAgICB9XHJcblxyXG4gICAgOjotd2Via2l0LXNjcm9sbGJhci10cmFjazphY3RpdmUge1xyXG4gICAgICAgIGJhY2tncm91bmQ6ICMzMzMzMzM7XHJcbiAgICB9XHJcblxyXG46Oi13ZWJraXQtc2Nyb2xsYmFyLWNvcm5lciB7XHJcbiAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDtcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.html":
+/*!****************************************************************************!*\
+  !*** ./src/app/dashboard/userpowerwinners/userpowerwinners.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>Winning Numbers</th>\r\n                            <th>Draw Date</th>\r\n                            <th>Picked Winner(s)</th>\r\n                            <th>Pick Date</th>\r\n                            <th></th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody *ngFor=\"let winner of winners; index as i\">\r\n                        <tr *ngFor=\"let pick of winner.picks\">\r\n                            <td *ngIf=\"i == 0\" rowspan=\"winner.picks.length\">\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{winner.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{winner.powerball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td *ngIf=\"i == 0\" rowspan=\"winner.picks.length\">{{winner.draw_date | date: 'shortDate'}}</td>\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball1, winner, 'none')\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball2, winner, 'none')\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball3, winner, 'none')\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball4, winner, 'none')\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.ball5, winner, 'none')\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div [ngClass]=\"checkWinner(pick.powerball, winner, 'powerball')\">{{pick.powerball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.pick_date | date: 'shortDate'}}</td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\"></div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts":
+/*!**************************************************************************!*\
+  !*** ./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: browserRefresh, UserpowerwinnersComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "browserRefresh", function() { return browserRefresh; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserpowerwinnersComponent", function() { return UserpowerwinnersComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _userpowerwinners_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
+/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var browserRefresh = false;
+var UserpowerwinnersComponent = /** @class */ (function () {
+    function UserpowerwinnersComponent(userpowerwinnersService, accountService, userService, router, powerballService) {
+        this.userpowerwinnersService = userpowerwinnersService;
+        this.accountService = accountService;
+        this.userService = userService;
+        this.router = router;
+        this.powerballService = powerballService;
+        this.winners = new Array();
+        this.userpowerwinnersService.notify_change_in_power_winners();
+    }
+    UserpowerwinnersComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.userpowerwinnersService.powerWinners$.subscribe(function (data) {
+            _this.winners = data;
+        });
+    };
+    UserpowerwinnersComponent.prototype.checkWinner = function (ball, numbers, type) {
+        var nWinners = Object.values(numbers);
+        if (nWinners.indexOf(ball) !== -1) {
+            nWinners = [];
+            return "correct-circle";
+        }
+        else {
+            nWinners = [];
+            if (type === "powerball") {
+                return "powerball-circle";
+            }
+            return "circle";
+        }
+    };
+    UserpowerwinnersComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'userpowerwinners',
+            template: __webpack_require__(/*! ./userpowerwinners.component.html */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.html"),
+            styles: [__webpack_require__(/*! ./userpowerwinners.component.css */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.css")]
+        }),
+        __metadata("design:paramtypes", [_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_4__["UserpowerwinnersService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
+            _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__["PowerballService"]])
+    ], UserpowerwinnersComponent);
+    return UserpowerwinnersComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts ***!
+  \************************************************************************/
+/*! exports provided: UserpowerwinnersService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserpowerwinnersService", function() { return UserpowerwinnersService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var UserpowerwinnersService = /** @class */ (function () {
+    function UserpowerwinnersService(powerballService, userService) {
+        this.powerballService = powerballService;
+        this.userService = userService;
+        this.powerWinners$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.get_user_power_winners();
+    }
+    UserpowerwinnersService.prototype.get_user_power_winners = function () {
+        var _this = this;
+        this.powerballService.show_user_winning_picks(parseInt(this.user.iat))
+            .subscribe(function (data) { return _this.powerWinners$.next(data); });
+    };
+    UserpowerwinnersService.prototype.notify_change_in_power_winners = function () {
+        this.get_user_power_winners();
+    };
+    UserpowerwinnersService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_shared_powerball_service__WEBPACK_IMPORTED_MODULE_1__["PowerballService"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], UserpowerwinnersService);
+    return UserpowerwinnersService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/login/login.component.css":
 /*!*******************************************!*\
   !*** ./src/app/login/login.component.css ***!
@@ -1395,7 +1898,7 @@ var UserpowerpicksService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "a {\r\n    text-decoration: none !important;\r\n}\r\n\r\n.portal-span {\r\n    /*font-family: 'IBM Plex Sans', sans-serif;*/\r\n    font-family: 'Roboto Condensed', sans-serif;\r\n    font-size: 2em;\r\n    font-weight: 100;\r\n    color: rgba(128, 170, 0, 1);\r\n}\r\n\r\n#logo-container {\r\n    text-align: center;\r\n}\r\n\r\n.Absolute-Center {\r\n    margin: auto;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n}\r\n\r\n.Absolute-Center.is-Responsive {\r\n        width: 50%;\r\n        height: 70%;\r\n        min-width: 200px;\r\n        max-width: 400px;\r\n        padding: 40px;\r\n    }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlDQUFpQztDQUNwQzs7QUFFRDtJQUNJLDZDQUE2QztJQUM3Qyw0Q0FBNEM7SUFDNUMsZUFBZTtJQUNmLGlCQUFpQjtJQUNqQiw0QkFBNEI7Q0FDL0I7O0FBRUQ7SUFDSSxtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLE9BQU87SUFDUCxRQUFRO0lBQ1IsVUFBVTtJQUNWLFNBQVM7Q0FDWjs7QUFFRztRQUNJLFdBQVc7UUFDWCxZQUFZO1FBQ1osaUJBQWlCO1FBQ2pCLGlCQUFpQjtRQUNqQixjQUFjO0tBQ2pCIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbImEge1xyXG4gICAgdGV4dC1kZWNvcmF0aW9uOiBub25lICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5wb3J0YWwtc3BhbiB7XHJcbiAgICAvKmZvbnQtZmFtaWx5OiAnSUJNIFBsZXggU2FucycsIHNhbnMtc2VyaWY7Ki9cclxuICAgIGZvbnQtZmFtaWx5OiAnUm9ib3RvIENvbmRlbnNlZCcsIHNhbnMtc2VyaWY7XHJcbiAgICBmb250LXNpemU6IDJlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiAxMDA7XHJcbiAgICBjb2xvcjogcmdiYSgxMjgsIDE3MCwgMCwgMSk7XHJcbn1cclxuXHJcbiNsb2dvLWNvbnRhaW5lciB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5BYnNvbHV0ZS1DZW50ZXIge1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIGJvdHRvbTogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG59XHJcblxyXG4gICAgLkFic29sdXRlLUNlbnRlci5pcy1SZXNwb25zaXZlIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIGhlaWdodDogNzAlO1xyXG4gICAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICAgICAgbWF4LXdpZHRoOiA0MDBweDtcclxuICAgICAgICBwYWRkaW5nOiA0MHB4O1xyXG4gICAgfSJdfQ== */"
+module.exports = "a {\r\n    text-decoration: none !important;\r\n}\r\n\r\n.portal-span {\r\n    /*font-family: 'IBM Plex Sans', sans-serif;*/\r\n    font-family: 'Roboto Condensed', sans-serif;\r\n    font-size: 2em;\r\n    font-weight: 100;\r\n    color: rgba(128, 170, 0, 1);\r\n}\r\n\r\n#logo-container {\r\n    text-align: center;\r\n}\r\n\r\n.Absolute-Center {\r\n    margin: auto;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n    color: rgba(255, 255, 255, 1);\r\n}\r\n\r\n.Absolute-Center.is-Responsive {\r\n        width: 50%;\r\n        height: 70%;\r\n        min-width: 200px;\r\n        max-width: 400px;\r\n        padding: 40px;\r\n    }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlDQUFpQztDQUNwQzs7QUFFRDtJQUNJLDZDQUE2QztJQUM3Qyw0Q0FBNEM7SUFDNUMsZUFBZTtJQUNmLGlCQUFpQjtJQUNqQiw0QkFBNEI7Q0FDL0I7O0FBRUQ7SUFDSSxtQkFBbUI7Q0FDdEI7O0FBRUQ7SUFDSSxhQUFhO0lBQ2IsbUJBQW1CO0lBQ25CLE9BQU87SUFDUCxRQUFRO0lBQ1IsVUFBVTtJQUNWLFNBQVM7SUFDVCw4QkFBOEI7Q0FDakM7O0FBRUc7UUFDSSxXQUFXO1FBQ1gsWUFBWTtRQUNaLGlCQUFpQjtRQUNqQixpQkFBaUI7UUFDakIsY0FBYztLQUNqQiIsImZpbGUiOiJzcmMvYXBwL2xvZ2luL2xvZ2luLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJhIHtcclxuICAgIHRleHQtZGVjb3JhdGlvbjogbm9uZSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4ucG9ydGFsLXNwYW4ge1xyXG4gICAgLypmb250LWZhbWlseTogJ0lCTSBQbGV4IFNhbnMnLCBzYW5zLXNlcmlmOyovXHJcbiAgICBmb250LWZhbWlseTogJ1JvYm90byBDb25kZW5zZWQnLCBzYW5zLXNlcmlmO1xyXG4gICAgZm9udC1zaXplOiAyZW07XHJcbiAgICBmb250LXdlaWdodDogMTAwO1xyXG4gICAgY29sb3I6IHJnYmEoMTI4LCAxNzAsIDAsIDEpO1xyXG59XHJcblxyXG4jbG9nby1jb250YWluZXIge1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG59XHJcblxyXG4uQWJzb2x1dGUtQ2VudGVyIHtcclxuICAgIG1hcmdpbjogYXV0bztcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMDtcclxuICAgIGxlZnQ6IDA7XHJcbiAgICBib3R0b206IDA7XHJcbiAgICByaWdodDogMDtcclxuICAgIGNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDEpO1xyXG59XHJcblxyXG4gICAgLkFic29sdXRlLUNlbnRlci5pcy1SZXNwb25zaXZlIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIGhlaWdodDogNzAlO1xyXG4gICAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICAgICAgbWF4LXdpZHRoOiA0MDBweDtcclxuICAgICAgICBwYWRkaW5nOiA0MHB4O1xyXG4gICAgfSJdfQ== */"
 
 /***/ }),
 
@@ -1406,7 +1909,7 @@ module.exports = "a {\r\n    text-decoration: none !important;\r\n}\r\n\r\n.port
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet>\r\n    <div class=\"row\">\r\n\r\n        <div class=\"Absolute-Center is-Responsive\">\r\n            <div id=\"logo-container\">\r\n                <a asp-controller=\"Home\" asp-action=\"Index\"><img class=\"img-fluid\" src=\"/images/LotteryLogo.png\" height=\"30\" /></a>\r\n                <!--<span class=\"portal-span\">Lotto Genius</span>-->\r\n            </div>\r\n            <hr class=\"m-3\" />\r\n            <div class=\"col-md-12 col-md-offset-1\">\r\n                <div class=\"col-sm-12 col-md-10 col-md-offset-1\">\r\n                    <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n                        <div asp-validation-summary=\"ModelOnly\"></div>\r\n                        <div class=\"form-group\">\r\n                            <label for=\"username\">Username</label>\r\n                            <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <label for=\"password\">Password</label>\r\n                            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <input type=\"submit\" value=\"Login\" class=\"btn btn-success\" />\r\n                        </div>\r\n                        <div *ngIf=\"error_message !== ''\" class=\"alert alert-danger\" role=\"alert\">\r\n                            {{error_message}}\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</router-outlet>"
+module.exports = "<router-outlet>\r\n    <div class=\"row\">\r\n\r\n        <div class=\"Absolute-Center is-Responsive\">\r\n            <div id=\"logo-container\">\r\n                <a asp-controller=\"Home\" asp-action=\"Index\"><img class=\"img-fluid\" src=\"/images/LotteryLogo.png\" height=\"30\" /></a>\r\n                <!--<span class=\"portal-span\">Lotto Genius</span>-->\r\n            </div>\r\n            <hr class=\"m-3\" style=\"border-color: rgba(128, 170, 0, 1);\" />\r\n            <div class=\"col-md-12 col-md-offset-1\">\r\n                <div class=\"col-sm-12 col-md-10 col-md-offset-1\">\r\n                    <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n                        <div asp-validation-summary=\"ModelOnly\"></div>\r\n                        <div class=\"form-group\">\r\n                            <label for=\"username\">Username</label>\r\n                            <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <label for=\"password\">Password</label>\r\n                            <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                        </div>\r\n                        <div class=\"form-group\">\r\n                            <input type=\"submit\" value=\"Login\" class=\"btn btn-success\" />\r\n                        </div>\r\n                        <div *ngIf=\"error_message !== ''\" class=\"alert alert-danger\" role=\"alert\">\r\n                            {{error_message}}\r\n                        </div>\r\n                    </form>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</router-outlet>"
 
 /***/ }),
 
@@ -1496,6 +1999,26 @@ var UserPick = /** @class */ (function () {
         this.checked = false;
     }
     return UserPick;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/userplayer.ts":
+/*!**************************************!*\
+  !*** ./src/app/models/userplayer.ts ***!
+  \**************************************/
+/*! exports provided: UserPlayer */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserPlayer", function() { return UserPlayer; });
+var UserPlayer = /** @class */ (function () {
+    function UserPlayer() {
+    }
+    return UserPlayer;
 }());
 
 
@@ -1747,6 +2270,11 @@ var MegamillionsService = /** @class */ (function () {
         };
         return this.http.get(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id, httpOptions);
     };
+    MegamillionsService.prototype.delete_user_pick = function (id) {
+        return this.httpClient.delete(this.url + "api/megamillion/DeleteUserPick/" + id, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        }).pipe();
+    };
     MegamillionsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
@@ -1840,11 +2368,83 @@ var PowerballService = /** @class */ (function () {
         };
         return this.http.get(this.url + "api/powerball/GetUserPowerballWinners/" + user_id, httpOptions);
     };
+    PowerballService.prototype.delete_user_pick = function (id) {
+        return this.httpClient.delete(this.url + "api/powerball/DeleteUserPick/" + id, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        }).pipe();
+    };
     PowerballService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
     ], PowerballService);
     return PowerballService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/settings.service.ts":
+/*!********************************************!*\
+  !*** ./src/app/shared/settings.service.ts ***!
+  \********************************************/
+/*! exports provided: SettingsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsService", function() { return SettingsService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../environments/environment */ "./src/environments/environment.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var SettingsService = /** @class */ (function () {
+    function SettingsService(http, userService, httpClient) {
+        this.http = http;
+        this.userService = userService;
+        this.httpClient = httpClient;
+        this.url = _environments_environment__WEBPACK_IMPORTED_MODULE_4__["environment"].apiUrl;
+    }
+    SettingsService.prototype.get_user_player = function (user_id) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            })
+        };
+        return this.http.get(this.url + "api/settings/GetUserPlayer/" + user_id, httpOptions);
+    };
+    SettingsService.prototype.add_user_player = function (player) {
+        return this.httpClient.post(this.url + "api/settings/AddUserPlayer", player, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
+    SettingsService.prototype.edit_user_player = function (player) {
+        return this.httpClient.put(this.url + "api/settings/EditUserPlayer", player, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
+    SettingsService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_http__WEBPACK_IMPORTED_MODULE_2__["Http"]])
+    ], SettingsService);
+    return SettingsService;
 }());
 
 

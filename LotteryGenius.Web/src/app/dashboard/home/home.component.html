@@ -34,8 +34,8 @@
                             <div class="mini-powerball-circle">{{puPicks.lottoball}}</div>
                         </li>
                     </ul>
-                    <div *ngIf="power_user_winning_picks.length > 5" style="text-align: center;">
-                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    <div *ngIf="power_user_winning_picks.length > 0; else noWinners" style="text-align: center;">
+                        <a [routerLink]="['./userpowerwinners']" class="view-all-link">VIEW WINNERS</a>
                     </div>
                 </div>
             </div>
@@ -56,8 +56,8 @@
                             <div class="mini-megamillions-circle">{{mwPicks.lottoball}}</div>
                         </li>
                     </ul>
-                    <div *ngIf="mega_user_winning_picks.length > 5" style="text-align: center;">
-                        <a href="#" class="view-all-link">VIEW ALL</a>
+                    <div *ngIf="mega_user_winning_picks.length > 0; else noWinners" style="text-align: center;">
+                        <a [routerLink]="['./usermegawinners']" class="view-all-link">VIEW WINNERS</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                     <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px; cursor: pointer;" (click)="openUserPickModal('Powerball')"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul *ngIf="user_picks.length > 0; else noPicks" class="list-unstyled" style="display: inline-block;">
                         <li *ngFor="let uPick of user_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{uPick.ball1}}</div>
                             <div class="mini-circle">{{uPick.ball2}}</div>
@@ -78,6 +78,7 @@
                             <div class="mini-circle">{{uPick.ball5}}</div>
                             <div class="mini-powerball-circle">{{uPick.lottoball}}</div>
                             {{uPick.saved_date | date: 'shortDate'}}
+                            <span *ngIf="user_picks.length < 6" class="fas fa-trash-alt" style="padding-left: 2px; cursor: pointer;" (click)="open_delete_modal(userPick, uPick.id, 'powerball')"></span>
                         </li>
                     </ul>
                     <div *ngIf="user_picks.length > 5" style="text-align: center;">
@@ -95,7 +96,7 @@
                     <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px; cursor: pointer;" (click)="openUserPickModal('Megamillions')"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul *ngIf="mega_user_picks.length > 0; else noPicks" class="list-unstyled" style="display: inline-block;">
                         <li *ngFor="let umPick of mega_user_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{umPick.ball1}}</div>
                             <div class="mini-circle">{{umPick.ball2}}</div>
@@ -104,9 +105,10 @@
                             <div class="mini-circle">{{umPick.ball5}}</div>
                             <div class="mini-megamillions-circle">{{umPick.lottoball}}</div>
                             {{umPick.saved_date | date: 'shortDate'}}
+                            <span *ngIf="mega_user_picks.length < 6" class="fas fa-trash-alt" style="padding-left: 2px; cursor: pointer;" (click)="open_delete_modal(userPick, umPick.id, 'megamillions')"></span>
                         </li>
                     </ul>
-                    <div *ngIf="user_picks.length > 5" style="text-align: center;">
+                    <div *ngIf="mega_user_picks.length > 5" style="text-align: center;">
                         <a [routerLink]="['./usermegapicks']" class="view-all-link">VIEW ALL</a>
                     </div>
                 </div>
@@ -158,8 +160,33 @@
             <div class="card">
                 <div class="card-header">SETTINGS</div>
                 <div class="card-body" style="text-align: center;">
+                    <h4>User Player</h4>
+                    <hr class="m-4" />
+                    <ul *ngIf="user_player.length > 0; else addUserPlayer" class="list-unstyled">
+                        <li style="display: flex; justify-content: space-between"></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #noWinners>
+    You have no winners
+</ng-template>
+
+<ng-template #noPicks>
+    You have no picks
+</ng-template>
+
+<ng-template #addUserPlayer>
+    <i class="fas fa-plus" style="cursor: pointer"><span>Add User Player</span></i>
+</ng-template>
+
+<ng-template #userPick>
+    <div class="modal-body text-center">
+        <p>Are you sure you want to delete this pick?</p>
+        <button type="button" class="btn btn-success" style="margin: 5px;" (click)="confirm_user_pick_delete()">Yes</button>
+        <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="this.bsModalRef.hide()">No</button>
+    </div>
+</ng-template>

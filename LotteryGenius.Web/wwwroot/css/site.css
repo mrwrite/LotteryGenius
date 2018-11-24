@@ -5,6 +5,7 @@
     font-family: 'Bangers', cursive;
     font-size: 1.5em;
     overflow-x: hidden;
+    background-color: #18191c !important;
 }
 
 /* Wrapping element */

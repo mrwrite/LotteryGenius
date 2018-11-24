@@ -74,4 +74,11 @@ export class PowerballService {
         return this.http.get<PowerWinnerViewModel[]>(this.url + "api/powerball/GetUserPowerballWinners/" + user_id,
             httpOptions);
     }
+
+    public delete_user_pick(id: number) {
+        return this.httpClient.delete(this.url + "api/powerball/DeleteUserPick/" + id,
+            {
+                headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+            }).pipe();
+    }
 }

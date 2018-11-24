@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { AccountService } from "../../shared/account.service";
 import { NavigationStart, Router } from '@angular/router';
 import { UserService } from "../../shared/user.service";
@@ -8,6 +8,9 @@ import { User } from "../../models/user";
 import { MegamillionsPick } from '../../models/megamillionpick';
 import { UserPick } from '../../models/userpick';
 import { Subscription } from 'rxjs';
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+
+export let browserRefresh = false;
 
 @Component({
     selector: 'usermegapicks',
@@ -20,12 +23,15 @@ export class UsermegapicksComponent implements OnInit {
     public userPicks: Array<UserPick>;
     public selectAll: boolean = false;
     public showSendNumbers: boolean = false;
+    bsModalRef: BsModalRef;
+    public user_pick_id: number = -1;
 
     constructor(private usermegapicksService: UsermegapicksService,
         private accountService: AccountService,
         private userService: UserService,
         private router: Router,
-        private megamillionService: MegamillionsService) {
+        private megamillionService: MegamillionsService,
+        private modalService: BsModalService) {
         this.userPicks = new Array<UserPick>();
         this.usermegapicksService.notify_change_in_user_picks();
     }
@@ -66,5 +72,17 @@ export class UsermegapicksComponent implements OnInit {
         } else {
             this.showSendNumbers = false;
         }
+    }
+
+    open_delete_modal(template: TemplateRef<any>, id: number) {
+        this.user_pick_id = id;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    }
+
+    confirm_user_pick_delete() {
+        this.megamillionService.delete_user_pick(this.user_pick_id).subscribe(data => {
+            this.bsModalRef.hide();
+            this.usermegapicksService.notify_change_in_user_picks();
+        });
     }
 }

@@ -29,8 +29,6 @@ var PowerpicksService = /** @class */ (function () {
         this.get_user_picks();
         this.get_user_winning_picks();
     }
-    PowerpicksService.prototype.ngOnInit = function () {
-    };
     PowerpicksService.prototype.get_user_picks = function () {
         var _this = this;
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });

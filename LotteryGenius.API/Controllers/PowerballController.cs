@@ -280,5 +280,20 @@ namespace LotteryGenius.API.Controllers
         {
             return Ok(this._powerballRepository.GetUserWinningPicks(id));
         }
+
+        [HttpDelete]
+        [Route("/api/powerball/DeleteUserPick/{id}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> DeleteUserPick(int id)
+        {
+            if (_powerballRepository.DeleteUserPick(id))
+            {
+                return this.NoContent();
+            }
+            else
+            {
+                return this.NotFound();
+            }
+        }
     }
 }
