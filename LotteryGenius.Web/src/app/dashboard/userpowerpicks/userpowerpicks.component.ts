@@ -9,6 +9,7 @@ import { PowerballPick } from '../../models/powerballpick';
 import { UserPick } from '../../models/userpick';
 import { Subscription } from 'rxjs';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { MatSnackBar } from '@angular/material';
 
 export let browserRefresh = false;
 
@@ -25,13 +26,15 @@ export class UserpowerpicksComponent implements OnInit {
     public showSendNumbers: boolean = false;
     bsModalRef: BsModalRef;
     public user_pick_id: number = -1;
+    public result_string: string = '';
 
     constructor(private userpowerpicksService: UserpowerpicksService,
         private accountService: AccountService,
         private userService: UserService,
         private router: Router,
         private powerballService: PowerballService,
-        private modalService: BsModalService) {
+        private modalService: BsModalService,
+        public snackBar: MatSnackBar) {
         this.userPicks = new Array<UserPick>();
         this.userpowerpicksService.notify_change_in_user_picks();
     }
@@ -83,5 +86,29 @@ export class UserpowerpicksComponent implements OnInit {
             this.bsModalRef.hide();
             this.userpowerpicksService.notify_change_in_user_picks();
         });
+    }
+
+    send_user_picks() {
+        var picksToSend = this.userPicks.filter(item => item.checked === true);
+
+        this.powerballService.send_user_picks(picksToSend).subscribe(result => {
+            this.result_string = result.statusText;
+
+            if (this.result_string === 'OK') {
+                this.openSnackBar("Sent!", "Complete");
+                this.userPicks.map((picks) => {
+                    picks.checked = false;
+                });
+                this.showSendNumbers = false;
+            }
+        });
+    }
+
+    openSnackBar(message: string, action: string) {
+        this.snackBar.open(message,
+            action,
+            {
+                duration: 2000,
+            });
     }
 }

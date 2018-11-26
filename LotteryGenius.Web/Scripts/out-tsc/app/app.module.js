@@ -12,7 +12,7 @@ import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatToolbarModule, MatGridListModule, MatListModule, MatExpansionModule, MatCheckboxModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatGridListModule, MatListModule, MatExpansionModule, MatCheckboxModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
 import { ModalModule } from 'ngx-bootstrap';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,10 +22,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PowerballService } from './shared/powerball.service';
 import { PowerpicksService } from './dashboard/powerpicks/powerpicks.service';
 import { MegamillionsService } from './shared/megamillions.service';
+import { SettingsService } from './shared/settings.service';
 import { MegapicksService } from './dashboard/megapicks/megapicks.service';
 import { UserpowerpicksService } from './dashboard/userpowerpicks/userpowerpicks.service';
 import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.service';
 import { UserpowerwinnersService } from './dashboard/userpowerwinners/userpowerwinners.service';
+import { UsermegawinnersService } from './dashboard/usermegawinners/usermegawinners.service';
+import { HomesettingsService } from './dashboard/home/homesettings.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
@@ -34,6 +37,7 @@ import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpic
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
+import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -49,7 +53,8 @@ var AppModule = /** @class */ (function () {
                 UserpowerpicksComponent,
                 UsermegapicksComponent,
                 UserpickentryComponent,
-                UserpowerwinnersComponent
+                UserpowerwinnersComponent,
+                UsermegawinnersComponent
             ],
             imports: [
                 BrowserModule,
@@ -67,6 +72,7 @@ var AppModule = /** @class */ (function () {
                 ScrollingModule,
                 MatCheckboxModule,
                 MatButtonModule,
+                MatSnackBarModule,
                 ModalModule.forRoot()
             ],
             entryComponents: [
@@ -79,7 +85,10 @@ var AppModule = /** @class */ (function () {
                 MegapicksService,
                 UserpowerpicksService,
                 UsermegapicksService,
-                UserpowerwinnersService],
+                UserpowerwinnersService,
+                UsermegawinnersService,
+                SettingsService,
+                HomesettingsService],
             bootstrap: [AppComponent]
         })
     ], AppModule);

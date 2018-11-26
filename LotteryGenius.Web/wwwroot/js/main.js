@@ -186,21 +186,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
 /* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
 /* harmony import */ var _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
-/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
-/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
-/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
-/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/home/homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
+/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
+/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -243,14 +245,14 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"],
-                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_25__["HomeComponent"],
-                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_26__["PowerpicksComponent"],
-                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_27__["MegapicksComponent"],
-                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_28__["UserpowerpicksComponent"],
-                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_29__["UsermegapicksComponent"],
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__["UserpickentryComponent"],
-                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_31__["UserpowerwinnersComponent"],
-                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_32__["UsermegawinnersComponent"]
+                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_26__["HomeComponent"],
+                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_27__["PowerpicksComponent"],
+                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_28__["MegapicksComponent"],
+                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_29__["UserpowerpicksComponent"],
+                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_30__["UsermegapicksComponent"],
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__["UserpickentryComponent"],
+                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_32__["UserpowerwinnersComponent"],
+                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_33__["UsermegawinnersComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -268,12 +270,13 @@ var AppModule = /** @class */ (function () {
                 _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_10__["ScrollingModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
                 _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSnackBarModule"],
                 ngx_bootstrap__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot()
             ],
             entryComponents: [
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_30__["UserpickentryComponent"]
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__["UserpickentryComponent"]
             ],
-            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_24__["AuthGuard"],
+            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__["AuthGuard"],
                 _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__["PowerballService"],
                 _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__["MegamillionsService"],
                 _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__["PowerpicksService"],
@@ -282,7 +285,8 @@ var AppModule = /** @class */ (function () {
                 _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__["UsermegapicksService"],
                 _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__["UserpowerwinnersService"],
                 _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__["UsermegawinnersService"],
-                _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__["SettingsService"]],
+                _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__["SettingsService"],
+                _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__["HomesettingsService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
@@ -339,6 +343,41 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
@@ -352,26 +391,34 @@ var DashboardComponent = /** @class */ (function () {
         this.isExpanded = false;
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var newUser = this.userService.get();
-        if (newUser) {
-            this.user = newUser;
-        }
-        else {
-            this.user = JSON.parse(localStorage.getItem('user'));
-        }
-        this.accountService.getUsers().subscribe(function (data) { return _this.users = data; });
-        if (!this.user) {
-            this.router.navigate([""]);
-        }
-        else {
-            if (this.user.initialLogin === 'True') {
-                this.router.navigate(["change-password"]);
-            }
-            else {
-                this.role = this.user.role;
-            }
-        }
+        return __awaiter(this, void 0, void 0, function () {
+            var newUser;
+            var _this = this;
+            return __generator(this, function (_a) {
+                newUser = this.userService.get();
+                if (newUser) {
+                    this.user = newUser;
+                }
+                else {
+                    this.user = JSON.parse(localStorage.getItem('user'));
+                }
+                this.accountService.getUsers().subscribe(function (data) {
+                    _this.users = data;
+                });
+                if (!this.user) {
+                    this.router.navigate([""]);
+                }
+                else {
+                    if (this.user.initialLogin === 'True') {
+                        this.router.navigate(["change-password"]);
+                    }
+                    else {
+                        this.role = this.user.role;
+                    }
+                }
+                return [2 /*return*/];
+            });
+        });
     };
     DashboardComponent.prototype.logout = function () {
         this.accountService.logout();
@@ -412,7 +459,7 @@ module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player.length > 0; else addUserPlayer\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\"></li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n    <i class=\"fas fa-plus\" style=\"cursor: pointer\"><span>Add User Player</span></i>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player !== null && users.length > 0 && !showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            {{user_player_view.firstName}} {{user_player_view.lastName}}\r\n                            <span><i class=\"fas fa-trash-alt\" style=\"padding-right: 5px; cursor: pointer;\"></i><i class=\"far fa-edit\" style=\"cursor: pointer;\" (click)=\"showUsersSelect = true\"></i></span>\r\n                        </li>\r\n                    </ul>\r\n                    <i *ngIf=\"user_player === null && !showUsersSelect\" class=\"fas fa-plus\" style=\"cursor: pointer\" (click)=\"showUsersSelect = true\"><span>Add User Player</span></i>\r\n                    <ul *ngIf=\"showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between;\">\r\n                            <select [(ngModel)]=\"player_id\">\r\n                                <option [ngValue]=-1 disabled selected>-- Select Role --</option>\r\n                                <option *ngFor=\"let user of users\" [ngValue]=\"user.id\">{{user.firstName}} {{user.lastName}}</option>\r\n                            </select>\r\n                            <button *ngIf=\"showUsersSelect\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"setUserPlayer()\">Set Player</button>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -420,26 +467,29 @@ module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n  
 /*!**************************************************!*\
   !*** ./src/app/dashboard/home/home.component.ts ***!
   \**************************************************/
-/*! exports provided: HomeComponent */
+/*! exports provided: browserRefresh, HomeComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "browserRefresh", function() { return browserRefresh; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
-/* harmony import */ var _models_userplayer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/userplayer */ "./src/app/models/userplayer.ts");
-/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
-/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
-/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
-/* harmony import */ var _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
-/* harmony import */ var _homesettings_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
+/* harmony import */ var _models_user_view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/user.view */ "./src/app/models/user.view.ts");
+/* harmony import */ var _models_userplayer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/userplayer */ "./src/app/models/userplayer.ts");
+/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
+/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
+/* harmony import */ var _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
+/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../shared/settings.service */ "./src/app/shared/settings.service.ts");
+/* harmony import */ var _homesettings_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -449,6 +499,41 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (undefined && undefined.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
 
 
 
@@ -463,8 +548,11 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
+
+var browserRefresh = false;
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, homesettingsService, accountService) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, settingsService, homesettingsService, accountService) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
@@ -474,9 +562,13 @@ var HomeComponent = /** @class */ (function () {
         this.changeDetection = changeDetection;
         this.userpowerpicksService = userpowerpicksService;
         this.usermegapicksService = usermegapicksService;
+        this.settingsService = settingsService;
         this.homesettingsService = homesettingsService;
         this.accountService = accountService;
         this.subscriptions = [];
+        this.showUsersSelect = false;
+        this.player_id = -1;
+        this.users = new Array();
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
         this.user_picks = new Array();
@@ -487,46 +579,66 @@ var HomeComponent = /** @class */ (function () {
         this.powerpicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
-        this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_5__["UserPlayer"]();
-        this.users = new Array();
+        this.homesettingsService.notify_change_in_users();
+        this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
+        this.user_player_view = new _models_user_view__WEBPACK_IMPORTED_MODULE_5__["UserView"]();
+        this.initializePlayers();
     }
     HomeComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        var newUser = this.userService.get();
-        if (newUser) {
-            this.user = newUser;
-        }
-        else {
-            this.user = JSON.parse(localStorage.getItem('user'));
-        }
-        this.powerballService.get_all_powerball_picks().subscribe(function (data) {
-            _this.all_powerball_picks = data;
-        });
-        this.megamillionsService.get_all_megamillions_picks().subscribe(function (data) {
-            _this.all_megamillions_picks = data;
-        });
-        this.powerpicksService.userpicks$.subscribe(function (data) {
-            _this.user_picks = data;
-        });
-        this.megapicksService.userpicks$.subscribe(function (data) {
-            _this.mega_user_picks = data;
-        });
-        this.megapicksService.userwinningpicks$.subscribe(function (data) {
-            _this.mega_user_winning_picks = data;
-        });
-        this.powerpicksService.userwinningpicks$.subscribe(function (data) {
-            _this.power_user_winning_picks = data;
-        });
-        this.homesettingsService.userPlayer$.subscribe(function (data) {
-            _this.user_player = data;
-        });
-        this.accountService.getUsers().subscribe(function (data) {
-            _this.users = data;
+        return __awaiter(this, void 0, void 0, function () {
+            var newUser;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        newUser = this.userService.get();
+                        if (newUser) {
+                            this.user = newUser;
+                        }
+                        else {
+                            this.user = JSON.parse(localStorage.getItem('user'));
+                        }
+                        return [4 /*yield*/, this.initializePlayers()];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.powerballService.get_all_powerball_picks().subscribe(function (data) {
+                                _this.all_powerball_picks = data;
+                            })];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.megamillionsService.get_all_megamillions_picks().subscribe(function (data) {
+                                _this.all_megamillions_picks = data;
+                            })];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, this.powerpicksService.userpicks$.subscribe(function (data) {
+                                _this.user_picks = data;
+                            })];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, this.megapicksService.userpicks$.subscribe(function (data) {
+                                _this.mega_user_picks = data;
+                            })];
+                    case 5:
+                        _a.sent();
+                        return [4 /*yield*/, this.megapicksService.userwinningpicks$.subscribe(function (data) {
+                                _this.mega_user_winning_picks = data;
+                            })];
+                    case 6:
+                        _a.sent();
+                        return [4 /*yield*/, this.powerpicksService.userwinningpicks$.subscribe(function (data) {
+                                _this.power_user_winning_picks = data;
+                            })];
+                    case 7:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
         });
     };
     HomeComponent.prototype.openUserPickModal = function (gameType) {
         var _this = this;
-        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_10__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
+        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
         this.subscriptions.push(this.modalService.onHide.subscribe(function (reason) {
             _this.powerpicksService.notify_change_in_user_picks();
             _this.megapicksService.notify_change_in_user_picks();
@@ -539,7 +651,7 @@ var HomeComponent = /** @class */ (function () {
                 'border-color': gameType === 'Powerball' ? 'red' : 'yellow'
             }
         };
-        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_9__["UserpickentryComponent"], { initialState: initialState });
+        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_10__["UserpickentryComponent"], { initialState: initialState });
         this.bsModalRef.content.closeBtnName = 'Close';
     };
     HomeComponent.prototype.open_delete_modal = function (template, id, type) {
@@ -562,6 +674,48 @@ var HomeComponent = /** @class */ (function () {
             });
         }
     };
+    HomeComponent.prototype.setUserPlayer = function () {
+        var _this = this;
+        if (this.player_id < 1) {
+            var newPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
+            newPlayer.user_id = parseInt(this.user.iat);
+            newPlayer.player_id = this.player_id;
+            this.settingsService.add_user_player(newPlayer).subscribe(function (data) {
+                _this.homesettingsService.notify_change_in_user_player();
+            });
+        }
+        else {
+            var editedPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
+            editedPlayer.user_id = parseInt(this.user.iat);
+            editedPlayer.player_id = this.player_id;
+            this.settingsService.edit_user_player(editedPlayer).subscribe(function (data) {
+                _this.homesettingsService.notify_change_in_user_player();
+                _this.showUsersSelect = false;
+            });
+        }
+    };
+    HomeComponent.prototype.initializePlayers = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.homesettingsService.users$.subscribe(function (data) {
+                            _this.users = data;
+                            _this.settingsService.get_user_player(parseInt(_this.user.iat)).toPromise().then(function (data) {
+                                _this.user_player = data;
+                                if (_this.user_player != null && _this.users.length > 0) {
+                                    _this.player_id = _this.user_player.user_id;
+                                    _this.user_player_view = _this.users.find(function (x) { return x.id === _this.user_player.player_id; });
+                                }
+                            });
+                        })];
+                    case 1:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'home',
@@ -571,13 +725,14 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
             _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__["PowerballService"],
             _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__["MegamillionsService"],
-            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_6__["PowerpicksService"],
-            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_7__["MegapicksService"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_8__["BsModalService"],
+            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_7__["PowerpicksService"],
+            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_8__["MegapicksService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__["BsModalService"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_11__["UserpowerpicksService"],
-            _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_12__["UsermegapicksService"],
-            _homesettings_service__WEBPACK_IMPORTED_MODULE_13__["HomesettingsService"],
+            _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_12__["UserpowerpicksService"],
+            _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_13__["UsermegapicksService"],
+            _shared_settings_service__WEBPACK_IMPORTED_MODULE_14__["SettingsService"],
+            _homesettings_service__WEBPACK_IMPORTED_MODULE_15__["HomesettingsService"],
             _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"]])
     ], HomeComponent);
     return HomeComponent;
@@ -600,7 +755,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/settings.service */ "./src/app/shared/settings.service.ts");
-/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -614,12 +770,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var HomesettingsService = /** @class */ (function () {
-    function HomesettingsService(settingsService, userService) {
+    function HomesettingsService(settingsService, accountService, userService) {
         this.settingsService = settingsService;
+        this.accountService = accountService;
         this.userService = userService;
         this.userPlayer$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
-        this.get_user_player();
+        this.users$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
         var newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;
@@ -627,19 +785,29 @@ var HomesettingsService = /** @class */ (function () {
         else {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
+        this.get_users();
+        this.get_user_player();
     }
     HomesettingsService.prototype.get_user_player = function () {
         var _this = this;
         this.settingsService.get_user_player(parseInt(this.user.iat))
             .subscribe(function (data) { return _this.userPlayer$.next(data); });
     };
+    HomesettingsService.prototype.get_users = function () {
+        var _this = this;
+        this.accountService.getUsers().subscribe(function (data) { return _this.users$.next(data); });
+    };
     HomesettingsService.prototype.notify_change_in_user_player = function () {
         this.get_user_player();
+    };
+    HomesettingsService.prototype.notify_change_in_users = function () {
+        this.get_users();
     };
     HomesettingsService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
         __metadata("design:paramtypes", [_shared_settings_service__WEBPACK_IMPORTED_MODULE_2__["SettingsService"],
-            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_3__["AccountService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_4__["UserService"]])
     ], HomesettingsService);
     return HomesettingsService;
 }());
@@ -1174,7 +1342,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"megamillions-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\" (click)=\"send_user_picks()\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1196,6 +1364,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _usermegapicks_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1212,18 +1381,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var browserRefresh = false;
 var UsermegapicksComponent = /** @class */ (function () {
-    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService, modalService) {
+    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService, modalService, snackBar) {
         this.usermegapicksService = usermegapicksService;
         this.accountService = accountService;
         this.userService = userService;
         this.router = router;
         this.megamillionService = megamillionService;
         this.modalService = modalService;
+        this.snackBar = snackBar;
         this.selectAll = false;
         this.showSendNumbers = false;
         this.user_pick_id = -1;
+        this.result_string = '';
         this.userPicks = new Array();
         this.usermegapicksService.notify_change_in_user_picks();
     }
@@ -1274,6 +1446,25 @@ var UsermegapicksComponent = /** @class */ (function () {
             _this.usermegapicksService.notify_change_in_user_picks();
         });
     };
+    UsermegapicksComponent.prototype.send_user_picks = function () {
+        var _this = this;
+        var picksToSend = this.userPicks.filter(function (item) { return item.checked === true; });
+        this.megamillionService.send_user_picks(picksToSend).subscribe(function (result) {
+            _this.result_string = result.statusText;
+            if (_this.result_string === 'OK') {
+                _this.openSnackBar("Sent!", "Complete");
+                _this.userPicks.map(function (picks) {
+                    picks.checked = false;
+                });
+                _this.showSendNumbers = false;
+            }
+        });
+    };
+    UsermegapicksComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 2000,
+        });
+    };
     UsermegapicksComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'usermegapicks',
@@ -1285,7 +1476,8 @@ var UsermegapicksComponent = /** @class */ (function () {
             _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_5__["MegamillionsService"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]])
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSnackBar"]])
     ], UsermegapicksComponent);
     return UsermegapicksComponent;
 }());
@@ -1541,7 +1733,7 @@ module.exports = ".table-dark {\r\n    background-color: transparent !important;
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"container-fluid\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-1\">\r\n            <a href=\"\" [routerLink]=\"['../']\" class=\"material-icons back-nav-link\">\r\n                keyboard_backspace\r\n                <span class=\"back-nav-text\">BACK</span>\r\n            </a>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <cdk-virtual-scroll-viewport style=\"height: 93.4vh; width: 100%;\" itemSize=\"100\">\r\n                <table class=\"table table-dark table-responsive-md\" style=\"margin: 0 auto;\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>PICK</th>\r\n                            <th>SAVED DATE</th>\r\n                            <th><mat-checkbox (change)=\"updateCheck()\" [(ngModel)]=\"selectAll\"></mat-checkbox></th>\r\n                            <th>ACTIONS</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n                        <tr *cdkVirtualFor=\"let pick of userPicks\">\r\n                            <td>\r\n                                <ul class=\"list-unstyled list-inline\">\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball1}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball2}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball3}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball4}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"circle\">{{pick.ball5}}</div>\r\n                                    </li>\r\n                                    <li class=\"list-inline-item\">\r\n                                        <div class=\"powerball-circle\">{{pick.lottoball}}</div>\r\n                                    </li>\r\n                                </ul>\r\n                            </td>\r\n                            <td>{{pick.saved_date | date: 'shortDate'}}</td>\r\n                            <td><mat-checkbox [(ngModel)]=\"pick.checked\" (change)=\"selectCheck()\"></mat-checkbox></td>\r\n                            <td><i class=\"fas fa-trash-alt\" style=\"color: red; cursor: pointer;\" (click)=\"open_delete_modal(template, pick.id)\"></i></td>\r\n                        </tr>\r\n                    </tbody>\r\n                </table>\r\n            </cdk-virtual-scroll-viewport>\r\n        </div>\r\n        <div class=\"col-md-1\" style=\"padding: 0px;\">\r\n            <button *ngIf=\"showSendNumbers\" mat-raised-button color=\"accent\" style=\"margin-top: 5px;\" (click)=\"send_user_picks()\"><i class=\"far fa-envelope\"></i> Send Numbers</button>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #template>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -1563,6 +1755,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _userpowerpicks_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1579,18 +1772,21 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var browserRefresh = false;
 var UserpowerpicksComponent = /** @class */ (function () {
-    function UserpowerpicksComponent(userpowerpicksService, accountService, userService, router, powerballService, modalService) {
+    function UserpowerpicksComponent(userpowerpicksService, accountService, userService, router, powerballService, modalService, snackBar) {
         this.userpowerpicksService = userpowerpicksService;
         this.accountService = accountService;
         this.userService = userService;
         this.router = router;
         this.powerballService = powerballService;
         this.modalService = modalService;
+        this.snackBar = snackBar;
         this.selectAll = false;
         this.showSendNumbers = false;
         this.user_pick_id = -1;
+        this.result_string = '';
         this.userPicks = new Array();
         this.userpowerpicksService.notify_change_in_user_picks();
     }
@@ -1641,6 +1837,25 @@ var UserpowerpicksComponent = /** @class */ (function () {
             _this.userpowerpicksService.notify_change_in_user_picks();
         });
     };
+    UserpowerpicksComponent.prototype.send_user_picks = function () {
+        var _this = this;
+        var picksToSend = this.userPicks.filter(function (item) { return item.checked === true; });
+        this.powerballService.send_user_picks(picksToSend).subscribe(function (result) {
+            _this.result_string = result.statusText;
+            if (_this.result_string === 'OK') {
+                _this.openSnackBar("Sent!", "Complete");
+                _this.userPicks.map(function (picks) {
+                    picks.checked = false;
+                });
+                _this.showSendNumbers = false;
+            }
+        });
+    };
+    UserpowerpicksComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 2000,
+        });
+    };
     UserpowerpicksComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'userpowerpicks',
@@ -1652,7 +1867,8 @@ var UserpowerpicksComponent = /** @class */ (function () {
             _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"],
             _shared_powerball_service__WEBPACK_IMPORTED_MODULE_5__["PowerballService"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]])
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_7__["MatSnackBar"]])
     ], UserpowerpicksComponent);
     return UserpowerpicksComponent;
 }());
@@ -1984,6 +2200,26 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/user.view.ts":
+/*!*************************************!*\
+  !*** ./src/app/models/user.view.ts ***!
+  \*************************************/
+/*! exports provided: UserView */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserView", function() { return UserView; });
+var UserView = /** @class */ (function () {
+    function UserView() {
+    }
+    return UserView;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/models/userpick.ts":
 /*!************************************!*\
   !*** ./src/app/models/userpick.ts ***!
@@ -2238,6 +2474,11 @@ var MegamillionsService = /** @class */ (function () {
             })
         });
     };
+    MegamillionsService.prototype.send_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/megamillion/SendUserPicks", picks, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
     MegamillionsService.prototype.add_manual_user_pick = function (pick) {
         return this.httpClient.post(this.url + "api/megamillion/AddManualUserPick", pick, {
             headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
@@ -2333,6 +2574,11 @@ var PowerballService = /** @class */ (function () {
     };
     PowerballService.prototype.add_user_picks = function (picks) {
         return this.httpClient.post(this.url + "api/powerball/AddUserPicks", picks, {
+            headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
+    PowerballService.prototype.send_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/powerball/SendUserPicks", picks, {
             headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
         });
     };
@@ -2435,7 +2681,7 @@ var SettingsService = /** @class */ (function () {
         });
     };
     SettingsService.prototype.edit_user_player = function (player) {
-        return this.httpClient.put(this.url + "api/settings/EditUserPlayer", player, {
+        return this.httpClient.put(this.url + "api/settings/EditPlayer", player, {
             headers: new _angular_http__WEBPACK_IMPORTED_MODULE_2__["Headers"]({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
         });
     };

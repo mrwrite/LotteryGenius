@@ -33,6 +33,14 @@ export class PowerballService {
             });
     }
 
+    public send_user_picks(picks: Array<UserPick>) {
+        return this.httpClient.post(this.url + "api/powerball/SendUserPicks",
+            picks,
+            {
+                headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+            });
+    }
+
     public add_manual_user_pick(pick: UserPick) {
         return this.httpClient.post(this.url + "api/powerball/AddManualUserPick",
             pick,

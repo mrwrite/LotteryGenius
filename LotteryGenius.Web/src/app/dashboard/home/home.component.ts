@@ -17,7 +17,10 @@ import { UserpickentryComponent } from './userpickentry/userpickentry.component'
 import { combineLatest, Subscription } from "rxjs";
 import { UserpowerpicksService } from '../userpowerpicks/userpowerpicks.service';
 import { UsermegapicksService } from '../usermegapicks/usermegapicks.service';
+import { SettingsService } from '../../shared/settings.service';
 import { HomesettingsService } from './homesettings.service';
+
+export let browserRefresh = false;
 
 @Component({
     selector: 'home',
@@ -38,6 +41,9 @@ export class HomeComponent implements OnInit {
     subscriptions: Subscription[] = [];
     public pick_id: number;
     public game_type: string;
+    public user_player_view: UserView;
+    public showUsersSelect: boolean = false;
+    public player_id: number = -1;
 
     constructor(private userService: UserService,
         private powerballService: PowerballService,
@@ -48,8 +54,10 @@ export class HomeComponent implements OnInit {
         private changeDetection: ChangeDetectorRef,
         private userpowerpicksService: UserpowerpicksService,
         private usermegapicksService: UsermegapicksService,
+        private settingsService: SettingsService,
         private homesettingsService: HomesettingsService,
         private accountService: AccountService) {
+        this.users = new Array<UserView>();
         this.all_powerball_picks = new Array<PowerballPick>();
         this.all_megamillions_picks = new Array<MegamillionsPick>();
         this.user_picks = new Array<UserPick>();
@@ -60,11 +68,13 @@ export class HomeComponent implements OnInit {
         this.powerpicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
+        this.homesettingsService.notify_change_in_users();
         this.user_player = new UserPlayer();
-        this.users = new Array<UserView>();
+        this.user_player_view = new UserView();
+        this.initializePlayers();
     }
 
-    ngOnInit() {
+    async ngOnInit() {
         let newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;
@@ -72,36 +82,30 @@ export class HomeComponent implements OnInit {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
 
-        this.powerballService.get_all_powerball_picks().subscribe(data => {
+        await this.initializePlayers();
+
+        await this.powerballService.get_all_powerball_picks().subscribe(data => {
             this.all_powerball_picks = data;
         });
 
-        this.megamillionsService.get_all_megamillions_picks().subscribe(data => {
+        await this.megamillionsService.get_all_megamillions_picks().subscribe(data => {
             this.all_megamillions_picks = data;
         });
 
-        this.powerpicksService.userpicks$.subscribe(data => {
+        await this.powerpicksService.userpicks$.subscribe(data => {
             this.user_picks = data;
         });
 
-        this.megapicksService.userpicks$.subscribe(data => {
+        await this.megapicksService.userpicks$.subscribe(data => {
             this.mega_user_picks = data;
         });
 
-        this.megapicksService.userwinningpicks$.subscribe(data => {
+        await this.megapicksService.userwinningpicks$.subscribe(data => {
             this.mega_user_winning_picks = data;
         });
 
-        this.powerpicksService.userwinningpicks$.subscribe(data => {
+        await this.powerpicksService.userwinningpicks$.subscribe(data => {
             this.power_user_winning_picks = data;
-        });
-
-        this.homesettingsService.userPlayer$.subscribe(data => {
-            this.user_player = data;
-        });
-
-        this.accountService.getUsers().subscribe(data => {
-            this.users = data;
         });
     }
 
@@ -145,5 +149,41 @@ export class HomeComponent implements OnInit {
                 this.megapicksService.notify_change_in_user_picks();
             });
         }
+    }
+
+setUserPlayer() {
+    if (this.player_id < 1) {
+        var newPlayer = new UserPlayer();
+
+        newPlayer.user_id = parseInt(this.user.iat);
+        newPlayer.player_id = this.player_id;
+
+        this.settingsService.add_user_player(newPlayer).subscribe(data => {
+            this.homesettingsService.notify_change_in_user_player();
+        });
+    } else {
+        var editedPlayer = new UserPlayer();
+        editedPlayer.user_id = parseInt(this.user.iat);
+        editedPlayer.player_id = this.player_id;
+
+        this.settingsService.edit_user_player(editedPlayer).subscribe(data => {
+           this.homesettingsService.notify_change_in_user_player();
+            this.showUsersSelect = false;
+        });
+    }
+}
+
+    async initializePlayers() {
+        await this.homesettingsService.users$.subscribe(data => {
+                    this.users = data;
+
+            this.settingsService.get_user_player(parseInt(this.user.iat)).toPromise().then(data => {
+                this.user_player = data;
+                if (this.user_player != null && this.users.length > 0) {
+                    this.player_id = this.user_player.user_id;
+                    this.user_player_view = this.users.find(x => x.id === this.user_player.player_id);
+                }
+            });
+        });
     }
 }

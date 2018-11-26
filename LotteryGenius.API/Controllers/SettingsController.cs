@@ -18,6 +18,7 @@ namespace LotteryGenius.API.Controllers
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
 
+    [Route("api/[Controller]")]
     public class SettingsController : Controller
     {
         private readonly ISettingsRepository settingsRepository;
@@ -58,7 +59,7 @@ namespace LotteryGenius.API.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("/api/settings/AddUserPlayer")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> AddUserPlayer([FromBody]UserPlayer player)

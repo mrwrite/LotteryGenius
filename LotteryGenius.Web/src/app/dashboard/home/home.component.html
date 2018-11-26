@@ -162,8 +162,21 @@
                 <div class="card-body" style="text-align: center;">
                     <h4>User Player</h4>
                     <hr class="m-4" />
-                    <ul *ngIf="user_player.length > 0; else addUserPlayer" class="list-unstyled">
-                        <li style="display: flex; justify-content: space-between"></li>
+                    <ul *ngIf="user_player !== null && users.length > 0 && !showUsersSelect" class="list-unstyled">
+                        <li style="display: flex; justify-content: space-between">
+                            {{user_player_view.firstName}} {{user_player_view.lastName}}
+                            <span><i class="fas fa-trash-alt" style="padding-right: 5px; cursor: pointer;"></i><i class="far fa-edit" style="cursor: pointer;" (click)="showUsersSelect = true"></i></span>
+                        </li>
+                    </ul>
+                    <i *ngIf="user_player === null && !showUsersSelect" class="fas fa-plus" style="cursor: pointer" (click)="showUsersSelect = true"><span>Add User Player</span></i>
+                    <ul *ngIf="showUsersSelect" class="list-unstyled">
+                        <li style="display: flex; justify-content: space-between;">
+                            <select [(ngModel)]="player_id">
+                                <option [ngValue]=-1 disabled selected>-- Select Role --</option>
+                                <option *ngFor="let user of users" [ngValue]="user.id">{{user.firstName}} {{user.lastName}}</option>
+                            </select>
+                            <button *ngIf="showUsersSelect" type="button" class="btn btn-outline-success" (click)="setUserPlayer()">Set Player</button>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -180,7 +193,6 @@
 </ng-template>
 
 <ng-template #addUserPlayer>
-    <i class="fas fa-plus" style="cursor: pointer"><span>Add User Player</span></i>
 </ng-template>
 
 <ng-template #userPick>

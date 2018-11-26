@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\Templates\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +17,7 @@
     <PackageReference Include="Dapper" Version="1.50.5" />
     <PackageReference Include="Dapper.Extension" Version="1.0.0.1" />
     <PackageReference Include="HtmlAgilityPack" Version="1.8.9" />
+    <PackageReference Include="MailKit" Version="2.0.7" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.3" />

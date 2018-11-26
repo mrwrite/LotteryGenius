@@ -33,6 +33,11 @@ var PowerballService = /** @class */ (function () {
             headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
         });
     };
+    PowerballService.prototype.send_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/powerball/SendUserPicks", picks, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
     PowerballService.prototype.add_manual_user_pick = function (pick) {
         return this.httpClient.post(this.url + "api/powerball/AddManualUserPick", pick, {
             headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
@@ -64,6 +69,11 @@ var PowerballService = /** @class */ (function () {
             })
         };
         return this.http.get(this.url + "api/powerball/GetUserPowerballWinners/" + user_id, httpOptions);
+    };
+    PowerballService.prototype.delete_user_pick = function (id) {
+        return this.httpClient.delete(this.url + "api/powerball/DeleteUserPick/" + id, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        }).pipe();
     };
     PowerballService = __decorate([
         Injectable(),

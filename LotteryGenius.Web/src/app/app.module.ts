@@ -11,7 +11,8 @@ import {
     MatListModule,
     MatExpansionModule,
     MatCheckboxModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule
 } from '@angular/material';
 
 import { ModalModule } from 'ngx-bootstrap';
@@ -32,6 +33,7 @@ import { UserpowerpicksService } from './dashboard/userpowerpicks/userpowerpicks
 import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.service';
 import { UserpowerwinnersService } from './dashboard/userpowerwinners/userpowerwinners.service';
 import { UsermegawinnersService } from './dashboard/usermegawinners/usermegawinners.service';
+import { HomesettingsService } from './dashboard/home/homesettings.service';
 
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
@@ -73,6 +75,7 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
         ScrollingModule,
         MatCheckboxModule,
         MatButtonModule,
+        MatSnackBarModule,
         ModalModule.forRoot()
     ],
     entryComponents: [
@@ -87,7 +90,8 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
         UsermegapicksService,
         UserpowerwinnersService,
         UsermegawinnersService,
-        SettingsService],
+        SettingsService,
+        HomesettingsService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

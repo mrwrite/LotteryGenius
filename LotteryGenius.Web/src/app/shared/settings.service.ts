@@ -33,7 +33,7 @@ export class SettingsService {
     }
 
     public edit_user_player(player: UserPlayer) {
-        return this.httpClient.put(this.url + "api/settings/EditUserPlayer",
+        return this.httpClient.put(this.url + "api/settings/EditPlayer",
             player,
             {
                 headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })

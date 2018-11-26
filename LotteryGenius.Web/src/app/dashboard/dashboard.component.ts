@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
         private router: Router) {
     }
 
-    ngOnInit(): void {
+    async ngOnInit() {
         let newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;
@@ -35,7 +35,9 @@ export class DashboardComponent implements OnInit {
             this.user = JSON.parse(localStorage.getItem('user'));
         }
 
-        this.accountService.getUsers().subscribe(data => this.users = data);
+        this.accountService.getUsers().subscribe(data => {
+            this.users = data;
+        });
 
         if (!this.user) {
             this.router.navigate([""]);

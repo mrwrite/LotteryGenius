@@ -35,6 +35,11 @@ var MegamillionsService = /** @class */ (function () {
             })
         });
     };
+    MegamillionsService.prototype.send_user_picks = function (picks) {
+        return this.httpClient.post(this.url + "api/megamillion/SendUserPicks", picks, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        });
+    };
     MegamillionsService.prototype.add_manual_user_pick = function (pick) {
         return this.httpClient.post(this.url + "api/megamillion/AddManualUserPick", pick, {
             headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
@@ -66,6 +71,11 @@ var MegamillionsService = /** @class */ (function () {
             })
         };
         return this.http.get(this.url + "api/megamillion/GetUserMegamillionWinners/" + user_id, httpOptions);
+    };
+    MegamillionsService.prototype.delete_user_pick = function (id) {
+        return this.httpClient.delete(this.url + "api/megamillion/DeleteUserPick/" + id, {
+            headers: new Headers({ "Authorization": "Bearer " + localStorage.getItem('token').toString() })
+        }).pipe();
     };
     MegamillionsService = __decorate([
         Injectable(),

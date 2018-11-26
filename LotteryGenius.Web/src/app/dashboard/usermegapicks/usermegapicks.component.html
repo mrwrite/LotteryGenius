@@ -51,7 +51,7 @@
             </cdk-virtual-scroll-viewport>
         </div>
         <div class="col-md-1" style="padding: 0px;">
-            <button *ngIf="showSendNumbers" mat-raised-button color="accent" style="margin-top: 5px;"><i class="far fa-envelope"></i> Send Numbers</button>
+            <button *ngIf="showSendNumbers" mat-raised-button color="accent" style="margin-top: 5px;" (click)="send_user_picks()"><i class="far fa-envelope"></i> Send Numbers</button>
         </div>
     </div>
 </div>

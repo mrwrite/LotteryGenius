@@ -43,5 +43,7 @@ namespace LotteryGenius.API.Data.Repositories
         IEnumerable<MegaWinnerViewModel> GetUserMegamillionWinners(int user_id);
 
         bool DeleteUserPick(int id);
+
+        void SendUserPicks(IEnumerable<UserPick> picks);
     }
 }

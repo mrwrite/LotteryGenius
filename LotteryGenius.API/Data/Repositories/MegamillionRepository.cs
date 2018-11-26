@@ -16,6 +16,11 @@ using Microsoft.Extensions.Logging;
 
 namespace LotteryGenius.API.Data.Repositories
 {
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using System.IO;
+    using MimeKit;
+
     public class MegamillionRepository : IMegamillionRepository
     {
         /// <summary>
@@ -27,16 +32,19 @@ namespace LotteryGenius.API.Data.Repositories
         private readonly IConfiguration _config;
         private readonly IMapper _mapper;
         private readonly IEmailSender _emailSender;
+        private readonly UserManager<LotteryGeniusUser> userManager;
+        private readonly IHostingEnvironment env;
         private SqlConnection sqlConnection;
 
-        public MegamillionRepository(LotteryGeniusContext ctx, ILogger<MegamillionRepository> logger, IConfiguration config, IMapper mapper, IEmailSender emailSender)
+        public MegamillionRepository(LotteryGeniusContext ctx, ILogger<MegamillionRepository> logger, IConfiguration config, IMapper mapper, IEmailSender emailSender, UserManager<LotteryGeniusUser> userManager, IHostingEnvironment env)
         {
             _ctx = ctx;
             _logger = logger;
             _config = config;
             _mapper = mapper;
             _emailSender = emailSender;
-
+            this.userManager = userManager;
+            this.env = env;
             sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
         }
 
@@ -480,6 +488,45 @@ namespace LotteryGenius.API.Data.Repositories
             {
                 return false;
             }
+        }
+
+        public async void SendUserPicks(IEnumerable<UserPick> picks)
+        {
+            var userId = picks.Select(x => x.user_id).FirstOrDefault();
+            var user = this.userManager.Users.SingleOrDefault(x => x.Id == userId);
+            var userPlayer = this._ctx.UserPlayers.SingleOrDefault(x => x.user_id == userId);
+            var playerEmail = this.userManager.Users.Where(x => x.Id == userPlayer.player_id).Select(x => x.Email)
+                .SingleOrDefault();
+
+            var webRoot = this.env.WebRootPath;
+            var pathToFile = this.env.WebRootPath + Path.DirectorySeparatorChar.ToString() + "Templates"
+                             + Path.DirectorySeparatorChar.ToString() + "lottogenius_email.html";
+
+            var sb = new StringBuilder();
+            var builder = new BodyBuilder();
+
+            using (StreamReader SourceReader = System.IO.File.OpenText(pathToFile))
+            {
+                builder.HtmlBody = SourceReader.ReadToEnd();
+            }
+
+            foreach (var pick in picks)
+            {
+                sb.AppendLine(
+                    string.Format(
+                        "<li style='margin: 5px; padding: 5px;'><div class='mini-circle'>{0}</div><div class='mini-circle'>{1}</div><div class='mini-circle'>{2}</div><div class='mini-circle'>{3}</div><div class='mini-circle'>{4}</div><div class='mini-megamillions-circle'>{5}</div></li>",
+                        pick.ball1,
+                        pick.ball2,
+                        pick.ball3,
+                        pick.ball4,
+                        pick.ball5,
+                        pick.lottoball));
+            }
+
+            string messageBody = builder.HtmlBody;
+            messageBody = messageBody.Replace("{numbers}", sb.ToString()).Replace("{salutation}", "Thank You");
+
+            await _emailSender.SendEmailAsync(playerEmail, $"{user.FirstName}'s Megamillions Picks", messageBody);
         }
 
         public void AddNextMegamillionsJackpot(string jackpot, DateTime jackpot_date)

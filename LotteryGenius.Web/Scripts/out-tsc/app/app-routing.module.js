@@ -15,6 +15,7 @@ import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
 import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpicks.component';
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
+import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
 var routes = [
     { path: "", component: LoginComponent },
     {
@@ -25,7 +26,8 @@ var routes = [
             { path: "megapicks", component: MegapicksComponent, canActivate: [AuthGuard] },
             { path: "userpowerpicks", component: UserpowerpicksComponent, canActivate: [AuthGuard] },
             { path: "usermegapicks", component: UsermegapicksComponent, canActivate: [AuthGuard] },
-            { path: "userpowerwinners", component: UserpowerwinnersComponent, canActivate: [AuthGuard] }
+            { path: "userpowerwinners", component: UserpowerwinnersComponent, canActivate: [AuthGuard] },
+            { path: "usermegawinners", component: UsermegawinnersComponent, canActivate: [AuthGuard] }
         ]
     }
 ];

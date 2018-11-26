@@ -37,6 +37,20 @@ var UserpowerwinnersComponent = /** @class */ (function () {
             _this.winners = data;
         });
     };
+    UserpowerwinnersComponent.prototype.checkWinner = function (ball, numbers, type) {
+        var nWinners = Object.values(numbers);
+        if (nWinners.indexOf(ball) !== -1) {
+            nWinners = [];
+            return "correct-circle";
+        }
+        else {
+            nWinners = [];
+            if (type === "powerball") {
+                return "powerball-circle";
+            }
+            return "circle";
+        }
+    };
     UserpowerwinnersComponent = __decorate([
         Component({
             selector: 'userpowerwinners',

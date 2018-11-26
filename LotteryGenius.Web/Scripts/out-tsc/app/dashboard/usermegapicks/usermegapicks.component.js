@@ -13,15 +13,22 @@ import { Router } from '@angular/router';
 import { UserService } from "../../shared/user.service";
 import { UsermegapicksService } from './usermegapicks.service';
 import { MegamillionsService } from '../../shared/megamillions.service';
+import { BsModalService } from "ngx-bootstrap/modal";
+import { MatSnackBar } from '@angular/material';
+export var browserRefresh = false;
 var UsermegapicksComponent = /** @class */ (function () {
-    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService) {
+    function UsermegapicksComponent(usermegapicksService, accountService, userService, router, megamillionService, modalService, snackBar) {
         this.usermegapicksService = usermegapicksService;
         this.accountService = accountService;
         this.userService = userService;
         this.router = router;
         this.megamillionService = megamillionService;
+        this.modalService = modalService;
+        this.snackBar = snackBar;
         this.selectAll = false;
         this.showSendNumbers = false;
+        this.user_pick_id = -1;
+        this.result_string = '';
         this.userPicks = new Array();
         this.usermegapicksService.notify_change_in_user_picks();
     }
@@ -61,6 +68,36 @@ var UsermegapicksComponent = /** @class */ (function () {
             this.showSendNumbers = false;
         }
     };
+    UsermegapicksComponent.prototype.open_delete_modal = function (template, id) {
+        this.user_pick_id = id;
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    UsermegapicksComponent.prototype.confirm_user_pick_delete = function () {
+        var _this = this;
+        this.megamillionService.delete_user_pick(this.user_pick_id).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.usermegapicksService.notify_change_in_user_picks();
+        });
+    };
+    UsermegapicksComponent.prototype.send_user_picks = function () {
+        var _this = this;
+        var picksToSend = this.userPicks.filter(function (item) { return item.checked === true; });
+        this.megamillionService.send_user_picks(picksToSend).subscribe(function (result) {
+            _this.result_string = result.statusText;
+            if (_this.result_string === 'OK') {
+                _this.openSnackBar("Sent!", "Complete");
+                _this.userPicks.map(function (picks) {
+                    picks.checked = false;
+                });
+                _this.showSendNumbers = false;
+            }
+        });
+    };
+    UsermegapicksComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, {
+            duration: 2000,
+        });
+    };
     UsermegapicksComponent = __decorate([
         Component({
             selector: 'usermegapicks',
@@ -71,7 +108,9 @@ var UsermegapicksComponent = /** @class */ (function () {
             AccountService,
             UserService,
             Router,
-            MegamillionsService])
+            MegamillionsService,
+            BsModalService,
+            MatSnackBar])
     ], UsermegapicksComponent);
     return UsermegapicksComponent;
 }());

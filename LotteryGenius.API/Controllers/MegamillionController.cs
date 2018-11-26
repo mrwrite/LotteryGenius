@@ -240,6 +240,23 @@ namespace LotteryGenius.API.Controllers
         }
 
         [HttpPost]
+        [Route("/api/megamillion/SendUserPicks")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> SendUserPicks([FromBody] IEnumerable<UserPick> picks)
+        {
+            try
+            {
+                this._megamillionRepository.SendUserPicks(picks);
+                return this.Ok();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
+        [HttpPost]
         [Route("/api/megamillion/AddManualUserPick")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> Post([FromBody] UserPick pick)
