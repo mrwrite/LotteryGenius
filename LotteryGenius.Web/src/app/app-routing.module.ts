@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './dashboard/home/home.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { AuthGuard } from './shared/auth-guard.service';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
 import { MegapicksComponent } from './dashboard/megapicks/megapicks.component';
@@ -13,6 +15,12 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
 
 const routes: Routes = [
     { path: "", component: LoginComponent },
+    {
+        path: "admin", component: AdminComponent, canActivate: [AuthGuard],
+        children: [
+            { path: "", component: AdminhomeComponent, canActivate: [AuthGuard] }
+        ]
+    },
     {
         path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard],
         children: [

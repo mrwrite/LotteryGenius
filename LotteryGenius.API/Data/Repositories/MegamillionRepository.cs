@@ -111,7 +111,7 @@ namespace LotteryGenius.API.Data.Repositories
                             _ctx.MegaPicks.Add(newPick);
                         }
                     }
-
+                    this.CleanUpMegaPicks();
                     SaveAll();
                     return results;
                 }
@@ -541,6 +541,14 @@ namespace LotteryGenius.API.Data.Repositories
             using (IDbConnection dbConnection = sqlConnection)
             {
                 dbConnection.Execute("UpsertNextMegamillions", param, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void CleanUpMegaPicks()
+        {
+            using (IDbConnection dbConnection = this.sqlConnection)
+            {
+                dbConnection.Execute("MegaPicks_CleanUp", commandType: CommandType.StoredProcedure);
             }
         }
 

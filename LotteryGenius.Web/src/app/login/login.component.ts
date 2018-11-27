@@ -31,7 +31,11 @@ export class LoginComponent {
                     newUser.password = this.creds.password;
                     this.userService.set(newUser);
                     localStorage.setItem('user', JSON.stringify(this.jwtHelperService.decodeToken(data.token)));
-                    this.router.navigate(["dashboard"]);
+                    if (newUser.role === 'Admin') {
+                        this.router.navigate(["admin"]);
+                    } else {
+                        this.router.navigate(["dashboard"]);
+                    }
                 },
                 error => {
                     this.error_message = error._body;

@@ -9,16 +9,25 @@ using LotteryGenius.Web.Repositories;
 
 namespace LotteryGenius.Web.Controllers
 {
+    using System.Net.Http;
+    using System.Net.Http.Headers;
+
+    using Microsoft.Extensions.Configuration;
+
+    using Newtonsoft.Json;
+
     public class HomeController : Controller
     {
         private readonly IPowerballRepository _powerballRepository;
 
         private readonly IMegamillionRepository megamillionRepository;
+        private readonly IConfiguration configuration;
 
-        public HomeController(IPowerballRepository powerballRepository, IMegamillionRepository megamillionRepository)
+        public HomeController(IPowerballRepository powerballRepository, IMegamillionRepository megamillionRepository, IConfiguration configuration)
         {
             _powerballRepository = powerballRepository;
             this.megamillionRepository = megamillionRepository;
+            this.configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
@@ -110,6 +119,28 @@ namespace LotteryGenius.Web.Controllers
             ViewData["MegaplierTotal"] = winnerMegaplierAmmount;
 
             return View();
+        }
+
+        public async Task<IActionResult> EmailVerification(string email)
+        {
+            var model = new EmailVerificationModel()
+            {
+                Username = email
+            };
+
+            var _apiUrl = this.configuration["ApiSource"];
+            HttpClient client = new HttpClient();
+            var content = JsonConvert.SerializeObject(model);
+            var buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            var byteContent = new ByteArrayContent(buffer);
+            byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+            var response = await client.PostAsync(_apiUrl + "api/account/VerifyEmail", byteContent);
+            if (response.IsSuccessStatusCode)
+            {
+                return View();
+            }
+
+            return View("Index");
         }
     }
 }

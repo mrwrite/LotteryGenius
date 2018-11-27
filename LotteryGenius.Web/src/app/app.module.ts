@@ -34,6 +34,7 @@ import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.se
 import { UserpowerwinnersService } from './dashboard/userpowerwinners/userpowerwinners.service';
 import { UsermegawinnersService } from './dashboard/usermegawinners/usermegawinners.service';
 import { HomesettingsService } from './dashboard/home/homesettings.service';
+import { AdminhomeService } from './admin/adminhome/adminhome.service';
 
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
@@ -44,6 +45,9 @@ import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.
 import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
 import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+import { UserentryComponent } from './admin/userentry/userentry.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +61,11 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
         UsermegapicksComponent,
         UserpickentryComponent,
         UserpowerwinnersComponent,
-        UsermegawinnersComponent
+        UsermegawinnersComponent,
+        AdminComponent,
+        AdminhomeComponent,
+        UserentryComponent,
+
     ],
     imports: [
         BrowserModule,
@@ -79,7 +87,8 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
         ModalModule.forRoot()
     ],
     entryComponents: [
-        UserpickentryComponent
+        UserpickentryComponent,
+        UserentryComponent
     ],
     providers: [AuthGuard,
         PowerballService,
@@ -91,7 +100,8 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
         UserpowerwinnersService,
         UsermegawinnersService,
         SettingsService,
-        HomesettingsService],
+        HomesettingsService,
+        AdminhomeService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

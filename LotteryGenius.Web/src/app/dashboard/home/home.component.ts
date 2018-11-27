@@ -66,8 +66,10 @@ export class HomeComponent implements OnInit {
         this.power_user_winning_picks = new Array<UserPick>();
         this.powerpicksService.notify_change_in_user_picks();
         this.powerpicksService.notify_change_in_user_winning_picks();
+        this.powerpicksService.notify_change_in_powerball_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
+        this.megapicksService.notify_change_in_megamillion_picks();
         this.homesettingsService.notify_change_in_users();
         this.user_player = new UserPlayer();
         this.user_player_view = new UserView();
@@ -84,11 +86,11 @@ export class HomeComponent implements OnInit {
 
         await this.initializePlayers();
 
-        await this.powerballService.get_all_powerball_picks().subscribe(data => {
+        await this.powerpicksService.powerballpicks$.subscribe(data => {
             this.all_powerball_picks = data;
         });
 
-        await this.megamillionsService.get_all_megamillions_picks().subscribe(data => {
+        await this.megapicksService.megamillionpicks$.subscribe(data => {
             this.all_megamillions_picks = data;
         });
 
@@ -151,31 +153,31 @@ export class HomeComponent implements OnInit {
         }
     }
 
-setUserPlayer() {
-    if (this.player_id < 1) {
-        var newPlayer = new UserPlayer();
+    setUserPlayer() {
+        if (this.player_id < 1) {
+            var newPlayer = new UserPlayer();
 
-        newPlayer.user_id = parseInt(this.user.iat);
-        newPlayer.player_id = this.player_id;
+            newPlayer.user_id = parseInt(this.user.iat);
+            newPlayer.player_id = this.player_id;
 
-        this.settingsService.add_user_player(newPlayer).subscribe(data => {
-            this.homesettingsService.notify_change_in_user_player();
-        });
-    } else {
-        var editedPlayer = new UserPlayer();
-        editedPlayer.user_id = parseInt(this.user.iat);
-        editedPlayer.player_id = this.player_id;
+            this.settingsService.add_user_player(newPlayer).subscribe(data => {
+                this.homesettingsService.notify_change_in_user_player();
+            });
+        } else {
+            var editedPlayer = new UserPlayer();
+            editedPlayer.user_id = parseInt(this.user.iat);
+            editedPlayer.player_id = this.player_id;
 
-        this.settingsService.edit_user_player(editedPlayer).subscribe(data => {
-           this.homesettingsService.notify_change_in_user_player();
-            this.showUsersSelect = false;
-        });
+            this.settingsService.edit_user_player(editedPlayer).subscribe(data => {
+                this.homesettingsService.notify_change_in_user_player();
+                this.showUsersSelect = false;
+            });
+        }
     }
-}
 
     async initializePlayers() {
         await this.homesettingsService.users$.subscribe(data => {
-                    this.users = data;
+            this.users = data;
 
             this.settingsService.get_user_player(parseInt(this.user.iat)).toPromise().then(data => {
                 this.user_player = data;

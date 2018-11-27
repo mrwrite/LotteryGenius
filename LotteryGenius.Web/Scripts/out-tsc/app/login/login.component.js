@@ -34,7 +34,12 @@ var LoginComponent = /** @class */ (function () {
             newUser.password = _this.creds.password;
             _this.userService.set(newUser);
             localStorage.setItem('user', JSON.stringify(_this.jwtHelperService.decodeToken(data.token)));
-            _this.router.navigate(["dashboard"]);
+            if (newUser.role === 'Admin') {
+                _this.router.navigate(["admin"]);
+            }
+            else {
+                _this.router.navigate(["dashboard"]);
+            }
         }, function (error) {
             _this.error_message = error._body;
         });

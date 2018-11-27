@@ -23,6 +23,369 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/admin/admin.component.css":
+/*!*******************************************!*\
+  !*** ./src/app/admin/admin.component.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL2FkbWluLmNvbXBvbmVudC5jc3MifQ== */"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin.component.html":
+/*!********************************************!*\
+  !*** ./src/app/admin/admin.component.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n    <mat-toolbar color=\"accent\">\r\n        <mat-toolbar-row>\r\n            <span>Hello {{user.given_name}}</span>\r\n            <span style=\"flex: 1 1 auto;\"></span>\r\n            <span><a (click)=\"logout()\" class=\"text-span\">Logoff</a></span>\r\n        </mat-toolbar-row>\r\n    </mat-toolbar>\r\n    <router-outlet>\r\n    </router-outlet>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/admin.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/admin/admin.component.ts ***!
+  \******************************************/
+/*! exports provided: AdminComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminComponent", function() { return AdminComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminComponent = /** @class */ (function () {
+    function AdminComponent(userService, accountService, router) {
+        this.userService = userService;
+        this.accountService = accountService;
+        this.router = router;
+        this.today = Date.now();
+    }
+    AdminComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.accountService.getUsers().subscribe(function (data) {
+            _this.users = data;
+        });
+        if (!this.user) {
+            this.router.navigate([""]);
+        }
+        else {
+            if (this.user.initialLogin === 'True') {
+                this.router.navigate(["change-password"]);
+            }
+            else {
+                this.role = this.user.role;
+            }
+        }
+    };
+    AdminComponent.prototype.logout = function () {
+        this.accountService.logout();
+        this.router.navigate([""]);
+    };
+    AdminComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'admin',
+            template: __webpack_require__(/*! ./admin.component.html */ "./src/app/admin/admin.component.html"),
+            styles: [__webpack_require__(/*! ./admin.component.css */ "./src/app/admin/admin.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]])
+    ], AdminComponent);
+    return AdminComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/adminhome/adminhome.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/adminhome/adminhome.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c, #18191c 48%, #202226) !important;\r\n}\r\n\r\n.card-header {\r\n    background-color: transparent !important;\r\n    padding-top: 0.25px;\r\n    padding-bottom: 0.25px;\r\n    font-size: 14px !important;\r\n    font-weight: 200 !important;\r\n}\r\n\r\n.card-name {\r\n    font-family: inherit;\r\n    font-size: 28px;\r\n    font-weight: 400;\r\n}\r\n\r\n.card-email {\r\n    font-family: inherit;\r\n    font-size: 14px;\r\n    font-weight: lighter;\r\n}\r\n\r\n.card {\r\n    background-color: rgba(0, 0, 0, 0.5);\r\n    color: rgba(255, 255, 255, 1);\r\n}\r\n\r\n.view-all-link {\r\n    color: rgba(102, 102, 102, 1);\r\n    border: rgba(102, 102, 102, 1);\r\n    border-radius: 16px;\r\n    border-style: solid;\r\n    border-width: thin;\r\n    margin: 4px 2px;\r\n    padding: 5px 20px;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYWRtaW4vYWRtaW5ob21lL2FkbWluaG9tZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0ZBQWtGO0NBQ3JGOztBQUVEO0lBQ0kseUNBQXlDO0lBQ3pDLG9CQUFvQjtJQUNwQix1QkFBdUI7SUFDdkIsMkJBQTJCO0lBQzNCLDRCQUE0QjtDQUMvQjs7QUFFRDtJQUNJLHFCQUFxQjtJQUNyQixnQkFBZ0I7SUFDaEIsaUJBQWlCO0NBQ3BCOztBQUVEO0lBQ0kscUJBQXFCO0lBQ3JCLGdCQUFnQjtJQUNoQixxQkFBcUI7Q0FDeEI7O0FBRUQ7SUFDSSxxQ0FBcUM7SUFDckMsOEJBQThCO0NBQ2pDOztBQUVEO0lBQ0ksOEJBQThCO0lBQzlCLCtCQUErQjtJQUMvQixvQkFBb0I7SUFDcEIsb0JBQW9CO0lBQ3BCLG1CQUFtQjtJQUNuQixnQkFBZ0I7SUFDaEIsa0JBQWtCO0NBQ3JCIiwiZmlsZSI6InNyYy9hcHAvYWRtaW4vYWRtaW5ob21lL2FkbWluaG9tZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhcmQge1xyXG4gICAgYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KDBkZWcsICMxODE5MWMsICMxODE5MWMgNDglLCAjMjAyMjI2KSAhaW1wb3J0YW50O1xyXG59XHJcblxyXG4uY2FyZC1oZWFkZXIge1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcclxuICAgIHBhZGRpbmctdG9wOiAwLjI1cHg7XHJcbiAgICBwYWRkaW5nLWJvdHRvbTogMC4yNXB4O1xyXG4gICAgZm9udC1zaXplOiAxNHB4ICFpbXBvcnRhbnQ7XHJcbiAgICBmb250LXdlaWdodDogMjAwICFpbXBvcnRhbnQ7XHJcbn1cclxuXHJcbi5jYXJkLW5hbWUge1xyXG4gICAgZm9udC1mYW1pbHk6IGluaGVyaXQ7XHJcbiAgICBmb250LXNpemU6IDI4cHg7XHJcbiAgICBmb250LXdlaWdodDogNDAwO1xyXG59XHJcblxyXG4uY2FyZC1lbWFpbCB7XHJcbiAgICBmb250LWZhbWlseTogaW5oZXJpdDtcclxuICAgIGZvbnQtc2l6ZTogMTRweDtcclxuICAgIGZvbnQtd2VpZ2h0OiBsaWdodGVyO1xyXG59XHJcblxyXG4uY2FyZCB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAxKTtcclxufVxyXG5cclxuLnZpZXctYWxsLWxpbmsge1xyXG4gICAgY29sb3I6IHJnYmEoMTAyLCAxMDIsIDEwMiwgMSk7XHJcbiAgICBib3JkZXI6IHJnYmEoMTAyLCAxMDIsIDEwMiwgMSk7XHJcbiAgICBib3JkZXItcmFkaXVzOiAxNnB4O1xyXG4gICAgYm9yZGVyLXN0eWxlOiBzb2xpZDtcclxuICAgIGJvcmRlci13aWR0aDogdGhpbjtcclxuICAgIG1hcmdpbjogNHB4IDJweDtcclxuICAgIHBhZGRpbmc6IDVweCAyMHB4O1xyXG59Il19 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/adminhome/adminhome.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/adminhome/adminhome.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    USERS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"open_new_user_modal()\"></i>\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let user of users | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            {{user.firstName}} {{user.lastName}} | {{user.email}}\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/adminhome/adminhome.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/admin/adminhome/adminhome.component.ts ***!
+  \********************************************************/
+/*! exports provided: AdminhomeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminhomeComponent", function() { return AdminhomeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _userentry_userentry_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../userentry/userentry.component */ "./src/app/admin/userentry/userentry.component.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _adminhome_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./adminhome.service */ "./src/app/admin/adminhome/adminhome.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var AdminhomeComponent = /** @class */ (function () {
+    function AdminhomeComponent(userService, accountService, router, adminhomeService, modalService) {
+        this.userService = userService;
+        this.accountService = accountService;
+        this.router = router;
+        this.adminhomeService = adminhomeService;
+        this.modalService = modalService;
+        this.adminhomeService.notify_change_in_users();
+    }
+    AdminhomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.adminhomeService.users$.subscribe(function (data) {
+            _this.users = data;
+        });
+    };
+    AdminhomeComponent.prototype.open_new_user_modal = function () {
+        var initialState = {
+            title: 'Add User'
+        };
+        this.bsModalRef = this.modalService.show(_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_3__["UserentryComponent"], { initialState: initialState });
+    };
+    AdminhomeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'adminhome',
+            template: __webpack_require__(/*! ./adminhome.component.html */ "./src/app/admin/adminhome/adminhome.component.html"),
+            styles: [__webpack_require__(/*! ./adminhome.component.css */ "./src/app/admin/adminhome/adminhome.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
+            _adminhome_service__WEBPACK_IMPORTED_MODULE_5__["AdminhomeService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_6__["BsModalService"]])
+    ], AdminhomeComponent);
+    return AdminhomeComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/adminhome/adminhome.service.ts":
+/*!******************************************************!*\
+  !*** ./src/app/admin/adminhome/adminhome.service.ts ***!
+  \******************************************************/
+/*! exports provided: AdminhomeService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminhomeService", function() { return AdminhomeService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var AdminhomeService = /** @class */ (function () {
+    function AdminhomeService(accountService, userService) {
+        this.accountService = accountService;
+        this.userService = userService;
+        this.users$ = new rxjs__WEBPACK_IMPORTED_MODULE_1__["Subject"]();
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.get_users();
+    }
+    AdminhomeService.prototype.get_users = function () {
+        var _this = this;
+        this.accountService.getUsers().subscribe(function (data) { return _this.users$.next(data); });
+    };
+    AdminhomeService.prototype.notify_change_in_users = function () {
+        this.get_users();
+    };
+    AdminhomeService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])(),
+        __metadata("design:paramtypes", [_shared_account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]])
+    ], AdminhomeService);
+    return AdminhomeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/admin/userentry/userentry.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/admin/userentry/userentry.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FkbWluL3VzZXJlbnRyeS91c2VyZW50cnkuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/admin/userentry/userentry.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/admin/userentry/userentry.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"modal-header\">\r\n    <h4 class=\"modal-title pull-left\">Add New User</h4>\r\n    <button type=\"button\" class=\"close pull-right\" aria-label=\"Close\" (click)=\"bsModalRef.hide()\">\r\n        <span aria-hidden=\"true\">&times;</span>\r\n    </button>\r\n</div>\r\n<div class=\"modal-body\">\r\n    <div class=\"form-group\">\r\n        <label for=\"firstName\">First Name:</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"firstName\" [(ngModel)]=\"newUser.firstname\" />\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label for=\"lastName\">Last Name:</label>\r\n        <input type=\"text\" class=\"form-control\" id=\"lastName\" [(ngModel)]=\"newUser.lastname\" />\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <label for=\"email\">Email:</label>\r\n        <input type=\"email\" class=\"form-control\" id=\"email\" [(ngModel)]=\"newUser.username\" />\r\n    </div>\r\n    <div class=\"form-group\">\r\n        <select [(ngModel)]=\"newUser.role\">\r\n            <option [ngValue]=\"undefined\" disabled selected>--Select Role--</option>\r\n            <option *ngFor=\"let role of roles\" [ngValue]=\"role.name\">{{role.name}}</option>\r\n        </select>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"modal-footer\">\r\n    <button type=\"button\" class=\"btn btn-success\" (click)=\"addUser()\">Add User</button>\r\n    <button type=\"button\" class=\"btn btn-default\" (click)=\"bsModalRef.hide()\">Cancel</button>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/admin/userentry/userentry.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/admin/userentry/userentry.component.ts ***!
+  \********************************************************/
+/*! exports provided: UserentryComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserentryComponent", function() { return UserentryComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../adminhome/adminhome.service */ "./src/app/admin/adminhome/adminhome.service.ts");
+/* harmony import */ var _models_register_view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/register.view */ "./src/app/models/register.view.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var UserentryComponent = /** @class */ (function () {
+    function UserentryComponent(bsModalRef, userService, accountService, adminhomeService) {
+        this.bsModalRef = bsModalRef;
+        this.userService = userService;
+        this.accountService = accountService;
+        this.adminhomeService = adminhomeService;
+        this.newUser = new _models_register_view__WEBPACK_IMPORTED_MODULE_5__["RegisterView"]();
+        this.roles = new Array();
+    }
+    UserentryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        var newUser = this.userService.get();
+        if (newUser) {
+            this.user = newUser;
+        }
+        else {
+            this.user = JSON.parse(localStorage.getItem('user'));
+        }
+        this.accountService.getRoles().subscribe(function (roles) {
+            _this.roles = roles;
+        });
+    };
+    UserentryComponent.prototype.addUser = function () {
+        var _this = this;
+        this.accountService.add_user(this.newUser).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.adminhomeService.notify_change_in_users();
+        });
+    };
+    UserentryComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'userentry',
+            template: __webpack_require__(/*! ./userentry.component.html */ "./src/app/admin/userentry/userentry.component.html"),
+            styles: [__webpack_require__(/*! ./userentry.component.css */ "./src/app/admin/userentry/userentry.component.css")]
+        }),
+        __metadata("design:paramtypes", [ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_1__["BsModalRef"],
+            _shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_3__["AccountService"],
+            _adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_4__["AdminhomeService"]])
+    ], UserentryComponent);
+    return UserentryComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -38,13 +401,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
-/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
-/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./admin/adminhome/adminhome.component */ "./src/app/admin/adminhome/adminhome.component.ts");
+/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,18 +428,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var routes = [
     { path: "", component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     {
-        path: "dashboard", component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]],
+        path: "admin", component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_5__["AdminComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
         children: [
-            { path: "", component: _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "powerpicks", component: _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_6__["PowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "megapicks", component: _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_7__["MegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "userpowerpicks", component: _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_8__["UserpowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "usermegapicks", component: _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_9__["UsermegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "userpowerwinners", component: _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_10__["UserpowerwinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] },
-            { path: "usermegawinners", component: _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_11__["UsermegawinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_5__["AuthGuard"]] }
+            { path: "", component: _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_6__["AdminhomeComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] }
+        ]
+    },
+    {
+        path: "dashboard", component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
+        children: [
+            { path: "", component: _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "powerpicks", component: _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_8__["PowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "megapicks", component: _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_9__["MegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "userpowerpicks", component: _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_10__["UserpowerpicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "usermegapicks", component: _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_11__["UsermegapicksComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "userpowerwinners", component: _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_12__["UserpowerwinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
+            { path: "usermegawinners", component: _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_13__["UsermegawinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] }
         ]
     }
 ];
@@ -187,21 +560,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
 /* harmony import */ var _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
 /* harmony import */ var _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/home/homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
-/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
-/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
-/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
-/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/adminhome/adminhome.service */ "./src/app/admin/adminhome/adminhome.service.ts");
+/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
+/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/adminhome/adminhome.component */ "./src/app/admin/adminhome/adminhome.component.ts");
+/* harmony import */ var _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/userentry/userentry.component */ "./src/app/admin/userentry/userentry.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -245,14 +626,17 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
                 _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"],
-                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_26__["HomeComponent"],
-                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_27__["PowerpicksComponent"],
-                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_28__["MegapicksComponent"],
-                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_29__["UserpowerpicksComponent"],
-                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_30__["UsermegapicksComponent"],
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__["UserpickentryComponent"],
-                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_32__["UserpowerwinnersComponent"],
-                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_33__["UsermegawinnersComponent"]
+                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_27__["HomeComponent"],
+                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_28__["PowerpicksComponent"],
+                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_29__["MegapicksComponent"],
+                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_30__["UserpowerpicksComponent"],
+                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_31__["UsermegapicksComponent"],
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__["UserpickentryComponent"],
+                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_33__["UserpowerwinnersComponent"],
+                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_34__["UsermegawinnersComponent"],
+                _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__["AdminComponent"],
+                _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__["AdminhomeComponent"],
+                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__["UserentryComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -274,9 +658,10 @@ var AppModule = /** @class */ (function () {
                 ngx_bootstrap__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot()
             ],
             entryComponents: [
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_31__["UserpickentryComponent"]
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__["UserpickentryComponent"],
+                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__["UserentryComponent"]
             ],
-            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_25__["AuthGuard"],
+            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"],
                 _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__["PowerballService"],
                 _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__["MegamillionsService"],
                 _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__["PowerpicksService"],
@@ -286,7 +671,8 @@ var AppModule = /** @class */ (function () {
                 _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__["UserpowerwinnersService"],
                 _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__["UsermegawinnersService"],
                 _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__["SettingsService"],
-                _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__["HomesettingsService"]],
+                _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__["HomesettingsService"],
+                _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_25__["AdminhomeService"]],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
         })
     ], AppModule);
@@ -577,8 +963,10 @@ var HomeComponent = /** @class */ (function () {
         this.power_user_winning_picks = new Array();
         this.powerpicksService.notify_change_in_user_picks();
         this.powerpicksService.notify_change_in_user_winning_picks();
+        this.powerpicksService.notify_change_in_powerball_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
+        this.megapicksService.notify_change_in_megamillion_picks();
         this.homesettingsService.notify_change_in_users();
         this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
         this.user_player_view = new _models_user_view__WEBPACK_IMPORTED_MODULE_5__["UserView"]();
@@ -601,12 +989,12 @@ var HomeComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.initializePlayers()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.powerballService.get_all_powerball_picks().subscribe(function (data) {
+                        return [4 /*yield*/, this.powerpicksService.powerballpicks$.subscribe(function (data) {
                                 _this.all_powerball_picks = data;
                             })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, this.megamillionsService.get_all_megamillions_picks().subscribe(function (data) {
+                        return [4 /*yield*/, this.megapicksService.megamillionpicks$.subscribe(function (data) {
                                 _this.all_megamillions_picks = data;
                             })];
                     case 3:
@@ -2180,7 +2568,12 @@ var LoginComponent = /** @class */ (function () {
             newUser.password = _this.creds.password;
             _this.userService.set(newUser);
             localStorage.setItem('user', JSON.stringify(_this.jwtHelperService.decodeToken(data.token)));
-            _this.router.navigate(["dashboard"]);
+            if (newUser.role === 'Admin') {
+                _this.router.navigate(["admin"]);
+            }
+            else {
+                _this.router.navigate(["dashboard"]);
+            }
         }, function (error) {
             _this.error_message = error._body;
         });
@@ -2194,6 +2587,26 @@ var LoginComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_shared_account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"], _shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/register.view.ts":
+/*!*****************************************!*\
+  !*** ./src/app/models/register.view.ts ***!
+  \*****************************************/
+/*! exports provided: RegisterView */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterView", function() { return RegisterView; });
+var RegisterView = /** @class */ (function () {
+    function RegisterView() {
+    }
+    return RegisterView;
 }());
 
 

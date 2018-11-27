@@ -85,8 +85,10 @@ var HomeComponent = /** @class */ (function () {
         this.power_user_winning_picks = new Array();
         this.powerpicksService.notify_change_in_user_picks();
         this.powerpicksService.notify_change_in_user_winning_picks();
+        this.powerpicksService.notify_change_in_powerball_picks();
         this.megapicksService.notify_change_in_user_picks();
         this.megapicksService.notify_change_in_user_winning_picks();
+        this.megapicksService.notify_change_in_megamillion_picks();
         this.homesettingsService.notify_change_in_users();
         this.user_player = new UserPlayer();
         this.user_player_view = new UserView();
@@ -109,12 +111,12 @@ var HomeComponent = /** @class */ (function () {
                         return [4 /*yield*/, this.initializePlayers()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.powerballService.get_all_powerball_picks().subscribe(function (data) {
+                        return [4 /*yield*/, this.powerpicksService.powerballpicks$.subscribe(function (data) {
                                 _this.all_powerball_picks = data;
                             })];
                     case 2:
                         _a.sent();
-                        return [4 /*yield*/, this.megamillionsService.get_all_megamillions_picks().subscribe(function (data) {
+                        return [4 /*yield*/, this.megapicksService.megamillionpicks$.subscribe(function (data) {
                                 _this.all_megamillions_picks = data;
                             })];
                     case 3:

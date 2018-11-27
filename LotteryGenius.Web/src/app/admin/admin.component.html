@@ -1,0 +1,11 @@
+<div>
+    <mat-toolbar color="accent">
+        <mat-toolbar-row>
+            <span>Hello {{user.given_name}}</span>
+            <span style="flex: 1 1 auto;"></span>
+            <span><a (click)="logout()" class="text-span">Logoff</a></span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet>
+    </router-outlet>
+</div>

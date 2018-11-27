@@ -20,7 +20,12 @@ namespace MeticulousMentoring.API.Controllers
     using Microsoft.Extensions.Logging;
     using Microsoft.IdentityModel.Tokens;
     using System.IdentityModel.Tokens.Jwt;
+    using System.IO;
     using System.Security.Claims;
+
+    using Microsoft.AspNetCore.Hosting;
+
+    using MimeKit;
 
     [EnableCors("LotteryGenius")]
     public class AccountController : Controller
@@ -36,9 +41,10 @@ namespace MeticulousMentoring.API.Controllers
         private readonly RoleManager<IdentityRole<int>> roleManager;
         private readonly LotteryGeniusContext _ctx;
         private readonly IEmailSender _emailSender;
+        private readonly IHostingEnvironment env;
 
         public AccountController(ILogger<AccountController> logger, SignInManager<LotteryGeniusUser> signInManager, UserManager<LotteryGeniusUser> userManager,
-            IConfiguration config, RoleManager<IdentityRole<int>> roleManager, LotteryGeniusContext ctx, IEmailSender emailSender)
+            IConfiguration config, RoleManager<IdentityRole<int>> roleManager, LotteryGeniusContext ctx, IEmailSender emailSender, IHostingEnvironment env)
         {
             this.logger = logger;
             this.signInManager = signInManager;
@@ -47,6 +53,7 @@ namespace MeticulousMentoring.API.Controllers
             this.roleManager = roleManager;
             _ctx = ctx;
             _emailSender = emailSender;
+            this.env = env;
         }
 
         [HttpPost]
@@ -152,9 +159,22 @@ namespace MeticulousMentoring.API.Controllers
                         {
                             await userManager.AddToRoleAsync(user, model.Role);
                             _ctx.SaveChanges();
-                            var htmlContent = $"<html><body><p>Please verify your email address <a href='{config["WebsiteOrigin"]}/Home/EmailVerification/?email={model.Username}'>here</a>.</p><p>Temporary Password: {model.LastName + DateTime.Now.Year}! </p></body></html>";
 
-                            await _emailSender.SendEmailAsync(user.Email, "Email Verification", htmlContent);
+                            var webRoot = this.env.WebRootPath;
+                            var pathToFile = this.env.WebRootPath + Path.DirectorySeparatorChar.ToString() + "Templates"
+                                             + Path.DirectorySeparatorChar.ToString() + "lottonewuser_email.html";
+                            var builder = new BodyBuilder();
+
+                            using (StreamReader SourceReader = System.IO.File.OpenText(pathToFile))
+                            {
+                                builder.HtmlBody = SourceReader.ReadToEnd();
+                            }
+
+                            string messageBody = builder.HtmlBody;
+                            messageBody = messageBody.Replace("{user}", $"{model.FirstName} {model.LastName}")
+                                .Replace("{username}", $"{model.Username}").Replace("{password}", $"{model.LastName + DateTime.Now.Year}!");
+
+                            await _emailSender.SendEmailAsync(user.Email, "Email Verification", messageBody);
 
                             return Ok();
                         }

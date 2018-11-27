@@ -29,6 +29,7 @@ import { UsermegapicksService } from './dashboard/usermegapicks/usermegapicks.se
 import { UserpowerwinnersService } from './dashboard/userpowerwinners/userpowerwinners.service';
 import { UsermegawinnersService } from './dashboard/usermegawinners/usermegawinners.service';
 import { HomesettingsService } from './dashboard/home/homesettings.service';
+import { AdminhomeService } from './admin/adminhome/adminhome.service';
 import { AuthGuard } from './shared/auth-guard.service';
 import { HomeComponent } from './dashboard/home/home.component';
 import { PowerpicksComponent } from './dashboard/powerpicks/powerpicks.component';
@@ -38,6 +39,9 @@ import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.
 import { UserpickentryComponent } from './dashboard/home/userpickentry/userpickentry.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
 import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
+import { UserentryComponent } from './admin/userentry/userentry.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -54,7 +58,10 @@ var AppModule = /** @class */ (function () {
                 UsermegapicksComponent,
                 UserpickentryComponent,
                 UserpowerwinnersComponent,
-                UsermegawinnersComponent
+                UsermegawinnersComponent,
+                AdminComponent,
+                AdminhomeComponent,
+                UserentryComponent,
             ],
             imports: [
                 BrowserModule,
@@ -76,7 +83,8 @@ var AppModule = /** @class */ (function () {
                 ModalModule.forRoot()
             ],
             entryComponents: [
-                UserpickentryComponent
+                UserpickentryComponent,
+                UserentryComponent
             ],
             providers: [AuthGuard,
                 PowerballService,
@@ -88,7 +96,8 @@ var AppModule = /** @class */ (function () {
                 UserpowerwinnersService,
                 UsermegawinnersService,
                 SettingsService,
-                HomesettingsService],
+                HomesettingsService,
+                AdminhomeService],
             bootstrap: [AppComponent]
         })
     ], AppModule);

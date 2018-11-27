@@ -171,7 +171,7 @@ namespace LotteryGenius.API.Data.Repositories
                     //};
                     //_ctx.PowerPicks.Add(extraPick);
                     //results.Add(resultView);
-
+                    this.CleanUpPowerPicks();
                     SaveAll();
                     return results;
                 }
@@ -576,6 +576,14 @@ namespace LotteryGenius.API.Data.Repositories
             using (IDbConnection dbConnection = sqlConnection)
             {
                 dbConnection.Execute("UpsertNextPowerball", param, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public void CleanUpPowerPicks()
+        {
+            using (IDbConnection dbConnection = sqlConnection)
+            {
+                dbConnection.Execute("PowerPicks_CleanUp", commandType: CommandType.StoredProcedure);
             }
         }
 

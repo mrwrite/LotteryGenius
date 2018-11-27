@@ -1,0 +1,19 @@
+<div class="container-fluid" style="padding: 13px;">
+    <div class="row" style="margin: 50px;">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between">
+                    USERS
+                    <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User" style="margin-top: 4px; cursor: pointer;" (click)="open_new_user_modal()"></i>
+                </div>
+                <div class="card-body text-center">
+                    <ul class="list-unstyled" style="display: inline-block;">
+                        <li *ngFor="let user of users | slice:0:5" style="margin: 5px; padding: 5px;">
+                            {{user.firstName}} {{user.lastName}} | {{user.email}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

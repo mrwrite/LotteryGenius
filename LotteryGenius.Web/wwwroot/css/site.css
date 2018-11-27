@@ -124,6 +124,10 @@ footer {
     border-top: 1px solid grey;
 }
 
+.email-verification {
+    margin-top: 150px;
+}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
