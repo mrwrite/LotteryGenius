@@ -12,6 +12,7 @@ export class UserpowerpicksService {
     public userPicks$ = new Subject<Array<UserPick>>();
 
     constructor(private powerballService: PowerballService, private userService: UserService) {
+        this.user = new User();
         let newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;

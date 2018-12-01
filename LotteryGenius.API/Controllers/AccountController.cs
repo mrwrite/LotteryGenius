@@ -23,7 +23,10 @@ namespace MeticulousMentoring.API.Controllers
     using System.IO;
     using System.Security.Claims;
 
+    using LotteryGenius.API.Data.Models;
+
     using Microsoft.AspNetCore.Hosting;
+    using Microsoft.CodeAnalysis.CSharp.Syntax;
 
     using MimeKit;
 
@@ -158,6 +161,7 @@ namespace MeticulousMentoring.API.Controllers
                         if (userResult == IdentityResult.Success)
                         {
                             await userManager.AddToRoleAsync(user, model.Role);
+                            user.initialLogin = true;
                             _ctx.SaveChanges();
 
                             var webRoot = this.env.WebRootPath;
@@ -172,7 +176,7 @@ namespace MeticulousMentoring.API.Controllers
 
                             string messageBody = builder.HtmlBody;
                             messageBody = messageBody.Replace("{user}", $"{model.FirstName} {model.LastName}")
-                                .Replace("{username}", $"{model.Username}").Replace("{password}", $"{model.LastName + DateTime.Now.Year}!");
+                                .Replace("{username}", $"{model.Username}").Replace("{password}", $"{model.LastName + DateTime.Now.Year}!").Replace("{url}", $"{this.config["WebsiteOrigin"]}/Home/EmailVerification/?email={model.Username}");
 
                             await _emailSender.SendEmailAsync(user.Email, "Email Verification", messageBody);
 
@@ -204,14 +208,49 @@ namespace MeticulousMentoring.API.Controllers
                 var user = await userManager.FindByIdAsync(id.ToString());
                 if (user != null)
                 {
+                    var power_picks_to_update = this._ctx.UserPicks.Join(
+                            this._ctx.PowerPicks,
+                            userpick => userpick.pick_id,
+                            powerpick => powerpick.id,
+                            (userpick, powerpick) => new { userpick, powerpick })
+                        .Where(x => x.userpick.user_id == user.Id)
+                        .Select(x => x.powerpick).ToList();
+
+                    foreach (var powerballPickse in power_picks_to_update)
+                    {
+                        var power_update = this._ctx.PowerPicks.SingleOrDefault(x => x.id == powerballPickse.id);
+                        power_update.isPicked = false;
+                    }
+
+                    var mega_picks_to_update = this._ctx.UserPicks.Join(
+                            this._ctx.MegaPicks,
+                            userpick => userpick.pick_id,
+                            megapick => megapick.id,
+                            (userpick, megapick) => new { userpick, megapick })
+                        .Where(x => x.userpick.user_id == user.Id)
+                        .Select(x => x.megapick).ToList();
+
+                    foreach (var megamillionPickse in mega_picks_to_update)
+                    {
+                        var mega_update = this._ctx.MegaPicks.SingleOrDefault(x => x.id == megamillionPickse.id);
+                        mega_update.isPicked = false;
+                    }
+
+                    var userPicksToRemove = this._ctx.UserPicks.Where(x => x.user_id == user.Id).ToList();
+                    _ctx.UserPicks.RemoveRange(userPicksToRemove);
+
+                    var userPlayerToRemove = this._ctx.UserPlayers.SingleOrDefault(x => x.user_id == user.Id);
+                    _ctx.UserPlayers.Remove(userPlayerToRemove);
+
                     if (_ctx.SaveChanges() >= 0)
                     {
                         await userManager.DeleteAsync(user);
-                        return NoContent();
+
+                        return this.Ok();
                     }
                     else
                     {
-                        return BadRequest("Blog delete wasn't successfull");
+                        return BadRequest("Blog delete wasn't successful");
                     }
                 }
                 else
@@ -260,6 +299,51 @@ namespace MeticulousMentoring.API.Controllers
             }
 
             return BadRequest();
+        }
+
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> ResetPassword([FromBody] int user_id)
+        {
+            var user = await this.userManager.FindByIdAsync(user_id.ToString());
+
+            if (user != null)
+            {
+                await this.userManager.RemovePasswordAsync(user);
+                await this.userManager.AddPasswordAsync(
+                    user,
+                    $"{user.LastName}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}!");
+
+                user.initialLogin = true;
+                user.AccessFailedCount = 0;
+                user.LockoutEnd = null;
+
+                this._ctx.SaveChanges();
+
+                var webRoot = this.env.WebRootPath;
+                var pathToFile = this.env.WebRootPath + Path.DirectorySeparatorChar.ToString() + "Templates"
+                                 + Path.DirectorySeparatorChar.ToString() + "reset_password.html";
+                var builder = new BodyBuilder();
+
+                using (StreamReader SourceReader = System.IO.File.OpenText(pathToFile))
+                {
+                    builder.HtmlBody = SourceReader.ReadToEnd();
+                }
+
+                string messageBody = builder.HtmlBody;
+
+                messageBody = messageBody.Replace("{user}", user.FirstName).Replace("{username}", user.UserName).Replace(
+                    "{password}",
+                    $"{user.LastName}{DateTime.Now.Year}{DateTime.Now.Month}{DateTime.Now.Day}!");
+
+                await _emailSender.SendEmailAsync(user.Email, "Password Reset", messageBody);
+
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500);
+            }
         }
 
         [HttpPost]

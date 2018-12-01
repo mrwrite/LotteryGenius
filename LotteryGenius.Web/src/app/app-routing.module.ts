@@ -12,6 +12,7 @@ import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpic
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
 import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 
 const routes: Routes = [
     { path: "", component: LoginComponent },
@@ -32,7 +33,9 @@ const routes: Routes = [
             { path: "userpowerwinners", component: UserpowerwinnersComponent, canActivate: [AuthGuard] },
             { path: "usermegawinners", component: UsermegawinnersComponent, canActivate: [AuthGuard] }
         ]
-    }];
+    },
+    { path: "password-change", component: PasswordChangeComponent, canActivate: [AuthGuard] }
+];
 
 @NgModule({
     imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: 'reload', useHash: true })],

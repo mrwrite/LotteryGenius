@@ -14,6 +14,8 @@ export class PowerpicksService {
     public userwinningpicks$ = new Subject<Array<UserPick>>();
 
     constructor(private powerballService: PowerballService, private userService: UserService) {
+        this.user = new User();
+
         this.get_powerball_picks();
 
         let newUser = this.userService.get();
@@ -27,6 +29,7 @@ export class PowerpicksService {
     }
 
     private get_user_picks() {
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(data => this.userpicks$.next(data));
     }
 

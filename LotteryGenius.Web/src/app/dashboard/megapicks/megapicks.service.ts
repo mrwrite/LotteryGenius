@@ -15,6 +15,7 @@ export class MegapicksService {
 
     constructor(private megamillionService: MegamillionsService,
         private userService: UserService) {
+        this.user = new User();
         this.get_megamillions_picks();
 
         let newUser = this.userService.get();
@@ -28,6 +29,7 @@ export class MegapicksService {
     }
 
     private get_user_picks() {
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.megamillionService.get_user_picks(parseInt(this.user.iat)).subscribe(data => this.userpicks$.next(data));
     }
 

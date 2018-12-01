@@ -21,6 +21,7 @@ var AdminhomeComponent = /** @class */ (function () {
         this.router = router;
         this.adminhomeService = adminhomeService;
         this.modalService = modalService;
+        this.user_id_to_delete = -1;
         this.adminhomeService.notify_change_in_users();
     }
     AdminhomeComponent.prototype.ngOnInit = function () {
@@ -41,6 +42,23 @@ var AdminhomeComponent = /** @class */ (function () {
             title: 'Add User'
         };
         this.bsModalRef = this.modalService.show(UserentryComponent, { initialState: initialState });
+    };
+    AdminhomeComponent.prototype.open_delete_modal = function (template, user_id) {
+        this.user_id_to_delete = parseInt(user_id);
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    AdminhomeComponent.prototype.deleteUser = function () {
+        var _this = this;
+        this.accountService.deleteUser(this.user_id_to_delete).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.adminhomeService.notify_change_in_users();
+        });
+    };
+    AdminhomeComponent.prototype.resetUserPassword = function (id) {
+        var _this = this;
+        this.accountService.resetUserPassword(id).subscribe(function (data) {
+            _this.adminhomeService.notify_change_in_users();
+        });
     };
     AdminhomeComponent = __decorate([
         Component({

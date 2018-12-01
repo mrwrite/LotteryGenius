@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { PowerballService } from '../../shared/powerball.service';
 import { Subject } from 'rxjs';
 import { UserService } from "../../shared/user.service";
+import { User } from "../../models/user";
 var PowerpicksService = /** @class */ (function () {
     function PowerpicksService(powerballService, userService) {
         this.powerballService = powerballService;
@@ -18,6 +19,7 @@ var PowerpicksService = /** @class */ (function () {
         this.powerballpicks$ = new Subject();
         this.userpicks$ = new Subject();
         this.userwinningpicks$ = new Subject();
+        this.user = new User();
         this.get_powerball_picks();
         var newUser = this.userService.get();
         if (newUser) {
@@ -31,6 +33,7 @@ var PowerpicksService = /** @class */ (function () {
     }
     PowerpicksService.prototype.get_user_picks = function () {
         var _this = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });
     };
     PowerpicksService.prototype.get_user_winning_picks = function () {

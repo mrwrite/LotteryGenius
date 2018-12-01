@@ -24,7 +24,7 @@
                     {{user.given_name | uppercase}}'S POWERBALL WINNERS
                 </div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul class="list-unstyled wow fadeIn" data-wow-delay="0.2s" style="display: inline-block;">
                         <li *ngFor="let puPicks of power_user_winning_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{puPicks.ball1}}</div>
                             <div class="mini-circle">{{puPicks.ball2}}</div>
@@ -46,7 +46,7 @@
                     {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS
                 </div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul class="list-unstyled wow fadeIn" data-wow-delay="0.2s" style="display: inline-block;">
                         <li *ngFor="let mwPicks of mega_user_winning_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{mwPicks.ball1}}</div>
                             <div class="mini-circle">{{mwPicks.ball2}}</div>
@@ -69,7 +69,7 @@
                     <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User Pick" style="margin-top: 4px; cursor: pointer;" (click)="openUserPickModal('Powerball')"></i>
                 </div>
                 <div class="card-body" style="text-align: center;">
-                    <ul *ngIf="user_picks.length > 0; else noPicks" class="list-unstyled" style="display: inline-block;">
+                    <ul *ngIf="user_picks.length > 0; else noPicks" class="list-unstyled wow fadeIn" data-wow-delay="0.2s" style="display: inline-block;">
                         <li *ngFor="let uPick of user_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{uPick.ball1}}</div>
                             <div class="mini-circle">{{uPick.ball2}}</div>
@@ -118,12 +118,11 @@
             <div class="card">
                 <div class="card-header">ALL POWERBALL PICKS</div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul class="list-unstyled wow fadeIn" data-wow-delay="0.2s" style="display: inline-block;">
                         <li *ngFor="let number of all_powerball_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{number.ball1}}</div>
                             <div class="mini-circle">{{number.ball2}}</div>
                             <div class="mini-circle">{{number.ball3}}</div>
-                            <div class="mini-circle">{{number.ball4}}</div>
                             <div class="mini-circle">{{number.ball5}}</div>
                             <div class="mini-powerball-circle">{{number.powerball}}</div>
                             {{number.pick_date | date: 'shortDate'}}
@@ -139,7 +138,7 @@
             <div class="card">
                 <div class="card-header">ALL MEGAMILLION PICKS</div>
                 <div class="card-body" style="text-align: center;">
-                    <ul class="list-unstyled" style="display: inline-block;">
+                    <ul class="list-unstyled wow fadeIn" data-wow-delay="0.2s" style="display: inline-block;">
                         <li *ngFor="let number of all_megamillions_picks | slice:0:5" style="margin: 5px; padding: 5px;">
                             <div class="mini-circle">{{number.ball1}}</div>
                             <div class="mini-circle">{{number.ball2}}</div>
@@ -159,7 +158,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">SETTINGS</div>
-                <div class="card-body" style="text-align: center;">
+                <div class="card-body wow fadeIn" data-wow-delay="0.2s" style="text-align: center;">
                     <h4>User Player</h4>
                     <hr class="m-4" />
                     <ul *ngIf="user_player !== null && users.length > 0 && !showUsersSelect" class="list-unstyled">
@@ -172,10 +171,17 @@
                     <ul *ngIf="showUsersSelect" class="list-unstyled">
                         <li style="display: flex; justify-content: space-between;">
                             <select [(ngModel)]="player_id">
-                                <option [ngValue]=-1 disabled selected>-- Select Role --</option>
+                                <option [ngValue]=-1 disabled selected>-- Select Player --</option>
                                 <option *ngFor="let user of users" [ngValue]="user.id">{{user.firstName}} {{user.lastName}}</option>
                             </select>
                             <button *ngIf="showUsersSelect" type="button" class="btn btn-outline-success" (click)="setUserPlayer()">Set Player</button>
+                        </li>
+                    </ul>
+
+                    <hr class="m-4" style="color: rgba(255, 255, 255, 1);" />
+                    <ul class="list-unstyled">
+                        <li style="display: flex; justify-content: space-between">
+                            <span>Change Password</span><span>Reset Password</span>
                         </li>
                     </ul>
                 </div>

@@ -76,6 +76,7 @@ var HomeComponent = /** @class */ (function () {
         this.subscriptions = [];
         this.showUsersSelect = false;
         this.player_id = -1;
+        this.initial_player_id = -1;
         this.users = new Array();
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
@@ -186,12 +187,17 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.setUserPlayer = function () {
         var _this = this;
-        if (this.player_id < 1) {
+        if (this.initial_player_id < 1) {
             var newPlayer = new UserPlayer();
             newPlayer.user_id = parseInt(this.user.iat);
             newPlayer.player_id = this.player_id;
             this.settingsService.add_user_player(newPlayer).subscribe(function (data) {
                 _this.homesettingsService.notify_change_in_user_player();
+                _this.homesettingsService.userPlayer$.subscribe(function (data) {
+                    _this.user_player = data;
+                    _this.user_player_view = _this.users.find(function (x) { return x.id === _this.user_player.player_id; });
+                    _this.showUsersSelect = false;
+                });
             });
         }
         else {
@@ -200,6 +206,7 @@ var HomeComponent = /** @class */ (function () {
             editedPlayer.player_id = this.player_id;
             this.settingsService.edit_user_player(editedPlayer).subscribe(function (data) {
                 _this.homesettingsService.notify_change_in_user_player();
+                _this.user_player_view = _this.users.find(function (x) { return x.id === editedPlayer.player_id; });
                 _this.showUsersSelect = false;
             });
         }
@@ -214,8 +221,9 @@ var HomeComponent = /** @class */ (function () {
                             _this.settingsService.get_user_player(parseInt(_this.user.iat)).toPromise().then(function (data) {
                                 _this.user_player = data;
                                 if (_this.user_player != null && _this.users.length > 0) {
-                                    _this.player_id = _this.user_player.user_id;
+                                    _this.initial_player_id = _this.user_player.user_id;
                                     _this.user_player_view = _this.users.find(function (x) { return x.id === _this.user_player.player_id; });
+                                    _this.showUsersSelect = false;
                                 }
                             });
                         })];

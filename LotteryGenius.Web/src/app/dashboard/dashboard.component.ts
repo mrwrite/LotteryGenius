@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
             this.router.navigate([""]);
         } else {
             if (this.user.initialLogin === 'True') {
-                this.router.navigate(["change-password"]);
+                this.router.navigate(["password-change"]);
             } else {
                 this.role = this.user.role;
             }
@@ -51,6 +51,7 @@ export class DashboardComponent implements OnInit {
     }
 
     public logout() {
+        localStorage.removeItem('user');
         this.accountService.logout();
         this.router.navigate([""]);
     }

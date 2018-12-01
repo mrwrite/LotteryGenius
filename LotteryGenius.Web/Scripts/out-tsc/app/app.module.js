@@ -42,6 +42,7 @@ import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawi
 import { AdminComponent } from './admin/admin.component';
 import { AdminhomeComponent } from './admin/adminhome/adminhome.component';
 import { UserentryComponent } from './admin/userentry/userentry.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -62,6 +63,7 @@ var AppModule = /** @class */ (function () {
                 AdminComponent,
                 AdminhomeComponent,
                 UserentryComponent,
+                PasswordChangeComponent,
             ],
             imports: [
                 BrowserModule,

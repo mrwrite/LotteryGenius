@@ -142,7 +142,7 @@ module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    USERS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"open_new_user_modal()\"></i>\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let user of users | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            {{user.firstName}} {{user.lastName}} | {{user.email}}\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-4\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    USERS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"open_new_user_modal()\"></i>\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <ul class=\"list-unstyled\">\r\n                        <li *ngFor=\"let user of users | slice:0:5\" style=\"display: flex; justify-content: space-between\">\r\n                            <span>{{user.firstName}} {{user.lastName}}</span>  <span>{{user.email}}</span><span class=\"btn btn-light\" *ngIf=\"user.lockoutEnd !== null\" (click)=\"resetUserPassword(user.id)\">Reset Password</span> <i class=\"fas fa-trash-alt\" style=\"cursor: pointer;\" (click)=\"open_delete_modal(userDelete, user.id)\"></i>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #userDelete>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this user?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"deleteUser()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -186,6 +186,7 @@ var AdminhomeComponent = /** @class */ (function () {
         this.router = router;
         this.adminhomeService = adminhomeService;
         this.modalService = modalService;
+        this.user_id_to_delete = -1;
         this.adminhomeService.notify_change_in_users();
     }
     AdminhomeComponent.prototype.ngOnInit = function () {
@@ -206,6 +207,23 @@ var AdminhomeComponent = /** @class */ (function () {
             title: 'Add User'
         };
         this.bsModalRef = this.modalService.show(_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_3__["UserentryComponent"], { initialState: initialState });
+    };
+    AdminhomeComponent.prototype.open_delete_modal = function (template, user_id) {
+        this.user_id_to_delete = parseInt(user_id);
+        this.bsModalRef = this.modalService.show(template, { class: 'modal-sm', ignoreBackdropClick: true });
+    };
+    AdminhomeComponent.prototype.deleteUser = function () {
+        var _this = this;
+        this.accountService.deleteUser(this.user_id_to_delete).subscribe(function (data) {
+            _this.bsModalRef.hide();
+            _this.adminhomeService.notify_change_in_users();
+        });
+    };
+    AdminhomeComponent.prototype.resetUserPassword = function (id) {
+        var _this = this;
+        this.accountService.resetUserPassword(id).subscribe(function (data) {
+            _this.adminhomeService.notify_change_in_users();
+        });
     };
     AdminhomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -410,12 +428,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
 /* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
 /* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./password-change/password-change.component */ "./src/app/password-change/password-change.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -449,7 +469,8 @@ var routes = [
             { path: "userpowerwinners", component: _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_12__["UserpowerwinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] },
             { path: "usermegawinners", component: _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_13__["UsermegawinnersComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] }
         ]
-    }
+    },
+    { path: "password-change", component: _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_14__["PasswordChangeComponent"], canActivate: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -573,12 +594,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
 /* harmony import */ var _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/adminhome/adminhome.component */ "./src/app/admin/adminhome/adminhome.component.ts");
 /* harmony import */ var _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/userentry/userentry.component */ "./src/app/admin/userentry/userentry.component.ts");
+/* harmony import */ var _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./password-change/password-change.component */ "./src/app/password-change/password-change.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -637,6 +660,7 @@ var AppModule = /** @class */ (function () {
                 _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__["AdminComponent"],
                 _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__["AdminhomeComponent"],
                 _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__["UserentryComponent"],
+                _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_38__["PasswordChangeComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -796,7 +820,7 @@ var DashboardComponent = /** @class */ (function () {
                 }
                 else {
                     if (this.user.initialLogin === 'True') {
-                        this.router.navigate(["change-password"]);
+                        this.router.navigate(["password-change"]);
                     }
                     else {
                         this.role = this.user.role;
@@ -807,6 +831,7 @@ var DashboardComponent = /** @class */ (function () {
         });
     };
     DashboardComponent.prototype.logout = function () {
+        localStorage.removeItem('user');
         this.accountService.logout();
         this.router.navigate([""]);
     };
@@ -845,7 +870,7 @@ module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player !== null && users.length > 0 && !showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            {{user_player_view.firstName}} {{user_player_view.lastName}}\r\n                            <span><i class=\"fas fa-trash-alt\" style=\"padding-right: 5px; cursor: pointer;\"></i><i class=\"far fa-edit\" style=\"cursor: pointer;\" (click)=\"showUsersSelect = true\"></i></span>\r\n                        </li>\r\n                    </ul>\r\n                    <i *ngIf=\"user_player === null && !showUsersSelect\" class=\"fas fa-plus\" style=\"cursor: pointer\" (click)=\"showUsersSelect = true\"><span>Add User Player</span></i>\r\n                    <ul *ngIf=\"showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between;\">\r\n                            <select [(ngModel)]=\"player_id\">\r\n                                <option [ngValue]=-1 disabled selected>-- Select Role --</option>\r\n                                <option *ngFor=\"let user of users\" [ngValue]=\"user.id\">{{user.firstName}} {{user.lastName}}</option>\r\n                            </select>\r\n                            <button *ngIf=\"showUsersSelect\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"setUserPlayer()\">Set Player</button>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body wow fadeIn\" data-wow-delay=\"0.2s\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player !== null && users.length > 0 && !showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            {{user_player_view.firstName}} {{user_player_view.lastName}}\r\n                            <span><i class=\"fas fa-trash-alt\" style=\"padding-right: 5px; cursor: pointer;\"></i><i class=\"far fa-edit\" style=\"cursor: pointer;\" (click)=\"showUsersSelect = true\"></i></span>\r\n                        </li>\r\n                    </ul>\r\n                    <i *ngIf=\"user_player === null && !showUsersSelect\" class=\"fas fa-plus\" style=\"cursor: pointer\" (click)=\"showUsersSelect = true\"><span>Add User Player</span></i>\r\n                    <ul *ngIf=\"showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between;\">\r\n                            <select [(ngModel)]=\"player_id\">\r\n                                <option [ngValue]=-1 disabled selected>-- Select Player --</option>\r\n                                <option *ngFor=\"let user of users\" [ngValue]=\"user.id\">{{user.firstName}} {{user.lastName}}</option>\r\n                            </select>\r\n                            <button *ngIf=\"showUsersSelect\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"setUserPlayer()\">Set Player</button>\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <hr class=\"m-4\" style=\"color: rgba(255, 255, 255, 1);\" />\r\n                    <ul class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            <span>Change Password</span><span>Reset Password</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -954,6 +979,7 @@ var HomeComponent = /** @class */ (function () {
         this.subscriptions = [];
         this.showUsersSelect = false;
         this.player_id = -1;
+        this.initial_player_id = -1;
         this.users = new Array();
         this.all_powerball_picks = new Array();
         this.all_megamillions_picks = new Array();
@@ -1064,12 +1090,17 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.setUserPlayer = function () {
         var _this = this;
-        if (this.player_id < 1) {
+        if (this.initial_player_id < 1) {
             var newPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
             newPlayer.user_id = parseInt(this.user.iat);
             newPlayer.player_id = this.player_id;
             this.settingsService.add_user_player(newPlayer).subscribe(function (data) {
                 _this.homesettingsService.notify_change_in_user_player();
+                _this.homesettingsService.userPlayer$.subscribe(function (data) {
+                    _this.user_player = data;
+                    _this.user_player_view = _this.users.find(function (x) { return x.id === _this.user_player.player_id; });
+                    _this.showUsersSelect = false;
+                });
             });
         }
         else {
@@ -1078,6 +1109,7 @@ var HomeComponent = /** @class */ (function () {
             editedPlayer.player_id = this.player_id;
             this.settingsService.edit_user_player(editedPlayer).subscribe(function (data) {
                 _this.homesettingsService.notify_change_in_user_player();
+                _this.user_player_view = _this.users.find(function (x) { return x.id === editedPlayer.player_id; });
                 _this.showUsersSelect = false;
             });
         }
@@ -1092,8 +1124,9 @@ var HomeComponent = /** @class */ (function () {
                             _this.settingsService.get_user_player(parseInt(_this.user.iat)).toPromise().then(function (data) {
                                 _this.user_player = data;
                                 if (_this.user_player != null && _this.users.length > 0) {
-                                    _this.player_id = _this.user_player.user_id;
+                                    _this.initial_player_id = _this.user_player.user_id;
                                     _this.user_player_view = _this.users.find(function (x) { return x.id === _this.user_player.player_id; });
+                                    _this.showUsersSelect = false;
                                 }
                             });
                         })];
@@ -1452,6 +1485,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/user */ "./src/app/models/user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1465,6 +1499,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var MegapicksService = /** @class */ (function () {
     function MegapicksService(megamillionService, userService) {
         this.megamillionService = megamillionService;
@@ -1472,6 +1507,7 @@ var MegapicksService = /** @class */ (function () {
         this.megamillionpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.userpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.userwinningpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_4__["User"]();
         this.get_megamillions_picks();
         var newUser = this.userService.get();
         if (newUser) {
@@ -1485,6 +1521,7 @@ var MegapicksService = /** @class */ (function () {
     }
     MegapicksService.prototype.get_user_picks = function () {
         var _this = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.megamillionService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });
     };
     MegapicksService.prototype.get_user_winning_picks = function () {
@@ -1648,6 +1685,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/user */ "./src/app/models/user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1661,6 +1699,7 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var PowerpicksService = /** @class */ (function () {
     function PowerpicksService(powerballService, userService) {
         this.powerballService = powerballService;
@@ -1668,6 +1707,7 @@ var PowerpicksService = /** @class */ (function () {
         this.powerballpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.userpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
         this.userwinningpicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_4__["User"]();
         this.get_powerball_picks();
         var newUser = this.userService.get();
         if (newUser) {
@@ -1681,6 +1721,7 @@ var PowerpicksService = /** @class */ (function () {
     }
     PowerpicksService.prototype.get_user_picks = function () {
         var _this = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.powerballService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });
     };
     PowerpicksService.prototype.get_user_winning_picks = function () {
@@ -2279,6 +2320,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../models/user */ "./src/app/models/user.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2292,11 +2334,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
+
 var UserpowerpicksService = /** @class */ (function () {
     function UserpowerpicksService(powerballService, userService) {
         this.powerballService = powerballService;
         this.userService = userService;
         this.userPicks$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_4__["User"]();
         var newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;
@@ -2593,6 +2637,26 @@ var LoginComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/models/password.ts":
+/*!************************************!*\
+  !*** ./src/app/models/password.ts ***!
+  \************************************/
+/*! exports provided: Password */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Password", function() { return Password; });
+var Password = /** @class */ (function () {
+    function Password() {
+    }
+    return Password;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/models/register.view.ts":
 /*!*****************************************!*\
   !*** ./src/app/models/register.view.ts ***!
@@ -2607,6 +2671,26 @@ var RegisterView = /** @class */ (function () {
     function RegisterView() {
     }
     return RegisterView;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/models/user.ts":
+/*!********************************!*\
+  !*** ./src/app/models/user.ts ***!
+  \********************************/
+/*! exports provided: User */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
+var User = /** @class */ (function () {
+    function User() {
+    }
+    return User;
 }());
 
 
@@ -2668,6 +2752,121 @@ var UserPlayer = /** @class */ (function () {
     function UserPlayer() {
     }
     return UserPlayer;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/password-change/password-change.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/password-change/password-change.component.css ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".Absolute-Center {\r\n    margin: auto;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    bottom: 0;\r\n    right: 0;\r\n}\r\n\r\n    .Absolute-Center.is-Responsive {\r\n        width: 50%;\r\n        height: 50%;\r\n        min-width: 200px;\r\n        max-width: 400px;\r\n        padding: 40px;\r\n    }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFzc3dvcmQtY2hhbmdlL3Bhc3N3b3JkLWNoYW5nZS5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksYUFBYTtJQUNiLG1CQUFtQjtJQUNuQixPQUFPO0lBQ1AsUUFBUTtJQUNSLFVBQVU7SUFDVixTQUFTO0NBQ1o7O0lBRUc7UUFDSSxXQUFXO1FBQ1gsWUFBWTtRQUNaLGlCQUFpQjtRQUNqQixpQkFBaUI7UUFDakIsY0FBYztLQUNqQiIsImZpbGUiOiJzcmMvYXBwL3Bhc3N3b3JkLWNoYW5nZS9wYXNzd29yZC1jaGFuZ2UuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5BYnNvbHV0ZS1DZW50ZXIge1xyXG4gICAgbWFyZ2luOiBhdXRvO1xyXG4gICAgcG9zaXRpb246IGFic29sdXRlO1xyXG4gICAgdG9wOiAwO1xyXG4gICAgbGVmdDogMDtcclxuICAgIGJvdHRvbTogMDtcclxuICAgIHJpZ2h0OiAwO1xyXG59XHJcblxyXG4gICAgLkFic29sdXRlLUNlbnRlci5pcy1SZXNwb25zaXZlIHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG4gICAgICAgIGhlaWdodDogNTAlO1xyXG4gICAgICAgIG1pbi13aWR0aDogMjAwcHg7XHJcbiAgICAgICAgbWF4LXdpZHRoOiA0MDBweDtcclxuICAgICAgICBwYWRkaW5nOiA0MHB4O1xyXG4gICAgfSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/password-change/password-change.component.html":
+/*!****************************************************************!*\
+  !*** ./src/app/password-change/password-change.component.html ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n\r\n    <div class=\"Absolute-Center is-Responsive\">\r\n        <header style=\"color: rgba(255, 255, 255, 1);\">This is your first time logging in. Please set a permanent password.</header>\r\n        <div class=\"col-md-12 col-md-offset-1\">\r\n            <div class=\"col-sm-12 col-md-10 col-md-offset-1\">\r\n                <form (submit)=\"changePassword()\" #theForm=\"ngForm\" novalidate>\r\n                    <div asp-validation-summary=\"ModelOnly\"></div>\r\n\r\n                    <div class=\"form-group\">\r\n                        <label for=\"password\" style=\"color: rgba(255, 255, 255, 1);\">Old Password</label>\r\n                        <input type=\"password\" class=\"form-control\" name=\"OldPassword\" [(ngModel)]=\"password_change.old_password\" #OldPassword=\"ngModel\" required />\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <label for=\"password\" style=\"color: rgba(255, 255, 255, 1);\">New Password</label>\r\n                        <input type=\"password\" class=\"form-control\" name=\"NewPassword\" [(ngModel)]=\"password_change.new_password\" #NewPassword=\"ngModel\" required />\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <label for=\"password\" style=\"color: rgba(255, 255, 255, 1);\">Confirm New Password</label>\r\n                        <input type=\"password\" class=\"form-control\" name=\"CongirmPassword\" [(ngModel)]=\"password_change.confirm_password\" #ConfirmPassword=\"ngModel\" required />\r\n                    </div>\r\n                    <div class=\"form-group\">\r\n                        <input type=\"submit\" value=\"Change Password\" class=\"btn btn-success\" />\r\n                    </div>\r\n                    <div *ngIf=\"error !== null\" class=\"alert alert-danger\" role=\"alert\">\r\n                        {{error.error}}\r\n                    </div>\r\n                    <div *ngIf=\"response !== null\" class=\"alert alert-success\" role=\"alert\">\r\n                        {{response.message}}\r\n                    </div>\r\n                </form>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/password-change/password-change.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/password-change/password-change.component.ts ***!
+  \**************************************************************/
+/*! exports provided: PasswordChangeComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PasswordChangeComponent", function() { return PasswordChangeComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @auth0/angular-jwt */ "./node_modules/@auth0/angular-jwt/index.js");
+/* harmony import */ var _shared_account_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../shared/account.service */ "./src/app/shared/account.service.ts");
+/* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/user.service */ "./src/app/shared/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_user__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../models/user */ "./src/app/models/user.ts");
+/* harmony import */ var _models_password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../models/password */ "./src/app/models/password.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var PasswordChangeComponent = /** @class */ (function () {
+    function PasswordChangeComponent(userService, accountService, router) {
+        this.userService = userService;
+        this.accountService = accountService;
+        this.router = router;
+        this.error = null;
+        this.response = null;
+        this.creds = {
+            username: "",
+            password: ""
+        };
+        this.jwtHelper = new _auth0_angular_jwt__WEBPACK_IMPORTED_MODULE_1__["JwtHelperService"]();
+        this.password_change = new _models_password__WEBPACK_IMPORTED_MODULE_6__["Password"]();
+        this.user = new _models_user__WEBPACK_IMPORTED_MODULE_5__["User"]();
+    }
+    PasswordChangeComponent.prototype.ngOnInit = function () {
+        this.user = this.userService.get();
+        if (this.user) {
+            this.password_change.old_password = this.user.password;
+            this.password_change.email = this.user.unique_name;
+        }
+    };
+    PasswordChangeComponent.prototype.changePassword = function () {
+        var _this = this;
+        this.error = null;
+        this.response = null;
+        this.accountService.changePassword(this.password_change)
+            .subscribe(function (data) {
+            _this.response = data;
+            _this.creds.username = _this.user.unique_name;
+            _this.creds.password = _this.password_change.new_password;
+            _this.accountService.login(_this.creds)
+                .subscribe(function (data) {
+                localStorage.setItem('token', data.token);
+                _this.userService.set(_this.jwtHelper.decodeToken(data.token));
+                var newUser = _this.userService.get();
+                newUser.password = _this.creds.password;
+                _this.userService.set(newUser);
+                localStorage.setItem('user', JSON.stringify(_this.jwtHelper.decodeToken(data.token)));
+                _this.router.navigate(["dashboard"]);
+            }, function (error) {
+                _this.error = error._body;
+            });
+        }, function (error) { _this.error = error; });
+    };
+    PasswordChangeComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'password-change',
+            template: __webpack_require__(/*! ./password-change.component.html */ "./src/app/password-change/password-change.component.html"),
+            styles: [__webpack_require__(/*! ./password-change.component.css */ "./src/app/password-change/password-change.component.css")]
+        }),
+        __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _shared_account_service__WEBPACK_IMPORTED_MODULE_2__["AccountService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], PasswordChangeComponent);
+    return PasswordChangeComponent;
 }());
 
 
@@ -2764,6 +2963,15 @@ var AccountService = /** @class */ (function () {
             }),
         };
         return this.httpClient.post(this.url + "api/account/passwordchange", password, httpOptions).pipe();
+    };
+    AccountService.prototype.resetUserPassword = function (id) {
+        var httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            }),
+        };
+        return this.httpClient.post(this.url + "api/account/ResetPassword/", id, httpOptions).pipe();
     };
     AccountService.prototype.logout = function () {
         this.userService.delete();

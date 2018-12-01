@@ -74,7 +74,7 @@ var DashboardComponent = /** @class */ (function () {
                 }
                 else {
                     if (this.user.initialLogin === 'True') {
-                        this.router.navigate(["change-password"]);
+                        this.router.navigate(["password-change"]);
                     }
                     else {
                         this.role = this.user.role;
@@ -85,6 +85,7 @@ var DashboardComponent = /** @class */ (function () {
         });
     };
     DashboardComponent.prototype.logout = function () {
+        localStorage.removeItem('user');
         this.accountService.logout();
         this.router.navigate([""]);
     };

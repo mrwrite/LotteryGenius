@@ -128,7 +128,7 @@ namespace LotteryGenius.Web.Controllers
                 Username = email
             };
 
-            var _apiUrl = this.configuration["ApiSource"];
+            var _apiUrl = this.configuration["BaseUrl"];
             HttpClient client = new HttpClient();
             var content = JsonConvert.SerializeObject(model);
             var buffer = System.Text.Encoding.UTF8.GetBytes(content);

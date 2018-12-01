@@ -26,7 +26,8 @@ namespace LotteryGenius.Web
         private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
         {
             builder.Sources.Clear();
-            builder.AddJsonFile("appsettings.json", false, true).AddEnvironmentVariables();
+            builder.AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile($"appsettings.{ctx.HostingEnvironment.EnvironmentName}.json", true, true).AddEnvironmentVariables();
         }
     }
 }

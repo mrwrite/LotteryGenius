@@ -4,4 +4,5 @@
     lastName: string;
     userName: string;
     email: string;
+    lockoutEnd: Date;
 }

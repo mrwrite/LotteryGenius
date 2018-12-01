@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
     public user_player_view: UserView;
     public showUsersSelect: boolean = false;
     public player_id: number = -1;
+    public initial_player_id = -1;
 
     constructor(private userService: UserService,
         private powerballService: PowerballService,
@@ -154,7 +155,7 @@ export class HomeComponent implements OnInit {
     }
 
     setUserPlayer() {
-        if (this.player_id < 1) {
+        if (this.initial_player_id < 1) {
             var newPlayer = new UserPlayer();
 
             newPlayer.user_id = parseInt(this.user.iat);
@@ -162,6 +163,11 @@ export class HomeComponent implements OnInit {
 
             this.settingsService.add_user_player(newPlayer).subscribe(data => {
                 this.homesettingsService.notify_change_in_user_player();
+                this.homesettingsService.userPlayer$.subscribe(data => {
+                    this.user_player = data;
+                    this.user_player_view = this.users.find(x => x.id === this.user_player.player_id);
+                    this.showUsersSelect = false;
+                });
             });
         } else {
             var editedPlayer = new UserPlayer();
@@ -170,6 +176,7 @@ export class HomeComponent implements OnInit {
 
             this.settingsService.edit_user_player(editedPlayer).subscribe(data => {
                 this.homesettingsService.notify_change_in_user_player();
+                this.user_player_view = this.users.find(x => x.id === editedPlayer.player_id);
                 this.showUsersSelect = false;
             });
         }
@@ -182,8 +189,9 @@ export class HomeComponent implements OnInit {
             this.settingsService.get_user_player(parseInt(this.user.iat)).toPromise().then(data => {
                 this.user_player = data;
                 if (this.user_player != null && this.users.length > 0) {
-                    this.player_id = this.user_player.user_id;
+                    this.initial_player_id = this.user_player.user_id;
                     this.user_player_view = this.users.find(x => x.id === this.user_player.player_id);
+                    this.showUsersSelect = false;
                 }
             });
         });

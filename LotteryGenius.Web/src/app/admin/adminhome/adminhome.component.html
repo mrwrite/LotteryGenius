@@ -1,15 +1,15 @@
 <div class="container-fluid" style="padding: 13px;">
     <div class="row" style="margin: 50px;">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     USERS
                     <i class="fas fa-plus-circle" data-toggle="tooltip" data-placement="top" title="Add User" style="margin-top: 4px; cursor: pointer;" (click)="open_new_user_modal()"></i>
                 </div>
                 <div class="card-body text-center">
-                    <ul class="list-unstyled" style="display: inline-block;">
-                        <li *ngFor="let user of users | slice:0:5" style="margin: 5px; padding: 5px;">
-                            {{user.firstName}} {{user.lastName}} | {{user.email}}
+                    <ul class="list-unstyled">
+                        <li *ngFor="let user of users | slice:0:5" style="display: flex; justify-content: space-between">
+                            <span>{{user.firstName}} {{user.lastName}}</span>  <span>{{user.email}}</span><span class="btn btn-light" *ngIf="user.lockoutEnd !== null" (click)="resetUserPassword(user.id)">Reset Password</span> <i class="fas fa-trash-alt" style="cursor: pointer;" (click)="open_delete_modal(userDelete, user.id)"></i>
                         </li>
                     </ul>
                 </div>
@@ -17,3 +17,11 @@
         </div>
     </div>
 </div>
+
+<ng-template #userDelete>
+    <div class="modal-body text-center">
+        <p>Are you sure you want to delete this user?</p>
+        <button type="button" class="btn btn-success" style="margin: 5px;" (click)="deleteUser()">Yes</button>
+        <button type="button" class="btn btn-primary" style="margin: 5px;" (click)="this.bsModalRef.hide()">No</button>
+    </div>
+</ng-template>

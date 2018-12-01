@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 import { MegamillionsService } from '../../shared/megamillions.service';
 import { Subject } from 'rxjs';
 import { UserService } from '../../shared/user.service';
+import { User } from '../../models/user';
 var MegapicksService = /** @class */ (function () {
     function MegapicksService(megamillionService, userService) {
         this.megamillionService = megamillionService;
@@ -18,6 +19,7 @@ var MegapicksService = /** @class */ (function () {
         this.megamillionpicks$ = new Subject();
         this.userpicks$ = new Subject();
         this.userwinningpicks$ = new Subject();
+        this.user = new User();
         this.get_megamillions_picks();
         var newUser = this.userService.get();
         if (newUser) {
@@ -31,6 +33,7 @@ var MegapicksService = /** @class */ (function () {
     }
     MegapicksService.prototype.get_user_picks = function () {
         var _this = this;
+        this.user = JSON.parse(localStorage.getItem('user'));
         this.megamillionService.get_user_picks(parseInt(this.user.iat)).subscribe(function (data) { return _this.userpicks$.next(data); });
     };
     MegapicksService.prototype.get_user_winning_picks = function () {

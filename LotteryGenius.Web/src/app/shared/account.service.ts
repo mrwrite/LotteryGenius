@@ -79,6 +79,17 @@ export class AccountService {
         return this.httpClient.post(this.url + "api/account/passwordchange", password, httpOptions).pipe();
     }
 
+    public resetUserPassword(id: number) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            }),
+        };
+
+        return this.httpClient.post(this.url + "api/account/ResetPassword/", id, httpOptions).pipe();
+    }
+
     public logout() {
         this.userService.delete();
         localStorage.removeItem('user');

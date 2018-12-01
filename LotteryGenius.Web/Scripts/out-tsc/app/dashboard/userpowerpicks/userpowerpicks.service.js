@@ -11,11 +11,13 @@ import { Injectable } from '@angular/core';
 import { PowerballService } from '../../shared/powerball.service';
 import { Subject } from 'rxjs';
 import { UserService } from "../../shared/user.service";
+import { User } from "../../models/user";
 var UserpowerpicksService = /** @class */ (function () {
     function UserpowerpicksService(powerballService, userService) {
         this.powerballService = powerballService;
         this.userService = userService;
         this.userPicks$ = new Subject();
+        this.user = new User();
         var newUser = this.userService.get();
         if (newUser) {
             this.user = newUser;

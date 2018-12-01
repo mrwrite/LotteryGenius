@@ -18,6 +18,7 @@ import { UserpowerpicksComponent } from './dashboard/userpowerpicks/userpowerpic
 import { UsermegapicksComponent } from './dashboard/usermegapicks/usermegapicks.component';
 import { UserpowerwinnersComponent } from './dashboard/userpowerwinners/userpowerwinners.component';
 import { UsermegawinnersComponent } from './dashboard/usermegawinners/usermegawinners.component';
+import { PasswordChangeComponent } from './password-change/password-change.component';
 var routes = [
     { path: "", component: LoginComponent },
     {
@@ -37,7 +38,8 @@ var routes = [
             { path: "userpowerwinners", component: UserpowerwinnersComponent, canActivate: [AuthGuard] },
             { path: "usermegawinners", component: UsermegawinnersComponent, canActivate: [AuthGuard] }
         ]
-    }
+    },
+    { path: "password-change", component: PasswordChangeComponent, canActivate: [AuthGuard] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

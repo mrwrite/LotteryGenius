@@ -72,6 +72,15 @@ var AccountService = /** @class */ (function () {
         };
         return this.httpClient.post(this.url + "api/account/passwordchange", password, httpOptions).pipe();
     };
+    AccountService.prototype.resetUserPassword = function (id) {
+        var httpOptions = {
+            headers: new HttpHeaders({
+                'Content-Type': 'application/json',
+                'Authorization': "Bearer " + localStorage.getItem('token').toString()
+            }),
+        };
+        return this.httpClient.post(this.url + "api/account/ResetPassword/", id, httpOptions).pipe();
+    };
     AccountService.prototype.logout = function () {
         this.userService.delete();
         localStorage.removeItem('user');

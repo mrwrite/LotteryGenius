@@ -34,6 +34,7 @@ namespace LotteryGenius.API.Data.Repositories
         private readonly IEmailSender _emailSender;
         private readonly UserManager<LotteryGeniusUser> userManager;
         private readonly IHostingEnvironment env;
+
         private SqlConnection sqlConnection;
 
         public MegamillionRepository(LotteryGeniusContext ctx, ILogger<MegamillionRepository> logger, IConfiguration config, IMapper mapper, IEmailSender emailSender, UserManager<LotteryGeniusUser> userManager, IHostingEnvironment env)
@@ -45,6 +46,7 @@ namespace LotteryGenius.API.Data.Repositories
             _emailSender = emailSender;
             this.userManager = userManager;
             this.env = env;
+
             sqlConnection = new SqlConnection(_config.GetConnectionString("LotteryGeniusConnectionString"));
         }
 
@@ -269,9 +271,12 @@ namespace LotteryGenius.API.Data.Repositories
                 {
                     _ctx.Megamillions.Add(number);
 
-                    var htmlEmail =
-                        $"A new Megamillions Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
-                    await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Megamillions Draw", htmlEmail);
+                    if (this.env.IsProduction())
+                    {
+                        var htmlEmail =
+                            $"A new Megamillions Number has been drawn: {number.ball1} - {number.ball2} - {number.ball3} - {number.ball4} - {number.ball5} Megaball: {number.megaball} Megaplier: {number.megaplier}";
+                        await _emailSender.SendEmailAsync("aqwright@gmail.com", "New Megamillions Draw", htmlEmail);
+                    }
                 }
             }
         }
