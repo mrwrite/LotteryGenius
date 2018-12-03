@@ -237,10 +237,16 @@ namespace MeticulousMentoring.API.Controllers
                     }
 
                     var userPicksToRemove = this._ctx.UserPicks.Where(x => x.user_id == user.Id).ToList();
-                    _ctx.UserPicks.RemoveRange(userPicksToRemove);
+                    if (userPicksToRemove.Count > 0)
+                    {
+                        _ctx.UserPicks.RemoveRange(userPicksToRemove);
+                    }
 
                     var userPlayerToRemove = this._ctx.UserPlayers.SingleOrDefault(x => x.user_id == user.Id);
-                    _ctx.UserPlayers.Remove(userPlayerToRemove);
+                    if (userPlayerToRemove != null)
+                    {
+                        _ctx.UserPlayers.Remove(userPlayerToRemove);
+                    }
 
                     if (_ctx.SaveChanges() >= 0)
                     {

@@ -20,19 +20,20 @@
       }
     },
     "LotteryGenius.Web": {
-      "commandName": "IISExpress",
+      "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://localhost:9001/"
+      "applicationUrl": "http://localhost:9002/"
     },
     "Production": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
-      }
+      },
+      "applicationUrl": "https://www.lotterygenius.net"
     }
   }
 }

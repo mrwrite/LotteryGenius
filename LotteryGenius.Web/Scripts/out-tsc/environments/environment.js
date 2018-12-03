@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 export var environment = {
     production: false,
-    apiUrl: 'http://localhost:9001/'
+    apiUrl: "https://lotterygeniusapi.azurewebsites.net/",
+    //apiUrl: 'http://localhost:9001/',
+    baseHref: '/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

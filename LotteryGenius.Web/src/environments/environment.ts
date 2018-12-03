@@ -4,7 +4,9 @@
 
 export const environment = {
     production: false,
-    apiUrl: 'http://localhost:9001/'
+    apiUrl: "https://lotterygeniusapi.azurewebsites.net/",
+    //apiUrl: 'http://localhost:9001/',
+    baseHref: '/'
 };
 
 /*

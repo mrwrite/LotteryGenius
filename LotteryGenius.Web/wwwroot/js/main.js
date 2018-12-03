@@ -562,39 +562,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
-/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
-/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/esm5/ngx-bootstrap.js");
-/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm5/scrolling.es5.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/powerball.service */ "./src/app/shared/powerball.service.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
-/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
-/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/settings.service */ "./src/app/shared/settings.service.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
-/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
-/* harmony import */ var _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
-/* harmony import */ var _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/home/homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
-/* harmony import */ var _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./admin/adminhome/adminhome.service */ "./src/app/admin/adminhome/adminhome.service.ts");
-/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
-/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
-/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
-/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
-/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
-/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
-/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
-/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
-/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
-/* harmony import */ var _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/adminhome/adminhome.component */ "./src/app/admin/adminhome/adminhome.component.ts");
-/* harmony import */ var _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/userentry/userentry.component */ "./src/app/admin/userentry/userentry.component.ts");
-/* harmony import */ var _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./password-change/password-change.component */ "./src/app/password-change/password-change.component.ts");
+/* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../environments/environment */ "./src/environments/environment.ts");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var ngx_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-bootstrap */ "./node_modules/ngx-bootstrap/esm5/ngx-bootstrap.js");
+/* harmony import */ var _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/cdk/scrolling */ "./node_modules/@angular/cdk/esm5/scrolling.es5.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/powerball.service */ "./src/app/shared/powerball.service.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
+/* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
+/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./shared/settings.service */ "./src/app/shared/settings.service.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.service */ "./src/app/dashboard/userpowerwinners/userpowerwinners.service.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.service */ "./src/app/dashboard/usermegawinners/usermegawinners.service.ts");
+/* harmony import */ var _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./dashboard/home/homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
+/* harmony import */ var _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./admin/adminhome/adminhome.service */ "./src/app/admin/adminhome/adminhome.service.ts");
+/* harmony import */ var _shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./shared/auth-guard.service */ "./src/app/shared/auth-guard.service.ts");
+/* harmony import */ var _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/home/home.component */ "./src/app/dashboard/home/home.component.ts");
+/* harmony import */ var _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./dashboard/powerpicks/powerpicks.component */ "./src/app/dashboard/powerpicks/powerpicks.component.ts");
+/* harmony import */ var _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./dashboard/megapicks/megapicks.component */ "./src/app/dashboard/megapicks/megapicks.component.ts");
+/* harmony import */ var _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./dashboard/userpowerpicks/userpowerpicks.component */ "./src/app/dashboard/userpowerpicks/userpowerpicks.component.ts");
+/* harmony import */ var _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./dashboard/usermegapicks/usermegapicks.component */ "./src/app/dashboard/usermegapicks/usermegapicks.component.ts");
+/* harmony import */ var _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./dashboard/home/userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./dashboard/userpowerwinners/userpowerwinners.component */ "./src/app/dashboard/userpowerwinners/userpowerwinners.component.ts");
+/* harmony import */ var _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./dashboard/usermegawinners/usermegawinners.component */ "./src/app/dashboard/usermegawinners/usermegawinners.component.ts");
+/* harmony import */ var _admin_admin_component__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./admin/admin.component */ "./src/app/admin/admin.component.ts");
+/* harmony import */ var _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./admin/adminhome/adminhome.component */ "./src/app/admin/adminhome/adminhome.component.ts");
+/* harmony import */ var _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./admin/userentry/userentry.component */ "./src/app/admin/userentry/userentry.component.ts");
+/* harmony import */ var _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./password-change/password-change.component */ "./src/app/password-change/password-change.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -640,64 +641,66 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_13__["LoginComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_14__["DashboardComponent"],
-                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_27__["HomeComponent"],
-                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_28__["PowerpicksComponent"],
-                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_29__["MegapicksComponent"],
-                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_30__["UserpowerpicksComponent"],
-                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_31__["UsermegapicksComponent"],
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__["UserpickentryComponent"],
-                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_33__["UserpowerwinnersComponent"],
-                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_34__["UsermegawinnersComponent"],
-                _admin_admin_component__WEBPACK_IMPORTED_MODULE_35__["AdminComponent"],
-                _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_36__["AdminhomeComponent"],
-                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__["UserentryComponent"],
-                _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_38__["PasswordChangeComponent"],
+                _app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_14__["LoginComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__["DashboardComponent"],
+                _dashboard_home_home_component__WEBPACK_IMPORTED_MODULE_28__["HomeComponent"],
+                _dashboard_powerpicks_powerpicks_component__WEBPACK_IMPORTED_MODULE_29__["PowerpicksComponent"],
+                _dashboard_megapicks_megapicks_component__WEBPACK_IMPORTED_MODULE_30__["MegapicksComponent"],
+                _dashboard_userpowerpicks_userpowerpicks_component__WEBPACK_IMPORTED_MODULE_31__["UserpowerpicksComponent"],
+                _dashboard_usermegapicks_usermegapicks_component__WEBPACK_IMPORTED_MODULE_32__["UsermegapicksComponent"],
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_33__["UserpickentryComponent"],
+                _dashboard_userpowerwinners_userpowerwinners_component__WEBPACK_IMPORTED_MODULE_34__["UserpowerwinnersComponent"],
+                _dashboard_usermegawinners_usermegawinners_component__WEBPACK_IMPORTED_MODULE_35__["UsermegawinnersComponent"],
+                _admin_admin_component__WEBPACK_IMPORTED_MODULE_36__["AdminComponent"],
+                _admin_adminhome_adminhome_component__WEBPACK_IMPORTED_MODULE_37__["AdminhomeComponent"],
+                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_38__["UserentryComponent"],
+                _password_change_password_change_component__WEBPACK_IMPORTED_MODULE_39__["PasswordChangeComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_11__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
                 _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_1__["BrowserAnimationsModule"],
                 _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-                _angular_http__WEBPACK_IMPORTED_MODULE_6__["HttpModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_7__["HttpModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatToolbarModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatGridListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatListModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatExpansionModule"],
-                _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_10__["ScrollingModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatCheckboxModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatButtonModule"],
-                _angular_material__WEBPACK_IMPORTED_MODULE_8__["MatSnackBarModule"],
-                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot()
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatToolbarModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatGridListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatListModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatExpansionModule"],
+                _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_11__["ScrollingModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatButtonModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_9__["MatSnackBarModule"],
+                ngx_bootstrap__WEBPACK_IMPORTED_MODULE_10__["ModalModule"].forRoot()
             ],
             entryComponents: [
-                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_32__["UserpickentryComponent"],
-                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_37__["UserentryComponent"]
+                _dashboard_home_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_33__["UserpickentryComponent"],
+                _admin_userentry_userentry_component__WEBPACK_IMPORTED_MODULE_38__["UserentryComponent"]
             ],
-            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_26__["AuthGuard"],
-                _shared_powerball_service__WEBPACK_IMPORTED_MODULE_15__["PowerballService"],
-                _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_17__["MegamillionsService"],
-                _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_16__["PowerpicksService"],
-                _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_19__["MegapicksService"],
-                _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_20__["UserpowerpicksService"],
-                _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_21__["UsermegapicksService"],
-                _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_22__["UserpowerwinnersService"],
-                _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_23__["UsermegawinnersService"],
-                _shared_settings_service__WEBPACK_IMPORTED_MODULE_18__["SettingsService"],
-                _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_24__["HomesettingsService"],
-                _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_25__["AdminhomeService"]],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_12__["AppComponent"]]
+            providers: [_shared_auth_guard_service__WEBPACK_IMPORTED_MODULE_27__["AuthGuard"],
+                _shared_powerball_service__WEBPACK_IMPORTED_MODULE_16__["PowerballService"],
+                _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_18__["MegamillionsService"],
+                _dashboard_powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_17__["PowerpicksService"],
+                _dashboard_megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_20__["MegapicksService"],
+                _dashboard_userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_21__["UserpowerpicksService"],
+                _dashboard_usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_22__["UsermegapicksService"],
+                _dashboard_userpowerwinners_userpowerwinners_service__WEBPACK_IMPORTED_MODULE_23__["UserpowerwinnersService"],
+                _dashboard_usermegawinners_usermegawinners_service__WEBPACK_IMPORTED_MODULE_24__["UsermegawinnersService"],
+                _shared_settings_service__WEBPACK_IMPORTED_MODULE_19__["SettingsService"],
+                _dashboard_home_homesettings_service__WEBPACK_IMPORTED_MODULE_25__["HomesettingsService"],
+                _admin_adminhome_adminhome_service__WEBPACK_IMPORTED_MODULE_26__["AdminhomeService"],
+                { provide: _angular_common__WEBPACK_IMPORTED_MODULE_2__["APP_BASE_HREF"], useValue: _environments_environment__WEBPACK_IMPORTED_MODULE_6__["environment"].baseHref }],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_13__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -870,7 +873,7 @@ module.exports = ".card {\r\n    background-image: linear-gradient(0deg, #18191c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body wow fadeIn\" data-wow-delay=\"0.2s\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player !== null && users.length > 0 && !showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            {{user_player_view.firstName}} {{user_player_view.lastName}}\r\n                            <span><i class=\"fas fa-trash-alt\" style=\"padding-right: 5px; cursor: pointer;\"></i><i class=\"far fa-edit\" style=\"cursor: pointer;\" (click)=\"showUsersSelect = true\"></i></span>\r\n                        </li>\r\n                    </ul>\r\n                    <i *ngIf=\"user_player === null && !showUsersSelect\" class=\"fas fa-plus\" style=\"cursor: pointer\" (click)=\"showUsersSelect = true\"><span>Add User Player</span></i>\r\n                    <ul *ngIf=\"showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between;\">\r\n                            <select [(ngModel)]=\"player_id\">\r\n                                <option [ngValue]=-1 disabled selected>-- Select Player --</option>\r\n                                <option *ngFor=\"let user of users\" [ngValue]=\"user.id\">{{user.firstName}} {{user.lastName}}</option>\r\n                            </select>\r\n                            <button *ngIf=\"showUsersSelect\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"setUserPlayer()\">Set Player</button>\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <hr class=\"m-4\" style=\"color: rgba(255, 255, 255, 1);\" />\r\n                    <ul class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            <span>Change Password</span><span>Reset Password</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
+module.exports = "<div class=\"container-fluid\" style=\"padding: 13px;\">\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    PROFILE\r\n                </div>\r\n                <div class=\"card-body text-center\">\r\n                    <div class=\"circle\">\r\n                        {{user.given_name | slice:0:1}}{{user.family_name | slice:0:1}}\r\n                    </div>\r\n                    <br />\r\n                    <span class=\"card-name\">{{user.given_name}} {{user.family_name}}</span>\r\n                    <br />\r\n                    <span>{{user.role}}</span>\r\n                    <br />\r\n                    <span class=\"card-email\">{{user.sub}}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let puPicks of power_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{puPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{puPicks.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{puPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"power_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerwinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let mwPicks of mega_user_winning_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{mwPicks.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{mwPicks.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{mwPicks.lottoball}}</div>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_winning_picks.length > 0; else noWinners\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegawinners']\" class=\"view-all-link\">VIEW WINNERS</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S POWERBALL PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Powerball')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"user_picks.length > 0; else noPicks\" class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let uPick of user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{uPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{uPick.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{uPick.lottoball}}</div>\r\n                            {{uPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, uPick.id, 'powerball')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./userpowerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"row\" style=\"margin: 50px;\">\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header d-flex justify-content-between\">\r\n                    {{user.given_name | uppercase}}'S MEGAMILLION PICKS\r\n                    <i class=\"fas fa-plus-circle\" data-toggle=\"tooltip\" data-placement=\"top\" title=\"Add User Pick\" style=\"margin-top: 4px; cursor: pointer;\" (click)=\"openUserPickModal('Megamillions')\"></i>\r\n                </div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul *ngIf=\"mega_user_picks.length > 0; else noPicks\" class=\"list-unstyled\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let umPick of mega_user_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{umPick.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{umPick.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{umPick.lottoball}}</div>\r\n                            {{umPick.saved_date | date: 'shortDate'}}\r\n                            <span *ngIf=\"mega_user_picks.length < 6\" class=\"fas fa-trash-alt\" style=\"padding-left: 2px; cursor: pointer;\" (click)=\"open_delete_modal(userPick, umPick.id, 'megamillions')\"></span>\r\n                        </li>\r\n                    </ul>\r\n                    <div *ngIf=\"mega_user_picks.length > 5\" style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./usermegapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL POWERBALL PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_powerball_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-powerball-circle\">{{number.powerball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./powerpicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">ALL MEGAMILLION PICKS</div>\r\n                <div class=\"card-body\" style=\"text-align: center;\">\r\n                    <ul class=\"list-unstyled wow fadeIn\" data-wow-delay=\"0.2s\" style=\"display: inline-block;\">\r\n                        <li *ngFor=\"let number of all_megamillions_picks | slice:0:5\" style=\"margin: 5px; padding: 5px;\">\r\n                            <div class=\"mini-circle\">{{number.ball1}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball2}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball3}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball4}}</div>\r\n                            <div class=\"mini-circle\">{{number.ball5}}</div>\r\n                            <div class=\"mini-megamillions-circle\">{{number.megaball}}</div>\r\n                            {{number.pick_date | date: 'shortDate'}}\r\n                        </li>\r\n                    </ul>\r\n                    <div style=\"text-align: center;\">\r\n                        <a [routerLink]=\"['./megapicks']\" class=\"view-all-link\">VIEW ALL</a>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-3\">\r\n            <div class=\"card\">\r\n                <div class=\"card-header\">SETTINGS</div>\r\n                <div class=\"card-body wow fadeIn\" data-wow-delay=\"0.2s\" style=\"text-align: center;\">\r\n                    <h4>User Player</h4>\r\n                    <hr class=\"m-4\" />\r\n                    <ul *ngIf=\"user_player !== null && users.length > 0 && !showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            {{user_player_view.firstName}} {{user_player_view.lastName}}\r\n                            <span><i class=\"fas fa-trash-alt\" style=\"padding-right: 5px; cursor: pointer;\"></i><i class=\"far fa-edit\" style=\"cursor: pointer;\" (click)=\"showUsersSelect = true\"></i></span>\r\n                        </li>\r\n                    </ul>\r\n                    <i *ngIf=\"user_player === null && !showUsersSelect\" class=\"fas fa-plus\" style=\"cursor: pointer\" (click)=\"showUsersSelect = true\"><span>Add User Player</span></i>\r\n                    <ul *ngIf=\"showUsersSelect\" class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between;\">\r\n                            <select [(ngModel)]=\"player_id\">\r\n                                <option [ngValue]=-1 disabled selected>-- Select Player --</option>\r\n                                <option *ngFor=\"let user of users\" [ngValue]=\"user.id\">{{user.firstName}} {{user.lastName}}</option>\r\n                            </select>\r\n                            <button *ngIf=\"showUsersSelect\" type=\"button\" class=\"btn btn-outline-success\" (click)=\"setUserPlayer()\">Set Player</button>\r\n                        </li>\r\n                    </ul>\r\n\r\n                    <hr class=\"m-4\" style=\"color: rgba(255, 255, 255, 1);\" />\r\n                    <ul class=\"list-unstyled\">\r\n                        <li style=\"display: flex; justify-content: space-between\">\r\n                            <span (click)=\"changePassword()\" style=\"cursor: pointer;\">Change Password</span><span (click)=\"resetPassword()\" style=\"cursor: pointer;\">Reset Password</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<ng-template #noWinners>\r\n    You have no winners\r\n</ng-template>\r\n\r\n<ng-template #noPicks>\r\n    You have no picks\r\n</ng-template>\r\n\r\n<ng-template #addUserPlayer>\r\n</ng-template>\r\n\r\n<ng-template #userPick>\r\n    <div class=\"modal-body text-center\">\r\n        <p>Are you sure you want to delete this pick?</p>\r\n        <button type=\"button\" class=\"btn btn-success\" style=\"margin: 5px;\" (click)=\"confirm_user_pick_delete()\">Yes</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" style=\"margin: 5px;\" (click)=\"this.bsModalRef.hide()\">No</button>\r\n    </div>\r\n</ng-template>"
 
 /***/ }),
 
@@ -890,17 +893,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/user.service */ "./src/app/shared/user.service.ts");
 /* harmony import */ var _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/powerball.service */ "./src/app/shared/powerball.service.ts");
 /* harmony import */ var _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/megamillions.service */ "./src/app/shared/megamillions.service.ts");
-/* harmony import */ var _models_user_view__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../models/user.view */ "./src/app/models/user.view.ts");
-/* harmony import */ var _models_userplayer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/userplayer */ "./src/app/models/userplayer.ts");
-/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
-/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
-/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
-/* harmony import */ var _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
-/* harmony import */ var _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
-/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../shared/settings.service */ "./src/app/shared/settings.service.ts");
-/* harmony import */ var _homesettings_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _models_user_view__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../models/user.view */ "./src/app/models/user.view.ts");
+/* harmony import */ var _models_userplayer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../models/userplayer */ "./src/app/models/userplayer.ts");
+/* harmony import */ var _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../powerpicks/powerpicks.service */ "./src/app/dashboard/powerpicks/powerpicks.service.ts");
+/* harmony import */ var _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../megapicks/megapicks.service */ "./src/app/dashboard/megapicks/megapicks.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm5/ngx-bootstrap-modal.js");
+/* harmony import */ var _userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./userpickentry/userpickentry.component */ "./src/app/dashboard/home/userpickentry/userpickentry.component.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../userpowerpicks/userpowerpicks.service */ "./src/app/dashboard/userpowerpicks/userpowerpicks.service.ts");
+/* harmony import */ var _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../usermegapicks/usermegapicks.service */ "./src/app/dashboard/usermegapicks/usermegapicks.service.ts");
+/* harmony import */ var _shared_settings_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../../shared/settings.service */ "./src/app/shared/settings.service.ts");
+/* harmony import */ var _homesettings_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./homesettings.service */ "./src/app/dashboard/home/homesettings.service.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -961,9 +966,11 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
 
 
 
+
+
 var browserRefresh = false;
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, settingsService, homesettingsService, accountService) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, settingsService, homesettingsService, accountService, router, snackBar) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
@@ -976,6 +983,8 @@ var HomeComponent = /** @class */ (function () {
         this.settingsService = settingsService;
         this.homesettingsService = homesettingsService;
         this.accountService = accountService;
+        this.router = router;
+        this.snackBar = snackBar;
         this.subscriptions = [];
         this.showUsersSelect = false;
         this.player_id = -1;
@@ -994,8 +1003,8 @@ var HomeComponent = /** @class */ (function () {
         this.megapicksService.notify_change_in_user_winning_picks();
         this.megapicksService.notify_change_in_megamillion_picks();
         this.homesettingsService.notify_change_in_users();
-        this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
-        this.user_player_view = new _models_user_view__WEBPACK_IMPORTED_MODULE_5__["UserView"]();
+        this.user_player = new _models_userplayer__WEBPACK_IMPORTED_MODULE_7__["UserPlayer"]();
+        this.user_player_view = new _models_user_view__WEBPACK_IMPORTED_MODULE_6__["UserView"]();
         this.initializePlayers();
     }
     HomeComponent.prototype.ngOnInit = function () {
@@ -1052,7 +1061,7 @@ var HomeComponent = /** @class */ (function () {
     };
     HomeComponent.prototype.openUserPickModal = function (gameType) {
         var _this = this;
-        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
+        var _combine = Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["combineLatest"])(this.modalService.onHide).subscribe(function () { return _this.changeDetection.markForCheck(); });
         this.subscriptions.push(this.modalService.onHide.subscribe(function (reason) {
             _this.powerpicksService.notify_change_in_user_picks();
             _this.megapicksService.notify_change_in_user_picks();
@@ -1065,7 +1074,7 @@ var HomeComponent = /** @class */ (function () {
                 'border-color': gameType === 'Powerball' ? 'red' : 'yellow'
             }
         };
-        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_10__["UserpickentryComponent"], { initialState: initialState });
+        this.bsModalRef = this.modalService.show(_userpickentry_userpickentry_component__WEBPACK_IMPORTED_MODULE_11__["UserpickentryComponent"], { initialState: initialState });
         this.bsModalRef.content.closeBtnName = 'Close';
     };
     HomeComponent.prototype.open_delete_modal = function (template, id, type) {
@@ -1091,7 +1100,7 @@ var HomeComponent = /** @class */ (function () {
     HomeComponent.prototype.setUserPlayer = function () {
         var _this = this;
         if (this.initial_player_id < 1) {
-            var newPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
+            var newPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_7__["UserPlayer"]();
             newPlayer.user_id = parseInt(this.user.iat);
             newPlayer.player_id = this.player_id;
             this.settingsService.add_user_player(newPlayer).subscribe(function (data) {
@@ -1104,7 +1113,7 @@ var HomeComponent = /** @class */ (function () {
             });
         }
         else {
-            var editedPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_6__["UserPlayer"]();
+            var editedPlayer = new _models_userplayer__WEBPACK_IMPORTED_MODULE_7__["UserPlayer"]();
             editedPlayer.user_id = parseInt(this.user.iat);
             editedPlayer.player_id = this.player_id;
             this.settingsService.edit_user_player(editedPlayer).subscribe(function (data) {
@@ -1137,6 +1146,18 @@ var HomeComponent = /** @class */ (function () {
             });
         });
     };
+    HomeComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, { duration: 2000, });
+    };
+    HomeComponent.prototype.changePassword = function () {
+        this.router.navigate(["password-change"]);
+    };
+    HomeComponent.prototype.resetPassword = function () {
+        var _this = this;
+        this.accountService.resetUserPassword(parseInt(this.user.iat)).subscribe(function (result) {
+            _this.openSnackBar("Password is reset. Please logout and log back in", "Complete");
+        });
+    };
     HomeComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'home',
@@ -1146,15 +1167,17 @@ var HomeComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [_shared_user_service__WEBPACK_IMPORTED_MODULE_2__["UserService"],
             _shared_powerball_service__WEBPACK_IMPORTED_MODULE_3__["PowerballService"],
             _shared_megamillions_service__WEBPACK_IMPORTED_MODULE_4__["MegamillionsService"],
-            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_7__["PowerpicksService"],
-            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_8__["MegapicksService"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__["BsModalService"],
+            _powerpicks_powerpicks_service__WEBPACK_IMPORTED_MODULE_8__["PowerpicksService"],
+            _megapicks_megapicks_service__WEBPACK_IMPORTED_MODULE_9__["MegapicksService"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__["BsModalService"],
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"],
-            _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_12__["UserpowerpicksService"],
-            _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_13__["UsermegapicksService"],
-            _shared_settings_service__WEBPACK_IMPORTED_MODULE_14__["SettingsService"],
-            _homesettings_service__WEBPACK_IMPORTED_MODULE_15__["HomesettingsService"],
-            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"]])
+            _userpowerpicks_userpowerpicks_service__WEBPACK_IMPORTED_MODULE_13__["UserpowerpicksService"],
+            _usermegapicks_usermegapicks_service__WEBPACK_IMPORTED_MODULE_14__["UsermegapicksService"],
+            _shared_settings_service__WEBPACK_IMPORTED_MODULE_15__["SettingsService"],
+            _homesettings_service__WEBPACK_IMPORTED_MODULE_16__["HomesettingsService"],
+            _shared_account_service__WEBPACK_IMPORTED_MODULE_1__["AccountService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"],
+            _angular_material__WEBPACK_IMPORTED_MODULE_17__["MatSnackBar"]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -3379,7 +3402,9 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 var environment = {
     production: false,
-    apiUrl: 'http://localhost:9001/'
+    apiUrl: "https://lotterygeniusapi.azurewebsites.net/",
+    //apiUrl: 'http://localhost:9001/',
+    baseHref: '/'
 };
 /*
  * For easier debugging in development mode, you can import the following file

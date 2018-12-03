@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, TemplateRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { environment } from '../environments/environment';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
@@ -103,7 +104,8 @@ import { PasswordChangeComponent } from './password-change/password-change.compo
         UsermegawinnersService,
         SettingsService,
         HomesettingsService,
-        AdminhomeService],
+        AdminhomeService,
+        { provide: APP_BASE_HREF, useValue: environment.baseHref }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

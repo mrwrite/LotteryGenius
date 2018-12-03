@@ -47,6 +47,7 @@ import { AccountService } from "../../shared/account.service";
 import { UserService } from "../../shared/user.service";
 import { PowerballService } from "../../shared/powerball.service";
 import { MegamillionsService } from "../../shared/megamillions.service";
+import { Router } from "@angular/router";
 import { UserView } from "../../models/user.view";
 import { UserPlayer } from '../../models/userplayer';
 import { PowerpicksService } from '../powerpicks/powerpicks.service';
@@ -58,9 +59,10 @@ import { UserpowerpicksService } from '../userpowerpicks/userpowerpicks.service'
 import { UsermegapicksService } from '../usermegapicks/usermegapicks.service';
 import { SettingsService } from '../../shared/settings.service';
 import { HomesettingsService } from './homesettings.service';
+import { MatSnackBar } from '@angular/material';
 export var browserRefresh = false;
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, settingsService, homesettingsService, accountService) {
+    function HomeComponent(userService, powerballService, megamillionsService, powerpicksService, megapicksService, modalService, changeDetection, userpowerpicksService, usermegapicksService, settingsService, homesettingsService, accountService, router, snackBar) {
         this.userService = userService;
         this.powerballService = powerballService;
         this.megamillionsService = megamillionsService;
@@ -73,6 +75,8 @@ var HomeComponent = /** @class */ (function () {
         this.settingsService = settingsService;
         this.homesettingsService = homesettingsService;
         this.accountService = accountService;
+        this.router = router;
+        this.snackBar = snackBar;
         this.subscriptions = [];
         this.showUsersSelect = false;
         this.player_id = -1;
@@ -234,6 +238,18 @@ var HomeComponent = /** @class */ (function () {
             });
         });
     };
+    HomeComponent.prototype.openSnackBar = function (message, action) {
+        this.snackBar.open(message, action, { duration: 2000, });
+    };
+    HomeComponent.prototype.changePassword = function () {
+        this.router.navigate(["password-change"]);
+    };
+    HomeComponent.prototype.resetPassword = function () {
+        var _this = this;
+        this.accountService.resetUserPassword(parseInt(this.user.iat)).subscribe(function (result) {
+            _this.openSnackBar("Password is reset. Please logout and log back in", "Complete");
+        });
+    };
     HomeComponent = __decorate([
         Component({
             selector: 'home',
@@ -251,7 +267,9 @@ var HomeComponent = /** @class */ (function () {
             UsermegapicksService,
             SettingsService,
             HomesettingsService,
-            AccountService])
+            AccountService,
+            Router,
+            MatSnackBar])
     ], HomeComponent);
     return HomeComponent;
 }());

@@ -19,6 +19,7 @@ import { UserpowerpicksService } from '../userpowerpicks/userpowerpicks.service'
 import { UsermegapicksService } from '../usermegapicks/usermegapicks.service';
 import { SettingsService } from '../../shared/settings.service';
 import { HomesettingsService } from './homesettings.service';
+import { MatSnackBar } from '@angular/material';
 
 export let browserRefresh = false;
 
@@ -57,7 +58,9 @@ export class HomeComponent implements OnInit {
         private usermegapicksService: UsermegapicksService,
         private settingsService: SettingsService,
         private homesettingsService: HomesettingsService,
-        private accountService: AccountService) {
+        private accountService: AccountService,
+        private router: Router,
+        public snackBar: MatSnackBar) {
         this.users = new Array<UserView>();
         this.all_powerball_picks = new Array<PowerballPick>();
         this.all_megamillions_picks = new Array<MegamillionsPick>();
@@ -194,6 +197,20 @@ export class HomeComponent implements OnInit {
                     this.showUsersSelect = false;
                 }
             });
+        });
+    }
+
+    openSnackBar(message: string, action) {
+        this.snackBar.open(message, action, { duration: 2000, });
+    }
+
+    public changePassword() {
+        this.router.navigate(["password-change"]);
+    }
+
+    public resetPassword() {
+        this.accountService.resetUserPassword(parseInt(this.user.iat)).subscribe(result => {
+            this.openSnackBar("Password is reset. Please logout and log back in", "Complete");
         });
     }
 }

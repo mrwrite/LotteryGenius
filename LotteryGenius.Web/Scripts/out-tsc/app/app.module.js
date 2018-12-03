@@ -6,10 +6,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CommonModule } from '@angular/common';
+import { CommonModule, APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { environment } from '../environments/environment';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatToolbarModule, MatGridListModule, MatListModule, MatExpansionModule, MatCheckboxModule, MatButtonModule, MatSnackBarModule } from '@angular/material';
@@ -99,7 +100,8 @@ var AppModule = /** @class */ (function () {
                 UsermegawinnersService,
                 SettingsService,
                 HomesettingsService,
-                AdminhomeService],
+                AdminhomeService,
+                { provide: APP_BASE_HREF, useValue: environment.baseHref }],
             bootstrap: [AppComponent]
         })
     ], AppModule);
