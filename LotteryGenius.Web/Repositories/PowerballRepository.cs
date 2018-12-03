@@ -112,14 +112,14 @@ namespace LotteryGenius.Web.Repositories
             {
                 if (type == "powerball")
                 {
-                    return "powerball-circle";
+                    return "mini-powerball-circle";
                 }
                 else if (type == "megaball")
                 {
-                    return "megamillions-circle";
+                    return "mini-megamillions-circle";
                 }
 
-                return "circle";
+                return "mini-circle";
             }
         }
     }

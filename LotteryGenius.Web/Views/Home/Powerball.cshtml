@@ -11,7 +11,7 @@
 }
 
 <div class="container-fluid">
-    <div class="row">
+    <div class="row mobile-row">
         <div class="col-md-4" style="padding: 50px;">
             <img class="img-fluid" src="~/images/powerball-pp.png" />
         </div>
@@ -72,7 +72,7 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <table class="table table-responsive-md" style="margin: 0 auto;">
+            <table class="table table-responsive-md mobile-table" style="margin: 0 auto;">
                 <thead>
                     <tr>
                         <th>Winning Numbers</th>
@@ -92,27 +92,27 @@
                             <td>
                                 <ul class="list-unstyled list-inline">
                                     <li class="list-inline-item">
-                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball1</div>
+                                        <div class="mini-circle">@winner.ball1</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball2</div>
+                                        <div class="mini-circle">@winner.ball2</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball3</div>
+                                        <div class="mini-circle">@winner.ball3</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball4</div>
+                                        <div class="mini-circle">@winner.ball4</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.ball5</div>
+                                        <div class="mini-circle">@winner.ball5</div>
                                     </li>
                                     <li class="list-inline-item">
-                                        <div class="powerball-circle" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@winner.powerball</div>
+                                        <div class="mini-powerball-circle">@winner.powerball</div>
                                     </li>
                                 </ul>
                             </td>
 
-                            <td>@winner.draw_date.ToString("MM/dd/yyyy")</td>
+                            <td><span class="mobile-date"><@winner.draw_date.ToString("MM/dd/yyyy")</span></td>
 
                             <td>
 
@@ -121,22 +121,22 @@
 
                                     <ul class="list-unstyled list-inline">
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball1, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball1</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball1, @winner, "none")">@pickBall.ball1</div>
                                         </li>
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball2, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball2</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball2, @winner, "none")">@pickBall.ball2</div>
                                         </li>
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball3, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball3</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball3, @winner, "none")">@pickBall.ball3</div>
                                         </li>
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball4, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball4</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball4, @winner, "none")">@pickBall.ball4</div>
                                         </li>
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball5, @winner, "none")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.ball5</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.ball5, @winner, "none")">@pickBall.ball5</div>
                                         </li>
                                         <li class="list-inline-item">
-                                            <div class="@PowerballRepository.checkWinner(@pickBall.powerball, @winner, "powerball")" style="min-height: 50px; min-width: 50px; font-size: 1vw;">@pickBall.powerball</div>
+                                            <div class="@PowerballRepository.checkWinner(@pickBall.powerball, @winner, "powerball")">@pickBall.powerball</div>
                                         </li>
                                     </ul>
                                 }
@@ -148,7 +148,7 @@
                                     {
 
                                         <li class="list-item" style="margin-bottom: 2rem;">
-                                            @pickDate.pick_date.ToString("MM/dd/yyyy")
+                                            <span class="mobile-date">@pickDate.pick_date.ToString("MM/dd/yyyy")</span>
                                         </li>
 
                                     }
