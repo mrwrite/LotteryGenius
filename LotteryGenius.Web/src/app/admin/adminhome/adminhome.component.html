@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding: 13px;">
     <div class="row" style="margin: 50px;">
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     USERS
@@ -8,7 +8,7 @@
                 </div>
                 <div class="card-body text-center">
                     <ul class="list-unstyled">
-                        <li *ngFor="let user of users | slice:0:5" style="display: flex; justify-content: space-between">
+                        <li *ngFor="let user of users" style="display: flex; justify-content: space-between">
                             <span>{{user.firstName}} {{user.lastName}}</span>  <span>{{user.email}}</span><span class="btn btn-light" *ngIf="user.lockoutEnd !== null" (click)="resetUserPassword(user.id)">Reset Password</span> <i class="fas fa-trash-alt" style="cursor: pointer;" (click)="open_delete_modal(userDelete, user.id)"></i>
                         </li>
                     </ul>

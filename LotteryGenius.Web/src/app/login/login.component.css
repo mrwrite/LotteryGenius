@@ -43,11 +43,17 @@ a {
 /* Smartphones (landscape) ----------- */
 @media only screen and (min-width : 321px) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width : 320px) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 /* iPads (portrait and landscape) ----------- */
@@ -141,26 +147,44 @@ iPad 3
 /* Samsung Galaxy S3 ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 /* Samsung Galaxy S4 ----------- */
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-device-width: 320px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 /* Samsung Galaxy S5 ----------- */
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 3) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }
 
 @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 3) {
     /* Styles */
+    .Absolute-Center.is-Responsive {
+        width: 100%;
+    }
 }

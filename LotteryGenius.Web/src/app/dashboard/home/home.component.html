@@ -1,6 +1,6 @@
 <div class="container-fluid" style="padding: 13px;">
     <div class="row" style="margin: 50px;">
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">
                     PROFILE
@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">
                     {{user.given_name | uppercase}}'S POWERBALL WINNERS
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">
                     {{user.given_name | uppercase}}'S MEGAMILLIONS WINNERS
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S POWERBALL PICKS
@@ -89,7 +89,7 @@
         </div>
     </div>
     <div class="row" style="margin: 50px;">
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     {{user.given_name | uppercase}}'S MEGAMILLION PICKS
@@ -114,7 +114,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">ALL POWERBALL PICKS</div>
                 <div class="card-body" style="text-align: center;">
@@ -123,6 +123,7 @@
                             <div class="mini-circle">{{number.ball1}}</div>
                             <div class="mini-circle">{{number.ball2}}</div>
                             <div class="mini-circle">{{number.ball3}}</div>
+                            <div class="mini-circle">{{number.ball4}}</div>
                             <div class="mini-circle">{{number.ball5}}</div>
                             <div class="mini-powerball-circle">{{number.powerball}}</div>
                             {{number.pick_date | date: 'shortDate'}}
@@ -134,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">ALL MEGAMILLION PICKS</div>
                 <div class="card-body" style="text-align: center;">
@@ -155,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-6 col-lg-3">
             <div class="card">
                 <div class="card-header">SETTINGS</div>
                 <div class="card-body wow fadeIn" data-wow-delay="0.2s" style="text-align: center;">

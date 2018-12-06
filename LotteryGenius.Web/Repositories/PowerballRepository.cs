@@ -106,7 +106,7 @@ namespace LotteryGenius.Web.Repositories
 
             if (vWinners.IndexOf(ball) > -1)
             {
-                return "correct-circle";
+                return "mini-correct-circle";
             }
             else
             {
