@@ -279,6 +279,8 @@ namespace LotteryGenius.API.Data.Repositories
                     }
                 }
             }
+
+            this.GetMegamillionWinners();
         }
 
         public IEnumerable<MegaWinnerViewModel> ShowMegamillionWinners()

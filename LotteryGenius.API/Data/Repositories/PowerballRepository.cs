@@ -109,6 +109,8 @@ namespace LotteryGenius.API.Data.Repositories
                     }
                 }
             }
+
+            this.GetPowerBallWinners();
         }
 
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
