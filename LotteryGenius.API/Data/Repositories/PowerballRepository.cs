@@ -109,8 +109,25 @@ namespace LotteryGenius.API.Data.Repositories
                     }
                 }
             }
+        }
 
-            this.GetPowerBallWinners();
+        public void UpdateWinners()
+        {
+            try
+            {
+                using (IDbConnection dbConnection = sqlConnection)
+                {
+                    dbConnection.Open();
+                    var winners = dbConnection.QueryMultiple("dbo.GetPowerballWinners",
+                        commandType: CommandType.StoredProcedure, commandTimeout: 360);
+                    var results = winners.Read<PowerballWinners>().ToList();
+                    AddPowerPickWinners(results);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get PowerballWinners: {e}");
+            }
         }
 
         public IEnumerable<PowerPicksViewModel> GetPowerballPicks()
@@ -406,6 +423,7 @@ namespace LotteryGenius.API.Data.Repositories
             AddPowerballNumber(pBall);
             UpdatePowerPrizeJackpot(pBall.jackpot);
             AddNextPowerballJackpot(pNextJackpot, Convert.ToDateTime(pNextJackpotDate));
+            UpdateWinners();
         }
 
         public void AddUserPicks(IEnumerable<UserPick> picks)

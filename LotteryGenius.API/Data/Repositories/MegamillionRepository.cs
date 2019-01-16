@@ -279,8 +279,25 @@ namespace LotteryGenius.API.Data.Repositories
                     }
                 }
             }
+        }
 
-            this.GetMegamillionWinners();
+        public void UpdateMegamillionWinners()
+        {
+            try
+            {
+                using (IDbConnection dbConnection = sqlConnection)
+                {
+                    dbConnection.Open();
+                    var winners = dbConnection.QueryMultiple("dbo.GetMegamillionWinners",
+                        commandType: CommandType.StoredProcedure, commandTimeout: 360);
+                    var results = winners.Read<MegamillionWinners>().ToList();
+                    AddMegaPickWinners(results);
+                }
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Failed to get Megamillion Winners: {e}");
+            }
         }
 
         public IEnumerable<MegaWinnerViewModel> ShowMegamillionWinners()
@@ -375,6 +392,7 @@ namespace LotteryGenius.API.Data.Repositories
             AddMegamillionNumber(mBall);
             UpdateMegaPrizeJackpot(mBall.jackpot);
             AddNextMegamillionsJackpot(mNextJackpot, Convert.ToDateTime(mNextJackpotDate));
+            UpdateMegamillionWinners();
         }
 
         public void AddUserPicks(IEnumerable<UserPick> picks)
